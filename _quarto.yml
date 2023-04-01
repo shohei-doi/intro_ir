@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "国際公共政策学"
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - index.qmd
+      - international_society.qmd
+
+format:
+  html:
+    theme: cosmo
+    include-in-header:
+      - analytics.html
+    mainfont: Noto Sans CJK JP DemiLight
+    toc: true
+    number-sections: true
+    reference-location: margin
+    # fig-cap-location: margin
+    link-external-icon: true
+    link-external-newwindow: true
+    smooth-scroll: true
+  pdf:
+    pdf-engine: latexmk
+    pdf-engine-opt: "-xelatex"
+    latex-output-dir: pdf
+    latex-auto-install: false
+    documentclass: bxjsarticle
+    classoption:
+      - xelatex
+      - ja=standard
+    mainfont: Noto Serif CJK JP
+    mainfontoptions: 
+      - BoldFont=Noto Sans CJK JP
+    number-sections: true
+    fig-pos: "htpb"
+    cite-method: natbib
+    biblio-config: true
+    biblio-style: jecon
+
+bibliography: references.bib
+lang: ja
+

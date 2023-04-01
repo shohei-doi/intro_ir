@@ -1,0 +1,740 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  xelatex,
+  ja=standard]{bxjsarticle}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+  \setmainfont[BoldFont=Noto Sans CJK JP]{Noto Serif CJK JP}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{目次}
+\else
+  \newcommand\contentsname{目次}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{図一覧}
+\else
+  \newcommand\listfigurename{図一覧}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{表一覧}
+\else
+  \newcommand\listtablename{表一覧}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{図}
+\else
+  \newcommand\figurename{図}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{表}
+\else
+  \newcommand\tablename{表}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{コード}
+\newcommand*\listoflistings{\listof{codelisting}{コード一覧}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{japanese}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{jecon}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={国際社会の成り立ち},
+  pdfauthor={土井翔平},
+  pdflang={ja},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{国際社会の成り立ち}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{国際公共政策学}
+\author{土井翔平}
+\date{2023-04-01}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, enhanced, borderline west={3pt}{0pt}{shadecolor}, interior hidden, sharp corners, boxrule=0pt, frame hidden]}{\end{tcolorbox}}\fi
+
+\hypertarget{ux306fux3058ux3081ux306b}{%
+\section*{はじめに}\label{ux306fux3058ux3081ux306b}}
+\addcontentsline{toc}{section}{はじめに}
+
+国際関係や国際問題を理解する上で必要不可欠となる国際社会の基本的な構造について学ぶ。
+
+\begin{itemize}
+\tightlist
+\item
+  国際社会とはどのような社会なのか？
+\item
+  国際社会を構成する国家はどのように誕生したのか？
+\item
+  どのような視点から国際関係や国内政治を分析するのか？\footnote{もちろん、政治分析の視点には多種多様なものがあり、あくまでこの授業ではそのうちの一つを紹介するに過ぎない。}
+\end{itemize}
+
+\hypertarget{ux8ab2ux984cux6587ux732e}{%
+\subsection*{課題文献}\label{ux8ab2ux984cux6587ux732e}}
+\addcontentsline{toc}{subsection}{課題文献}
+
+\begin{itemize}
+\tightlist
+\item
+  国際社会や国際秩序
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \citet[第3章]{nakanishi2013}
+  \item
+    \citet{shinoda2007}
+  \item
+    国際連合広報センター「\href{https://www.unic.or.jp/info/un/}{国際連合：その憲章と機構}」
+  \end{itemize}
+\item
+  国際関係史
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \citet[第2章]{nakanishi2013}
+  \end{itemize}
+\item
+  国家
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \citet[第2章]{sunahara2020}
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ux56fdux969bux793eux4f1aux306eux69cbux9020}{%
+\section{国際社会の構造}\label{ux56fdux969bux793eux4f1aux306eux69cbux9020}}
+
+\hypertarget{ux4e3bux6a29ux56fdux5bb6ux4f53ux7cfb}{%
+\subsection{主権国家体系}\label{ux4e3bux6a29ux56fdux5bb6ux4f53ux7cfb}}
+
+現代の国際社会の構造＝\textbf{主権国家体系} (system of sovereign state)
+
+\begin{itemize}
+\tightlist
+\item
+  平等な立場の主権国家が並列的に存在
+\item
+  主権国家を支配するような中央集権的政治体（e.g., 世界政府）の不在
+\end{itemize}
+
+\(\leadsto\)国際社会＝\textbf{分権的} (decentralized)
+、\textbf{アナーキー} (anarchy)\footnote{無政府主義を意味するアナーキズムとは異なることに注意すること。}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.5\textwidth,height=\textheight]{international_society_files/mediabag/pmb805-jpp033367028.jpg}
+
+}
+
+\caption{パリで大規模デモ　写真特集（時事通信）}
+
+\end{figure}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{figures/anarchy.drawio.png}
+
+}
+
+\caption{アナーキーな国際社会のイメージ}
+
+\end{figure}
+
+主権国家 (sovereign state) とは、次のような国家である。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  内部における排他性・絶対性：他の政治体からの影響を排除して、国内社会を一元的に統治する。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(\leadsto\)\textbf{内政不干渉原則} (principle of non-interference)
+  \end{itemize}
+\item
+  外部における対等性：他の主権国家と（法的には）対等の関係にある。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(\leadsto\)\textbf{主権平等原則} (principle of sovereign equality)
+  \end{itemize}
+\end{enumerate}
+
+平和や人権などが侵害されても対抗できない現実を前に、しばしば国家主権が問題視される。
+
+\begin{itemize}
+\tightlist
+\item
+  ロシアがウクライナに侵攻しても、ロシアに処罰を与えることはできない。
+\item
+  ミャンマーが自国民を弾圧しても、ミャンマーに処罰を与えることはできない。
+\end{itemize}
+
+排他的・絶対的な主権の行使\(\leadsto\)現代の主権国家の特徴
+\citep{sunahara2020}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  主権の適用範囲として排他的な\textbf{領域}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{領域国家} (territorial state)
+  \end{itemize}
+\item
+  主権を行使するための物理的な\textbf{強制力}（e.g.,
+  軍事力や警察力）の独占
+\item
+  領域内の住民が国家の支配に従うに足りる\textbf{正統性} (legitimacy)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    正統性の源泉としての\textbf{国民国家} (nation state) や国民主権
+  \end{itemize}
+\end{enumerate}
+
+\(\leadsto\)現代の国際社会は、（理念的には）世界中の領域が主権を持った領域・国民国家によって隙間なく埋め尽くされ、並列している分権的社会である。
+
+\hypertarget{ux56fdux5185ux7684ux985eux63a8}{%
+\subsection{国内的類推}\label{ux56fdux5185ux7684ux985eux63a8}}
+
+\textbf{国内的類推} (domestic
+analogy)：国家＝個人と見立てて、国際社会や国際秩序について考える思考法、視角\citetext{\citealp[p.174]{nakanishi2013}; \citealp[p.39-46]{shinoda2007}}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.5\textwidth,height=\textheight]{international_society_files/mediabag/800px-UNHQ_NYC.jpg}
+
+}
+
+\caption{国際連合本部ビル}
+
+\end{figure}
+
+国内社会における三権（立法、行政、司法）と比較して、国際社会（特に国際連合）を見てみる。
+
+\hypertarget{ux7acbux6cd5}{%
+\subsubsection{立法}\label{ux7acbux6cd5}}
+
+政治あるいは統治のツールとして、ルールを策定し、社会の構成員はこれに従う。
+
+\hypertarget{ux56fdux5185ux793eux4f1a}{%
+\paragraph{国内社会}\label{ux56fdux5185ux793eux4f1a}}
+
+\begin{itemize}
+\tightlist
+\item
+  国内社会では議会によって立法 (legislation)
+  が行われ、住民はこれに従う。
+\item
+  \(\leadsto\)当該ルールに同意しない被治者にも法的拘束力
+\end{itemize}
+
+\hypertarget{ux56fdux969bux793eux4f1a}{%
+\paragraph{国際社会}\label{ux56fdux969bux793eux4f1a}}
+
+\begin{itemize}
+\tightlist
+\item
+  国家間の\textbf{条約} (treaty) もしくは\textbf{慣習国際法} (customary
+  international law) が主な法源である。
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/un_organization/icj/statute/}{国際司法裁判所規程}　第38条1項}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+裁判所は、付託される紛争を国際法に従って裁判することを任務とし、次のものを適用する。
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  一般又は特別の国際\textbf{条約}で係争国が明らかに認めた規則を確立しているもの
+\item
+  法として認められた一般慣行の証拠としての\textbf{国際慣習}
+\item
+  文明国が認めた法の一般原則
+\item
+  法則決定の補助手段としての裁判上の判決及び諸国の最も優秀な国際法学者の学説。但し、第59条の規定に従うことを条件とする。
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  締約国の\textbf{自発的な同意に基づいて}条約が形成され、法的拘束力が発生する（cf.~契約）。
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www1.doshisha.ac.jp/~karai/intlaw/docs/vclot.htm}{条約法に関するウィーン条約}　第2条1項(a)}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+「条約」とは、国の間において文書の形式により締結され、国際法によつて規律される国際的な合意（単一の文書によるものであるか関連する二以上の文書によるものであるかを問わず、また、名称のいかんを問わない。）をいう。
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  例外：同意に基づかない法的拘束力を有するのは慣習法や安保理決議など
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.5\textwidth,height=\textheight]{international_society_files/mediabag/1280px-UN_General_As.jpg}
+
+}
+
+\caption{国連総会本会議場}
+
+\end{figure}
+
+国際社会の議会に近い存在として\textbf{国際連合} (the United Nations: UN)
+の\textbf{総会} (General Assembly)
+
+\begin{itemize}
+\tightlist
+\item
+  全ての国連加盟国が参加し、あらゆる国際問題について議論する場
+
+  \begin{itemize}
+  \tightlist
+  \item
+    会期 (session)
+    は毎年9月から始まり、最初に各国代表による\href{https://gadebate.un.org/}{\textbf{一般討論}}
+    (genral debate) を行う。
+  \item
+    \href{http://ungd.smikhaylov.net/}{トピックモデルによる分析結果}や\href{https://www.mofa.go.jp/mofaj/gaiko/unsokai/toron.html}{日本政府の一般討論}を見ることができる。
+  \end{itemize}
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第9条1項}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+総会は、すべての国際連合加盟国で構成する。
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第10条}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+総会は、この憲章の範囲内にある問題若しくは事項又はこの憲章に規定する機関の権限及び任務に関する問題若しくは事項を討議し、並びに、第12条に規定する場合を除く外、このような問題又は事項について国際連合加盟国若しくは安全保障理事会又はこの両者に対して勧告をすることができる。
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  各国の\href{https://www.un.emb-japan.go.jp/itprtop_ja/index.html}{政府代表部}が6つの委員会\footnote{第1委員会（軍縮・安全保障）、第2委員会（経済・金融）、第3委員会（社会・人権）、第4委員会（特別問題）、第5委員会（行政・予算）、第6委員会（国際法）からなる。}および本会議で討論\(\leadsto\)\href{https://www.un.org/en/ga/77/resolutions.shtml}{\textbf{決議}}
+  (resolution) の採択
+
+  \begin{itemize}
+  \tightlist
+  \item
+    例：\href{https://www.mofa.go.jp/mofaj/gaiko/un_cd/gun_un/ketsugian.html}{日本提出の核兵器廃絶決議}
+  \end{itemize}
+\item
+  一国一票制で、基本的には単純多数決
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第18条}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  総会の各構成国は、1個の投票権を有する。
+\item
+  （省略）
+\item
+  その他の問題に関する決定は\ldots 出席し且つ投票する構成国の過半数によって行われる。
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  ただし、国連は加盟国の内政に干渉する権限はない。
+\item
+  \(\leadsto\)総会決議 (resolution) には加盟国に対して法的拘束力はない。
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第2条7項}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+この憲章のいかなる規定も、本質上いずれかの国の国内管轄権内にある事項に干渉する権限を国際連合に与えるものではなく、また、その事項をこの憲章に基く解決に付託することを加盟国に要求するものでもない。但し、この原則は、第7章に基く強制措置の適用を妨げるものではない。
+
+\end{tcolorbox}
+
+\textbf{安全保障理事会} (Security Council: SC)
+の決議には法的拘束力がある。
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第25条}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+国際連合加盟国は、安全保障理事会の決定をこの憲章に従って受諾し且つ履行することに同意する。
+
+\end{tcolorbox}
+
+\hypertarget{ux884cux653f}{%
+\subsubsection{行政}\label{ux884cux653f}}
+
+行政 (administration) によって執行 (enforce) 、実施
+(implement)\(\leadsto\)ルールの実現
+
+\hypertarget{ux56fdux5185ux793eux4f1a-1}{%
+\paragraph{国内社会}\label{ux56fdux5185ux793eux4f1a-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  政府（を構成する省庁や地方政府）が権限や資源を有している。
+\item
+  ルールの違反\(\leadsto\)行政による取り締まり\(\leadsto\)司法による修復・処罰
+\end{itemize}
+
+\hypertarget{ux56fdux969bux793eux4f1a-1}{%
+\paragraph{国際社会}\label{ux56fdux969bux793eux4f1a-1}}
+
+\begin{itemize}
+\tightlist
+\item
+  ルールを執行、実施する組織は存在しない。
+\item
+  国家が自発的に\textbf{遵守} (compliance) するか、他国から\textbf{強制}
+  (coersion) される。
+\item
+  \textbf{国際機関} (international organization) は？
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{international_society_files/mediabag/707593-guterres-sg.jpg}
+
+}
+
+\caption{アントニオ・グテーレス国連事務総長}
+
+\end{figure}
+
+国連には加盟国から（法的には）独立した\textbf{事務局} (secretary)
+が存在する。
+
+\begin{itemize}
+\tightlist
+\item
+  事務局の長として\textbf{事務総長} (secretary general: SG)
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第7条1項}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+国際連合の主要機関として、総会、安全保障理事会、経済社会理事会、信託統治理事会、国際司法裁判所及び事務局を設ける。
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第97条}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+事務局は、1人の事務総長及びこの機構が必要とする職員からなる。事務総長は、安全保障理事会の勧告に基いて総会が任命する。事務総長は、この機構の行政職員の長である。
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  事務局は総会や理事会などの要請に応じつつ、独立して行動する。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    事務局の活動は\href{https://www.un.org/sg/en}{年次報告}にまとめられている。
+  \end{itemize}
+\item
+  国際機構は徴税権がない\(\leadsto\)加盟国の分担金あるいは市場から\href{https://www.mofa.go.jp/mofaj/fp/unp_a/page22_001258.html}{予算}調達
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第17条}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  総会は、この機構の予算を審議し、且つ、承認する。
+\item
+  この機構の経費は、総会によって割り当てられるところに従って、加盟国が負担する。
+\item
+  （省略）
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.un.org/en/ga/contributions/honourroll.shtml}{国連分担金の滞納}\(\leadsto\)総会における投票権の制限の可能性
+\item
+  しかし、支払いの遅延や未納はある（なぜ？）。
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第19条}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+この機構に対する分担金の支払が延滞している国際連合加盟国は、その延滞金の額がその時までの満2年間にその国から支払われるべきであった分担金の額に等しいか又はこれをこえるときは、総会で投票権を有しない。但し、総会は、支払の不履行がこのような加盟国にとってやむを得ない事情によると認めるときは、その加盟国に投票を許すことができる。
+
+\end{tcolorbox}
+
+\hypertarget{ux53f8ux6cd5}{%
+\subsubsection{司法}\label{ux53f8ux6cd5}}
+
+ルールが実現されない場合、違反がある場合は司法 (justice)
+によって違反の判断がなされ、修復・処罰される。
+
+\hypertarget{ux56fdux5185ux793eux4f1a-2}{%
+\paragraph{国内社会}\label{ux56fdux5185ux793eux4f1a-2}}
+
+裁判所が強制的な\textbf{管轄権} (jurisdiction)
+を持っており、判決は行政によって強制される。
+
+\begin{itemize}
+\tightlist
+\item
+  一方の当事者の訴えによって裁判は行われる。
+\item
+  刑事事件の場合は刑罰が課され、民事事件の場合は（場合によっては）強制執行される。
+\end{itemize}
+
+\hypertarget{ux56fdux969bux793eux4f1a-2}{%
+\paragraph{国際社会}\label{ux56fdux969bux793eux4f1a-2}}
+
+しばしば、条約には\textbf{紛争解決} (dispute settlement)
+の制度が付属している。
+
+国際連合には\textbf{国際司法裁判所} (International Court of Justice:
+ICJ) がある。
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.5\textwidth,height=\textheight]{international_society_files/mediabag/International_Court_.jpg}
+
+}
+
+\caption{国際司法裁判所}
+
+\end{figure}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第7条1項}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+国際連合の主要機関として、総会、安全保障理事会、経済社会理事会、信託統治理事会、国際司法裁判所及び事務局を設ける。
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第92条}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+国際司法裁判所は、国際連合の主要な司法機関である。この裁判所は、付属の規程に従って任務を行う。この規定は、常設国際司法裁判所規程を基礎とし、且つ、この憲章と不可分の一体をなす。
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  しかし、多くの場合、当事国が同意をしなければ裁判は行われない。
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/un_organization/icj/statute/}{国際司法裁判所規程}　第36条1項}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+裁判所の管轄は、当事者が裁判所に付託するすべての事件及び国際連合憲章又は現行諸条約に特に規定するすべての事項に及ぶ。
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.icj-cij.org/en/declarations}{\textbf{選択条項受諾宣言}}（強制管轄権受諾宣言）を行っている場合は、同意によらず裁判は行われる。
+\item
+  日本の選択条項受諾宣言および留保\footnote{宣言の範囲を制限するなどの\textbf{留保}
+    (reservation) を行うこともできる。}については \citet{tamada2016}
+  を参照。
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/un_organization/icj/statute/}{国際司法裁判所規程}　第36条2項}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+この規程の当事国である国は、次の事項に関するすべての法律的紛争についての裁判所の管轄を同一の義務を受諾する他の国に対する関係において当然に且つ特別の合意なしに義務的であると認めることを、いつでも宣言することができる。
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  国際裁判の判決には当事者間において法的拘束力がある／判決の履行を強制できない。
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/un_organization/icj/statute/}{国際司法裁判所規程}　第59条}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+裁判所の裁判は、当事者間において且つその特定の事件に関してのみ拘束力を有する。
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/un_organization/icj/statute/}{国際司法裁判所規程}　第94条1項}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+各国際連合加盟国は、自国が当事者であるいかなる事件においても、国際司法裁判所の裁判に従うことを約束する。
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  ICJは総会などの要請\(\leadsto\)\textbf{勧告的意見} (advisory opinion)
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, colbacktitle=quarto-callout-note-color!10!white, rightrule=.15mm, coltitle=black, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第96条}, left=2mm, bottomrule=.15mm, toprule=.15mm, toptitle=1mm, opacityback=0, opacitybacktitle=0.6, bottomtitle=1mm, breakable, colframe=quarto-callout-note-color-frame, colback=white, titlerule=0mm, arc=.35mm]
+
+総会又は安全保障理事会は、いかなる法律問題についても勧告的意見を与えるように国際司法裁判所に要請することができる。
+
+\end{tcolorbox}
+
+
+  \bibliography{references.bib}
+
+
+\end{document}
