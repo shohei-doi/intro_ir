@@ -78,6 +78,7 @@
 \def\fps@figure{htbp}
 \makeatother
 
+\renewcommand{\thefootnote}{\arabic{footnote}}
 \makeatletter
 \@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
 \@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
@@ -169,10 +170,10 @@
   pdfauthor={土井翔平},
   pdflang={ja},
   colorlinks=true,
-  linkcolor={blue},
+  linkcolor={NavyBlue},
   filecolor={Maroon},
-  citecolor={Blue},
-  urlcolor={Blue},
+  citecolor={NavyBlue},
+  urlcolor={NavyBlue},
   pdfcreator={LaTeX via pandoc}}
 
 \title{はじめに}
@@ -184,11 +185,11 @@
 \makeatother
 \subtitle{国際公共政策学}
 \author{土井翔平}
-\date{2023-04-01}
+\date{2023-04-02}
 
 \begin{document}
 \maketitle
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, interior hidden, frame hidden, borderline west={3pt}{0pt}{shadecolor}, sharp corners, boxrule=0pt, enhanced]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, boxrule=0pt, interior hidden, enhanced, frame hidden, borderline west={3pt}{0pt}{shadecolor}, breakable]}{\end{tcolorbox}}\fi
 
 \href{https://shohei-doi.github.io}{土井翔平}が担当する\href{https://www.hops.hokudai.ac.jp/}{北海道大学公共政策大学院
 (HOPS)}の国際公共政策学の講義レジュメです。受講生はこのサイトもしくはpdf版を参照して、授業に望んでください。
@@ -203,7 +204,7 @@
 \item
   世界には戦争や貿易紛争、環境破壊など様々な国際問題が存在してる。
 \item
-  根源的な問い＝国際問題は存在しない方が国々や人々は嬉しいはずなのに、解決できないのはなぜか？
+  根源的な問い：国際問題は存在しない方が国々や人々は嬉しいはずなのに、解決できないのはなぜか？
 \end{itemize}
 
 \(\leadsto\)国際政治学・\textbf{国際関係論} (international relations:
@@ -227,9 +228,11 @@ IR) を学ぶ\footnote{日本では国際政治学という言葉が広く使わ
   医者による診断（原因の発見）と処方（解決策の提示）のようなもの。
 \item
   様々な患者に共通する要因を見つける。
+\item
+  ロシアやウクライナのことを知らずして、ロシア・ウクライナ戦争を理解できるのか？
 \end{itemize}
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, breakable, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, colframe=quarto-callout-warning-color-frame, opacityback=0, arc=.35mm, opacitybacktitle=0.6, bottomrule=.15mm, leftrule=.75mm, toptitle=1mm, coltitle=black, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{地域研究や歴史研究}, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-warning-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, titlerule=0mm, arc=.35mm, rightrule=.15mm, leftrule=.75mm, colframe=quarto-callout-warning-color-frame, opacityback=0, toprule=.15mm, colback=white, opacitybacktitle=0.6, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{地域研究や歴史研究}, bottomtitle=1mm, coltitle=black, bottomrule=.15mm, toptitle=1mm, left=2mm, colbacktitle=quarto-callout-warning-color!10!white, breakable]
 
 もちろん、特定の国や地域、時代によって国際政治のあり方は異なるし、それが重要でないという意味ではない。HOPSでは様々な地域に関する授業が開講されているので、それらも受講してもらいたい。
 
@@ -270,7 +273,7 @@ IR) を学ぶ\footnote{日本では国際政治学という言葉が広く使わ
 
 この授業では代表的な国際問題をいくつか取り上げる。
 
-\begin{tcolorbox}[enhanced jigsaw, colback=white, breakable, bottomtitle=1mm, toprule=.15mm, rightrule=.15mm, colframe=quarto-callout-warning-color-frame, opacityback=0, arc=.35mm, opacitybacktitle=0.6, bottomrule=.15mm, leftrule=.75mm, toptitle=1mm, coltitle=black, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{カバーできないトピック}, titlerule=0mm, left=2mm, colbacktitle=quarto-callout-warning-color!10!white]
+\begin{tcolorbox}[enhanced jigsaw, titlerule=0mm, arc=.35mm, rightrule=.15mm, leftrule=.75mm, colframe=quarto-callout-warning-color-frame, opacityback=0, toprule=.15mm, colback=white, opacitybacktitle=0.6, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{カバーできないトピック}, bottomtitle=1mm, coltitle=black, bottomrule=.15mm, toptitle=1mm, left=2mm, colbacktitle=quarto-callout-warning-color!10!white, breakable]
 
 全ての国際問題を扱うことはできないが、様々な国際問題を理解する上で役立つ概念、理論、思考法を身につけてもらえるように授業をする。
 
@@ -279,25 +282,7 @@ IR) を学ぶ\footnote{日本では国際政治学という言葉が広く使わ
 \hypertarget{ux6388ux696dux306eux9032ux3081ux65b9}{%
 \section{授業の進め方}\label{ux6388ux696dux306eux9032ux3081ux65b9}}
 
-原則として対面で授業を行う。
-
-\begin{itemize}
-\tightlist
-\item
-  欠席や遅刻に関する連絡をする\textbf{必要はない}。
-\end{itemize}
-
-複数回の\textbf{レポート}およびそれに対する\textbf{相互採点}、ならびに\textbf{平常点}で成績を評価する。
-
-\begin{itemize}
-\tightlist
-\item
-  レポートの詳細は授業中に告知し、Moodleに掲示する。
-\item
-  レポート執筆の際には学生便覧の\textbf{「引用の仕方」を熟読した上で、厳守すること}。
-\item
-  平常点は出席点ではなく、授業への貢献（発言など）である。
-\end{itemize}
+Moodleを参照すること。
 
 \hypertarget{ux53c2ux8003ux66f8}{%
 \section{参考書}\label{ux53c2ux8003ux66f8}}
@@ -312,16 +297,19 @@ IR) を学ぶ\footnote{日本では国際政治学という言葉が広く使わ
   など政治学の入門レベルの教科書の中の国際関係に関する箇所を読むことを勧める。その後、
   \citet{murata2023} など国際関係論の入門レベルの教科書を読むとよい。
 \item
+  身近な日本の話題から国際関係や国際法へ入門するものとして
+  \citet{sato2018} や \citet{morikawa2016} などがある。
+\item
   既に国際関係論を学んだことがある人は \citet{nakanishi2013} や
   \citet{yamakage2012} など
-  が発展レベルの教科書としてある。また、同じシリーズで政治学を扱う
+  が発展レベルの教科書としてある。また、発展レベルの政治学を扱う
   \citet{kume2011} の国際関係に関する箇所も読むとよい。
 \item
   国際関係の重要な知識をまとめたものとして \citet{tanaka2010}
-  は辞書的に使うことができる（ただし、やや古いので注意）。
+  は辞書的に使うことができる\footnote{ただし、やや古いので注意。}。
 \item
   なお、この授業はアメリカの学部レベルの教科書である \citet{frieden2019}
-  をベースにしているため、国際関係論をしっかりと学習したい人は挑戦することを勧める。
+  をベースにしているため、国際関係論を本格的に学習したい人は挑戦することを勧める。
 \end{itemize}
 
 国際関係論を直接扱うものではないが、この授業を理解する上で重要な周辺知識に関する参考書も挙げておく。

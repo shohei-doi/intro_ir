@@ -8,8 +8,10 @@ website:
     style: "docked"
     search: true
     contents:
-      - index.qmd
-      - international_society.qmd
+      - section: "導入"
+        contents: 
+          - index.qmd
+          - international_society.qmd
       - section: "国際安全保障"
         contents: 
           - causes_of_war.qmd
@@ -20,7 +22,7 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: lumen
     include-in-header:
       - analytics.html
     mainfont: Noto Sans CJK JP DemiLight
@@ -40,11 +42,17 @@ format:
     classoption:
       - xelatex
       - ja=standard
+    include-in-header: 
+      text: |
+        \renewcommand{\thefootnote}{\arabic{footnote}}
     mainfont: Noto Serif CJK JP
     mainfontoptions: 
       - BoldFont=Noto Sans CJK JP
     number-sections: true
     fig-pos: "htpb"
+    linkcolor: NavyBlue
+    citecolor: NavyBlue
+    urlcolor: NavyBlue
     cite-method: natbib
     biblio-config: true
     biblio-style: jecon
