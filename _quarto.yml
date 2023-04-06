@@ -13,10 +13,6 @@ website:
           - index.qmd
           - international_society.qmd
       - section: "国際安全保障"
-        contents: 
-          - causes_of_war.qmd
-          - power_peace.qmd
-          - liberal_peace.qmd
       - section: "国際政治経済"
       - section: "越境的政治"
 
