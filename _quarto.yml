@@ -21,7 +21,7 @@ format:
     theme: lumen
     include-in-header:
       - analytics.html
-    mainfont: Noto Sans CJK JP DemiLight, Noto Sans JP Light, sans-serif
+    mainfont: Noto Sans CJK JP DemiLight, 'Noto Sans JP', sans-serif
     toc: true
     number-sections: true
     reference-location: margin
