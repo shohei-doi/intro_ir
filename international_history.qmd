@@ -1,0 +1,310 @@
+---
+title: "国際社会の成り立ち"
+subtitle: "国際公共政策学"
+author: "土井翔平"
+date: today
+---
+
+```{r}
+#| include: false
+
+library(tidyverse)
+theme_set(theme_bw(base_family = "Noto Sans CJK JP Light"))
+library(countrycode)
+```
+
+## はじめに {.unnumbered}
+
+現代に国際関係が展開される場としての国際社会が、そのような社会へと至る展開を学ぶ。
+
+- なぜ国家は誕生したのか？
+- なぜ主権国家体系が誕生したのか？
+- 国際社会はどのように展開してきたのか？
+
+### 課題文献 {.unnumbered}
+
+- 国家
+  - @sunahara2020[第2章]
+  - @kubo2016[第2章]
+  - @kasuya2014[第1章]
+- 国際関係史
+  - @murata2023[第1章 (unit 1-5)]
+  - @nakanishi2013[第2章]
+  - @ogawa2018
+  - @yamakage2012[第1-4章]
+
+## 近代国際社会の成立
+
+主権国家体系＝国家＋アナーキーな国際社会はどのようにして生まれたのか？
+
+- 人類が誕生したときから国家や主権国家体系が存在していたわけではない。
+- 人類の選択としての主権国家体系（なぜ？）
+
+### 重商主義時代
+
+![アナーキーではない国際社会のイメージ](figures/hierarchy.drawio.png){width=80%}
+
+近世（15世紀後半〜18世紀前半）の西ヨーロッパ：キリスト教権威（ローマ教皇）と政治権力（王国）が混在
+
+- 政治権力はキリスト教権威の影響下$\leadsto$not主権国家
+- 領域主権の概念も明確ではなく、キリスト教権威と政治権力が重複することもあった。
+
+$\leadsto$notアナーキー、but階層 (hierarchy) 的な社会
+
+15世紀半ばからの**大航海時代**：異なる地域（大陸）同士の交流
+
+- 国際社会の誕生、グローバル化の始まり
+
+ヨーロッパ諸国：**重商主義** (mercantilism) $\leadsto$ヨーロッパ外へと進出・植民地の建設
+
+- 重商主義：経済的富＝軍事力の源泉、軍事力＝経済的富の獲得手段
+- ヨーロッパ外の市場へのアクセスの確保$\leadsto$自らの政治的・軍事的影響力の維持・拡大
+- 貿易の制限$\leadsto$富の流出を回避
+
+ヨーロッパ外の地域が植民地となる$\leadsto$ヨーロッパの列強諸国間での戦争も勃発
+
+16世紀初めに宗教改革$\leadsto$カトリック教会とプロテスタントの対立
+
+- 政治権力はプロテスタントをカトリック教会の影響力を排除するために利用
+- 同時に、自身の宗派の影響力拡大$\leadsto$宗教戦争
+
+$\leadsto$教会権威の低下＆国家権力の強化
+
+### 国家の誕生
+
+#### 戦争と国家
+
+宗教革命と戦争を通じて、国王に権力（徴税権と暴力）が集中（cf. 官僚制と常備軍）
+
+- 銃器の発展$\leadsto$大規模な歩兵集団や要塞が必要$\leadsto$財政が重要
+- 財政＝軍事国家：軍事のために租税や国債を通じて資金を効率的に集め、返済できる国家が発展・生き残った[@brewer2003]。
+- 「戦争が近代国家を作り、また近代国家が戦争を行う」[@tilly1992]
+
+国家は国民を外敵から保護すると同時に、税金の見返りとして国民の権利を保障する。
+
+- 「マフィアのような犯罪組織と国家との違いは程度問題であって、本質的な違いはない」[@tilly1985]
+- 国家が生き残りのために国力を増強$\leadsto$国民の福祉や自由が保障されるかもしれない。
+
+#### 市場と国家
+
+国家が所有権の保障や貨幣の流通などのルールを定める代わりに資本家が納税する[@north1973]。
+
+- 貨幣経済の発展$\leadsto$資本家の力の増大
+- より広い地域で国家が建設されるとメリットが大きい（cf. 規模の経済 [economies of scale]）
+
+#### 社会契約説
+
+**自然状態** (state of nature)：政府の存在しない（アナーキーな）社会
+
+- ホッブズ
+  - 自然状態では生き残りのためになにをしてもいい＝自然権
+  - 生き残りのために資源を奪い合う$\leadsto$**万人の万人に対する闘争**
+      - そのような世界での生活は「孤独で、貧しく、不潔で、粗暴で、短い」
+  - 全員が自然権を国家（＝レヴァイアサン）に渡すことで、国家に平和を委ねる。
+
+![[レヴァイアサン](https://commons.wikimedia.org/wiki/File:Leviathan.jpg?uselang=ja)](https://upload.wikimedia.org/wikipedia/commons/2/22/Leviathan.jpg){width=50%}
+
+- ロック
+  - 自然状態でも互いを尊重し、平和的に暮らせる。
+  - しばしば生じる権利侵害に対応するために政府に自然権を委ねる。
+- ルソー
+  - 人々が理性に従えば公共の利益を実現する一般意思に到達できる。
+
+社会契約説：人々は自らの安全や自由のために（自然状態から逃れて）国家と契約した。
+
+$\leadsto$実際に契約をしたというわけではないが、国家を正当化する論理として広まる。
+
+- 国家権力によるアナーキーな社会の克服
+
+### 主権国家体系の誕生
+
+17世紀初頭に**30年戦争**$\leadsto$**1648年**にウェストファリア条約 (Peace of Westphalia) による講和
+
+- 領域内の宗派は支配者が信仰する宗派とする$\leadsto$さらなる宗教戦争を回避^[なお、これによって主権国家体系が成立したというフィクションから、主権国家体系を**ウェストファリア体制**と呼ぶこともある。1648年に突然、主権国家体系が誕生したわけではない[@ogawa2018, p.16]。]
+
+主権国家体系：内政の自由を認め、他国がそれに干渉することを禁じることで、**平和を維持するため**の制度として誕生した。
+
+- あくまで主権国家体系はヨーロッパ列強間で成立$\leadsto$ヨーロッパとそれ以外の地域の関係は階層的な**帝国システム**
+
+$\leadsto$アナーキーな国際社会は現代に至るまで**選択され、再生産されている**[@wendt1992; @ishida1998]。
+
+## 国際社会の展開
+
+主権国家体系はアナーキーであるがゆえに、暴力や対立で満ち溢れた国際社会なのか？
+
+### パクス・ブリタニカ
+
+ナポレオン戦争終結（1815年）から第1次世界大戦（1914年）までの国際関係：相対的な安定
+
+1. 政治的要因
+    1. 18世紀末の**フランス革命**$\leadsto$君主間で民主主義革命への警戒が共有（cf. 欧州協調、ウィーン体制、会議体制）
+    1. **覇権国** (hegemon) であったイギリス：欧州大陸においてバランサー
+1. 経済的要因
+    1. イギリスでの**産業革命**により生産性が向上$\leadsto$重商主義政策から自由主義政策へ転換
+    1. 為替を安定化させる**金本位制** (gold standard) や交通通信技術の発展$\leadsto$貿易や投資が促進
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/merchandise-exports-gdp-cepii?country=~OWID_WRL" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![GDPに占める貿易額の割合](figures/merchandise-exports-gdp-cepii.png){width=80%}
+:::
+
+ただし、オスマン帝国とロシアが戦ったクリミア戦争、ドイツ統一を目指した普墺戦争・普仏戦争、植民地を巡る戦争などは発生
+
+- 新たに統一したドイツやイタリア、非ヨーロッパにいたアメリカや日本が国際社会に参入
+
+::: {.content-visible when-format="html"}
+![[帝国による植民地支配の変遷](https://commons.wikimedia.org/wiki/File:World_empires_and_colonies_around_World_War_I.png)](https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Colonisation2.gif/1280px-Colonisation2.gif)
+:::
+
+![[1914年における帝国による植民地支配](https://commons.wikimedia.org/wiki/File:World_1914_empires_colonies_territory.PNG)](https://upload.wikimedia.org/wikipedia/commons/4/45/World_1914_empires_colonies_territory.PNG){width=80%}
+
+### 戦間期
+
+第1次世界大戦（1919年）から第2次世界大戦（1941年）までの**戦間期** (interwar period) ：不安定
+
+1. 帝国の崩壊と中小国の独立
+1. 敗戦国でのインフレおよび極右の台頭
+1. ソビエト連邦の成立と社会主義の台頭
+1. 独仏間の領土問題、資源問題
+1. ドイツ賠償問題
+1. アメリカの孤立主義（**国際連盟**への不参加）
+
+![[第1次世界大戦によるヨーロッパにおける国境変更](https://commons.wikimedia.org/wiki/File:Map_Europe_1923-en.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Map_Europe_1923-en.svg/1280px-Map_Europe_1923-en.svg.png){width=80%}
+
+世界恐慌 （1929年）$\leadsto$国際協調は衰退、経済的・軍事的競争の激化
+
+$\leadsto$ドイツ、イタリア、日本などのファシスト国家が既存の秩序に挑戦
+
+### 冷戦期
+
+全く異なるイデオロギーの2つの国が超大国の存在
+
+- アメリカ：資本主義
+- ソビエト連邦：共産主義
+
+$\leadsto$それぞれがブロックを形成、**国際連合**を中心とする普遍的な協調は困難
+
+- **NATO**などのアメリカの同盟網と**ブレトンウッズ体制**
+- **ワルシャワ条約機構**と**コメコン**
+
+![[1980年の東西陣営](https://commons.wikimedia.org/wiki/File:Cold_War_Map_1980.png)](https://upload.wikimedia.org/wikipedia/commons/f/ff/Cold_War_Map_1980.png){width=80%}
+
+**超大国間の戦争がなかった**という意味において、冷戦期は平和な時代
+
+- ベルリン危機（1949年）
+- キューバ危機（1962年）
+
+ただし、どちらも自らの勢力圏の維持のための他国に介入（**代理戦争**の場合も）
+
+- アメリカによるベトナム戦争（1955-75年）
+- ソ連によるアフガン侵攻（1978-89年）
+
+全てが平和的ではなかったが、1960年代半ばまでにほとんどの**植民地**が独立
+
+1. WWI後（特に世界恐慌後）、植民地が経済的に自立$\leadsto$ナショナリズム
+1. WWII後、宗主国は植民地経営が困難
+1. アメリカは市場へのアクセスと社会主義化の恐れ$\leadsto$植民地独立を支持
+
+$\leadsto$本来の意味での主権国家体系が成立
+
+```{r}
+#| fig-cap: "[国家の数の推移](https://correlatesofwar.org/data-sets/state-system-membership/)"
+
+df_system <- read_csv("data/system2016.csv")
+
+df_system %>% 
+  count(year) %>% 
+  ggplot() + 
+  geom_line(aes(x = year, y = n), size = 0.25) + 
+  annotate("rect", xmin = 1919, xmax = 1941, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  annotate("rect", xmin = 1991, xmax = Inf, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  labs(x = "年", y = "国家の数")
+```
+
+```{r}
+#| fig-cap: "[各国の独立年](https://correlatesofwar.org/data-sets/state-system-membership/)"
+
+df_world <- map_data("world") %>% 
+  filter(region != "Antarctica") %>% 
+  mutate(stateabb = countrycode(region, "country.name", "cowc"))
+
+full_join(df_world, 
+          df_system %>% 
+            group_by(stateabb) %>% 
+            filter(year == min(year))) %>% 
+  ggplot() + 
+  geom_polygon(aes(x = long, y = lat, group = group, fill = year), 
+               color = "black", size = 0.1) + 
+  scale_fill_distiller() + 
+  coord_map(projection = "mollweide", xlim = c(-180, 180)) + 
+  labs(x = "", y = "", fill = "年") + 
+  theme_minimal() + 
+  theme(legend.position = "bottom")
+```
+
+**南北問題**：経済的に発展している北半球と、そうではない南半球の間の格差問題
+
+- **非同盟諸国運動** (Non-Aligned Movement: NAM) 
+- 第1次**石油危機**（1973年）
+
+先進国の不況$\leadsto$ 1980年代の新興国の債務危機
+
+### ポスト冷戦期
+
+冷戦の終結$\leadsto$政治的対立が終わり、グローバル化の進展と共に国際協調が促進されると期待
+
+- 先進国の経済統合（e.g., **欧州連合**、**NAFTA**）が深化、新興国や旧東側諸国も自由経済を採用
+- **湾岸戦争**（1990年）において国連が機能、内戦に積極的に介入
+
+しかし、2000年以降の国際社会は当初の楽観的な見通しを否定しつつある。
+
+- 中東におけるテロ（cf. **9.11同時多発テロ**）やイスラム国の台頭、民主化（**アラブの春**）と内戦、イランによる核開発
+- 東アジアにおける**中国**の経済的・軍事的台頭と領土紛争、北朝鮮による核開発
+- ウクライナにおける親欧米政権の成立とロシアによるクリミア併合、東部での軍事衝突、**ロシア・ウクライナ戦争**の勃発（2022年）
+- アメリカの**単独行動主義** (unilateralism) や国際的関与の低下、**米中対立**
+- **リーマンショック**（2008年）や**COVID-19**（2020年）に象徴される**反グローバル主義**やイギリスによるEU脱退などの**欧州懐疑主義** (Euroscepticism)
+
+## 自生的な秩序
+
+平和や安定を維持するために選択された主権国家体系
+
+- 国家の誕生：権力・暴力を独占させることで、国内秩序を維持する。
+- 主権国家体系の誕生：内政不干渉によって、国際秩序を維持する。
+
+国際関係は安定的・協調的ではないが、対立で満ちた無秩序でもない。
+
+- notホッブズのいう「万人の万人に対する闘争」
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/gdp-per-capita-maddison-2020?tab=chart" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![一人あたりGDPの長期的変化](figures/gdp-per-capita-maddison-2020.png){width=80%}
+:::
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/population" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![人口の長期的変化](figures/population.png){width=80%}
+:::
+
+$\leadsto$アナーキーな社会において、（中央）**政府なき統治** (governance without government) を（部分的に）実現している。
+
+- 国家の自発的な行動によって形成される**自生的**・自己拘束的 (self-enforcing) な秩序
+
+1. なぜ、中央集権的政治体の存在しない分権的社会で、協調が可能なのか？
+    - アナーキー$\neq$対立、中央政府$\neq$安定
+1. なぜ、時代や地域、国際問題によって、国際関係は協調的であるか対立的であるのかが変わるのか？
+    - 人間の本性やアナーキーだけで国際関係の性質を説明するのは難しいようである。
+
+$\leadsto$本当に国際的なルール（条約や決議）は無意味？
+
+- 無意味ならば、わざわざ決議の投票行動を重視したり、条約の締結に時間や労力をかけたり、国際裁判に欠席したりしないのでは？
+
+$\leadsto$様々な問題領域において、国家はどのように自生的秩序を形成し、維持しているのか、その限界はなにかを学ぶ。

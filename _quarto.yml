@@ -2,16 +2,23 @@ project:
   type: website
   output-dir: docs
 
+execute: 
+  cache: true
+  echo: false
+  warning: false
+
 website:
   title: "国際公共政策学"
   sidebar:
     style: "docked"
     search: true
+    collapse-level: 0
     contents:
       - section: "導入"
         contents: 
           - index.qmd
           - international_society.qmd
+          - international_history.qmd
       - section: "国際安全保障"
       - section: "国際政治経済"
       - section: "越境的政治"
@@ -21,13 +28,14 @@ format:
     theme: lumen
     include-in-header:
       - analytics.html
-    mainfont: Noto Sans CJK JP DemiLight, 'Noto Sans JP', sans-serif
+    mainfont: Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans, BIZ UDPGothic, Meiryo, sans-serif
     toc: true
     number-sections: true
     reference-location: margin
     # fig-cap-location: margin
     link-external-icon: true
     link-external-newwindow: true
+    fig-format: png
     smooth-scroll: true
   pdf:
     pdf-engine: latexmk
@@ -46,6 +54,7 @@ format:
       - BoldFont=Noto Sans CJK JP
     number-sections: true
     fig-pos: "htpb"
+    fig-format: png
     linkcolor: NavyBlue
     citecolor: NavyBlue
     urlcolor: NavyBlue
@@ -55,4 +64,3 @@ format:
 
 bibliography: references.bib
 lang: ja
-

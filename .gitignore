@@ -7,4 +7,6 @@
 /.quarto/
 /pdf/
 /figures/
+/data/
 /*files/
+/*cache/
