@@ -14,12 +14,14 @@ website:
     search: true
     collapse-level: 0
     contents:
-      - section: "導入"
+      - index.qmd
+      - section: "国際社会"
         contents: 
-          - index.qmd
           - international_society.qmd
           - international_history.qmd
       - section: "国際安全保障"
+        contents: 
+          - conflict.qmd
       - section: "国際政治経済"
       - section: "越境的政治"
 

@@ -1,0 +1,577 @@
+---
+title: "現代の紛争"
+subtitle: "国際公共政策学"
+author: "土井翔平"
+date: today
+---
+
+```{r}
+#| include: false
+#| cache: false
+
+library(tidyverse)
+theme_set(theme_bw(base_family = "Noto Sans CJK JP Light"))
+library(readxl)
+library(lubridate)
+library(countrycode)
+```
+
+## はじめに {.unnumbered}
+
+平和は協調的な国際関係の前提となる。そこで、平和や戦争の要因を学ぶ。
+
+- 現代の戦争の特徴はなにか？
+- なぜ平和ではなく戦争が選択されるのか？
+
+### 課題文献 {.unnumbered}
+
+## 世界における紛争・暴力
+
+武力紛争を定義し、データセットを構築して、数える試み[@tago2020, 序章]
+
+- [紛争に関するデータセット](https://www.cao.go.jp/pko/pko_j/organization/researcher/atpkonow/article099.html)
+
+### 紛争の頻度と形態
+
+どのような紛争が、どの程度発生しているのか？
+
+[Uppsala Conflict Data Program (UCDP)](https://ucdp.uu.se/encyclopedia) のデータ[@gleditsch2002]
+
+::: {.content-visible when-format="html"}
+::: {.column-screen}
+<iframe src="https://ucdp.uu.se/encyclopedia" loading="lazy" style="width: 100%; height: 800px; border: 0px none;"></iframe>
+:::
+:::
+
+:::{.callout-note}
+## [UCDPにおける武力紛争の定義](https://ucdp.uu.se/downloads/ucdpprio/ucdp-prio-acd-221.pdf)
+
+UCDP defines state-based armed conflict as: “a **contested incompatibility** that concerns government and/or territory where the **use of armed force** between **two parties**, of which at least one is the government of a state, results in at least **25 battle-related deaths** in a calendar year.”
+:::
+
+```{r}
+#| fig-cap: "武力紛争 (UCDP) の発生件数"
+
+df_ucdp <- read_csv("data/ucdp-prio-acd-211.csv")
+
+df_ucdp %>% 
+  count(year) %>% 
+  ggplot() + 
+  geom_line(aes(x = year, y = n), size = 0.25) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  labs(x = "年", y = "武力紛争発生数")
+```
+
+```{r}
+#| fig-cap: "武力紛争 (UCDP) の種類"
+
+type <- c("独立戦争", "国家間戦争", "内戦", "国際介入のある内戦")
+
+left_join(expand(df_ucdp, year, type_of_conflict),
+          df_ucdp %>% 
+            count(year, type_of_conflict)) %>% 
+  replace_na(list(n = 0)) %>% 
+  group_by(year) %>% 
+  mutate(total = sum(n),
+         ratio = n/total) %>% 
+  pivot_longer(c(n, ratio)) %>% 
+  mutate(name = recode(name, n = "件数", ratio = "比率")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, 
+                color = as.factor(type_of_conflict),
+                fill = as.factor(type_of_conflict)),
+            alpha = 0.5) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2", labels = type) + 
+  scale_fill_brewer(palette = "Set2", labels = type) + 
+  facet_grid(name ~ ., scales = "free_y") + 
+  labs(x = "年", y = "武力紛争", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+$\leadsto$内戦の時代？
+
+[Correlates of War (COW)](https://correlatesofwar.org/data-sets/MIDs) のデータ[@palmer2022]
+
+- No militarized action
+- Threat to use force
+- Display use of force
+- Use of force, War
+
+```{r}
+#| fig-cap: "国家間武力衝突 (MID) の発生件数"
+
+df_mid_temp <- read_csv("data/MID/MIDA 5.0.csv", na = "-9")
+
+df_mid <- NULL
+
+for (i in 1:nrow(df_mid_temp)) {
+  temp <- df_mid_temp[i,]
+  year <- temp$styear:temp$endyear
+  df_mid <- bind_rows(df_mid, tibble(dispnum = temp$dispnum, year = year))
+}
+
+df_mid <- left_join(df_mid, df_mid_temp) %>% 
+  mutate(intensity_level = case_when(fatality == 0 ~ "0", 
+                                     fatality == 1 ~ "1",
+                                     between(fatality, 2, 5) ~ "2", 
+                                     fatality == 6 ~ "3",
+                                     TRUE ~ "4"))
+
+df_mid %>% 
+  count(year) %>% 
+  ggplot() + 
+  geom_line(aes(x = year, y = n), size = 0.25) + 
+  annotate("rect", xmin = 1914, xmax = 1918, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  annotate("rect", xmin = 1939, xmax = 1945, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  labs(x = "年", y = "武力紛争発生数")
+```
+
+```{r}
+#| fig-cap: "国家間武力衝突 (MID) の種類"
+
+type <- c("武力による威嚇", "武力の動員", "武力行使", "戦争")
+
+left_join(expand(df_mid, year, hostlev),
+          df_mid %>% 
+            count(year, hostlev)) %>% 
+  replace_na(list(n = 0)) %>% 
+  group_by(year) %>% 
+  mutate(total = sum(n),
+         ratio = n/total) %>% 
+  pivot_longer(c(n, ratio)) %>% 
+  mutate(name = recode(name, n = "件数", ratio = "比率")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, 
+                color = as.factor(hostlev),
+                fill = as.factor(hostlev)),
+            alpha = 0.5, size = 0.25) + 
+  annotate("rect", xmin = 1914, xmax = 1918, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  annotate("rect", xmin = 1939, xmax = 1945, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2", labels = type) + 
+  scale_fill_brewer(palette = "Set2", labels = type) + 
+  facet_grid(name ~ ., scales = "free_y") + 
+  labs(x = "年", y = "武力紛争発生数", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+```{r}
+#| fig-cap: "国家間武力衝突 (MID) の当事国の割合"
+
+df_system <- read_csv("data/system2016.csv")
+
+df_midb_temp <- read_csv("data/MID/MIDB 5.0.csv", na = "-9")
+
+df_midb <- NULL
+
+for (i in 1:nrow(df_midb_temp)) {
+  temp <- df_midb_temp[i,]
+  year <- temp$styear:temp$endyear
+  df_midb <- bind_rows(df_midb, tibble(dispnum = temp$dispnum, 
+                                       stateabb = temp$stabb, 
+                                       year = year))
+}
+
+left_join(df_system,
+          df_midb %>% 
+            distinct(stateabb, year) %>% 
+            mutate(mid = 1)) %>% 
+  filter(year < 2015) %>% 
+  group_by(year) %>% 
+  summarise(n_country = n(),
+            n_dispute = sum(mid, na.rm = TRUE)) %>% 
+  mutate(ratio = n_dispute/n_country) %>% 
+  ggplot() + 
+  geom_line(aes(x = year, y = ratio), size = 0.2) + 
+  annotate("rect", xmin = 1914, xmax = 1918, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  annotate("rect", xmin = 1939, xmax = 1945, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  geom_hline(aes(yintercept = mean(ratio, na.rm = TRUE)), 
+             linetype = "dashed", alpha = 0.5) + 
+  labs(x = "年", y = "MIDの当事国の比率")
+```
+
+### 紛争の原因
+
+なにを巡って集団は争うのか？
+
+```{r}
+#| fig-cap: "武力紛争 (UCDP) の対立理由"
+
+type <- c("領土", "政府", "領土及び政府")
+
+left_join(expand(df_ucdp, year, incompatibility),
+          df_ucdp %>% 
+            count(year, incompatibility)) %>% 
+  replace_na(list(n = 0)) %>% 
+  group_by(year) %>% 
+  mutate(total = sum(n),
+         ratio = n/total) %>% 
+  pivot_longer(c(n, ratio)) %>% 
+  mutate(name = recode(name, n = "件数", ratio = "比率")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, 
+                color = as.factor(incompatibility),
+                fill = as.factor(incompatibility)),
+            alpha = 0.5) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2", labels = type) + 
+  scale_fill_brewer(palette = "Set2", labels = type) + 
+  facet_grid(name ~ ., scales = "free_y") + 
+  labs(x = "年", y = "武力紛争", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+### 暴力の空間的分布
+
+どのような国や地域で紛争は頻発しているのか？
+
+```{r}
+#| fig-cap: "暴力 (UCDP) の発生場所"
+
+df_world <- map_data("world") %>% 
+  filter(region != "Antarctica") %>% 
+  mutate(stateabb = countrycode(region, "country.name", "cowc"))
+
+df_geo <- read_csv("data/ged211.csv") %>% 
+  rename(long = longitude, lat = latitude)
+
+type <- c("国家による暴力", "非国家アクターによる暴力", "一方的暴力")
+names(type) <- 1:3
+
+df_world %>% 
+  ggplot() + 
+  geom_polygon(aes(x = long, y = lat, group = group), 
+               fill = "lightgray", color = "black", size = 0.05, alpha = 0.25) + 
+  geom_point(aes(x = long, y = lat, color = as.factor(type_of_violence)),
+             data = df_geo, size = 0.05, show.legend = FALSE) + 
+  scale_color_brewer(palette = "Set2") + 
+  coord_map(projection = "mollweide", xlim = c(-180, 180)) + 
+  facet_wrap(~ type_of_violence, ncol = 2, 
+             labeller = as_labeller(type)) + 
+  labs(x = "", y = "", color = "") + 
+  theme_void() + 
+  theme(legend.position = "bottom")
+```
+
+## 戦争と平和について考える意義
+
+国家間紛争が珍しい時代に安全保障について考える意義とは？
+
+- （悲しいことに）2022年以降は当たり前のことかもしれない。
+- これまで平和であった$\neq$今後も平和である？
+- 安全保障で現れる問題は、内戦やテロリズム、国際政治経済においても現れる。
+
+国際関係論の始まり？
+
+- 古代ギリシャのトゥキュディデスが書いた「戦史」
+- 1939年に出版されたE.H.カーの「危機の二十年」
+
+::: {layout-ncol=2 .content-visible when-format="html"}
+
+![戦史](https://www.chuko.co.jp/book/160144.jpg)
+
+![危機の二十年](https://www.iwanami.co.jp//images/book/248690.jpg)
+:::
+
+戦争とは被害がある（社会的に効率的ではない）。
+
+### 軍事支出
+
+なぜ軍事支出を増やすのか？
+
+[Stockholm International Peace Research Institute](https://sipri.org/)のデータ
+
+```{r}
+#| fig-cap: "軍事支出 (SIPRI) の推移"
+
+df_milex <- bind_rows(read_excel("data/SIPRI-Milex-data-1949-2020_0.xlsx", 
+                                 sheet = 5, skip = 5, 
+                                 na = c(". .", "xxx")) %>% 
+                        select(Country, "1949":"2020") %>% 
+                        pivot_longer(-Country, names_to = "year", values_to = "milex", 
+                                     names_transform = list(year = as.integer), 
+                                     values_drop_na = TRUE) %>% 
+                        mutate(type = "実質"),
+                      read_excel("data/SIPRI-Milex-data-1949-2020_0.xlsx", sheet = 6, skip = 5, 
+                                 na = c(". .", "xxx")) %>% 
+                        select(Country, "1949":"2020") %>% 
+                        mutate(across("1949":"2020", as.character)) %>% 
+                        pivot_longer(-Country, names_to = "year", values_to = "milex", 
+                                     names_transform = list(year = as.integer), 
+                                     values_transform = list(milex = as.numeric), values_drop_na = TRUE) %>% 
+                        mutate(type = "名目"))
+
+country <- c("USA", "Japan", "China", "Russia")
+
+ggplot(df_milex) + 
+  geom_line(aes(x = year, y = milex, group = Country), alpha = 0.1) + 
+  geom_line(aes(x = year, y = milex, color = Country), 
+            data = df_milex %>% 
+              filter(Country %in% country)) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  facet_grid(type ~ .) + 
+  scale_color_brewer(palette = "Set2", breaks = country) + 
+  labs(x = "年", y = "軍事支出（100億USドル）", color = "") + 
+  theme(legend.position = "bottom")
+```
+
+```{r}
+#| fig-cap: "軍事支出 (SIPRI) のGDP比の推移"
+
+df_milratio <- bind_rows(read_excel("data/SIPRI-Milex-data-1949-2020_0.xlsx", 
+                                    sheet = 7, skip = 5, 
+                                    na = c(". .", "xxx")) %>% 
+                           select(Country, "1949":"2020") %>% 
+                           mutate(across("1949":"2020", as.character)) %>% 
+                           pivot_longer(-Country, names_to = "year", values_to = "ratio", 
+                                        names_transform = list(year = as.integer), 
+                                        values_transform = list(ratio = as.numeric), 
+                                        values_drop_na = TRUE) %>% 
+                           mutate(type = "対GDP"),
+                         read_excel("data/SIPRI-Milex-data-1949-2020_0.xlsx", 
+                                    sheet = 9, skip = 7, 
+                                    na = c(". .", "xxx")) %>% 
+                           select(Country, "1988":"2020") %>% 
+                           mutate(across("1988":"2020", as.character)) %>% 
+                           pivot_longer(-Country, names_to = "year", values_to = "ratio", 
+                                        names_transform = list(year = as.integer), 
+                                        values_transform = list(ratio = as.numeric), 
+                                        values_drop_na = TRUE) %>% 
+                           mutate(type = "対政府支出"))
+
+ggplot(df_milratio) + 
+  geom_line(aes(x = year, y = ratio, group = Country), alpha = 0.05) + 
+  geom_line(aes(x = year, y = ratio, color = Country), 
+            data = df_milratio %>% 
+              filter(Country %in% country)) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  coord_cartesian(ylim = c(0, 0.2)) + 
+  scale_color_brewer(palette = "Set2", breaks = country) + 
+  facet_grid(type ~ .) + 
+  labs(x = "年", y = "軍事支出比率", color = "") + 
+  theme(legend.position = "bottom")
+```
+
+### 戦争の被害
+
+戦争ではどの程度の犠牲者が出ているのか？
+
+```{r}
+#| fig-cap: "武力衝突 (UCDP) の規模"
+
+type <-  c("25人以上1000人未満", "1000人以上")
+
+left_join(expand(df_ucdp, year, intensity_level),
+          df_ucdp %>% 
+            count(year, intensity_level)) %>% 
+  replace_na(list(n = 0)) %>% 
+  group_by(year) %>% 
+  mutate(total = sum(n),
+         ratio = n/total) %>% 
+  pivot_longer(c(n, ratio)) %>% 
+  mutate(name = recode(name, n = "件数", ratio = "比率")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, 
+                color = as.factor(intensity_level),
+                fill = as.factor(intensity_level)),
+            alpha = 0.5) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2", labels = type) + 
+  scale_fill_brewer(palette = "Set2", labels = type) + 
+  facet_grid(name ~ ., scales = "free_y") + 
+  labs(x = "年", y = "武力紛争", 
+       color = "武力紛争に関する死者数", fill = "武力紛争に関する死者数") + 
+  theme(legend.position = "bottom")
+```
+
+```{r}
+#| fig-cap: "国家間軍事衝突 (COW) の規模"
+
+type <- c("0人", "0人以上25人未満", "25人以上1000人未満", "1000人以上", "不明")
+
+left_join(expand(df_mid, year, intensity_level),
+          df_mid %>% 
+            count(year, intensity_level)) %>% 
+  replace_na(list(n = 0)) %>% 
+  replace_na(list(n = 0)) %>% 
+  group_by(year) %>% 
+  mutate(total = sum(n),
+         ratio = n/total) %>% 
+  pivot_longer(c(n, ratio)) %>% 
+  mutate(name = recode(name, n = "件数", ratio = "比率")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, 
+                color = as.factor(intensity_level),
+                fill = as.factor(intensity_level)),
+            alpha = 0.5, size = 0.25) + 
+  annotate("rect", xmin = 1914, xmax = 1918, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  annotate("rect", xmin = 1939, xmax = 1945, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2", labels = type) + 
+  scale_fill_brewer(palette = "Set2", labels = type) + 
+  facet_grid(name ~ ., scales = "free_y") + 
+  labs(x = "年", y = "武力紛争発生数", 
+       color = "武力紛争に関する死者数", fill = "武力紛争に関する死者数") + 
+  theme(legend.position = "bottom") + 
+  guides(color = guide_legend(nrow = 2), fill = guide_legend(nrow = 2))
+```
+
+```{r}
+#| fig-cap: "武力衝突 (UCDP) の形態と被害者数の推移"
+
+df_brd <- read_csv("data/ucdp-brd-dyadic-211.csv")
+
+type <- c("国家間戦争", "内戦", "国際介入のある内戦")
+
+left_join(df_brd %>% 
+            filter(year > 1988) %>% 
+            expand(year, type_of_conflict),
+          df_brd %>% 
+            group_by(year, type_of_conflict) %>% 
+            summarise(bd_total = sum(bd_best, na.rm = TRUE))) %>% 
+  replace_na(list(bd_total = 0)) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = bd_total, 
+                color = as.factor(type_of_conflict), 
+                fill = as.factor(type_of_conflict)), 
+            alpha = 0.5) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2", labels = type) + 
+  scale_fill_brewer(palette = "Set2", labels = type) + 
+  labs(x = "年", y = "武力紛争に関する死者数", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+```{r}
+#| fig-cap: "武力衝突 (UCDP) の形態と被害者数"
+
+left_join(df_brd %>% 
+            filter(year > 1988) %>% 
+            expand(year, type_of_conflict),
+          df_brd %>% 
+            group_by(year, type_of_conflict) %>% 
+            summarise(bd_total = sum(bd_best, na.rm = TRUE))) %>% 
+  ggplot() + 
+  geom_histogram(aes(x = bd_total, 
+                     color = as.factor(type_of_conflict),
+                     fill = as.factor(type_of_conflict)), 
+                 alpha = 0.5) + 
+  scale_color_brewer(palette = "Set2", labels = type) + 
+  scale_fill_brewer(palette = "Set2", labels = type) + 
+  labs(x = "武力紛争に関する死者数", y = "", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+```{r}
+#| fig-cap: "武力衝突 (UCDP) の対立理由と被害者数の推移"
+
+type <-  c("領土", "政府", "領土及び政府")
+
+left_join(df_brd %>% 
+            filter(year > 1988) %>% 
+            expand(year, incompatibility),
+          df_brd %>% 
+            group_by(year, incompatibility) %>% 
+            summarise(bd_total = sum(bd_best, na.rm = TRUE))) %>% 
+  replace_na(list(bd_total = 0)) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = bd_total, 
+                color = as.factor(incompatibility), 
+                fill = as.factor(incompatibility)), 
+            alpha = 0.5) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2", labels = type) + 
+  scale_fill_brewer(palette = "Set2", labels = type) + 
+  labs(x = "年", y = "武力紛争に関する死者数", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+```{r}
+#| fig-cap: "武力衝突 (UCDP) の形態と被害者数"
+
+left_join(df_brd %>% 
+            filter(year > 1988) %>% 
+            expand(year, incompatibility),
+          df_brd %>% 
+            group_by(year, incompatibility) %>% 
+            summarise(bd_total = sum(bd_best, na.rm = TRUE))) %>% 
+  ggplot() + 
+  geom_histogram(aes(x = bd_total, 
+                     color = as.factor(incompatibility),
+                     fill = as.factor(incompatibility)), 
+                 alpha = 0.5) + 
+  scale_color_brewer(palette = "Set2", labels = type) + 
+  scale_fill_brewer(palette = "Set2", labels = type) + 
+  labs(x = "武力紛争に関する死者数", y = "", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+### 戦争の期間
+
+```{r}
+#| fig-cap: "武力衝突 (UCDP) の形態と期間"
+
+type <- c("独立戦争", "国家間戦争", "内戦", "国際介入のある内戦")
+
+df_ucdp %>% 
+  distinct(conflict_id, start_date2, ep_end_date, .keep_all = TRUE) %>% 
+  replace_na(list(ep_end_date = as.Date("2020-12-31"))) %>% 
+  mutate(length = time_length(interval(start_date2, ep_end_date), "day") + 1,
+         year = year(start_date2)) %>% 
+  ggplot() + 
+  geom_histogram(aes(x = length/365, 
+                     color = as.factor(type_of_conflict),
+                     fill = as.factor(type_of_conflict)), 
+                 alpha = 0.5) + 
+  scale_color_brewer(palette = "Set2", labels = type) + 
+  scale_fill_brewer(palette = "Set2", labels = type) + 
+  labs(x = "武力紛争の期間（年）", y = "", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+```{r}
+#| fig-cap: "武力衝突 (UCDP) の対立原因と期間"
+
+type <-  c("領土", "政府", "領土及び政府")
+
+df_ucdp %>% 
+  distinct(conflict_id, start_date2, ep_end_date, .keep_all = TRUE) %>% 
+  replace_na(list(ep_end_date = as.Date("2020-12-31"))) %>% 
+  mutate(length = time_length(interval(start_date2, ep_end_date), "day") + 1,
+         year = year(start_date2)) %>% 
+  ggplot() + 
+  geom_histogram(aes(x = length/365, 
+                     color = as.factor(incompatibility),
+                     fill = as.factor(incompatibility)), 
+                 alpha = 0.5) + 
+  scale_color_brewer(palette = "Set2", labels = type) + 
+  scale_fill_brewer(palette = "Set2", labels = type) + 
+  labs(x = "武力紛争の期間（年）", y = "", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+（人を殺してはいけないという一般的道徳以外に）なぜ戦争は望ましくないのか？
+
+$\leadsto$戦争には損失（軍事費^[軍事費の分だけ他の目的（例えば社会福祉）に予算を支出できないという意味で**機会費用**が発生する。]、犠牲者）がある＝社会的に非効率的 (inefficient) ^[（非）効率性は経済学の概念であるが、ここでは無駄な資源の浪費があるという意味で理解されたい。]である。
+
+## もう一つの平和
+
+**消極的平和** (negative peace)：「戦争が存在しない状態」という平和 (peace) 
+
+**積極的平和** (positive peace)^[日本政府の提唱する[積極的平和主義](https://www.mofa.go.jp/mofaj/p_pd/dpr/page1w_000072.html)とは、英訳するとProactive Contribution to Peaceであり、積極的平和とは異なる。]：「構造的暴力が存在しない状態」
+
+- ヨハン・ガルトゥングは平和をより広く捉えた。
+- 構造的暴力：軍事力に限らない貧困や抑圧、差別といった社会的不正義
+
+安全保障 (security) の定義は困難
+
+- 主体、守るべき価値、脅威、手段から捉えられる[@boudai2018, 第1章]
+- 軍事的安全保障や**伝統的安全保障**：国家が軍事力により軍事的脅威から国土や市民を守ること
+- **非伝統的安全保障**：非軍事的な脅威に対する安全保障
+  - 例えば、経済安全保障、エネルギー安全保障、食糧安全保障、気候安全保障など$\leadsto$結果として手段も非軍事的手段が主
+  - [**人間の安全保障**](https://www.mofa.go.jp/mofaj/gaiko/oda/bunya/security/index.html) (human security)：日本政府などは守るべき価値を国家ではなく人間として捉え直し、「生存・生活・尊厳に対する広範かつ深刻な脅威」から守るべきとすると提唱
+
+この授業では軍事的な意味での平和や安全保障について学ぶ
