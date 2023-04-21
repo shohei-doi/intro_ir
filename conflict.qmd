@@ -269,11 +269,13 @@ df_world %>%
 - 古代ギリシャのトゥキュディデスが書いた「戦史」
 - 1939年に出版されたE.H.カーの「危機の二十年」
 
-::: {layout-ncol=2 .content-visible when-format="html"}
+::: {.content-visible when-format="html"}
+::: {layout="[27.5,72.5]"}
 
 ![戦史](https://www.chuko.co.jp/book/160144.jpg)
 
 ![危機の二十年](https://www.iwanami.co.jp//images/book/248690.jpg)
+:::
 :::
 
 戦争とは被害がある（社会的に効率的ではない）。
