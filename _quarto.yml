@@ -21,7 +21,7 @@ website:
           - international_history.qmd
       - section: "国際安全保障"
         contents: 
-          - conflict.qmd
+          - war_and_peace.qmd
       - section: "国際政治経済"
       - section: "越境的政治"
 
