@@ -273,6 +273,7 @@ df_world %>%
 ![戦史](https://www.chuko.co.jp/book/160144.jpg)
 
 ![危機の二十年](https://www.iwanami.co.jp//images/book/248690.jpg)
+
 :::
 :::
 

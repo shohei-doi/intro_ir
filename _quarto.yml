@@ -22,6 +22,7 @@ website:
       - section: "国際安全保障"
         contents: 
           - war_and_peace.qmd
+          - war_and_diplomacy.qmd
       - section: "国際政治経済"
       - section: "越境的政治"
 
