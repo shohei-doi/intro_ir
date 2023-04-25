@@ -39,12 +39,12 @@ $\leadsto$国際政治学・**国際関係論** (international relations: IR) �
 
 国際問題は大きく2つ、あるいは3つに分けることができる。^[もちろん、特定のイシューは実際には特定の複数のカテゴリーにまたがっている。]
 
-- **国際安全保障** (international security/security study)
+- **国際安全保障** (international security/security study)：国家間の戦争と平和
     - 戦争の原因、安全保障政策（軍事力による平和、集団安全保障、民主的平和、商業的平和）、軍備管理・不拡散
-- **国際政治経済** (international political economy)
+- **国際政治経済** (international political economy)：国家間の経済関係
     - 経済成長、貿易、金融・通貨
 - **越境的政治** (transnational politics/issues)
-    - 環境保護、人権保障、移民・難民、内戦・テロ、平和維持・構築
+    - 環境保護、移民・難民、人権保障、内戦・テロ、平和維持・構築
 
 :::{.callout-warning}
 ## カバーできないトピック
