@@ -259,7 +259,7 @@ $\leadsto$**現状維持の意図**が大きい。
 $$
 \begin{split}
 &\textrm{戦争の利益} \\
-&= \textrm{勝利したときの財} \times \textrm{勝利確}率 - \textrm{戦争費用} \\
+&= \textrm{勝利したときの財} \times \textrm{勝利確率} - \textrm{戦争費用} \\
 &> \textrm{降伏の利益}
 \end{split}
 $$
@@ -281,7 +281,7 @@ $\leadsto$**現状変更の意図**が小さい。
 $$
 \begin{split}
 &\textrm{戦争の利益} \\
-&= \textrm{勝利したときの財} \times \textrm{勝利確}率 - \textrm{戦争費用} \\
+&= \textrm{勝利したときの財} \times \textrm{勝利確率} - \textrm{戦争費用} \\
 &< \textrm{平和の利益}
 \end{split}
 $$
@@ -542,7 +542,7 @@ $\leadsto$財が分割できない (indivisible) 場合＝どちらか一方だ�
 
 エルサレム：キリスト教、ユダヤ教、イスラム教にとっての聖地
 
-![[エルサレムの嘆きの壁と岩のドーム](https://commons.wikimedia.org/wiki/File:Westernwall2.jpg)](https://upload.wikimedia.org/wikipedia/commons/1/17/Westernwall2.jpg){width=50%}
+![[エルサレムの嘆きの壁と岩のドーム](https://commons.wikimedia.org/wiki/File:Westernwall2.jpg)](https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Westernwall2.jpg/640px-Westernwall2.jpg){width=50%}
 
 - 1967年の**第3次中東戦争**（六日戦争）$\leadsto$イスラエルは東エルサレムを併合
 - 1980年のエルサレム基本法："The complete and united Jerusalem is the capital of Israel."

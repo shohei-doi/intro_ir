@@ -510,6 +510,8 @@ left_join(df_brd %>%
   theme(legend.position = "bottom")
 ```
 
+被害者が少ない＝平和的？
+
 ### 戦争の期間
 
 ```{r}

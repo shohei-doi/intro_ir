@@ -1,0 +1,310 @@
+---
+title: "軍事力と安全保障"
+subtitle: "国際公共政策学"
+author: "土井翔平"
+date: today
+---
+
+```{r}
+#| include: false
+#| cache: false
+
+library(tidyverse)
+theme_set(theme_bw(base_family = "Noto Sans CJK JP Light"))
+library(readxl)
+```
+
+## はじめに {.unnumbered}
+
+戦争を回避する伝統的手段は軍事力
+
+- 現状変更勢力にとっての戦争の利益を減らす$\leadsto$利害対立の（表面的）解消
+- 実際の戦争の利益は分からないが、議論を整理できる。
+
+$$
+\begin{split}
+&\textrm{現状変更勢力の戦争の利益} \\
+&= \textrm{勝利したときの財の価値} \times \underbrace{\textrm{勝利確率}}_{-} - \underbrace{\textrm{戦争費用}}_{+}
+\end{split}
+$$
+
+**バランシング**：軍事力の強化$\leadsto$現状変更勢力に対する抑止力の向上
+
+- 拒否的抑止：戦争で勝利する確率を低下
+- 懲罰的抑止：戦争で被る費用を増加
+
+バランシングの方法：一国の**軍備拡大**（内的バランシング）、**同盟**（外的バランシング）
+
+- 一方で、強力な現状変更勢力の要求に従うことを**宥和**や**バンドワゴン**と呼ぶ[@schweller1994]。
+
+本当に軍事力を高めれば戦争は回避できるのか？
+
+## 軍備拡大と平和
+
+### パワーの分布と平和
+
+パワーの分布と平和や国際社会の安定性の関係についてはいくつかの仮説がある。
+
+1. **勢力均衡** (balance of power) ：国力が均等に近いと戦争で勝利する確率が減る[@waltz2010]。
+1. **勢力優位** (preponderance of power) ：圧倒的国力を持つ国がいると、他の国は挑戦しなくなる。
+1. **権力移行** (transition of power) ：台頭国 (rising power) と衰退国 (declining power) の間で戦争は起こりやすい。
+
+現状の利益配分が国力の分布を反映$\leadsto$戦争の回避
+
+- この場合、どちらの国も現状を変更しようと思わない。
+
+#### パワーの変動
+
+パワー変動が急速$\leadsto$コミットメント問題$\leadsto$衰退国による**予防戦争** (preventive war)[@powell2006]
+
+- 台頭国が現時点で現状維持を求めても、将来は違うかもしれない。
+
+パワーの変動が緩やか$\leadsto$台頭国が現状に不満$\leadsto$現状変更の要求[@gilpin2022]
+
+- 経済成長率の乖離は（相対的な）国力の変動を招きやすい。
+- パワーの変動が常に戦争を引き起こしたわけではない（例、イギリスとアメリカの覇権交代）
+
+```{r}
+#| fig-cap: "総合国力指数と軍事費の推移"
+
+df_milex <- bind_rows(read_excel("data/SIPRI-Milex-data-1949-2020_0.xlsx", 
+                                 sheet = 5, skip = 5, 
+                                 na = c(". .", "xxx")) %>% 
+                        select(Country, "1949":"2020") %>% 
+                        pivot_longer(-Country, names_to = "year", values_to = "milex", 
+                                     names_transform = list(year = as.integer), 
+                                     values_drop_na = TRUE) %>% 
+                        mutate(type = "実質"),
+                      read_excel("data/SIPRI-Milex-data-1949-2020_0.xlsx", sheet = 6, skip = 5, 
+                                 na = c(". .", "xxx")) %>% 
+                        select(Country, "1949":"2020") %>% 
+                        mutate(across("1949":"2020", as.character)) %>% 
+                        pivot_longer(-Country, names_to = "year", values_to = "milex", 
+                                     names_transform = list(year = as.integer), 
+                                     values_transform = list(milex = as.numeric), values_drop_na = TRUE) %>% 
+                        mutate(type = "名目"))
+
+df_nmc <- read_csv("data/NMC/NMC-60-abridged.csv")
+
+bind_rows(df_milex %>% 
+            filter(type == "実質") %>% 
+            select(country = Country, year, value = milex) %>% 
+            mutate(type = "軍事費（実質USドル）"),
+          df_nmc %>% 
+            select(country = stateabb, year, value = cinc) %>% 
+            mutate(type = "CINCスコア")) %>% 
+  ggplot() + 
+  geom_line(aes(x = year, y = value, group = country), 
+            alpha = 0.25) + 
+  geom_line(aes(x = year, y = value, color = country),
+            data = . %>% 
+              filter(country %in% c("USA", "CHN", "China")) %>% 
+              mutate(country = recode(country, "China" = "CHN"))) + 
+  facet_wrap(~ type, ncol=1, scales = "free_y") + 
+  labs(x = "年", y = "国力", color = "") + 
+  theme(legend.position = "bottom")
+```
+
+$\leadsto$**利益の配分と国力の配分が一致するよう**に抑止力を高める・交渉を行うべき。
+
+- 弱小国は大国に対して譲歩すべき？
+
+### 抑止の信憑性
+
+軍備拡大や動員$\leadsto$相手の戦争の利益の減少＆自国の抑止の信憑性の向上[@fearon1997]
+
+1. **ロックイン**：戦争の勝利確率の上昇・費用の低下$\leadsto$戦争の利益の拡大$\leadsto$譲歩せず
+1. **埋没費用** (sunk cost)：あらかじめ (ex ante) 費用を支払う$\leadsto$反撃の決意が高いことを伝達
+    - 一度行ってしまうと、費用を取り戻すことができない。
+    - 戦う決意のない国は、そのような無駄な出費をしない。
+
+:::{.callout-tip}
+## ロックイン効果
+
+国家Bにとって戦争の利益が0.1の場合と0.3の場合でどのように異なるのか？
+:::
+
+::: {layout-ncol=2}
+![抑止の失敗](figures/deterrence1.drawio.png)
+![抑止の成功](figures/deterrence2.drawio.png)
+:::
+
+軍備拡大や動員$\leadsto$威嚇の信憑性を高める＆戦争の可能性を高める[@slantchev2003]。
+
+- 防衛国が挑戦国になる？
+- コンコルド効果：埋没費用のために不利益な行為を継続する現象
+
+### 抑止と安心供与
+
+第一撃における優位 (first-strike advantage) $\leadsto$コミットメント問題$\leadsto$**先制攻撃** (preemptive attack)[@powell2006]
+
+:::{.callout-tip}
+## 第一撃における優位
+
+先制攻撃をした場合の利益は0.8で、先制攻撃をされた場合の利益は0.2であるとすると、どのような結果になるか？
+:::
+
+![第一撃における優位](figures/reassurance2.drawio.png)
+
+- 攻撃的兵器のほうが防御的兵器よりも優位$\leadsto$第一撃における優位
+  - 攻撃・防御バランス：軍事力が攻撃的であるか防御的であるか
+- 防御的兵器$\leadsto$安心供与
+  - ある兵器が攻撃的であるか防御的であるかを（外部から）判断できるのか？
+
+抑止力を高めるための方策$\leadsto$第一撃における優位$\leadsto$安心供与に失敗するかも。
+
+- 20世紀初頭のドイツ：フランスとロシアに挟まれており、二正面作戦を遂行する能力はなかった。
+- シュリーフェン・プラン：まずはフランスを電撃的に攻撃し、その後にロシアと対決する計画。
+  - ロシアは広大で動員に時間がかかる$\leadsto$その間にフランスと戦う。
+  - ロシアが動員を始める$\leadsto$ドイツが第一撃における優位を確保できる時間は少ない。
+- ロシアが動員したという情報を得た時点で、ドイツはフランスとの開戦を決定する。
+
+![シュリーフェン・プラン](https://upload.wikimedia.org/wikipedia/commons/f/fe/Schlieffen_Plan.jpg){width=80%}
+
+### 安全保障のジレンマ
+
+他国が攻撃する意図や能力を持っているかどうかが分からない$\leadsto$**安全保障のジレンマ**[@jervis1978]
+
+- たとえ、国家Aが防衛的意図を持って軍備拡大を行ったとしても、国家Bは攻撃的意図を持っていると誤認するかもしれない。
+- その場合、国家Bも防衛的意図を持ってバランシングをするが、国家Aは攻撃的意図を持っていると判断するかもしれない。
+- 最終的には軍拡競争となり、**安全保障のために行った政策の結果として安全保障環境が悪化**してしまう。
+
+:::{.callout-tip}
+## 安全保障のジレンマ
+
+- 互いに軍備拡大をしなかった場合は国力が均等であるとして0.5の利益を得る。
+- 互いに軍備拡大をした場合は国力は均等であるが、軍事費として0.2の費用を支払う。
+- 一方が軍備拡大をして、他方がしなかった場合、前者は国力が高まり0.8の利益を得るが0.2の費用を支払う。
+- 後者は軍事費を支払わないが、国力が弱まり0.2の利益を得る。
+:::
+
+![安全保障のジレンマ](figures/security_dilemma.drawio.png)
+
+スパイラル・モデル：軍拡競争$\leadsto$ロックイン効果$\leadsto$戦争？
+
+### 核抑止
+
+軍事力による抑止の究極的な形としての**核抑止** (nuclear deterrence)
+
+- 核兵器国の戦争の勝利確率を過大にする$\leadsto$反撃する信憑性を高める。
+- 非核兵器国の戦争による被害を過大にする$\leadsto$戦争の利益が小さいことを知らしめる。
+
+:::{.callout-tip}
+## 核による非核兵器国への抑止
+
+核兵器によって攻撃を受けると-1の利益を得る。
+:::
+
+![核による非核兵器国への抑止](figures/nuclear_deterrence1.drawio.png)
+
+一方で、核兵器国は核による威嚇で譲歩を引き出せるので、核兵器国同士では互いに核兵器の使用を抑止しようとする。
+
+![核による非核兵器国への強要](figures/nuclear_deterrence2.drawio.png)
+
+#### 相互確証破壊
+
+**相互確証破壊** (mutual assured destruction: MAD)：核攻撃に対して核報復
+
+:::{.callout-tip}
+## 相互確証破壊
+
+互いに核攻撃を行った場合、被害を受けるが、相手国にも被害を与えることができるので0の利益を得る。
+:::
+
+![相互確証破壊](figures/nuclear_deterrence3.drawio.png)
+
+相互確証破壊$\leadsto$本当に全面核戦争を行う決意に信憑性
+
+:::{.callout-tip}
+## 相互確証破壊の失敗1
+
+互いに核攻撃を行った場合、全面核戦争に至るため、-2の利益を得る。
+:::
+
+![相互確証破壊の失敗1](figures/nuclear_deterrence4.drawio.png)
+
+- 第二撃能力：ICBM（移動式、サイロ）、SLBM、戦略爆撃機など運搬手段を多様化$\leadsto$核兵器による反撃能力を確保
+- 瀬戸際外交 (brinksmanship) ：自ら危機をエスカレート$\leadsto$自動報復や偶発的な核攻撃の可能性[@schelling2008; @schelling2018]
+  - 核危機はチキンゲームであると捉えることができる。
+- 狂人理論 (madman theory) ：合理的に判断できない（核戦争を辞さない）と相手に思わせる。
+
+全面核戦争の際には十分な被害を**受ける**ことを確保しないといけない。
+
+:::{.callout-tip}
+## 相互確証破壊の失敗2
+
+国家Bはミサイル防衛システムによって国家Aの核兵器を迎撃できる。
+:::
+
+![相互確証破壊の失敗2](figures/nuclear_deterrence5.drawio.png)
+
+- 迎撃ミサイルの開発や配備をあえて制限する。
+  - 弾道弾迎撃ミサイル制限条約 (Anti-Ballistic Missile Treaty: ABM条約)がアメリカとソ連の間で1972年に発効したが、2002年にアメリカは脱退した。
+  
+$\leadsto$核兵器を持っていれば安心という単純なものではない。
+
+#### 核の不使用
+
+**核の先制不使用** (no first use) ：核兵器で攻撃されない限り核兵器で反撃しないという政策
+
+- 核兵器国同士であれば、相互確証破壊が成り立つのであれば現実的な選択肢
+- **安定・不安定パラドックス** (stability-instabilty paradox)：核戦争に至らないという確信$\leadsto$通常戦争の可能性が高まる？[@jervis1979]
+
+![安定・不安定パラドックス](figures/nuclear_deterrence6.drawio.png)
+
+しかし、現実には、核兵器国同士の戦争は中国とソ連、インドとパキスタンのみ
+
+$\leadsto$通常戦争がエスカレートし、偶発的に核戦争に至るかもしれない可能性が、核兵器国同士の通常戦争も抑止？
+
+**消極的安全保証** (negative security assurances)：核兵器国が非核兵器国に対して核攻撃を行わない政策
+
+- 核兵器国と非核兵器国の間であれば、非核兵器国は核による威嚇に抵抗しないはずであり、通常戦争は減るはず。
+- 現実には、核の先制不使用が宣言されていなくても、核兵器国と非核兵器国の間の通常戦争はしばしば起こっている。
+- そのような戦争で核兵器は使用されたことがない。
+
+$\leadsto$核兵器国は**核のタブー** (nuclear taboo) によって核兵器の使用に踏み切れない？[@tannenwald2005]
+
+$\leadsto$非核兵器国は核兵器国との戦争も辞さない？
+
+#### 軍備を巡る交渉
+
+軍備拡大（特に核兵器を始めとする大量破壊兵器の開発）$\leadsto$自国の国力の低下$\leadsto$予防戦争
+
+軍備の削減$\leadsto$自国の国力の低下$\leadsto$予防戦争
+
+- 大量破壊兵器の放棄$\leadsto$将来の交渉ポジションの悪化$\leadsto$さらなる譲歩
+- 安心供与の信憑性$\leadsto$大量破壊兵器の放棄
+  - アメリカは[米朝枠組合意](https://peacemaker.un.org/node/1129)や[第4回六者会合に関する共同声明](https://www.mofa.go.jp/mofaj/area/n_korea/6kaigo/ks_050919.html)で北朝鮮への攻撃をしない旨を表明
+  - 2003年にリビアが核開発を放棄した際に、アメリカやイギリスは体制保証を約束したが、2011年のリビア内戦では反体制側を支援する。
+
+戦略的に重要な領域を巡る交渉にも同様の問題がある。
+
+- 尖閣諸島で譲歩すると？
+
+## 同盟と平和
+
+### 拡大抑止
+
+#### 見捨てられる恐怖
+
+#### 巻き込まれる恐怖
+
+### 拡大抑止の効果
+
+### 同盟と国際社会の安定性
+
+### 同盟の安定性
+
+## 軍事力の限界
+
+軍事力は平和の基礎：利益と軍事力の配分の一致$\leadsto$平和
+
+軍備拡大$\leadsto$平和？
+
+- いかにして周辺国の安心させつつ、抑止力を維持・拡大するか？
+
+$\leadsto$軍事力「以外」の平和への方策とは？
+
+- 制度的平和（集団安全保障、軍縮・軍備管理）
+- 民主的平和
+- 商業的平和
