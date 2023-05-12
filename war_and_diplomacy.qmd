@@ -497,7 +497,7 @@ $\leadsto$意図を伝達するには費用のかかる行動が必要
 ```{r}
 #| fig-cap: "日米の国力比較（1900-45年）"
 
-df_nmc <- read_csv("data/NMC/NMC-60-abridged.csv")
+df_nmc <- read_csv("data/nmc/NMC-60-abridged.csv")
 
 df_nmc %>% 
   filter(between(year, 1900, 1945)) %>% 

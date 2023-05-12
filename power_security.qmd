@@ -12,6 +12,8 @@ date: today
 library(tidyverse)
 theme_set(theme_bw(base_family = "Noto Sans CJK JP Light"))
 library(readxl)
+library(tidygraph)
+library(ggraph)
 ```
 
 ## はじめに {.unnumbered}
@@ -115,8 +117,8 @@ $\leadsto$**利益の配分と国力の配分が一致するよう**に抑止力
 
 1. **ロックイン**：戦争の勝利確率の上昇・費用の低下$\leadsto$戦争の利益の拡大$\leadsto$譲歩せず
 1. **埋没費用** (sunk cost)：あらかじめ (ex ante) 費用を支払う$\leadsto$反撃の決意が高いことを伝達
-    - 一度行ってしまうと、費用を取り戻すことができない。
-    - 戦う決意のない国は、そのような無駄な出費をしない。
+- 一度行ってしまうと、費用を取り戻すことができない。
+- 戦う決意のない国は、そのような無駄な出費をしない。
 
 :::{.callout-tip}
 ## ロックイン効果
@@ -147,19 +149,19 @@ $\leadsto$**利益の配分と国力の配分が一致するよう**に抑止力
 ![第一撃における優位](figures/reassurance2.drawio.png)
 
 - 攻撃的兵器のほうが防御的兵器よりも優位$\leadsto$第一撃における優位
-  - 攻撃・防御バランス：軍事力が攻撃的であるか防御的であるか
+- 攻撃・防御バランス：軍事力が攻撃的であるか防御的であるか
 - 防御的兵器$\leadsto$安心供与
-  - ある兵器が攻撃的であるか防御的であるかを（外部から）判断できるのか？
+- ある兵器が攻撃的であるか防御的であるかを（外部から）判断できるのか？
 
 抑止力を高めるための方策$\leadsto$第一撃における優位$\leadsto$安心供与に失敗するかも。
 
 - 20世紀初頭のドイツ：フランスとロシアに挟まれており、二正面作戦を遂行する能力はなかった。
 - シュリーフェン・プラン：まずはフランスを電撃的に攻撃し、その後にロシアと対決する計画。
-  - ロシアは広大で動員に時間がかかる$\leadsto$その間にフランスと戦う。
-  - ロシアが動員を始める$\leadsto$ドイツが第一撃における優位を確保できる時間は少ない。
+- ロシアは広大で動員に時間がかかる$\leadsto$その間にフランスと戦う。
+- ロシアが動員を始める$\leadsto$ドイツが第一撃における優位を確保できる時間は少ない。
 - ロシアが動員したという情報を得た時点で、ドイツはフランスとの開戦を決定する。
 
-![シュリーフェン・プラン](https://upload.wikimedia.org/wikipedia/commons/f/fe/Schlieffen_Plan.jpg){width=80%}
+![[シュリーフェン・プラン](https://commons.wikimedia.org/wiki/File:Schlieffen_Plan.jpg)](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Schlieffen_Plan.jpg/775px-Schlieffen_Plan.jpg){width=80%}
 
 ### 安全保障のジレンマ
 
@@ -182,7 +184,11 @@ $\leadsto$**利益の配分と国力の配分が一致するよう**に抑止力
 
 スパイラル・モデル：軍拡競争$\leadsto$ロックイン効果$\leadsto$戦争？
 
+- 憲法9条の改正はどのようなメッセージなるのか？
+
 ### 核抑止
+
+![[SIPRI年鑑](https://www.sipri.org/yearbook/2022/10)](figures/sipri_nuclear.jpg)
 
 軍事力による抑止の究極的な形としての**核抑止** (nuclear deterrence)
 
@@ -225,7 +231,7 @@ $\leadsto$**利益の配分と国力の配分が一致するよう**に抑止力
 
 - 第二撃能力：ICBM（移動式、サイロ）、SLBM、戦略爆撃機など運搬手段を多様化$\leadsto$核兵器による反撃能力を確保
 - 瀬戸際外交 (brinksmanship) ：自ら危機をエスカレート$\leadsto$自動報復や偶発的な核攻撃の可能性[@schelling2008; @schelling2018]
-  - 核危機はチキンゲームであると捉えることができる。
+- 核危機はチキンゲームであると捉えることができる。
 - 狂人理論 (madman theory) ：合理的に判断できない（核戦争を辞さない）と相手に思わせる。
 
 全面核戦争の際には十分な被害を**受ける**ことを確保しないといけない。
@@ -239,8 +245,8 @@ $\leadsto$**利益の配分と国力の配分が一致するよう**に抑止力
 ![相互確証破壊の失敗2](figures/nuclear_deterrence5.drawio.png)
 
 - 迎撃ミサイルの開発や配備をあえて制限する。
-  - 弾道弾迎撃ミサイル制限条約 (Anti-Ballistic Missile Treaty: ABM条約)がアメリカとソ連の間で1972年に発効したが、2002年にアメリカは脱退した。
-  
+- 弾道弾迎撃ミサイル制限条約 (Anti-Ballistic Missile Treaty: ABM条約)がアメリカとソ連の間で1972年に発効したが、2002年にアメリカは脱退した。
+
 $\leadsto$核兵器を持っていれば安心という単純なものではない。
 
 #### 核の不使用
@@ -274,8 +280,8 @@ $\leadsto$非核兵器国は核兵器国との戦争も辞さない？
 
 - 大量破壊兵器の放棄$\leadsto$将来の交渉ポジションの悪化$\leadsto$さらなる譲歩
 - 安心供与の信憑性$\leadsto$大量破壊兵器の放棄
-  - アメリカは[米朝枠組合意](https://peacemaker.un.org/node/1129)や[第4回六者会合に関する共同声明](https://www.mofa.go.jp/mofaj/area/n_korea/6kaigo/ks_050919.html)で北朝鮮への攻撃をしない旨を表明
-  - 2003年にリビアが核開発を放棄した際に、アメリカやイギリスは体制保証を約束したが、2011年のリビア内戦では反体制側を支援する。
+- アメリカは[米朝枠組合意](https://peacemaker.un.org/node/1129)や[第4回六者会合に関する共同声明](https://www.mofa.go.jp/mofaj/area/n_korea/6kaigo/ks_050919.html)で北朝鮮への攻撃をしない旨を表明
+- 2003年にリビアが核開発を放棄した際に、アメリカやイギリスは体制保証を約束したが、2011年のリビア内戦では反体制側を支援する。
 
 戦略的に重要な領域を巡る交渉にも同様の問題がある。
 
@@ -283,17 +289,371 @@ $\leadsto$非核兵器国は核兵器国との戦争も辞さない？
 
 ## 同盟と平和
 
+**同盟** (alliance) の締結$\leadsto$（外的）バランシング
+
+[Alliance Treaty Obligations and Provisions (ATOP)](http://www.atopdata.org/) のデータセット[@leeds2002]
+
+:::{.callout-note}
+## [ATOPにおける同盟の定義](http://www.atopdata.org/uploads/6/9/1/3/69134503/atop_5_1_codebook.pdf)
+
+An alliance is a **formal** agreement among **independent states** to **cooperate militarily** in the face of potential or realized **military conflict**.
+:::
+
+1. 公式の合意
+1. 独立国家の間での合意
+1. 軍事的脅威に対する
+1. 軍事的協力
+
+ATOPでは同盟を5つの義務で分類
+
+1. 防衛同盟：武力紛争における防衛支援
+1. 攻撃同盟：武力紛争における攻撃支援
+1. 中立条約：中立の維持
+1. 不可侵条約：攻撃しないという約束
+1. 協商：危機における協議
+
+```{r}
+#| fig-cap: "ATOPにおける同盟の種類と推移"
+
+df_atop_temp <- read_csv("data/ATOP 5.1 (.csv)/atop5_1a_NNA.csv") %>% 
+  mutate(endyr = if_else(ineffect == 1, 2022, endyr))
+
+df_atop <- NULL
+
+for (i in 1:nrow(df_atop_temp)) {
+  temp <- df_atop_temp[i,]
+  year <- temp$begyr:temp$endyr
+  df_atop <- bind_rows(df_atop, 
+                       tibble(atopid = temp$atopid, 
+                              year = year))
+}
+
+df_atop <- left_join(df_atop, df_atop_temp, by = "atopid") %>% 
+  mutate(oblig = case_when(defense == 1 & offense == 1 ~ "防衛・攻撃", 
+                           defense == 1 & offense == 0 ~ "防衛",  
+                           defense == 0 & offense == 1 ~ "攻撃", 
+                           defense == 0 & offense == 0 ~ "行動義務なし") %>% 
+           fct_relevel(c("防衛", "攻撃", "防衛・攻撃", "行動義務なし")))
+
+left_join(expand(df_atop, year, oblig),
+          df_atop %>% 
+            count(year, oblig)) %>% 
+  replace_na(list(n = 0)) %>% 
+  group_by(year) %>% 
+  mutate(ratio = n/sum(n)) %>% 
+  pivot_longer(c(n, ratio)) %>% 
+  mutate(name = recode(name, n = "件数", ratio = "比率")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, fill = oblig, color = oblig), alpha = 0.5) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.5) + 
+  annotate("rect", xmin = 1914, xmax = 1918, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  annotate("rect", xmin = 1939, xmax = 1945, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  scale_fill_brewer(palette = "Set2") + 
+  scale_color_brewer(palette = "Set2") + 
+  facet_grid(name ~ ., scales = "free_y") + 
+  labs(x = "年", y = "同盟", fill = "", color = "") + 
+  theme(legend.position = "bottom")
+```
+
+```{r}
+#| fig-cap: "ATOPにおける防衛同盟ネットワーク（2018年）"
+
+df_cow <- read_csv("data/COW-country-codes.csv")
+
+df_ally <- read_csv("data/ATOP 5.1 (.csv)/atop5_1dy.csv") %>% 
+  filter(year == 2018)
+
+df_cow <- df_cow %>% 
+  select(mem1 = CCode, from = StateAbb)
+
+df_ally <- left_join(df_ally, df_cow, by = "mem1")
+
+df_cow <- df_cow %>% 
+  select(mem2 = mem1, to = from)
+
+df_ally <- left_join(df_ally, df_cow, by = "mem2") %>% 
+  filter(defense == 1) %>% 
+  select(from, to) %>% 
+  count(from, to)
+
+graph_ally <- as_tbl_graph(df_ally, directed = FALSE) %>%
+  mutate(degree = centrality_degree())
+
+ggraph(graph_ally, layout = "kk") + 
+  geom_edge_link(color = "gray", alpha = 0.25) + 
+  geom_node_text(aes(label = name))
+```
+
 ### 拡大抑止
+
+単独では抑止に失敗して、譲歩せざるを得ない状況を考える。
+
+::: {.callout-tip}
+## 国際危機のシナリオ1
+
+- 国家AとBはとある領土の所有権を巡って争っている。
+- 国家Aはその領土の20%を、国家Bは80%を占領している。
+- 国家Aはさらにその領土の60%（つまり、全体で80%）の割譲をBに求めている。
+- 仮に戦争が起こった場合、勝利した国が領土を全て占領できる。
+- 国家Aは50%の確率で戦争に勝つ見込みである（したがって、国家Bも同様である）。
+- しかし、戦争には費用がかかり、それを土地の価値に揃えるとAとBにとって40%分の価値であるとする。
+:::
+
+![危機交渉モデル（シナリオ1）](figures/deterrence1.drawio.png)
+
+国家Bの同盟国である国家Cも参戦することで、国家Aを抑止することができるかもしれない。
+
+- **拡大抑止** (extended deterrence)：同盟によって他国への攻撃を抑止すること
+
+もし、同盟国（国家C）が参戦すると、防衛国（国家B）は
+
+1. 戦争の勝利確率が上がり、
+1. 戦争の費用が下がるので、
+
+抑止の信憑性が高まる。
+
+挑戦国（国家A）は
+
+1. 戦争の勝率が下がり、
+1. 戦争の費用が高まるので、
+
+戦争の利益が低下する。
+
+::: {.callout-tip}
+## 同盟国のいる国際危機のシナリオ1
+
+- 国家Bと国家Cは同盟を結んでいる。
+- 国家Cは国家Bと同様に争っている領土に関心を持っている。
+- 国家Bが単独で戦争をした場合、勝利する確率は50%であるが、同盟国を見捨てた国家Cは領土の価値にすると20%に相当する費用を支払う。
+- 国家Bと国家Cが共同で戦争をした場合、勝利する確率は60%に増加し、戦争の費用は国家A, B, Cについて50%, 30%, 10%程度である。
+:::
+
+$$
+\begin{split}
+&\textrm{国家Aが国家BとCと戦争するときの利益} \\
+&= \textrm{勝利したときの領土} \times \textrm{勝利する確率} - \textrm{戦争の費用} \\
+&= 1 \times 0.4 - 0.5 = -0.1 \\
+&< 0.1 = \textrm{国家Aが国家Bと戦争するときの利益}
+\end{split}
+$$
+
+$$
+\begin{split}
+&\textrm{国家BがCと共に国家Aと戦争するときの利益} \\
+&= \textrm{勝利したときの領土} \times \textrm{勝利する確率} - \textrm{戦争の費用} \\
+&= 1 \times 0.6 - 0.3 = 0.3 \\
+&> 0.1 = \textrm{国家Bが国家Aと戦争するときの利益}
+\end{split}
+$$
+
+![同盟国のいる危機交渉モデル（シナリオ1）](figures/extended_deterrence1.drawio.png)
+
+$\leadsto$現状変更勢力の攻撃を拡大抑止
 
 #### 見捨てられる恐怖
 
+同盟$\neq$同盟国の参戦
+
+- **見捨てられる恐怖** (fear of abandonment)：同盟国が参戦しないかもしれない不安を**見捨てられる恐怖**[@snyder1984]
+
+::: {.callout-tip}
+## 同盟国のいる国際危機のシナリオ1'
+
+- 国家Aは国家Bとの戦争が起こった場合に国家Cが参戦するのか分からない。
+:::
+
+![同盟国のいる危機交渉モデル（シナリオ1'）](figures/extended_deterrence2.drawio.png)
+
+共同防衛の信憑性が低い$\leadsto$現状変更勢力は同盟国が参戦しないと誤認$\leadsto$攻撃
+
+そもそも、同盟国を防衛することが明らか$\leadsto$わざわざ同盟を締結する必要はない。
+
+- 同盟が存在していなくても、（集団的）自衛権を行使できる。
+- **有志連合** (coalition of willingness)：特に共同で第三国を防衛する集団
+
+$\leadsto$なぜ、同盟を締結するのか？
+
+#### 拡大抑止の信憑性
+
+防衛義務を公表$\leadsto$同盟国を見捨てたときの**評判費用** (reputation cost) 、**観衆費用** (audience cost) $\leadsto$見捨てにくい状況を自ら作る[@fearon1997]。
+
+- 手を縛る (**tying hands**)：自ら（同盟国を見捨てるという）選択肢を捨てる$\leadsto$防衛する決意をシグナル
+- 同盟国を見捨てる$\leadsto$他の同盟国への拡大抑止の信憑性も低下$\leadsto$攻撃されるかもしれない（**ドミノ理論**）。^[本来は、ある地域で共産主義化が成功すると他の地域でも共産主義化が広まるという、共産主義化を阻止する正当化に用いられた考えである。]
+
+わざわざ時間と政治的な費用をかけて公式な同盟を締結・維持$\leadsto$埋没費用 (sunk cost) $\leadsto$決意のシグナル
+
+```{r}
+#| fig-cap: "ATOPにおける同盟の公開性と推移"
+
+labels <- c("公開", "非公開条項あり", "秘密")
+
+left_join(expand(df_atop, year, pubsecr) %>% 
+            drop_na(),
+          df_atop %>% 
+            count(year, pubsecr)) %>% 
+  replace_na(list(n = 0)) %>% 
+  group_by(year) %>% 
+  mutate(total = sum(n), 
+         ratio = n/total) %>% 
+  pivot_longer(c(n, ratio)) %>% 
+  mutate(name = recode(name, n = "件数", ratio = "比率")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, 
+                fill = as.factor(pubsecr), color = as.factor(pubsecr)), 
+            alpha = 0.5) + 
+  annotate("rect", xmin = 1914, xmax = 1918, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  annotate("rect", xmin = 1939, xmax = 1945, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  scale_fill_brewer(palette = "Set2", labels = labels) + 
+  scale_color_brewer(palette = "Set2", labels = labels) + 
+  facet_grid(name ~ ., scales = "free_y") + 
+  labs(x = "年", y = "同盟", fill = "", color = "") + 
+  theme(legend.position = "bottom")
+```
+
+共同の軍事計画や演習の実施、情報共有、兵器の共同開発や装備品の共通化、基地の設置$\leadsto$軍事力を向上$\leadsto$参戦する利益の拡大
+
+外国軍軍基地の存在$\leadsto$同盟国への攻撃が自国への攻撃$\leadsto$参戦する信憑性
+
+- このような手の縛り方を**仕掛線** (trip wire) と呼ぶ[@schelling2018]。
+
+海外基地の建設、維持には多大な費用が発生$\leadsto$埋没費用[@fearon1997]
+
+同盟の締結の際に経済的・外交的利益を拡大$\leadsto$同盟国防衛の価値[@gowa1993; @poast2012]
+
 #### 巻き込まれる恐怖
 
-### 拡大抑止の効果
+同盟$\leadsto$拡大抑止を強化＆同盟国が冒険的な行動を取る誘因
+
+- **巻き込まれる恐怖** (fear of entrapment)：本来は望んでいない同盟国の戦争に参加する恐れ[@snyder1984]
+- 同盟$\leadsto$他国に対して安全保障のジレンマやコミットメント問題？
+
+巻き込まれる恐怖を減らす$\leadsto$コミットメントを制限したり、曖昧にする。
+
+- 日米安保条約の事前協議制度
+- アメリカの台湾防衛の戦略的曖昧性 (strategic ambiguity)
+
+同盟におけるジレンマ：見捨てられないために同盟を強固$\leadsto$同盟国の戦争に巻き込まれる？
 
 ### 同盟と国際社会の安定性
 
+第1次世界大戦前：**三国同盟** (Triple Alliance) と**三国協商** (Triple Entente)
+
+- 国力が比較的均等な大国が多数存在
+- 同盟国の喪失は大きな損害$\leadsto$同盟が強固$\leadsto$巻き込まれる可能性
+- 大国の数が多かった$\leadsto$誤認する可能性
+
+![[第1次世界大戦時のヨーロッパの同盟関係](https://commons.wikimedia.org/wiki/File:Map_Europe_alliances_1914-en.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Map_Europe_alliances_1914-en.svg/800px-Map_Europe_alliances_1914-en.svg.png){width=80%}
+
+$\leadsto$小さな衝突が大国全てを巻き込む大戦へと発展 (**chain ganging**)[@christensen1990]
+
+戦間期：ドイツの侵略を抑止するための**ロカルノ条約**と**小協商**
+
+- フランスやベルギーが攻撃された場合はイギリスが支援
+- 東欧諸国が攻撃された場合はフランスが支援
+
+$\leadsto$戦後の疲弊しているイギリスやフランスは遠方の国を助けるだけの能力と決意が欠如
+
+冷戦期：**北大西洋条約機構** (North Atlantic Treaty Organization: NATO) と **ワルシャワ条約機構** (Warsaw Treaty Organization: WTO)
+
+- アメリカとソビエト連邦という2つの超大国が中心
+- 同盟国間の利害は一致＆同盟間では誤認する可能性は相対的に低い
+- 同盟の制度化、在欧米軍$\leadsto$アメリカの拡大抑止の信憑性
+
+![[NATOとワルシャワ条約機構の加盟国](https://commons.wikimedia.org/wiki/File:NATO_vs._Warsaw_(1949-1990).svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/NATO_vs._Warsaw_%281949-1990%29.svg/800px-NATO_vs._Warsaw_%281949-1990%29.svg.png)
+
+$\leadsto$結果的に、冷戦期は大国間の戦争が起こらなかったという意味で「長い平和」[@gaddis1986]
+
 ### 同盟の安定性
+
+冷戦の終結$\leadsto$ワルシャワ条約機構は解散／NATOは解散せず$\leadsto$むしろ役割や加盟国が拡大
+
+- 高度に制度化された同盟$\leadsto$解散する（機会）費用
+- ロシアの脅威$\leadsto$東欧諸国が加盟（東方拡大）
+- テロ対策や人道危機への介入$\leadsto$新たな共通利益
+
+![[NATO加盟国と加盟年](https://commons.wikimedia.org/wiki/File:History_of_NATO_enlargement.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/History_of_NATO_enlargement.svg/680px-History_of_NATO_enlargement.svg.png){width=80%}
+
+一方で、同盟国間での**費用分担** (burden sharing) 巡る対立も表面化
+
+- アメリカはNATO加盟国に軍事費をGDPの2%以上を支出するよう要求
+
+```{r}
+#| fig-cap: "[NATO加盟国の防衛費と対GDP比](https://www.nato.int/cps/en/natohq/news_197050.htm)"
+
+bind_rows(read_csv("data/nato/nato_milex.csv") %>% 
+            mutate(type = "名目USドル", 
+                   country = str_remove(country, "\\*")), 
+          read_csv("data/nato/nato_milex_pergdp.csv") %>% 
+            mutate(type = "対GDP比")) %>% 
+  pivot_longer("2014":"2022", names_to = "year", values_to = "milex", 
+               names_transform = as.integer) %>% 
+  ggplot() + 
+  geom_line(aes(x = year, y = milex, group = country), alpha = 0.25) + 
+  geom_smooth(aes(x = year, y = milex), se = FALSE) + 
+  facet_grid(type ~ ., scales = "free_y") + 
+  labs(x = "年", y = "防衛費")
+```
+
+転嫁 (buck passing)：他国の軍事支出に**ただ乗り** (free-riding) をして、自国の費用分担を他国に押し付ける。
+
+:::{.callout-tip}
+## 同盟における負担共有シナリオ1
+
+- 国家AとBが全体で価値が1となるような財を守っている。
+- 各国は追加で30%分の軍事費を増額するかを検討している。
+- もし、互いに軍事費を増額すれば確実に財は守ることができるが、もし一方だけが増額した場合は80%の確率で、互いに増額しなかった場合は60%の確率でしか財を守ることができない。
+:::
+
+![同盟における負担共有（シナリオ1）](figures/burden_sharing1.drawio.png)
+
+軍事大国がいる$\leadsto$費用分担が不平等になる可能性
+
+:::{.callout-tip}
+## 同盟における負担共有シナリオ2
+
+- 国家Aは既に軍事費が高いため、10%の増額で十分である。
+:::
+
+![同盟における負担共有（シナリオ2）](figures/burden_sharing2.drawio.png)
+
+同盟内部：費用分担の問題＆見捨てられる恐怖と巻き込まれる恐怖のトレードオフ
+
+同盟外部：安全保障のジレンマ＆コミットメント問題
+
+## 抑止の効果
+
+軍備拡大や同盟には抑止の効果はあるのか？
+
+$\leadsto$分からない！
+
+1. 国力の測定問題
+    - 軍事費？　CINCスコア？
+    - 自国と相手国のバランス？
+1. **因果推論の問題**
+    - 逆の因果（戦争が起こりそうだから同盟締結）の可能性
+    - 観察のできない**反事実** (counterfactual) の問題
+        - 同盟を結んで戦争が起こらなかった／同盟を結ばなくても戦争は起こらなかったかも
+        - 同盟を結んでも戦争が起きた／同盟を結ばなかったらもっと戦争は起こっていたかも
+
+### 拡大抑止の効果
+
+防衛同盟の存在と紛争の発生確率の低下には関連がある？
+
+- 防衛同盟のパートナー$\leadsto$軍事衝突が生じる確率が低下[@leeds2003]
+
+![@leeds2003](figures/leeds2003.png)
+
+- 核兵器国との防衛同盟$\leadsto$軍事衝突が生じる確率を低下／核兵器の配備は無関係[@fuhrmann2014]
+
+![@fuhrmann2014](figures/fuhrmann2014.png)
+
+一方で、実際に紛争が発生した場合に同盟を履行する確率は決して高くはない。
+
+- 履行される同盟の割合：第2次世界大戦前は60-70%程度／第2次世界大戦後は20%程度[@berkemeier2018]
+
+![@berkemeier2018](figures/berkemeier2018.png)
+
+$\leadsto$履行されない同盟によって抑止できている？
 
 ## 軍事力の限界
 
@@ -301,10 +661,13 @@ $\leadsto$非核兵器国は核兵器国との戦争も辞さない？
 
 軍備拡大$\leadsto$平和？
 
-- いかにして周辺国の安心させつつ、抑止力を維持・拡大するか？
+$\leadsto$いかにして周辺国の安心させつつ、抑止力を維持・拡大するか？
+
+- 現在の日本の安全保障政策は？
 
 $\leadsto$軍事力「以外」の平和への方策とは？
 
-- 制度的平和（集団安全保障、軍縮・軍備管理）
-- 民主的平和
-- 商業的平和
+- 国際制度による平和
+  - 集団安全保障、軍縮・軍備管理
+- 民主主義による平和
+- 商業による平和

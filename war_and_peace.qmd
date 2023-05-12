@@ -50,7 +50,7 @@ UCDP defines state-based armed conflict as: “a **contested incompatibility** t
 ```{r}
 #| fig-cap: "武力紛争 (UCDP) の発生件数"
 
-df_ucdp <- read_csv("data/ucdp-prio-acd-211.csv")
+df_ucdp <- read_csv("data/ucdp-prio-acd-221.csv")
 
 df_ucdp %>% 
   count(year) %>% 
@@ -99,7 +99,7 @@ $\leadsto$内戦の時代？
 ```{r}
 #| fig-cap: "国家間武力衝突 (MID) の発生件数"
 
-df_mid_temp <- read_csv("data/MID/MIDA 5.0.csv", na = "-9")
+df_mid_temp <- read_csv("data/mid/MIDA 5.0.csv", na = "-9")
 
 df_mid <- NULL
 
@@ -160,7 +160,7 @@ left_join(expand(df_mid, year, hostlev),
 
 df_system <- read_csv("data/system2016.csv")
 
-df_midb_temp <- read_csv("data/MID/MIDB 5.0.csv", na = "-9")
+df_midb_temp <- read_csv("data/mid/MIDB 5.0.csv", na = "-9")
 
 df_midb <- NULL
 
@@ -233,7 +233,7 @@ df_world <- map_data("world") %>%
   filter(region != "Antarctica") %>% 
   mutate(stateabb = countrycode(region, "country.name", "cowc"))
 
-df_geo <- read_csv("data/ged211.csv") %>% 
+df_geo <- read_csv("data/GEDEvent_v22_1.csv") %>% 
   rename(long = longitude, lat = latitude)
 
 type <- c("国家による暴力", "非国家アクターによる暴力", "一方的暴力")
@@ -288,24 +288,24 @@ df_world %>%
 ```{r}
 #| fig-cap: "軍事支出 (SIPRI) の推移"
 
-df_milex <- bind_rows(read_excel("data/SIPRI-Milex-data-1949-2020_0.xlsx", 
+df_milex <- bind_rows(read_excel("data/SIPRI-Milex-data-1949-2022.xlsx", 
                                  sheet = 5, skip = 5, 
-                                 na = c(". .", "xxx")) %>% 
-                        select(Country, "1949":"2020") %>% 
+                                 na = c("...", "xxx")) %>% 
+                        select(Country, "1949.0":"2022.0") %>% 
                         pivot_longer(-Country, names_to = "year", values_to = "milex", 
                                      names_transform = list(year = as.integer), 
                                      values_drop_na = TRUE) %>% 
                         mutate(type = "実質"),
-                      read_excel("data/SIPRI-Milex-data-1949-2020_0.xlsx", sheet = 6, skip = 5, 
-                                 na = c(". .", "xxx")) %>% 
-                        select(Country, "1949":"2020") %>% 
-                        mutate(across("1949":"2020", as.character)) %>% 
+                      read_excel("data/SIPRI-Milex-data-1949-2022.xlsx", sheet = 6, skip = 5, 
+                                 na = c("...", "xxx")) %>% 
+                        select(Country, "1949.0":"2022.0") %>% 
+                        mutate(across("1949.0":"2022.0", as.character)) %>% 
                         pivot_longer(-Country, names_to = "year", values_to = "milex", 
                                      names_transform = list(year = as.integer), 
                                      values_transform = list(milex = as.numeric), values_drop_na = TRUE) %>% 
                         mutate(type = "名目"))
 
-country <- c("USA", "Japan", "China", "Russia")
+country <- c("United States of America", "Japan", "China", "Russia")
 
 ggplot(df_milex) + 
   geom_line(aes(x = year, y = milex, group = Country), alpha = 0.1) + 
@@ -322,21 +322,21 @@ ggplot(df_milex) +
 ```{r}
 #| fig-cap: "軍事支出 (SIPRI) のGDP比の推移"
 
-df_milratio <- bind_rows(read_excel("data/SIPRI-Milex-data-1949-2020_0.xlsx", 
+df_milratio <- bind_rows(read_excel("data/SIPRI-Milex-data-1949-2022.xlsx", 
                                     sheet = 7, skip = 5, 
-                                    na = c(". .", "xxx")) %>% 
-                           select(Country, "1949":"2020") %>% 
-                           mutate(across("1949":"2020", as.character)) %>% 
+                                    na = c("...", "xxx")) %>% 
+                           select(Country, "1949.0":"2022.0") %>% 
+                           mutate(across("1949.0":"2022.0", as.character)) %>% 
                            pivot_longer(-Country, names_to = "year", values_to = "ratio", 
                                         names_transform = list(year = as.integer), 
                                         values_transform = list(ratio = as.numeric), 
                                         values_drop_na = TRUE) %>% 
                            mutate(type = "対GDP"),
-                         read_excel("data/SIPRI-Milex-data-1949-2020_0.xlsx", 
+                         read_excel("data/SIPRI-Milex-data-1949-2022.xlsx", 
                                     sheet = 9, skip = 7, 
-                                    na = c(". .", "xxx")) %>% 
-                           select(Country, "1988":"2020") %>% 
-                           mutate(across("1988":"2020", as.character)) %>% 
+                                    na = c("...", "xxx")) %>% 
+                           select(Country, "1988.0":"2022.0") %>% 
+                           mutate(across("1988.0":"2022.0", as.character)) %>% 
                            pivot_longer(-Country, names_to = "year", values_to = "ratio", 
                                         names_transform = list(year = as.integer), 
                                         values_transform = list(ratio = as.numeric), 
@@ -423,7 +423,7 @@ left_join(expand(df_mid, year, intensity_level),
 ```{r}
 #| fig-cap: "武力衝突 (UCDP) の形態と被害者数の推移"
 
-df_brd <- read_csv("data/ucdp-brd-dyadic-211.csv")
+df_brd <- read_csv("data/ucdp-brd-dyadic-221.csv")
 
 type <- c("国家間戦争", "内戦", "国際介入のある内戦")
 
