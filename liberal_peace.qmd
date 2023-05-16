@@ -1,0 +1,453 @@
+---
+title: "平和の要因"
+subtitle: "国際公共政策学"
+author: "土井翔平"
+date: today
+---
+
+```{r}
+#| include: false
+#| cache: false
+
+library(tidyverse)
+theme_set(theme_bw(base_family = "Noto Sans CJK JP Light"))
+library(rvest)
+```
+
+## はじめに {.unnumbered}
+
+軍事力（それに基づく抑止力）は万能の薬ではない。
+
+$\leadsto$それ以外の戦争を回避する、平和を促進する要因の模索
+
+1. 国際制度：国際的な武力行使の違法化とその違反に対する制裁、軍備の管理や縮小
+1. 民主主義：民主的な政治体制の国による戦争の回避
+1. 経済的相互依存：国家間の経済交流による平和の促進
+
+リベラルな平和、カント的平和[@oneal1997; @oneal1999]^[カントの「永遠平和のために」がこうした思想の潮流とする見方のため。]、リベラル国際秩序 (liberal international order: ILO) [@ikenberry2009; @ikenberry2018]などと呼ばれる。
+
+## 国際制度と平和
+
+多くの国内社会でそうであるように、ルール（制度）で暴力を止める。
+
+- 戦争（武力行使）の違法化
+- 集団的安全保障
+- 軍縮・不拡散
+
+### 戦争の違法化
+
+#### 戦間期
+
+第1次世界大戦$\leadsto$軍備拡大や同盟による平和の維持には限界
+
+$\leadsto$戦争を行う権利を制限するルール (**jus ad bellum**) によって平和を維持しようとする動き[@yamakage2012, 第3章]
+
+ウッドロー・ウィルソン米大統領の提案により**国際連盟** (the League of Nations) が設立
+
+$\leadsto$[国際連盟規約](https://avalon.law.yale.edu/20th_century/leagcov.asp)：加盟国への戦争は加盟国全体の問題である。
+
+:::{.callout-note}
+## [国際連盟規約](https://avalon.law.yale.edu/20th_century/leagcov.asp)　第11条
+
+Any war or threat of war, whether immediately affecting any of the Members of the League or not, is hereby declared **a matter of concern to the whole League**, and the League shall take any action that may be deemed wise and effectual to safeguard the peace of nations. In case any such emergency should arise the Secretary General shall on the request of any Member of the League forthwith summon a meeting of the Council.
+:::
+
+:::{.callout-note}
+## [国際連盟規約](https://avalon.law.yale.edu/20th_century/leagcov.asp)　第16条
+
+Should any Member of the League resort to war in disregard of its covenants under Articles 12, 13 or 15, it shall ipso facto be deemed to have committed **an act of war against all other Members of the League**, which hereby undertake immediately to subject it to the severance of all trade or financial relations, the prohibition of all intercourse between their nationals and the nationals of the covenant-breaking State, and the prevention of all financial, commercial or personal intercourse between the nationals of the covenant-breaking State and the nationals of any other State, whether a Member of the League or not.
+:::
+
+$\leadsto$[**不戦条約**](https://avalon.law.yale.edu/20th_century/kbpact.asp)（ケロッグ＝ブリアン条約）：戦争の放棄に各国が合意（1928年）
+
+:::{.callout-note}
+## [不戦条約](https://avalon.law.yale.edu/20th_century/kbpact.asp)第1条
+
+The High Contracting Parties solemly declare in the names of their respective peoples that they condemn recourse to war for the solution of international controversies, and **renounce it, as an instrument of national policy** in their relations with one another.
+:::
+
+#### 第2次世界大戦後
+
+国際連盟や不戦条約では第2次世界大戦を防止することはできず。
+
+$\leadsto$戦後に設立された**国際連合** (the United Nations)：**武力行使禁止原則**が確立
+
+:::{.callout-note}
+## [国連憲章](https://www.unic.or.jp/info/un/charter/text_japanese/)　第2条3項
+
+すべての加盟国は、その国際紛争を**平和的手段によって**国際の平和及び安全並びに正義を危くしないように**解決しなければならない**。
+:::
+
+:::{.callout-note}
+## [国連憲章](https://www.unic.or.jp/info/un/charter/text_japanese/)　第2条4項
+
+すべての加盟国は、その国際関係において、**武力による威嚇又は武力の行使を**、いかなる国の領土保全又は政治的独立に対するものも、また、国際連合の目的と両立しない他のいかなる方法によるものも**慎まなければならない**。
+:::
+
+- 戦争を禁止した国際連盟規約とは異なり、武力による威嚇および武力行使 (the threat or use of force) を禁止
+- 武力行使禁止原則は慣習国際法（ニカラグア事件ICJ判決、1986年）
+
+自衛権 (self-defense) の行使としての武力行使は例外として認められている。
+
+:::{.callout-note}
+## [国連憲章](https://www.unic.or.jp/info/un/charter/text_japanese/)　第51条
+
+この憲章のいかなる規定も、国際連合加盟国に対して武力攻撃が発生した場合には、安全保障理事会が国際の平和及び安全の維持に必要な措置をとるまでの間、**個別的又は集団的自衛の固有の権利を害するものではない**。
+:::
+
+- 国際法上、個別的自衛権と集団的自衛権の合法性は区別されていない。
+
+### 集団安全保障
+
+武力行使を国際法上、禁止したとしても、それだけでは意味はない。
+
+$\leadsto$**集団的安全保障** (collective security) ^[集団的自衛権とは似て非なるものなので、要注意。]の発明
+
+- 集団的安全保障：武力行使禁止原則に反した国に対して、他の全ての加盟国が制裁を加えることで、それを抑止する。
+
+事実上、全ての加盟国で防衛同盟を結んでいることになる。
+
+- 同盟では敵が同盟の外部にいることが前提
+- 集団安全保障では仮想敵が組織内部に存在することを前提
+
+:::{layout-ncol=2}
+
+![同盟のイメージ](figures/alliance.drawio.png)
+
+![集団安全保障のイメージ](figures/collective_security.drawio.png)
+
+:::
+
+$\leadsto$できる限り多くの国家が参加する**普遍的** (universal) 制度であるのが望ましい。
+
+![[国連加盟国と加盟年](https://commons.wikimedia.org/wiki/File:United_Nations_member_countries_world_map.PNG)](https://upload.wikimedia.org/wikipedia/commons/d/d8/United_Nations_member_countries_world_map.PNG)
+
+#### 国連安全保障理事会
+
+[**安全保障理事会**](https://www.un.org/securitycouncil/) (Security Council: SC)：国際連合において、集団安全保障を担う機関
+
+![[国連安全保障理事会](https://commons.wikimedia.org/wiki/File:UN_security_council_2005.jpg)](https://upload.wikimedia.org/wikipedia/commons/3/31/UN_security_council_2005.jpg){width=50%}
+
+:::{.callout-note}
+## [国連憲章](https://www.unic.or.jp/info/un/charter/text_japanese/)　第24条1項
+
+国際連合の迅速且つ有効な行動を確保するために、国際連合加盟国は、国際の平和及び安全の維持に関する**主要な責任**を安全保障理事会に負わせるものとし、且つ、安全保障理事会がこの責任に基く義務を果すに当って加盟国に代って行動することに同意する。
+:::
+
+$\leadsto$**平和に対する脅威**を認定し、必要な強制措置を決定
+
+:::{.callout-note}
+## [国連憲章](https://www.unic.or.jp/info/un/charter/text_japanese/)　第39条
+
+安全保障理事会は、**平和に対する脅威**、平和の破壊又は侵略行為の存在を決定し、並びに、国際の平和及び安全を維持し又は回復するために、勧告をし、又は**第41条及び第42条に従っていかなる措置をとるかを決定する**。
+:::
+
+強制措置：非軍事（経済）制裁および軍事制裁
+
+:::{.callout-note}
+## [国連憲章](https://www.unic.or.jp/info/un/charter/text_japanese/)　第41条
+
+安全保障理事会は、その決定を実施するために、**兵力の使用を伴わないいかなる措置**を使用すべきかを決定することができ、且つ、この措置を適用するように国際連合加盟国に要請することができる。...
+:::
+
+:::{.callout-note}
+## [国連憲章](https://www.unic.or.jp/info/un/charter/text_japanese/)　第42条
+
+安全保障理事会は、第41条に定める措置では不充分であろうと認め、又は不充分なことが判明したと認めるときは、国際の平和及び安全の維持又は回復に必要な**空軍、海軍又は陸軍の行動**をとることができる。...
+:::
+
+- 脅威認定および強制措置の決定は国連憲章第7章に規定$\leadsto$これらが言及されている決議を7章決議
+
+安全保障理事会は5つの**常任理事国** (permanent seat: **P5**) と10 (6) ヶ国の非常任理事国
+
+:::{.callout-note}
+## [国連憲章](https://www.unic.or.jp/info/un/charter/text_japanese/)　第23条
+
+1. 安全保障理事会は、**15の国際連合加盟国**で構成する。中華民国、フランス、ソヴィエト社会主義共和国連邦、グレート・ブリテン及び北部アイルランド連合王国及びアメリカ合衆国は、安全保障理事会の**常任理事国**となる。総会は、第一に国際の平和及び安全の維持とこの機構のその他の目的とに対する国際連合加盟国の貢献に、更に衡平な地理的分配に特に妥当な考慮を払って、安全保障理事会の**非常任理事国となる他の10の国際連合加盟国**を選挙する。
+1. 安全保障理事会の非常任理事国は、**2年の任期**で選挙される。...退任理事国は、引き続いて**再選される資格はない**。
+1. （略）
+:::
+
+- ⾮常任理事国の任期は2年（再選不可）、毎年半数が地域ごとに総会で選出（同2項）
+
+安保理の決定には（加盟国の同意によらず）**法的拘束力**がある。
+
+:::{.callout-note}
+## [国連憲章](https://www.unic.or.jp/info/un/charter/text_japanese/)　第25条
+
+国際連合加盟国は、<u>安全保障理事会の決定</u>をこの憲章に従って**受諾し且つ履行する**ことに同意する。
+:::
+
+常任理事国には[**拒否権**](https://research.un.org/en/docs/sc/quick/veto) (veto power) がある。
+
+:::{.callout-note}
+## [国連憲章](https://www.unic.or.jp/info/un/charter/text_japanese/)　第27条
+
+1. 安全保障理事会の各理事国は、1個の投票権を有する。
+1. 手続事項に関する安全保障理事会の決定は、9理事国の賛成投票によって行われる。
+1. **その他のすべての事項**に関する安全保障理事会の決定は、**常任理事国の同意投票を含む**9理事国の賛成投票によって行われる。但し、第6章及び第52条3に基く決定については、紛争当事国は、投票を棄権しなければならない。
+:::
+
+- 手続き事項および当事国である紛争に関する平和的解決（第6章）は除く。
+- 脅威認定および強制措置の決定については拒否権を行使できる。
+
+#### 集団安全保障の機能と限界
+
+集団安全保障が適切に運用される$\leadsto$現状変更勢力は戦争で勝利する確率が下がり、費用が拡大$\leadsto$戦争の利益が減り、現状維持を求める
+
+同盟と同じ論理で抑止をするが、集団安全保障に特有の利点がある。
+
+- 集団安全保障は現状維持勢力だけが支援される$\leadsto$安全保障のジレンマが生じない。
+- 集団で現状維持勢力を支援するためパワーシフトの影響を抑える$\leadsto$コミットメント問題も解消する。
+
+$\leadsto$拒否権を付与することで、一部の国による集団安全保障の悪用を回避
+
+中立的な立場から仲介や平和維持活動を行うことで、平和的解決を容易にする？
+
+:::{.callout-note}
+## [国連憲章](https://www.unic.or.jp/info/un/charter/text_japanese/)　第96条
+
+事務総長は、総会、安全保障理事会、経済社会理事会及び信託統治理事会のすべての会議において事務総長の資格で行動し、且つ、これらの機関から委託される他の任務を遂行する。
+:::
+
+費用分担と共同意思決定の問題を克服するように制度設計をする必要がある。
+
+1. 加盟国は他国の制裁にタダ乗りして、制裁の費用を回避する（同盟における費用分担と同様）。
+    - 安保理の決定に法的拘束力
+    - 大国の同意がある行動のみ
+1. 普遍的制度であるため、利害の異なる多くの国の中で脅威認定と強制措置を決定
+    - 一部の国だけの理事会で意思決定$\leadsto$交渉コストの節約
+    - 大国の間で利害が一致しない決定を行わない。
+      - 一部の国の利益だけで行動すると大国間の戦争に発展したり、他の国家が脱退してしまう。
+      - それが可能であるならば、集団的自衛権の行使によって軍事制裁を課しているはずである。
+
+$\leadsto$常任理事国の不利益となるような行動を取ることはできない。
+
+- 安保理が行動できるのは、一部の常任理事国には関心があり、他の常任理事国は無関心な事態
+
+### 国連安保理の展開
+
+#### 冷戦期：機能不全と新しい道
+
+国連設立当初から冷戦の勃発$\leadsto$国連は機能不全
+
+- 東西陣営が自らの不利益となる安保理決議に拒否権
+
+```{r}
+html_veto <- read_html("https://www.un.org/depts/dhl/resguide/scact_veto_table_en.htm")
+
+df_veto <- html_veto %>% 
+  html_node("table") %>% 
+  html_table(header = FALSE) %>% 
+  slice(-(1:3)) %>% 
+  select(1:5) %>% 
+  set_names(c("date", "draft", "record", "agenda", "country")) %>% 
+  mutate(year = str_extract(date, "[0-9]{4}") %>% 
+           parse_number(),
+         period = (year - 1946) %/% 5,
+         us = if_else(str_detect(country, "USA"), 1, 0),
+         uk = if_else(str_detect(country, "UK"), 1, 0),
+         fr = if_else(str_detect(country, "France"), 1, 0),
+         ch = if_else(str_detect(country, "China"), 1, 0),
+         ru = if_else(str_detect(country, "(Russia|USSR)"), 1, 0)) %>% 
+  select(-country) %>% 
+  pivot_longer(us:ru, names_to = "country", values_to = "veto") %>% 
+  filter(veto == 1) %>% 
+  filter(year != 2022)
+
+ord <- c("us", "uk", "fr", "ru", "ch")
+type <- c("アメリカ", "イギリス", "フランス", "ロシア・ソ連", "中国")
+
+left_join(expand(df_veto, year, country),
+          df_veto %>% 
+            count(year, country)) %>% 
+  replace_na(list(n = 0)) %>% 
+  group_by(year) %>% 
+  mutate(total = sum(n),
+         ratio = n/total) %>% 
+  pivot_longer(c(n, ratio)) %>% 
+  mutate(name = recode(name, n = "件数", ratio = "比率")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, 
+                color = country,
+                fill = country),
+            alpha = 0.5) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2", breaks = ord, labels = type) + 
+  scale_fill_brewer(palette = "Set2", breaks = ord, labels = type) + 
+  facet_grid(name ~ ., scales = "free_y") + 
+  labs(x = "年", y = "拒否権", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+唯一の例外として1950年の**朝鮮戦争**の際に[安保理決議83](https://ja.wikisource.org/wiki/%E5%9B%BD%E9%9A%9B%E9%80%A3%E5%90%88%E5%AE%89%E5%85%A8%E4%BF%9D%E9%9A%9C%E7%90%86%E4%BA%8B%E4%BC%9A%E6%B1%BA%E8%AD%B083)が採択され、国連軍が派遣された。^[ソ連は中国の代表権を巡ってボイコットしており、拒否権を行使できなかった。]
+
+- 当時の韓国は国連加盟国ではなかったので、厳密な意味での集団安全保障ではない。
+- 国連憲章上では国連軍の設立が予定されていたが（第43条）、現実的であるとは言えず、加盟国に武力行使を**授権** (authorize) する方針を取る。
+
+**平和のための結集** (Uniting for Peace) 決議$\leadsto$拒否権が行使された場合に総会が勧告できるようにする。
+
+:::{.callout-note}
+## 平和のための結集決議　主文1
+
+Resolves that if the Security Council, **because of lack of unanimity of the permanent members**, fails to exercise its primary responsibility for the maintenance of international peace and security in any case where there appears to be a threat to the peace, breach of the peace, or act of aggression, **the General Assembly** shall consider the matter immediately with a view to making **appropriate recommendations** to Members for collective measures, including in the case of a breach of the peace or act of aggression **the use of armed force** when necessary, to maintain or restore international peace and security.
+:::
+
+- 国連[緊急特別総会](https://www.un.org/en/ga/sessions/emergency.shtml) (emergency special session: ESS) を開催
+- 平和のための結集決議が最初に使われたのは1956年の**スエズ戦争**（第2次中東戦争）のときである。
+  - イスラエルがエジプトのスエズ運河に侵攻し、利権を狙ったイギリスとフランスが介入
+  - アメリカとソ連が協力して緊急特別総会を招集し、第1次国連緊急軍 (UNEF I) を展開
+  - 軽武装の軍隊を停戦地帯に派遣し、監視
+
+集団安全保障が想定する**平和執行** (peace-enforcement) とは異なる**平和維持活動** (peacekeeping operation)^[しばしば、日本語では平和維持活動をPKOと略すが、国際的には通用しない略称である。] が発明
+
+- 最初の平和維持活動は第1次中東戦争の際の国連休戦監視機構
+- 国連憲章には規定がないので「6章半^[平和的解決の第6章と軍事制裁を含む強制措置の第7章の中間という意味。]の活動」と呼ばれる。
+- UNEF Iを主導したピアソンは1957年に、平和維持活動自体は1988年にノーベル平和賞を受賞
+
+```{r}
+html_pko <- read_html("https://en.wikipedia.org/wiki/List_of_United_Nations_peacekeeping_missions")
+
+dfs_pko <- html_pko %>% 
+  html_nodes("table.wikitable") %>% 
+  html_table()
+
+region <- c("アフリカ", "アメリカ", "アジア", "ヨーロッパ", "中東", 
+            "アフリカ", "アジア", "ヨーロッパ", "中東")
+
+no_pko <- NULL
+
+for(i in 1:length(dfs_pko)) {
+  
+  df_pko <- dfs_pko[[i]]
+  
+  for(j in 1:nrow(df_pko)) {
+    year <- df_pko[j,1]
+    start <- str_extract(year, "^[0-9]{4}")
+    end <- str_extract(year, "[0-9]{4}$")
+    
+    if (i <= 5) {
+      temp <- tibble(year = start:end,
+                     region = region[i])
+    } else {
+      temp <- tibble(year = start:2022,
+                     region = region[i])
+    }
+    
+    no_pko <- bind_rows(no_pko, temp)
+    
+  }
+  
+}
+
+type <- region[1:5]
+
+left_join(expand(no_pko, year, region),
+          no_pko %>% 
+            count(year, region)) %>% 
+  replace_na(list(n = 0)) %>% 
+  group_by(year) %>% 
+  mutate(total = sum(n),
+         ratio = n/total) %>% 
+  pivot_longer(c(n, ratio)) %>% 
+  mutate(name = recode(name, n = "件数", ratio = "比率")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, 
+                color = region,
+                fill = region),
+            alpha = 0.5) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2", breaks = type, labels = type) + 
+  scale_fill_brewer(palette = "Set2", breaks = type, labels = type) + 
+  facet_grid(name ~ ., scales = "free_y") + 
+  labs(x = "年", y = "平和維持活動", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+![[国連平和維持活動の展開](https://commons.wikimedia.org/wiki/File:UNpeacekeeping.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/UNpeacekeeping.svg/1280px-UNpeacekeeping.svg.png)
+
+### 冷戦後：期待と失望
+
+冷戦の終結$\leadsto$イデオロギー対立が解消$\leadsto$安保理の活性化
+
+- 代表的な例：1990年の**湾岸戦争**の際に[安保理決議678](https://digitallibrary.un.org/record/102245)が採択され、国連軍が派遣
+- [国連決議の読み方](https://research.un.org/en/docs/resolutions)
+
+:::{.callout-note}
+## 国連安保理決議678
+
+*The Security Council*,
+
+*Recalling and reaffirming* its resolutions 660 (1990) of 2 August 1990, 661 (1990) of 6 August 1990, 662 (1990) of 9 August 1990, 664 (1990) of 18 August 1990, 665 (1990) of 25 August 1990, 666 (1990) of 13 September 1990, 667 (1990) of 16 September 1990, 669 (1990) of 24 September 1990, 670 (1990) of 25 September 1990, 674 (1990) of of 29 October 1990 and 677 (1990) of 28 November 1990.
+
+*Noting* that, despite all efforts by the United Nations, Iraq refuses to comply with its obligation to implement resolution 660 (1990) and the above-mentioned subsequent relevant resolutions, in flagrant contempt of the Security Council,
+
+*Mindful of* **its duties and responsibilities** under the Charter of the United Nations for **the maintenance and preservation of international peace and security**,
+
+*Determined* to secure full compliance with its decisions,
+
+*Acting* under **Chapter VII** of the Charter,
+
+1. *Demands* that Iraq comply fully with resolution 660 (1990) and all subsequent relevant resolutions, and decides, while maintaining all its decisions, to allow Iraq one final opportunity, as a pause of goodwil, to do so;
+
+2. ***Authorizes*** Member States co-operating with the Government of Kuwait, unless Iraq on or before 15 January 1991 fully implements, as set forth in paragraph 1 above, the above-mentioned resolutions, to **use all necessary means** to uphold and implement resolution 660 (1990) and all subsequent relevant resolutions and to restore international peace and security in the area;
+
+3. *Requests* all States to provide appropriate support for the actions undertaken in pursuance of paragraph 2 of the present resolution;
+
+4. *Requests* the States concerned to keep the Security Council regularly informed on the progress of actions undertaken pursuant to paragraphs 2 and 3 of the present resolution;
+
+5. *Decides* to remain seized of the matter. 
+:::
+
+- 国連決議の探し方：[国会図書館](https://rnavi.ndl.go.jp/jp/politics/UN-tool.html)、[国連広報センター](https://www.unic.or.jp/texts_audiovisual/libraries/research_guide/)
+  - [総会](https://research.un.org/en/docs/ga/quick/regular/76)、[安保理](https://www.un.org/securitycouncil/content/resolutions-0)
+- 国連の文書記号：[国会図書館](https://rnavi.ndl.go.jp/jp/politics/UN-docOR.html)、[国連広報センター](https://www.unic.or.jp/texts_audiovisual/libraries/research_guide/research/symbols/)
+
+武力行使授権（容認）決議の特徴：
+
+1. 平和に対する脅威の認定
+1. 第7章（あるいは第42条）に基づく宣言
+1. 「すべての必要な措置を取る」ことの授権
+
+2001年の**9.11同時多発テロ**：加盟国に共通の脅威と認知$\leadsto$安保理決議1368
+
+- テロリズムに対しても自衛権を行使
+- NATOは初めて集団的自衛権を行使$\leadsto$アフガニスタンへ侵攻
+
+2003年の**イラク戦争**：はアメリカやイギリスが明確な武力行使授権決議なしに攻撃
+
+- 中国やロシアだけでなくフランスやドイツも反対
+
+2014年のロシアによる**クリミア侵攻**、2022年の**ウクライナ侵攻**：安保理は機能不全
+
+$\leadsto$安保理が対応できるのは、常任理事国間で利害が対立しない程度に重要ではなく、行動しようと思う程度には重要な事態である。
+
+<!-- ### 軍縮・不拡散 -->
+
+<!-- ### 信頼醸成・共同管理 -->
+
+<!-- ## 民主的平和 -->
+
+<!-- ### 政治体制 -->
+
+<!-- ### 民主的平和の論理 -->
+
+<!-- #### アカウンタビリティ -->
+
+<!-- #### 透明性 -->
+
+<!-- #### 規範・アイデンティティ -->
+
+<!-- ### 女性政治家 -->
+
+<!-- ### 民主主義の副作用 -->
+
+<!-- ### 民主化の副作用 -->
+
+<!-- ## 商業的平和 -->
+
+<!-- ### 商業的平和の論理 -->
+
+<!-- ### パワーとしての相互依存 -->
+
+<!-- ## 東アジアの平和？ -->

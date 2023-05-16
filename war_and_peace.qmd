@@ -36,7 +36,7 @@ library(countrycode)
 [Uppsala Conflict Data Program (UCDP)](https://ucdp.uu.se/encyclopedia) のデータ[@gleditsch2002]
 
 ::: {.content-visible when-format="html"}
-::: {.column-screen}
+::: {.column-screen-right}
 <iframe src="https://ucdp.uu.se/encyclopedia" loading="lazy" style="width: 100%; height: 800px; border: 0px none;"></iframe>
 :::
 :::

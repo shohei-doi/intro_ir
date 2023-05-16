@@ -127,8 +127,11 @@ $\leadsto$**利益の配分と国力の配分が一致するよう**に抑止力
 :::
 
 ::: {layout-ncol=2}
+
 ![抑止の失敗](figures/deterrence1.drawio.png)
+
 ![抑止の成功](figures/deterrence2.drawio.png)
+
 :::
 
 軍備拡大や動員$\leadsto$威嚇の信憑性を高める＆戦争の可能性を高める[@slantchev2003]。
