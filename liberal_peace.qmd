@@ -11,7 +11,6 @@ date: today
 
 library(tidyverse)
 theme_set(theme_bw(base_family = "Noto Sans CJK JP Light"))
-library(rvest)
 ```
 
 ## はじめに {.unnumbered}
@@ -234,26 +233,9 @@ $\leadsto$常任理事国の不利益となるような行動を取ることは�
 - 東西陣営が自らの不利益となる安保理決議に拒否権
 
 ```{r}
-html_veto <- read_html("https://www.un.org/depts/dhl/resguide/scact_veto_table_en.htm")
+#| fig-cap: "安保理における拒否権の推移"
 
-df_veto <- html_veto %>% 
-  html_node("table") %>% 
-  html_table(header = FALSE) %>% 
-  slice(-(1:3)) %>% 
-  select(1:5) %>% 
-  set_names(c("date", "draft", "record", "agenda", "country")) %>% 
-  mutate(year = str_extract(date, "[0-9]{4}") %>% 
-           parse_number(),
-         period = (year - 1946) %/% 5,
-         us = if_else(str_detect(country, "USA"), 1, 0),
-         uk = if_else(str_detect(country, "UK"), 1, 0),
-         fr = if_else(str_detect(country, "France"), 1, 0),
-         ch = if_else(str_detect(country, "China"), 1, 0),
-         ru = if_else(str_detect(country, "(Russia|USSR)"), 1, 0)) %>% 
-  select(-country) %>% 
-  pivot_longer(us:ru, names_to = "country", values_to = "veto") %>% 
-  filter(veto == 1) %>% 
-  filter(year != 2022)
+df_veto <- read_csv("data/unsc/veto.csv")
 
 ord <- c("us", "uk", "fr", "ru", "ch")
 type <- c("アメリカ", "イギリス", "フランス", "ロシア・ソ連", "中国")
@@ -306,46 +288,11 @@ Resolves that if the Security Council, **because of lack of unanimity of the per
 - UNEF Iを主導したピアソンは1957年に、平和維持活動自体は1988年にノーベル平和賞を受賞
 
 ```{r}
-html_pko <- read_html("https://en.wikipedia.org/wiki/List_of_United_Nations_peacekeeping_missions")
+#| fig-cap: "平和維持活動の推移"
 
-dfs_pko <- html_pko %>% 
-  html_nodes("table.wikitable") %>% 
-  html_table()
+df_pko <- read_csv("data/unsc/pko.csv")
 
-region <- c("アフリカ", "アメリカ", "アジア", "ヨーロッパ", "中東", 
-            "アフリカ", "アジア", "ヨーロッパ", "中東")
-
-no_pko <- NULL
-
-for(i in 1:length(dfs_pko)) {
-  
-  df_pko <- dfs_pko[[i]]
-  
-  for(j in 1:nrow(df_pko)) {
-    year <- df_pko[j,1]
-    start <- str_extract(year, "^[0-9]{4}")
-    end <- str_extract(year, "[0-9]{4}$")
-    
-    if (i <= 5) {
-      temp <- tibble(year = start:end,
-                     region = region[i])
-    } else {
-      temp <- tibble(year = start:2022,
-                     region = region[i])
-    }
-    
-    no_pko <- bind_rows(no_pko, temp)
-    
-  }
-  
-}
-
-type <- region[1:5]
-
-left_join(expand(no_pko, year, region),
-          no_pko %>% 
-            count(year, region)) %>% 
-  replace_na(list(n = 0)) %>% 
+df_pko %>% 
   group_by(year) %>% 
   mutate(total = sum(n),
          ratio = n/total) %>% 
@@ -369,6 +316,31 @@ left_join(expand(no_pko, year, region),
 ### 冷戦後：期待と失望
 
 冷戦の終結$\leadsto$イデオロギー対立が解消$\leadsto$安保理の活性化
+
+
+```{r}
+#| fig-cap: "安保理会合の推移"
+
+df_sc <- read_csv("data/unsc/meeting.csv")
+
+df_sc %>% 
+  filter(year != max(year)) %>% 
+  group_by(year) %>% 
+  mutate(total = sum(n), 
+         ratio = n/total) %>% 
+  pivot_longer(c(n, ratio)) %>% 
+  mutate(name = recode(name, n = "件数", ratio = "比率")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, color = action, fill = action),
+            alpha = 0.5) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2") + 
+  scale_fill_brewer(palette = "Set2") + 
+  facet_grid(name ~ ., scales = "free_y") + 
+  labs(x = "年", y = "安保理会合", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
 
 - 代表的な例：1990年の**湾岸戦争**の際に[安保理決議678](https://digitallibrary.un.org/record/102245)が採択され、国連軍が派遣
 - [国連決議の読み方](https://research.un.org/en/docs/resolutions)
