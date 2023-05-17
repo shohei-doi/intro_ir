@@ -164,7 +164,7 @@ $\leadsto$**利益の配分と国力の配分が一致するよう**に抑止力
 - ロシアが動員を始める$\leadsto$ドイツが第一撃における優位を確保できる時間は少ない。
 - ロシアが動員したという情報を得た時点で、ドイツはフランスとの開戦を決定する。
 
-![[シュリーフェン・プラン](https://commons.wikimedia.org/wiki/File:Schlieffen_Plan.jpg)](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Schlieffen_Plan.jpg/775px-Schlieffen_Plan.jpg){width=80%}
+![[シュリーフェン・プラン](https://commons.wikimedia.org/wiki/File:Schlieffen_Plan.jpg)](figures/Schlieffen_Plan.jpg){width=80%}
 
 ### 安全保障のジレンマ
 
