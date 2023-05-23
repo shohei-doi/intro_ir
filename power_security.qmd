@@ -69,24 +69,24 @@ $$
 ```{r}
 #| fig-cap: "総合国力指数と軍事費の推移"
 
-df_milex <- bind_rows(read_excel("data/SIPRI-Milex-data-1949-2020_0.xlsx", 
+df_milex <- bind_rows(read_excel("data/SIPRI-Milex-data-1949-2022.xlsx", 
                                  sheet = 5, skip = 5, 
-                                 na = c(". .", "xxx")) %>% 
-                        select(Country, "1949":"2020") %>% 
+                                 na = c("...", "xxx")) %>% 
+                        select(Country, "1949.0":"2022.0") %>% 
                         pivot_longer(-Country, names_to = "year", values_to = "milex", 
                                      names_transform = list(year = as.integer), 
                                      values_drop_na = TRUE) %>% 
                         mutate(type = "実質"),
-                      read_excel("data/SIPRI-Milex-data-1949-2020_0.xlsx", sheet = 6, skip = 5, 
-                                 na = c(". .", "xxx")) %>% 
-                        select(Country, "1949":"2020") %>% 
-                        mutate(across("1949":"2020", as.character)) %>% 
+                      read_excel("data/SIPRI-Milex-data-1949-2022.xlsx", sheet = 6, skip = 5, 
+                                 na = c("...", "xxx")) %>% 
+                        select(Country, "1949.0":"2022.0") %>% 
+                        mutate(across("1949.0":"2022.0", as.character)) %>% 
                         pivot_longer(-Country, names_to = "year", values_to = "milex", 
                                      names_transform = list(year = as.integer), 
                                      values_transform = list(milex = as.numeric), values_drop_na = TRUE) %>% 
                         mutate(type = "名目"))
 
-df_nmc <- read_csv("data/NMC/NMC-60-abridged.csv")
+df_nmc <- read_csv("data/nmc/NMC-60-abridged.csv")
 
 bind_rows(df_milex %>% 
             filter(type == "実質") %>% 
@@ -175,7 +175,7 @@ $\leadsto$**利益の配分と国力の配分が一致するよう**に抑止力
 - 最終的には軍拡競争となり、**安全保障のために行った政策の結果として安全保障環境が悪化**してしまう。
 
 :::{.callout-tip}
-## 安全保障のジレンマ
+## 安全保障のジレンマ（シナリオ1）
 
 - 互いに軍備拡大をしなかった場合は国力が均等であるとして0.5の利益を得る。
 - 互いに軍備拡大をした場合は国力は均等であるが、軍事費として0.2の費用を支払う。
@@ -183,7 +183,20 @@ $\leadsto$**利益の配分と国力の配分が一致するよう**に抑止力
 - 後者は軍事費を支払わないが、国力が弱まり0.2の利益を得る。
 :::
 
-![安全保障のジレンマ](figures/security_dilemma.drawio.png)
+![安全保障のジレンマ（シナリオ1）](figures/security_dilemma1.drawio.png)
+
+:::{.callout-tip}
+## 安全保障のジレンマ（シナリオ2）
+
+- 互いに軍備拡大をしなかった場合は国力が均等であるとして0.5の利益を得る。
+- 互いに軍備拡大をした場合は国力は均等であるが、軍事費として0.2の費用を支払う。
+- 一方が軍備拡大をして、他方がしなかった場合、前者は国力が高まり0.8の利益を得るが0.4の費用を支払う。
+- 後者は軍事費を支払わないが、国力が弱まり0.2の利益を得る。
+:::
+
+![安全保障のジレンマ（シナリオ2）](figures/security_dilemma2.drawio.png)
+
+- 本当に相手も軍拡を望まない国なのかは分からない。
 
 スパイラル・モデル：軍拡競争$\leadsto$ロックイン効果$\leadsto$戦争？
 

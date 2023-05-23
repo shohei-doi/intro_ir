@@ -102,7 +102,7 @@ d. 法則決定の補助手段としての裁判上の判決及び諸国の最�
 ![国連総会本会議場](https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/UN_General_Assembly_hall.jpg/1280px-UN_General_Assembly_hall.jpg){width=50%}
 
 - 全ての国連加盟国が参加し、あらゆる国際問題について議論する場
-    - 会期 (session) は毎年9月から始まり、最初に各国代表による[**一般討論**](https://gadebate.un.org/) (genral debate) を行う。
+    - 会期 (session) は毎年9月から始まり、最初に各国代表による[**一般討論**](https://gadebate.un.org/) (general debate) を行う。
     - [トピックモデルによる分析結果](http://ungd.smikhaylov.net/)や[日本政府の一般討論](https://www.mofa.go.jp/mofaj/gaiko/unsokai/toron.html)を見ることができる。
 
 :::{.callout-note}

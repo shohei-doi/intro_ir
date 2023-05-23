@@ -1,0 +1,1709 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  xelatex,
+  ja=standard]{bxjsarticle}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+  \setmainfont[BoldFont=Noto Sans CJK JP]{Noto Serif CJK JP}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{目次}
+\else
+  \newcommand\contentsname{目次}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{図一覧}
+\else
+  \newcommand\listfigurename{図一覧}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{表一覧}
+\else
+  \newcommand\listtablename{表一覧}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{図}
+\else
+  \newcommand\figurename{図}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{表}
+\else
+  \newcommand\tablename{表}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{コード}
+\newcommand*\listoflistings{\listof{codelisting}{コード一覧}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{japanese}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{jecon}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={国際制度と平和},
+  pdfauthor={土井翔平},
+  pdflang={ja},
+  colorlinks=true,
+  linkcolor={NavyBlue},
+  filecolor={Maroon},
+  citecolor={NavyBlue},
+  urlcolor={NavyBlue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{国際制度と平和}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{国際公共政策学}
+\author{土井翔平}
+\date{2023-05-23}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[enhanced, boxrule=0pt, frame hidden, interior hidden, borderline west={3pt}{0pt}{shadecolor}, breakable, sharp corners]}{\end{tcolorbox}}\fi
+
+\hypertarget{ux306fux3058ux3081ux306b}{%
+\section*{はじめに}\label{ux306fux3058ux3081ux306b}}
+\addcontentsline{toc}{section}{はじめに}
+
+軍事力（それに基づく抑止力）は万能の薬ではない。
+
+\(\leadsto\)それ以外の戦争を回避する、平和を促進する要因の模索
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  国際制度：国際的な武力行使の違法化とその違反に対する制裁、軍備の管理や縮小
+\item
+  民主主義：民主的な政治体制の国による戦争の回避
+\item
+  経済的相互依存：国家間の経済交流による平和の促進
+\end{enumerate}
+
+リベラルな平和、カント的平和\citep{oneal1997, oneal1999}\footnote{カントの「永遠平和のために」がこうした思想の潮流とする見方のため。}、リベラル国際秩序
+(liberal international order: ILO)
+\citep{ikenberry2009, ikenberry2018}などと呼ばれる。
+
+\hypertarget{ux56fdux969bux5236ux5ea6ux3068ux5e73ux548c}{%
+\section{国際制度と平和}\label{ux56fdux969bux5236ux5ea6ux3068ux5e73ux548c}}
+
+多くの国内社会でそうであるように、ルール（制度）で暴力を止める。
+
+\begin{itemize}
+\tightlist
+\item
+  戦争（武力行使）の違法化
+\item
+  集団的安全保障
+\item
+  軍縮・不拡散
+\end{itemize}
+
+\hypertarget{ux6226ux4e89ux306eux9055ux6cd5ux5316}{%
+\subsection{戦争の違法化}\label{ux6226ux4e89ux306eux9055ux6cd5ux5316}}
+
+\hypertarget{ux6226ux9593ux671f}{%
+\subsubsection{戦間期}\label{ux6226ux9593ux671f}}
+
+第1次世界大戦\(\leadsto\)軍備拡大や同盟による平和の維持には限界
+
+\(\leadsto\)戦争を行う権利を制限するルール (\textbf{jus ad bellum})
+によって平和を維持しようとする動き\citep[第3章]{yamakage2012}
+
+ウッドロー・ウィルソン米大統領の提案により\textbf{国際連盟} (the League
+of Nations) が設立
+
+\(\leadsto\)\href{https://avalon.law.yale.edu/20th_century/leagcov.asp}{国際連盟規約}：加盟国への戦争は加盟国全体の問題である。
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://avalon.law.yale.edu/20th_century/leagcov.asp}{国際連盟規約}　第11条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+Any war or threat of war, whether immediately affecting any of the
+Members of the League or not, is hereby declared \textbf{a matter of
+concern to the whole League}, and the League shall take any action that
+may be deemed wise and effectual to safeguard the peace of nations. In
+case any such emergency should arise the Secretary General shall on the
+request of any Member of the League forthwith summon a meeting of the
+Council.
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://avalon.law.yale.edu/20th_century/leagcov.asp}{国際連盟規約}　第16条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+Should any Member of the League resort to war in disregard of its
+covenants under Articles 12, 13 or 15, it shall ipso facto be deemed to
+have committed \textbf{an act of war against all other Members of the
+League}, which hereby undertake immediately to subject it to the
+severance of all trade or financial relations, the prohibition of all
+intercourse between their nationals and the nationals of the
+covenant-breaking State, and the prevention of all financial, commercial
+or personal intercourse between the nationals of the covenant-breaking
+State and the nationals of any other State, whether a Member of the
+League or not.
+
+\end{tcolorbox}
+
+\(\leadsto\)\href{https://avalon.law.yale.edu/20th_century/kbpact.asp}{\textbf{不戦条約}}（ケロッグ＝ブリアン条約）：戦争の放棄に各国が合意（1928年）
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://avalon.law.yale.edu/20th_century/kbpact.asp}{不戦条約}第1条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+The High Contracting Parties solemly declare in the names of their
+respective peoples that they condemn recourse to war for the solution of
+international controversies, and \textbf{renounce it, as an instrument
+of national policy} in their relations with one another.
+
+\end{tcolorbox}
+
+\hypertarget{ux7b2c2ux6b21ux4e16ux754cux5927ux6226ux5f8c}{%
+\subsubsection{第2次世界大戦後}\label{ux7b2c2ux6b21ux4e16ux754cux5927ux6226ux5f8c}}
+
+国際連盟や不戦条約では第2次世界大戦を防止することはできず。
+
+\(\leadsto\)戦後に設立された\textbf{国際連合} (the United
+Nations)：\textbf{武力行使禁止原則}が確立
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第2条3項}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+すべての加盟国は、その国際紛争を\textbf{平和的手段によって}国際の平和及び安全並びに正義を危くしないように\textbf{解決しなければならない}。
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第2条4項}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+すべての加盟国は、その国際関係において、\textbf{武力による威嚇又は武力の行使を}、いかなる国の領土保全又は政治的独立に対するものも、また、国際連合の目的と両立しない他のいかなる方法によるものも\textbf{慎まなければならない}。
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  戦争を禁止した国際連盟規約とは異なり、武力による威嚇および武力行使
+  (the threat or use of force) を禁止
+\item
+  武力行使禁止原則は慣習国際法（ニカラグア事件ICJ判決、1986年）
+\end{itemize}
+
+自衛権 (self-defense) の行使としての武力行使は例外として認められている。
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第51条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+この憲章のいかなる規定も、国際連合加盟国に対して武力攻撃が発生した場合には、安全保障理事会が国際の平和及び安全の維持に必要な措置をとるまでの間、\textbf{個別的又は集団的自衛の固有の権利を害するものではない}。
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  国際法上、個別的自衛権と集団的自衛権の合法性は区別されていない。
+\end{itemize}
+
+\hypertarget{ux96c6ux56e3ux5b89ux5168ux4fddux969c}{%
+\subsection{集団安全保障}\label{ux96c6ux56e3ux5b89ux5168ux4fddux969c}}
+
+武力行使を国際法上、禁止したとしても、それだけでは意味はない。
+
+\(\leadsto\)\textbf{集団的安全保障} (collective security)
+\footnote{集団的自衛権とは似て非なるものなので、要注意。}の発明
+
+\begin{itemize}
+\tightlist
+\item
+  集団的安全保障：武力行使禁止原則に反した国に対して、他の全ての加盟国が制裁を加えることで、それを抑止する。
+\end{itemize}
+
+事実上、全ての加盟国で防衛同盟を結んでいることになる。
+
+\begin{itemize}
+\tightlist
+\item
+  同盟では敵が同盟の外部にいることが前提
+\item
+  集団安全保障では仮想敵が組織内部に存在することを前提
+\end{itemize}
+
+\begin{figure}
+
+\begin{minipage}[t]{0.50\linewidth}
+
+{\centering 
+
+\raisebox{-\height}{
+
+\includegraphics{figures/alliance.drawio.png}
+
+}
+
+\caption{同盟のイメージ}
+
+}
+
+\end{minipage}%
+%
+\begin{minipage}[t]{0.50\linewidth}
+
+{\centering 
+
+\raisebox{-\height}{
+
+\includegraphics{figures/collective_security.drawio.png}
+
+}
+
+\caption{集団安全保障のイメージ}
+
+}
+
+\end{minipage}%
+
+\end{figure}
+
+\(\leadsto\)できる限り多くの国家が参加する\textbf{普遍的} (universal)
+制度であるのが望ましい。
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/United_Nations_membe.PNG}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:United_Nations_member_countries_world_map.PNG}{国連加盟国と加盟年}}
+
+\end{figure}
+
+\hypertarget{ux56fdux9023ux5b89ux5168ux4fddux969cux7406ux4e8bux4f1a}{%
+\subsubsection{国連安全保障理事会}\label{ux56fdux9023ux5b89ux5168ux4fddux969cux7406ux4e8bux4f1a}}
+
+\href{https://www.un.org/securitycouncil/}{\textbf{安全保障理事会}}
+(Security Council: SC)：国際連合において、集団安全保障を担う機関
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/764010_-_sc_pm-0.jpg}
+
+}
+
+\caption{\href{https://www.un.org/securitycouncil/content/what-security-council}{国連安全保障理事会}}
+
+\end{figure}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第24条1項}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+国際連合の迅速且つ有効な行動を確保するために、国際連合加盟国は、国際の平和及び安全の維持に関する\textbf{主要な責任}を安全保障理事会に負わせるものとし、且つ、安全保障理事会がこの責任に基く義務を果すに当って加盟国に代って行動することに同意する。
+
+\end{tcolorbox}
+
+\(\leadsto\)\textbf{平和に対する脅威}を認定し、必要な強制措置を決定
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第39条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+安全保障理事会は、\textbf{平和に対する脅威}、平和の破壊又は侵略行為の存在を決定し、並びに、国際の平和及び安全を維持し又は回復するために、勧告をし、又は\textbf{第41条及び第42条に従っていかなる措置をとるかを決定する}。
+
+\end{tcolorbox}
+
+強制措置：非軍事（経済）制裁および軍事制裁
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第41条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+安全保障理事会は、その決定を実施するために、\textbf{兵力の使用を伴わないいかなる措置}を使用すべきかを決定することができ、且つ、この措置を適用するように国際連合加盟国に要請することができる。\ldots{}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第42条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+安全保障理事会は、第41条に定める措置では不充分であろうと認め、又は不充分なことが判明したと認めるときは、国際の平和及び安全の維持又は回復に必要な\textbf{空軍、海軍又は陸軍の行動}をとることができる。\ldots{}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  脅威認定および強制措置の決定は国連憲章第7章に規定\(\leadsto\)これらが言及されている決議を7章決議
+\end{itemize}
+
+安全保障理事会は5つの\textbf{常任理事国} (permanent seat: \textbf{P5})
+と10 (6) ヶ国の非常任理事国
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第23条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  安全保障理事会は、\textbf{15の国際連合加盟国}で構成する。中華民国、フランス、ソヴィエト社会主義共和国連邦、グレート・ブリテン及び北部アイルランド連合王国及びアメリカ合衆国は、安全保障理事会の\textbf{常任理事国}となる。総会は、第一に国際の平和及び安全の維持とこの機構のその他の目的とに対する国際連合加盟国の貢献に、更に衡平な地理的分配に特に妥当な考慮を払って、安全保障理事会の\textbf{非常任理事国となる他の10の国際連合加盟国}を選挙する。
+\item
+  安全保障理事会の非常任理事国は、\textbf{2年の任期}で選挙される。\ldots 退任理事国は、引き続いて\textbf{再選される資格はない}。
+\item
+  （略）
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  ⾮常任理事国の任期は2年（再選不可）、毎年半数が地域ごとに総会で選出（同2項）
+\end{itemize}
+
+安保理の決定には（加盟国の同意によらず）\textbf{法的拘束力}がある。
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第25条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+国際連合加盟国は、安全保障理事会の決定をこの憲章に従って\textbf{受諾し且つ履行する}ことに同意する。
+
+\end{tcolorbox}
+
+常任理事国には\href{https://research.un.org/en/docs/sc/quick/veto}{\textbf{拒否権}}
+(veto power) がある。
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第27条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  安全保障理事会の各理事国は、1個の投票権を有する。
+\item
+  手続事項に関する安全保障理事会の決定は、9理事国の賛成投票によって行われる。
+\item
+  \textbf{その他のすべての事項}に関する安全保障理事会の決定は、\textbf{常任理事国の同意投票を含む}9理事国の賛成投票によって行われる。但し、第6章及び第52条3に基く決定については、紛争当事国は、投票を棄権しなければならない。
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  手続き事項および当事国である紛争に関する平和的解決（第6章）は除く。
+\item
+  脅威認定および強制措置の決定については拒否権を行使できる。
+\end{itemize}
+
+\hypertarget{ux96c6ux56e3ux5b89ux5168ux4fddux969cux306eux6a5fux80fdux3068ux9650ux754c}{%
+\subsubsection{集団安全保障の機能と限界}\label{ux96c6ux56e3ux5b89ux5168ux4fddux969cux306eux6a5fux80fdux3068ux9650ux754c}}
+
+集団安全保障が適切に運用される\(\leadsto\)現状変更勢力は戦争で勝利する確率が下がり、費用が拡大\(\leadsto\)戦争の利益が減り、現状維持を求める
+
+同盟と同じ論理で抑止をするが、集団安全保障に特有の利点がある。
+
+\begin{itemize}
+\tightlist
+\item
+  集団安全保障は現状維持勢力だけが支援される\(\leadsto\)安全保障のジレンマが生じない。
+\item
+  集団で現状維持勢力を支援するためパワーシフトの影響を抑える\(\leadsto\)コミットメント問題も解消する。
+\end{itemize}
+
+\(\leadsto\)拒否権を付与することで、一部の国による集団安全保障の悪用を回避
+
+中立的な立場から仲介や平和維持活動を行うことで、平和的解決を容易にする？
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.unic.or.jp/info/un/charter/text_japanese/}{国連憲章}　第96条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+事務総長は、総会、安全保障理事会、経済社会理事会及び信託統治理事会のすべての会議において事務総長の資格で行動し、且つ、これらの機関から委託される他の任務を遂行する。
+
+\end{tcolorbox}
+
+費用分担と共同意思決定の問題を克服するように制度設計をする必要がある。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  加盟国は他国の制裁にタダ乗りして、制裁の費用を回避する（同盟における費用分担と同様）。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    安保理の決定に法的拘束力
+  \item
+    大国の同意がある行動のみ
+  \end{itemize}
+\item
+  普遍的制度であるため、利害の異なる多くの国の中で脅威認定と強制措置を決定
+
+  \begin{itemize}
+  \tightlist
+  \item
+    一部の国だけの理事会で意思決定\(\leadsto\)交渉コストの節約
+  \item
+    大国の間で利害が一致しない決定を行わない。
+
+    \begin{itemize}
+    \tightlist
+    \item
+      一部の国の利益だけで行動すると大国間の戦争に発展したり、他の国家が脱退してしまう。
+    \item
+      それが可能であるならば、集団的自衛権の行使によって軍事制裁を課しているはずである。
+    \end{itemize}
+  \end{itemize}
+\end{enumerate}
+
+\(\leadsto\)常任理事国の不利益となるような行動を取ることはできない。
+
+\begin{itemize}
+\tightlist
+\item
+  安保理が行動できるのは、一部の常任理事国には関心があり、他の常任理事国は無関心な事態
+\end{itemize}
+
+\hypertarget{ux56fdux9023ux5b89ux4fddux7406ux306eux5c55ux958b}{%
+\subsection{国連安保理の展開}\label{ux56fdux9023ux5b89ux4fddux7406ux306eux5c55ux958b}}
+
+\hypertarget{ux51b7ux6226ux671fux6a5fux80fdux4e0dux5168ux3068ux65b0ux3057ux3044ux9053}{%
+\subsubsection{冷戦期：機能不全と新しい道}\label{ux51b7ux6226ux671fux6a5fux80fdux4e0dux5168ux3068ux65b0ux3057ux3044ux9053}}
+
+国連設立当初から冷戦の勃発\(\leadsto\)国連は機能不全
+
+\begin{itemize}
+\tightlist
+\item
+  東西陣営が自らの不利益となる安保理決議に拒否権
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/figure-pdf/unnamed-chunk-2-1.png}
+
+}
+
+\caption{安保理における拒否権の推移}
+
+\end{figure}
+
+唯一の例外として1950年の\textbf{朝鮮戦争}の際に\href{https://ja.wikisource.org/wiki/\%E5\%9B\%BD\%E9\%9A\%9B\%E9\%80\%A3\%E5\%90\%88\%E5\%AE\%89\%E5\%85\%A8\%E4\%BF\%9D\%E9\%9A\%9C\%E7\%90\%86\%E4\%BA\%8B\%E4\%BC\%9A\%E6\%B1\%BA\%E8\%AD\%B083}{安保理決議83}が採択され、国連軍が派遣された。\footnote{ソ連は中国の代表権を巡ってボイコットしており、拒否権を行使できなかった。}
+
+\begin{itemize}
+\tightlist
+\item
+  当時の韓国は国連加盟国ではなかったので、厳密な意味での集団安全保障ではない。
+\item
+  国連憲章上では国連軍の設立が予定されていたが（第43条）、現実的であるとは言えず、加盟国に武力行使を\textbf{授権}
+  (authorize) する方針を取る。
+\end{itemize}
+
+\textbf{平和のための結集} (Uniting for Peace)
+決議\(\leadsto\)拒否権が行使された場合に総会が勧告できるようにする。
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{平和のための結集決議　主文1}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+Resolves that if the Security Council, \textbf{because of lack of
+unanimity of the permanent members}, fails to exercise its primary
+responsibility for the maintenance of international peace and security
+in any case where there appears to be a threat to the peace, breach of
+the peace, or act of aggression, \textbf{the General Assembly} shall
+consider the matter immediately with a view to making
+\textbf{appropriate recommendations} to Members for collective measures,
+including in the case of a breach of the peace or act of aggression
+\textbf{the use of armed force} when necessary, to maintain or restore
+international peace and security.
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  国連\href{https://www.un.org/en/ga/sessions/emergency.shtml}{緊急特別総会}
+  (emergency special session: ESS) を開催
+\item
+  平和のための結集決議が最初に使われたのは1956年の\textbf{スエズ戦争}（第2次中東戦争）のときである。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    イスラエルがエジプトのスエズ運河に侵攻し、利権を狙ったイギリスとフランスが介入
+  \item
+    アメリカとソ連が協力して緊急特別総会を招集し、第1次国連緊急軍 (UNEF
+    I) を展開
+  \item
+    軽武装の軍隊を停戦地帯に派遣し、監視
+  \end{itemize}
+\end{itemize}
+
+集団安全保障が想定する\textbf{平和執行} (peace-enforcement)
+とは異なる\textbf{平和維持活動} (peacekeeping operation)\footnote{しばしば、日本語では平和維持活動をPKOと略すが、国際的には通用しない略称である。}
+が発明
+
+\begin{itemize}
+\tightlist
+\item
+  最初の平和維持活動は第1次中東戦争の際の国連休戦監視機構
+\item
+  国連憲章には規定がないので「6章半\footnote{平和的解決の第6章と軍事制裁を含む強制措置の第7章の中間という意味。}の活動」と呼ばれる。
+\item
+  UNEF
+  Iを主導したピアソンは1957年に、平和維持活動自体は1988年にノーベル平和賞を受賞
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/figure-pdf/unnamed-chunk-3-1.png}
+
+}
+
+\caption{平和維持活動の推移}
+
+\end{figure}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/1280px-UNpeacekeepin.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:UNpeacekeeping.svg}{国連平和維持活動の展開}}
+
+\end{figure}
+
+\hypertarget{ux51b7ux6226ux5f8cux671fux5f85ux3068ux5931ux671b}{%
+\subsection{冷戦後：期待と失望}\label{ux51b7ux6226ux5f8cux671fux5f85ux3068ux5931ux671b}}
+
+冷戦の終結\(\leadsto\)イデオロギー対立が解消\(\leadsto\)安保理の活性化
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/figure-pdf/unnamed-chunk-4-1.png}
+
+}
+
+\caption{安保理会合の推移}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  代表的な例：1990年の\textbf{湾岸戦争}の際に\href{https://digitallibrary.un.org/record/102245}{安保理決議678}が採択され、国連軍が派遣
+\item
+  \href{https://research.un.org/en/docs/resolutions}{国連決議の読み方}
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{国連安保理決議678}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+\emph{The Security Council},
+
+\emph{Recalling and reaffirming} its resolutions 660 (1990) of 2 August
+1990, 661 (1990) of 6 August 1990, 662 (1990) of 9 August 1990, 664
+(1990) of 18 August 1990, 665 (1990) of 25 August 1990, 666 (1990) of 13
+September 1990, 667 (1990) of 16 September 1990, 669 (1990) of 24
+September 1990, 670 (1990) of 25 September 1990, 674 (1990) of of 29
+October 1990 and 677 (1990) of 28 November 1990.
+
+\emph{Noting} that, despite all efforts by the United Nations, Iraq
+refuses to comply with its obligation to implement resolution 660 (1990)
+and the above-mentioned subsequent relevant resolutions, in flagrant
+contempt of the Security Council,
+
+\emph{Mindful of} \textbf{its duties and responsibilities} under the
+Charter of the United Nations for \textbf{the maintenance and
+preservation of international peace and security},
+
+\emph{Determined} to secure full compliance with its decisions,
+
+\emph{Acting} under \textbf{Chapter VII} of the Charter,
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \emph{Demands} that Iraq comply fully with resolution 660 (1990) and
+  all subsequent relevant resolutions, and decides, while maintaining
+  all its decisions, to allow Iraq one final opportunity, as a pause of
+  goodwil, to do so;
+\item
+  \textbf{\emph{Authorizes}} Member States co-operating with the
+  Government of Kuwait, unless Iraq on or before 15 January 1991 fully
+  implements, as set forth in paragraph 1 above, the above-mentioned
+  resolutions, to \textbf{use all necessary means} to uphold and
+  implement resolution 660 (1990) and all subsequent relevant
+  resolutions and to restore international peace and security in the
+  area;
+\item
+  \emph{Requests} all States to provide appropriate support for the
+  actions undertaken in pursuance of paragraph 2 of the present
+  resolution;
+\item
+  \emph{Requests} the States concerned to keep the Security Council
+  regularly informed on the progress of actions undertaken pursuant to
+  paragraphs 2 and 3 of the present resolution;
+\item
+  \emph{Decides} to remain seized of the matter.
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  国連決議の探し方：\href{https://rnavi.ndl.go.jp/jp/politics/UN-tool.html}{国会図書館}、\href{https://www.unic.or.jp/texts_audiovisual/libraries/research_guide/}{国連広報センター}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://research.un.org/en/docs/ga/quick/regular/76}{総会}、\href{https://www.un.org/securitycouncil/content/resolutions-0}{安保理}
+  \end{itemize}
+\item
+  国連の文書記号：\href{https://rnavi.ndl.go.jp/jp/politics/UN-docOR.html}{国会図書館}、\href{https://www.unic.or.jp/texts_audiovisual/libraries/research_guide/research/symbols/}{国連広報センター}
+\end{itemize}
+
+武力行使授権（容認）決議の特徴：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  平和に対する脅威の認定
+\item
+  第7章（あるいは第42条）に基づく宣言
+\item
+  「すべての必要な措置を取る」ことの授権
+\end{enumerate}
+
+2001年の\textbf{9.11同時多発テロ}：加盟国に共通の脅威と認知\(\leadsto\)安保理決議1368
+
+\begin{itemize}
+\tightlist
+\item
+  テロリズムに対しても自衛権を行使
+\item
+  NATOは初めて集団的自衛権を行使\(\leadsto\)アフガニスタンへ侵攻
+\end{itemize}
+
+2003年の\textbf{イラク戦争}：はアメリカやイギリスが明確な武力行使授権決議なしに攻撃
+
+\begin{itemize}
+\tightlist
+\item
+  中国やロシアだけでなくフランスやドイツも反対
+\end{itemize}
+
+2014年のロシアによる\textbf{クリミア侵攻}、2022年の\textbf{ウクライナ侵攻}：安保理は機能不全
+
+\(\leadsto\)安保理が対応できるのは、常任理事国間で利害が対立しない程度に重要ではなく、行動しようと思う程度には重要な事態
+
+\hypertarget{ux8ecdux7e2eux4e0dux62e1ux6563}{%
+\section{軍縮・不拡散}\label{ux8ecdux7e2eux4e0dux62e1ux6563}}
+
+\textbf{軍縮} (disarmament) ：特定の兵器の量を削減すること
+
+\textbf{不拡散} (non-ploliferation)
+：特定の兵器の新たな開発、保有を阻止すること
+
+\(\leadsto\)なぜ軍縮と不拡散を目指すのか？
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  軍事支出を削減することで経済成長や社会福祉に支出することができる。
+\item
+  相手国がより軍縮をすることによって、軍事バランスが自国に有利になる。
+\end{enumerate}
+
+\(\leadsto\)なぜ軍縮と不拡散は実現しないのか？
+
+\hypertarget{ux5236ux5ea6ux306eux5f79ux5272}{%
+\subsection{制度の役割}\label{ux5236ux5ea6ux306eux5f79ux5272}}
+
+\hypertarget{ux5b89ux5168ux4fddux969cux306eux30b8ux30ecux30f3ux30de}{%
+\subsubsection{安全保障のジレンマ}\label{ux5b89ux5168ux4fddux969cux306eux30b8ux30ecux30f3ux30de}}
+
+軍縮と不拡散は\textbf{安全保障のジレンマ}の構造
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/security_dilemma1.drawio.png}
+
+}
+
+\caption{安全保障のジレンマ（シナリオ1）}
+
+\end{figure}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/security_dilemma2.drawio.png}
+
+}
+
+\caption{安全保障のジレンマ（シナリオ2）}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  シナリオ1は囚人のジレンマ、シナリオ2は鹿狩りゲーム
+\end{itemize}
+
+\(\leadsto\)相互に軍縮することが望ましくても、それが実現しない。
+
+\begin{itemize}
+\tightlist
+\item
+  「軍縮をする」という相手の約束を信じることができない。
+\end{itemize}
+
+\hypertarget{ux30c8ux30eaux30acux30fcux6226ux7565}{%
+\subsubsection{トリガー戦略}\label{ux30c8ux30eaux30acux30fcux6226ux7565}}
+
+\(\leadsto\)約束を破ったときには報復する（軍備拡大をする）という脅しによって、協調を引き出すことができる（場合がある）。
+
+\begin{itemize}
+\tightlist
+\item
+  「現状維持をするが、相手が軍拡をした場合はこちらも軍拡をする」という\textbf{トリガー戦略}
+\item
+  将来の価値は\textbf{割り引かれる} (discounted)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    今日もらえる1万円と1年後にもらえる1万円のどっちが嬉しいか？
+  \item
+    将来の価値は割引因子\(0 < \delta < 1\)がかけられる（とする）。
+  \item
+    割引因子が大きい＝将来を重視している
+  \end{itemize}
+\end{itemize}
+
+\[
+\begin{split}
+&\textrm{常に互いに軍縮するときの利益} \\
+&= 0.5 + \delta \times 0.5 + \delta^2 \times 0.5 \cdots \\
+&\textrm{最初には自分だけ軍拡をして、その後は互いに軍拡するときの利益} \\
+&= 0.6 + \delta \times 0.3 + \delta^2 \times 0.3 \cdots
+\end{split}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  裏切って軍拡をすることでその時は大きな利益を得られる。
+\item
+  その後は報復されて互いに軍拡競争に陥って利益を得られない。
+\end{itemize}
+
+\(\leadsto\)長期的関係があり将来の利益を重視する＝割引因子が大きい\(\leadsto\)将来の軍拡競争の不利益よりも平和の利益を重視\(\leadsto\)軍拡しない。
+
+\[
+\begin{split}
+0.5 &< 0.6 \\
+\delta \times 0.5 &> \delta \times 0.3 \\
+\delta^2 \times 0.5 &> \delta^2 \times 0.3 \\
+\vdots &> \vdots 
+\end{split}
+\]
+
+一般的に、長期的関＆将来の利益を重視\(\leadsto\)協調が可能
+
+どのような時にトリガー戦略による協調が実現するのか？
+
+\begin{itemize}
+\tightlist
+\item
+  報復されるという将来の出来事の認識（\textbf{将来の影}）
+\item
+  軍備に関する明確なルール・軍拡をしていないという透明性（\textbf{情報の非対称性}の解決）
+\end{itemize}
+
+\hypertarget{ux8ecdux7e2eux306bux95a2ux3059ux308bux5236ux5ea6}{%
+\subsubsection{軍縮に関する制度}\label{ux8ecdux7e2eux306bux95a2ux3059ux308bux5236ux5ea6}}
+
+\href{https://www.un.org/en/ga/first/index.shtml}{国連総会第1委員会}：軍縮と不拡散全般について国家間の議論が行われている。
+
+しかし、実質的な議論はジュネーブ\href{https://www.mofa.go.jp/mofaj/gaiko/un_cd/cd/gaiyo.html}{軍縮会議}で行われてきた。
+
+\(\leadsto\)コンセンサス方式ということもあり現在は実質的に進展はしていない。
+
+国連事務局には軍縮部がある。
+
+\begin{itemize}
+\tightlist
+\item
+  現在の軍縮担当上級代表は中満泉さんである。
+\item
+  \href{https://www.unic.or.jp/activities/peace_security/disarmament/un_disarmament/}{国連と軍縮}
+\item
+  \href{https://www.mofa.go.jp/mofaj/gaiko/hosho.html}{日本の軍縮政策}
+\end{itemize}
+
+\textbf{大量破壊兵器} (weapons of mass destruction: WMD) ：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  核兵器 (nuclear weapon)
+\item
+  生物兵器 (biological weapon)
+\item
+  化学兵器 (chemical weapon)
+\end{enumerate}
+
+大量破壊兵器はその被害の大きさ、非人道性から軍縮と不拡散の最重要ターゲットになっている。
+
+\hypertarget{ux6838ux4e0dux62e1ux6563}{%
+\subsection{核不拡散}\label{ux6838ux4e0dux62e1ux6563}}
+
+\hypertarget{npt}{%
+\subsubsection{NPT}\label{npt}}
+
+1968年に\href{https://www.mofa.go.jp/mofaj/gaiko/treaty/pdfs/B-S51-0403.pdf}{\textbf{核兵器の不拡散に関する条約}}
+(Treaty on the Non-Proliferation of Nuclear Weapons : NPT)
+が署名され、1970年に発効
+
+非核兵器国による核兵器の開発や管理を禁止している。
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www1.doshisha.ac.jp/~karai/intlaw/docs/npt.htm}{核兵器不拡散条約}　第1条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+締約国である各\textbf{核兵器国は}、核兵器その他の核爆発装置又はその管理をいかなる者に対しても直接又は間接に\textbf{移譲しない}こと及び核兵器その他の核爆発装置の製造若しくはその他の方法による取得又は核兵器その他の核爆発装置の管理の取得につきいかなる非核兵器国に対しても何ら\textbf{援助、奨励又は勧誘を行わない}ことを約束する。
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www1.doshisha.ac.jp/~karai/intlaw/docs/npt.htm}{核兵器不拡散条約}　第2条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+締約国である各\textbf{非核兵器国}は、核兵器その他の核爆発装置又はその管理をいかなる者からも直接又は間接に\textbf{受領しない}こと、核兵器その他の核爆発装置を\textbf{製造せず}又はその他の方法によつて\textbf{取得しない}こと及び核兵器その他の核爆発装置の製造についていかなる\textbf{援助をも求めず又は受けない}ことを約束する。
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  核兵器国：1967年時点で核兵器の開発に成功していたアメリカ、イギリス、フランス、ソビエト連邦、中国の5ヶ国
+\item
+  インドとパキスタン
+
+  \begin{itemize}
+  \tightlist
+  \item
+    NPTに加盟せず、核兵器の開発に成功
+  \end{itemize}
+\item
+  イスラエル
+
+  \begin{itemize}
+  \tightlist
+  \item
+    NPTに加盟せず、核兵器の開発や保有について明言をしていないが、事実上の核保有国
+  \end{itemize}
+\item
+  北朝鮮
+
+  \begin{itemize}
+  \tightlist
+  \item
+    2003年にNPTを脱退し、核兵器の開発
+  \end{itemize}
+\end{itemize}
+
+他にも核兵器の開発を行っていた国やその疑惑のある国もいる。
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/1280px-NPT_parties.s.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:NPT_parties.svg}{NPT締約国}}
+
+\end{figure}
+
+5年ごとにNPT再検討会議が開催
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www1.doshisha.ac.jp/~karai/intlaw/docs/npt.htm}{核兵器不拡散条約}　第8条3項}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+前文の目的の実現及びこの条約の規定の遵守を確保するようにこの条約の運用を検討するため、この条約の効力発生の五年後にスイスのジュネーヴで締約国の会議を開催する。その後\textbf{五年ごと}に、締約国の過半数が寄託国政府に提案する場合には、\textbf{条約の運用を検討する}という同様の目的をもつて、更に会議を開催する。
+
+\end{tcolorbox}
+
+\hypertarget{iaea}{%
+\subsubsection{IAEA}\label{iaea}}
+
+特定の国にのみ核保有を認める点で不公平／非核兵器保有国にも原子力の平和利用の権利
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www1.doshisha.ac.jp/~karai/intlaw/docs/npt.htm}{核兵器不拡散条約}　第3条1項}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+締約国である各\textbf{非核兵器国}は、原子力が平和的利用から核兵器その他の核爆発装置に転用されることを防止するため、この条約に基づいて負う義務の履行を確認することのみを目的として国際原子力機関憲章及び国際原子力機関の保障措置制度に従い\textbf{国際原子力機関}との間で交渉しかつ締結する協定に定められる\textbf{保障措置を受諾する}ことを約束する。\ldots\ldots{}
+
+\end{tcolorbox}
+
+原子力技術は軍事目的にも平和目的にも使用できる\textbf{デュアルユース}という性質を持つ。
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.mofa.go.jp/mofaj/gaiko/atom/iaea/iaea_g.html}{\textbf{国際原子力機関}}
+  (International Atomic Energy Agency: IAEA)
+  がデュアルユースの問題に対応する。
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  原子力の平和的利用に関する技術支援
+\item
+  原子力技術の軍事転用阻止のための保障措置
+
+  \begin{itemize}
+  \tightlist
+  \item
+    IAEAと国家が協定を締結し、国家が査察などの\href{https://www.nsr.go.jp/activity/hoshousochi/houhou/index.html}{保障措置}を実行
+  \item
+    さらに\href{https://www.nsr.go.jp/activity/hoshousochi/iaea/iaea2.html}{追加議定書}を締結した場合、措置が強化
+  \end{itemize}
+\end{enumerate}
+
+NPTやIAEAは核開発に関して独自に制裁できる権限も能力もない。
+
+国連安保理は直接的に軍縮に権限を持っているわけではない／核開発が「平和に対する脅威」であると認定されれば、経済制裁や軍事制裁を行うことが可能（第39,
+41条）
+
+\begin{itemize}
+\tightlist
+\item
+  北朝鮮に対して2006年に\href{https://www.mofa.go.jp/mofaj/area/n_korea/anpo1718.html}{安保理決議1718}が採択、2009年にも\href{https://www.mofa.go.jp/mofaj/area/n_korea/anpori1874.html}{安保理決議1874}が採択され、経済制裁
+\item
+  イランに対しても2006年に安保理決議1737が、2010年には安保理決議1929が採択され、経済制裁
+\end{itemize}
+
+安保理決議には法的拘束力があり、\href{https://www.cistec.or.jp/export/keizaiseisai/saikin_keizaiseisai/index.html}{日本も経済制裁}
+
+\hypertarget{ux6838ux8ecdux7e2e}{%
+\subsection{核軍縮}\label{ux6838ux8ecdux7e2e}}
+
+\hypertarget{ux8aa0ux5b9fux4ea4ux6e09ux7fa9ux52d9}{%
+\subsubsection{誠実交渉義務}\label{ux8aa0ux5b9fux4ea4ux6e09ux7fa9ux52d9}}
+
+NPTは核保有国に核軍縮に誠実に取り組むことを義務付けている。
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www1.doshisha.ac.jp/~karai/intlaw/docs/npt.htm}{核兵器不拡散条約}　第6条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+各締約国は、核軍備競争の早期の停止及び\textbf{核軍備の縮小}に関する効果的な措置につき、並びに厳重かつ効果的な国際管理の下における\textbf{全面的かつ完全な軍備縮小}に関する条約について、\textbf{誠実に交渉を行うことを約束する}。
+
+\end{tcolorbox}
+
+\(\leadsto\)現在、存在する核兵器の大半はアメリカとロシアのものであるため、二国間（米ロ）で核軍縮交渉
+
+\begin{itemize}
+\tightlist
+\item
+  1972年に戦略攻撃兵器制限暫定協定 (SALT I)が締結（SALT IIは未発効）
+\item
+  1987年にヨーロッパにおける中距離核戦力全廃条約が締結（2019年にアメリカが破棄）
+\item
+  1991年には戦略兵器削減条約 (START I) が発効（START IIは未発効）
+\item
+  2011年に新STARTが発効し、2021年に5年延長に合意
+\end{itemize}
+
+イギリス、フランス、中国による核兵器の生産については制限がない。
+
+核兵器の弾頭数の制限であって、核兵器の性能向上についても制限はない。
+
+\href{https://www.mofa.go.jp/mofaj/gaiko/kaku/fmct/index.html}{核兵器用核分裂性物質生産禁止条約（カットオフ条約）}：核兵器に必要な高濃度ウランやプルトニウムの生産を禁止する条約\(\leadsto\)交渉中断
+
+\hypertarget{ux6838ux5b9fux9a13ux306eux7981ux6b62}{%
+\subsubsection{核実験の禁止}\label{ux6838ux5b9fux9a13ux306eux7981ux6b62}}
+
+1963年にアメリカ、イギリス、ソビエト連邦は\textbf{部分的核実験禁止条約}
+(Partial Test Ban Treaty: PTBT) を締結し、地下以外での核実験
+
+\begin{itemize}
+\tightlist
+\item
+  フランスと中国は核開発での劣位を固定するものとして反対
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/1280px-PTBT_Particip.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:PTBT_Participation.svg}{PTBT締約国}}
+
+\end{figure}
+
+地下実験も禁止する\href{https://www.mofa.go.jp/mofaj/gaiko/kaku/ctbt/index.html}{\textbf{包括的核実験禁止条約}}
+(Comprehensive Nuclear Test Ban Treaty: CTBT)
+が軍縮会議で交渉されたが頓挫し、1996年にオーストラリアが国連総会に提案をして採択
+
+\begin{itemize}
+\tightlist
+\item
+  アメリカや中国などが批准せず、未発効
+\item
+  ただし、\href{https://www.unic.or.jp/info/un/unsystem/specialized_agencies/ctbto/}{包括的核実験禁止条約機関準備委員会}
+  (CTBTO) は設置されており、情報収集などをしている。
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/800px-CTBT_Participa.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:CTBT_Participation.svg}{CTBT締約国}}
+
+\end{figure}
+
+\hypertarget{ux975eux6838ux5175ux5668ux5730ux5e2f}{%
+\subsubsection{非核兵器地帯}\label{ux975eux6838ux5175ux5668ux5730ux5e2f}}
+
+\href{https://www.un.org/disarmament/wmd/nuclear/nwfz/}{\textbf{非核兵器地帯}}
+(nuclear weapon free zone) ：核兵器の使用や配備を条約で定めた地域
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www1.doshisha.ac.jp/~karai/intlaw/docs/npt.htm}{核兵器不拡散条約}　第7条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+の条約のいかなる規定も、国の集団がそれらの国の領域に\textbf{全く核兵器の存在しないことを確保するため地域的な条約}を締結する権利に対し、影響を及ぼすものではない。
+
+\end{tcolorbox}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/nwfz-postcard-2010_p.jpg}
+
+}
+
+\caption{\href{https://www.un.org/nwfz/content/overview-nuclear-weapon-free-zones}{非核兵器地帯}}
+
+\end{figure}
+
+\hypertarget{ux8fd1ux5e74ux306eux52d5ux304d}{%
+\subsubsection{近年の動き}\label{ux8fd1ux5e74ux306eux52d5ux304d}}
+
+オバマ大統領は2009年に\href{https://ja.wikisource.org/wiki/\%E3\%83\%90\%E3\%83\%A9\%E3\%82\%AF\%E3\%83\%BB\%E3\%82\%AA\%E3\%83\%90\%E3\%83\%9E\%E3\%81\%AE\%E3\%83\%97\%E3\%83\%A9\%E3\%83\%8F\%E3\%81\%A7\%E3\%81\%AE\%E6\%BC\%94\%E8\%AA\%AC}{プラハ演説}を行い、ノーベル平和賞を受賞
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.mofa.go.jp/mofaj/gaiko/un_cd/gun_un/anpori_k09_gh.html}{安保理サミット}で安保理決議1887を採択
+\item
+  テロリストによる核兵器や放射性物質の悪用を防ぐための\href{https://www.mofa.go.jp/mofaj/gaiko/kaku_secu/index.html}{核セキュリティサミット}を開催
+\end{itemize}
+
+1990年代に\href{https://www.mofa.go.jp/mofaj/dns/ac_d/page23_002807.html}{\textbf{核兵器禁止条約}}が提案され、2010年代に総会第1委員会で交渉が要請
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.mofa.go.jp/mofaj/dns/ac_d/page23_002807.html}{\textbf{核兵器禁止条約}}　第1条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  締約国は，いかなる場合にも，次のことを行わないことを約束する。
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  核兵器その他の核爆発装置を開発し，実験し，生産し，製造し，その他の方法によっ
+  て取得し，占有し，又は貯蔵すること。
+\item
+  （省略）
+\item
+  （省略）
+\item
+  核兵器その他の核爆発装置を使用し，又はこれを使用するとの威嚇を行うこと。
+\item
+  \ldots{}
+\end{enumerate}
+
+\end{tcolorbox}
+
+2017年に国連本部で核兵器禁止条約交渉会議が開かれ\href{https://www.mofa.go.jp/mofaj/files/000433139.pdf}{採択}、2021年に発効
+
+\begin{itemize}
+\tightlist
+\item
+  核兵器廃絶国際キャンペーン (ICAN) がノーベル平和賞を受賞
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/1280px-Treaty_on_the.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:Treaty_on_the_Prohibition_of_Nuclear_Weapons_members.svg}{核兵器禁止条約締約国}}
+
+\end{figure}
+
+\hypertarget{ux901aux5e38ux5175ux5668}{%
+\subsection{通常兵器}\label{ux901aux5e38ux5175ux5668}}
+
+\hypertarget{ux56fdux969bux4ebaux9053ux6cd5}{%
+\subsubsection{国際人道法}\label{ux56fdux969bux4ebaux9053ux6cd5}}
+
+\textbf{国際人道法} (international humanitarian law)
+や武力紛争法：戦争において国家が守るべきルール
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.mofa.go.jp/mofaj/gaiko/k_jindo/giteisho.html}{ジュネーブ諸条約第一追加議定書}：軍事目標主義、文民の保護
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www1.doshisha.ac.jp/~karai/intlaw/docs/ap1.htm}{ジュネーブ諸条約第一追加議定書}　第48条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+紛争当事者は、\textbf{文民}たる住民及び民用物を尊重し及び保護することを確保するため、文民たる住民と戦闘員とを、また、民用物と軍事目標とを常に区別し、及び\textbf{軍事目標のみ}を軍事行動の対象とする。
+
+\end{tcolorbox}
+
+\(\leadsto\)ダムや原子力発電所への攻撃、無差別爆撃などは違法
+
+\begin{itemize}
+\tightlist
+\item
+  ハーグ陸戦条約：不必要な苦痛の禁止
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, left=2mm, toprule=.15mm, opacityback=0, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6, breakable, coltitle=black, colbacktitle=quarto-callout-note-color!10!white, colback=white, bottomtitle=1mm, toptitle=1mm, titlerule=0mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://avalon.law.yale.edu/20th_century/hague04.asp}{ハーグ陸戦条約}　第23条}, arc=.35mm, rightrule=.15mm, bottomrule=.15mm, leftrule=.75mm]
+
+In addition to the prohibitions provided by special Conventions, it is
+especially forbidden -
+
+\ldots{}
+
+To employ arms, projectiles, or material calculated to cause
+\textbf{unnecessary suffering};
+
+\ldots{}
+
+\end{tcolorbox}
+
+\(\leadsto\)核兵器の使用は国際人道法に反するかもしれない（核兵器使用に関するICJ勧告的意見における個別意見）
+
+人道の観点から通常兵器（大量破壊兵器以外の兵器）の規制も主張されている。
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.mofa.go.jp/mofaj/gaiko/arms/ccw/ccw.html}{特定通常兵器使用禁止制限条約}
+\end{itemize}
+
+\hypertarget{ux5730ux96f7ux30afux30e9ux30b9ux30bfux30fcux5f3e}{%
+\subsubsection{地雷・クラスター弾}\label{ux5730ux96f7ux30afux30e9ux30b9ux30bfux30fcux5f3e}}
+
+他にも対人地雷やクラスター爆弾の禁止条約なども締結
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.mofa.go.jp/mofaj/gaiko/arms/mine/genjo.html}{地雷問題・対人地雷禁止条約}
+\item
+  \href{https://www.mofa.go.jp/mofaj/gaiko/arms/cluster/0812_gh.html}{クラスター弾に関する条約}
+\end{itemize}
+
+対人地雷やクラスター爆弾（不発弾）は土に埋もれて撤去が困難
+
+\begin{itemize}
+\tightlist
+\item
+  市民（特に子供）が知らずに踏んでしまって、死亡あるいは脚を失ってしまう。
+\end{itemize}
+
+基本的に多国間軍縮交渉は軍縮会議で行われてきたので、大国の反対で議論が進まないことが多い。
+
+\(\leadsto\)NGOが対人地雷禁止の運動を始め、各国がそれに賛同する。
+
+1996年にオタワで\href{https://www.mofa.go.jp/mofaj/gaiko/arms/mine/genjo.html}{\textbf{対人地雷禁止条約}}を採択
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/1280px-Ottawa_Treaty.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:Ottawa_Treaty_members.svg}{地雷禁止条約締約国}}
+
+\end{figure}
+
+オタワ・プロセスを参考にする形でNGO主導の\href{https://www.mofa.go.jp/mofaj/gaiko/treaty/shomei_37.html}{\textbf{クラスター弾に関する条約}}についても2007年に採択
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/1280px-Cluster_Munit.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:Cluster_Munitions_Convention.svg}{クラスター弾禁止条約締約国}}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  日本は2015年に\href{https://www.mofa.go.jp/mofaj/press/release/press4_001772.html}{クラスター爆弾の破棄}を完了
+\end{itemize}
+
+\hypertarget{ux8f38ux51faux7ba1ux7406}{%
+\subsubsection{輸出管理}\label{ux8f38ux51faux7ba1ux7406}}
+
+通常兵器の貿易の管理、不正な取引の防止を定めた\href{https://www.mofa.go.jp/mofaj/dns/ca/page22_002843.html}{武器取引条約}が2014年に発効
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/1280px-Arms_Trade_Tr.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:Arms_Trade_Treaty_status.svg}{武器取引条約締約国}}
+
+\end{figure}
+
+軍事利用可能な物質や技術の流出を防ぐ\href{https://www.mofa.go.jp/mofaj/gaiko/regime/index.html}{輸出管理レジーム}が各種存在
+
+\begin{itemize}
+\tightlist
+\item
+  軍事目的と民生目的の製品を明確に区別することができない（デュアル・ユース）ため、輸出管理が困難
+\item
+  \href{https://www.cistec.or.jp/export/yukan_kiso/index.html}{安全保障貿易情報センター}
+  (CISTEC)
+\end{itemize}
+
+\(\leadsto\)経済と安全保障の二分法がゆらぎ、相互に連関するようになってきている？
+
+\hypertarget{ux5236ux5ea6ux304bux3089ux5171ux540cux4f53}{%
+\section{制度から共同体？}\label{ux5236ux5ea6ux304bux3089ux5171ux540cux4f53}}
+
+\hypertarget{ux4fe1ux983cux91b8ux6210}{%
+\subsection{信頼醸成}\label{ux4fe1ux983cux91b8ux6210}}
+
+非軍事的な安全保障に関する制度として\textbf{信頼醸成措置} (Confidence
+Building Measures: CBM)
+
+\begin{itemize}
+\tightlist
+\item
+  軍事情報の共有や演習の視察、ホットラインの設置\(\leadsto\)誤認の可能性を減らす。
+\end{itemize}
+
+1954年に\textbf{欧州安全保障協力会議} (Conference on Security and
+Co-operation in Europe: CSCE) が設立され、東西陣営の交渉の場となった。
+
+\begin{itemize}
+\tightlist
+\item
+  1975年には\textbf{ヘルシンキ最終文書} (Helsinki Final Act)
+  が採択され、安全保障だけでなく経済や人権についても協力することに合意
+\end{itemize}
+
+1995年には\href{https://www.mofa.go.jp/mofaj/area/osce/gaiyo.html}{\textbf{欧州安全保障協力機構}}
+(Organization for Security and Co-operation in Europe: OSCE)
+へと発展的解消
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/1280px-OSCE_acts_sig.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:OSCE_acts_signatories.png}{OSCE加盟国}}
+
+\end{figure}
+
+\hypertarget{ux8cc7ux6e90ux306eux5171ux540cux7ba1ux7406}{%
+\subsection{資源の共同管理}\label{ux8cc7ux6e90ux306eux5171ux540cux7ba1ux7406}}
+
+石炭や鉄鋼の管理がヨーロッパにおける戦争の一因であったという認識\(\leadsto\)国際的な共同管理を目指す。
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{欧州石炭鉄鋼共同体} (European Coal and Steel Community: ECSC)
+  が設立
+\item
+  ドイツのルール地方は石炭と鉄鋼の重要な産地
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ドイツの軍事力の源泉であり、1923年には賠償金支払いが滞る\(\leadsto\)フランスとベルギーが占領\(\leadsto\)欧州安定の障害
+  \end{itemize}
+\item
+  フランス：ドイツの石炭鉄鋼を利用して復興＆ドイツの台頭を封じ込め
+\item
+  アメリカ：ドイツに厳しい国際管理となることで、ドイツが社会主義化するのではないかと懸念
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/1024px-EU1976-1995.s.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:EU1976-1995.svg}{ECSC加盟国}}
+
+\end{figure}
+
+\(\leadsto\)資源の国際的管理による平和の促進？
+
+東シナ海におけるガス田の開発について、日本と中国で境界線の主張が異なっている。
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.5\textwidth,height=\textheight]{institutional_peace_files/mediabag/1024px-East_China_se.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:East_China_sea_digging_map.svg}{尖閣諸島の海底資源}}
+
+\end{figure}
+
+2008年に\href{https://www.mofa.go.jp/mofaj/area/china/higashi_shina/press.html}{「東シナ海における日中間の協力について」}というプレス発表で、日中間の\textbf{共同開発}に合意
+
+\(\leadsto\)中国による単独開発が露見し、共同開発は実施されず
+
+\begin{itemize}
+\tightlist
+\item
+  領土については分割することができないが、資源をどのように管理するかという点では交渉の余地がある。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    しかし、合意内容を強制させることはできない点で\textbf{コミットメント問題}
+  \end{itemize}
+\item
+  他にも\textbf{イシュー・リンケージ}や\textbf{補償} (compensation/side
+  payment) によって合意？
+\end{itemize}
+
+\hypertarget{ux6a5fux80fdux4e3bux7fa9}{%
+\subsection{機能主義}\label{ux6a5fux80fdux4e3bux7fa9}}
+
+産業革命による技術の進歩国境\(\leadsto\)越えた人間の経済・社会活動を可能
+
+\(\leadsto\)政治的・軍事的問題だけが国境を超える時代は終わり、経済的・社会的問題も国際問題に
+
+\begin{itemize}
+\tightlist
+\item
+  蒸気船の発明により河川航行の需要が拡大\(\leadsto\)世界初の政府間機関であるとされるライン川航行中央委員会（1815年）が設立
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/442px-Rheinsystem_sm.jpg}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:Rheinsystem_small_internat.jpg}{ライン川}}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  現在の国連の専門機関の中で最古のものとしては万国電信連合（1865年、現在の国際電気通信連合）が、次に古いものとして万国郵便連合（1874年）
+\end{itemize}
+
+\(\leadsto\)国際問題の解決の手段として国際機関が「発明」\(\leadsto\)後の国際連盟や国際連合へ
+
+軍事・安全保障をハイ・ポリティクス、それ以外の社会経済をロー・ポリティクスと呼ぶ
+
+\begin{itemize}
+\tightlist
+\item
+  現実には、経済安全保障のようにこれらを区別できる？
+\end{itemize}
+
+\textbf{機能主義}
+(functionalism)：ロー・ポリティクスな分野では政治的対立が小さい\(\leadsto\)行政的なサービスを提供することで国際協調が促進
+
+国際連盟や国際連合は主として国際の平和と安全の維持を目的としているが、様々な専門機関を設置している。
+
+\begin{itemize}
+\tightlist
+\item
+  国際労働機関：労働者の労働条件などを改善する。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    政府・労働者・使用者の三者が参加する点で特徴的
+  \end{itemize}
+\item
+  世界保健機関：国際公衆衛生の指揮などを行う。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    前身となる国際連盟保健機関に日本は国際連盟脱退後も参加
+  \end{itemize}
+\end{itemize}
+
+特定の（協調が容易な）分野に特化することで、国際協調
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/un_system_chart.png}
+
+}
+
+\caption{\href{https://www.un.org/en/about-us/un-system}{国連システム}}
+
+\end{figure}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/figure-pdf/unnamed-chunk-5-1.png}
+
+}
+
+\caption{政府間期間の種類と推移}
+
+\end{figure}
+
+\hypertarget{ux65b0ux6a5fux80fdux4e3bux7fa9}{%
+\subsubsection{新機能主義}\label{ux65b0ux6a5fux80fdux4e3bux7fa9}}
+
+\textbf{新機能主義}：非政治的な分野での協調は波及\(\leadsto\)次第に政治的な分野でも協調\(\leadsto\)最終的には主権を\textbf{超国家}
+(supranational) 機関に移譲する
+
+\begin{itemize}
+\tightlist
+\item
+  ECSCの後、設立された\textbf{欧州経済共同体}と\textbf{欧州原子力共同体}とともに\textbf{欧州共同体}（さらに\href{https://www.mofa.go.jp/mofaj/area/eu/index.html}{\textbf{欧州連合}}）へ発展
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/442px-2020_EU_MAP.sv.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:2020_EU_MAP.svg}{EU加盟国（2020年）}}
+
+\end{figure}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/mediabag/1280px-Organs_of_the.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:Organs_of_the_European_Union.svg}{EUの政治体制}}
+
+\end{figure}
+
+機能主義の前提：政治的な問題と非政治的な問題を区別できる？
+
+\begin{itemize}
+\tightlist
+\item
+  1974年（前年の第4次中東戦争をきっかけに）UNESCOやILOでアラブ諸国によるイスラエル批難決議が採択
+\item
+  2011年にパレスチナの加盟を決定するとアメリカは分担金を停止、2018年に脱退
+\item
+  現在、台湾が世界保健機構に加盟を望んでいるが、中国は反対
+\end{itemize}
+
+新機能主義では安全保障の重要性が軽視されている。
+
+\begin{itemize}
+\tightlist
+\item
+  欧州連合の3本柱は欧州共同体（経済・社会分野）、共通外交・安全保障政策、警察・刑事司法協力と言われているが、外交政策や軍隊の統合の見込みは少ない。
+\end{itemize}
+
+ナショナリズムや欧懐疑主義 (Euroscepticism) は統合を阻害する。
+
+\begin{itemize}
+\tightlist
+\item
+  EU市民が選出できる欧州議会の権限は限られ、多くの政策はブリュッセルのEU官僚によって決定されていることへの不満が募っている（\textbf{民主主義の赤字}）。
+\end{itemize}
+
+\(\leadsto\)超国家的な統合は（今のところ）ヨーロッパのみ
+
+\hypertarget{ux5b89ux5168ux4fddux969cux5171ux540cux4f53}{%
+\subsection{安全保障共同体}\label{ux5b89ux5168ux4fddux969cux5171ux540cux4f53}}
+
+\textbf{安全保障共同体} (security
+community)：武力行使の可能性を想定すらし得ない国家の集まり\citep{deutsch2015}
+
+\(\leadsto\)安全保障共同体は平和の原因なのか結果なのか？
+
+\begin{itemize}
+\tightlist
+\item
+  国連総会の投票行動に基づいて推定された理想点 (ideal point)
+  \citep{bailey2017}を見ると、ある種の分断？
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{institutional_peace_files/figure-pdf/unnamed-chunk-6-1.png}
+
+}
+
+\caption{国連投票行動から推定された理想点の推移}
+
+\end{figure}
+
+\hypertarget{ux56fdux969bux793eux4f1aux306bux304aux3051ux308bux5236ux5ea6}{%
+\section{国際社会における制度}\label{ux56fdux969bux793eux4f1aux306bux304aux3051ux308bux5236ux5ea6}}
+
+軍事力の限界\(\leadsto\)制度・ルールの構築による平和
+
+\begin{itemize}
+\tightlist
+\item
+  アナーキーな国際社会における制度は（国内社会を理想とする限り）不完全
+\end{itemize}
+
+\(\leadsto\)無意味なものなのだろうか？
+
+\begin{itemize}
+\tightlist
+\item
+  制裁による協調を引き出すためのデバイス
+
+  \begin{itemize}
+  \tightlist
+  \item
+    継続的な交流\(\leadsto\)将来の陰
+  \item
+    遵守すべき明確なルール・監視制度\(\leadsto\)誤認の減少
+  \end{itemize}
+\end{itemize}
+
+\(\leadsto\)特に国際政治経済の分野において重要な役割
+
+
+  \bibliography{references.bib}
+
+
+\end{document}

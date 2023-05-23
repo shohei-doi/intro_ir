@@ -173,7 +173,7 @@ $\leadsto$アナーキーな国際社会は現代に至るまで**選択され�
 1. ドイツ賠償問題
 1. アメリカの孤立主義（**国際連盟**への不参加）
 
-![[第1次世界大戦によるヨーロッパにおける国境変更](https://commons.wikimedia.org/wiki/File:Map_Europe_1923-en.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Map_Europe_1923-en.svg/1280px-Map_Europe_1923-en.svg.png){width=80%}
+![[第1次世界大戦によるヨーロッパにおける国境変更](https://commons.wikimedia.org/wiki/File:Map_Europe_1923-en.svg)](figures/map_europe_1923.png){width=80%}
 
 世界恐慌 （1929年）$\leadsto$国際協調は衰退、経済的・軍事的競争の激化
 
