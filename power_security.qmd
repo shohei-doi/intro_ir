@@ -166,6 +166,8 @@ $\leadsto$**利益の配分と国力の配分が一致するよう**に抑止力
 
 ![[シュリーフェン・プラン](https://commons.wikimedia.org/wiki/File:Schlieffen_Plan.jpg)](figures/Schlieffen_Plan.jpg){width=80%}
 
+なかなか停戦や和平が上手くいかないのも、コミットメント問題のせいと言えそう。
+
 ### 安全保障のジレンマ
 
 他国が攻撃する意図や能力を持っているかどうかが分からない$\leadsto$**安全保障のジレンマ**[@jervis1978]
@@ -558,7 +560,7 @@ left_join(expand(df_atop, year, pubsecr) %>%
 - 同盟国の喪失は大きな損害$\leadsto$同盟が強固$\leadsto$巻き込まれる可能性
 - 大国の数が多かった$\leadsto$誤認する可能性
 
-![[第1次世界大戦時のヨーロッパの同盟関係](https://commons.wikimedia.org/wiki/File:Map_Europe_alliances_1914-en.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Map_Europe_alliances_1914-en.svg/800px-Map_Europe_alliances_1914-en.svg.png){width=80%}
+![[第1次世界大戦時のヨーロッパの同盟関係](https://commons.wikimedia.org/wiki/File:Map_Europe_alliances_1914-en.svg)](figures/europe_alliance.png){width=80%}
 
 $\leadsto$小さな衝突が大国全てを巻き込む大戦へと発展 (**chain ganging**)[@christensen1990]
 
@@ -679,6 +681,8 @@ $\leadsto$履行されない同盟によって抑止できている？
 
 $\leadsto$いかにして周辺国の安心させつつ、抑止力を維持・拡大するか？
 
+- 自分だけでなく相手も国益を追求して行動する。
+  - **戦略的相互依存** (strategic interaction)：得られる利益は自分の行動だけでなく、他者の行動にも依存している状況
 - 現在の日本の安全保障政策は？
 
 $\leadsto$軍事力「以外」の平和への方策とは？
