@@ -25,6 +25,7 @@ website:
           - war_and_diplomacy.qmd
           - power_security.qmd
           - institutional_peace.qmd
+          - democratic_peace.qmd
       - section: "国際政治経済"
       - section: "越境的政治"
 

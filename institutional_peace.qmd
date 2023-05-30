@@ -25,13 +25,13 @@ $\leadsto$それ以外の戦争を回避する、平和を促進する要因の�
 
 リベラルな平和、カント的平和[@oneal1997; @oneal1999]^[カントの「永遠平和のために」がこうした思想の潮流とする見方のため。]、リベラル国際秩序 (liberal international order: ILO) [@ikenberry2009; @ikenberry2018]などと呼ばれる。
 
-## 国際制度と平和
-
 多くの国内社会でそうであるように、ルール（制度）で暴力を止める。
 
 - 戦争（武力行使）の違法化
 - 集団的安全保障
 - 軍縮・不拡散
+
+## 平和のルール
 
 ### 戦争の違法化
 
@@ -313,7 +313,7 @@ df_pko %>%
 
 ![[国連平和維持活動の展開](https://commons.wikimedia.org/wiki/File:UNpeacekeeping.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/UNpeacekeeping.svg/1280px-UNpeacekeeping.svg.png)
 
-### 冷戦後：期待と失望
+#### 冷戦後：期待と失望
 
 冷戦の終結$\leadsto$イデオロギー対立が解消$\leadsto$安保理の活性化
 
@@ -515,7 +515,7 @@ $\leadsto$コンセンサス方式ということもあり現在は実質的に�
 
 他にも核兵器の開発を行っていた国やその疑惑のある国もいる。
 
-![[NPT締約国](https://commons.wikimedia.org/wiki/File:NPT_parties.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/NPT_parties.svg/1280px-NPT_parties.svg.png)
+![[NPT締約国](https://commons.wikimedia.org/wiki/File:NPT_parties.svg)](figures/NPT_parties.png)
 
 5年ごとにNPT再検討会議が開催
 
@@ -630,7 +630,7 @@ $\leadsto$現在、存在する核兵器の大半はアメリカとロシアの�
 
 - 核兵器廃絶国際キャンペーン (ICAN) がノーベル平和賞を受賞
 
-![[核兵器禁止条約締約国](https://commons.wikimedia.org/wiki/File:Treaty_on_the_Prohibition_of_Nuclear_Weapons_members.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Treaty_on_the_Prohibition_of_Nuclear_Weapons_members.svg/1280px-Treaty_on_the_Prohibition_of_Nuclear_Weapons_members.svg.png)
+![[核兵器禁止条約締約国](https://commons.wikimedia.org/wiki/File:Treaty_on_the_Prohibition_of_Nuclear_Weapons_members.svg)](figures/nuclear_ban_member.png)
 
 ### 通常兵器
 
@@ -697,7 +697,7 @@ $\leadsto$NGOが対人地雷禁止の運動を始め、各国がそれに賛同�
 
 通常兵器の貿易の管理、不正な取引の防止を定めた[武器取引条約](https://www.mofa.go.jp/mofaj/dns/ca/page22_002843.html)が2014年に発効
 
-![[武器取引条約締約国](https://commons.wikimedia.org/wiki/File:Arms_Trade_Treaty_status.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Arms_Trade_Treaty_status.svg/1280px-Arms_Trade_Treaty_status.svg.png)
+![[武器取引条約締約国](https://commons.wikimedia.org/wiki/File:Arms_Trade_Treaty_status.svg)](figures/ATT_member.png)
 
 軍事利用可能な物質や技術の流出を防ぐ[輸出管理レジーム](https://www.mofa.go.jp/mofaj/gaiko/regime/index.html)が各種存在
 
@@ -738,7 +738,7 @@ $\leadsto$資源の国際的管理による平和の促進？
 
 東シナ海におけるガス田の開発について、日本と中国で境界線の主張が異なっている。
 
-![[尖閣諸島の海底資源](https://commons.wikimedia.org/wiki/File:East_China_sea_digging_map.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/East_China_sea_digging_map.svg/1024px-East_China_sea_digging_map.svg.png){width=50%}
+![[尖閣諸島の海底資源](https://commons.wikimedia.org/wiki/File:East_China_sea_digging_map.svg)](figures/senkaku.png){width=50%}
 
 2008年に[「東シナ海における日中間の協力について」](https://www.mofa.go.jp/mofaj/area/china/higashi_shina/press.html)というプレス発表で、日中間の**共同開発**に合意
 

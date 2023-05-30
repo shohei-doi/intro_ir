@@ -5,28 +5,671 @@ author: "土井翔平"
 date: today
 ---
 
+```{r}
+#| include: false
+#| cache: false
+
+library(tidyverse)
+theme_set(theme_bw(base_family = "Noto Sans CJK JP Light"))
+library(countrycode)
+```
+
 ## 民主的平和
 
-<!-- ### 政治体制 -->
+**民主的平和** (democratic peace: DP) ：「民主主義国**同士**は戦争をしない」という経験則
 
-<!-- ### 民主的平和の論理 -->
+- 1900年以降の二国間の政治体制の組み合わせとMID発生件数の関係
+- 民主主義に関するデータセットについては @kubo2016 や @kasuya2014 を参考
+- [Polity 5](https://www.systemicpeace.org/polityproject.html)や[V-Dem](https://www.v-dem.net/)
 
-<!-- #### アカウンタビリティ -->
+```{r}
+#| fig-cap: "政治体制の組み合わせと紛争頻度"
 
-<!-- #### 透明性 -->
+df_vdem <- read_csv("data/vdem/V-Dem-CY-Full+Others-v13.csv") %>% 
+  mutate(e_polity2 = case_when(between(e_polity2, -10, -6) ~ "権威主義",
+                               between(e_polity2, -5, 5) ~ "混合型",
+                               between(e_polity2, 6, 10) ~ "民主主義",
+                               TRUE ~ NA_character_) %>% 
+           fct_relevel("権威主義", "混合型", "民主主義"),
+         v2x_regime = case_when(v2x_regime == 0 ~ "閉鎖的権威主義",
+                                v2x_regime == 1 ~ "選挙権威主義",
+                                v2x_regime == 2 ~ "選挙民主主義",
+                                v2x_regime == 3 ~ "自由民主主義") %>% 
+           fct_relevel("閉鎖的権威主義", "選挙権威主義", "選挙民主主義", "自由民主主義"), 
+         gender_leader = case_when(v2exhoshog == 1 & v2exfemhos == 1 ~ 0, 
+                                   v2exhoshog == 1 & v2exfemhos == 0 ~ 1,
+                                   v2exhoshog == 0 & v2exfemhog == 1 ~ 0,
+                                   v2exhoshog == 0 & v2exfemhog == 0 ~ 1, 
+                                   TRUE ~ 2) %>% 
+           factor())
 
-<!-- #### 規範・アイデンティティ -->
+df_vdem_dy <- NULL
 
-<!-- ### 女性政治家 -->
+for (i in min(df_vdem$year):max(df_vdem$year)) {
+  temp <- df_vdem %>% 
+    filter(year == i)
+  temp <- bind_cols(temp %>% 
+                      select(statea = COWcode),
+                    temp %>% 
+                      select(stateb = COWcode))
+  temp <- temp %>% 
+    expand(statea, stateb) %>% 
+    filter(statea != stateb) %>% 
+    mutate(year = i)
+  df_vdem_dy <- bind_rows(df_vdem_dy, temp)
+}
 
-<!-- ### 民主主義の副作用 -->
+df_vdem_dy <- df_vdem_dy %>% 
+  left_join(df_vdem %>% 
+              select(statea = COWcode, year, regimea = v2x_regime, politya = e_polity2)) %>% 
+  left_join(df_vdem %>% 
+              select(stateb = COWcode, year, regimeb = v2x_regime, polityb = e_polity2)) %>% 
+  drop_na()
 
-<!-- ### 民主化の副作用 -->
+df_mid_dy <- read_csv("data/mid/dyadic_mid_4.02.csv") %>% 
+  select(statea, stateb, year = strtyr) %>% 
+  mutate(mid = 1)
+
+df_vdem_dy <- left_join(df_vdem_dy, df_mid_dy) %>% 
+  replace_na(list(mid = 0))
+
+bind_rows(df_vdem_dy %>% 
+            count(politya, polityb, mid) %>% 
+            group_by(politya, polityb) %>% 
+            mutate(p = n/sum(n)) %>% 
+            rename(dema = politya, demb = polityb) %>% 
+            mutate(type = "Polity 5"),
+          df_vdem_dy %>% 
+            count(regimea, regimeb, mid) %>% 
+            group_by(regimea, regimeb) %>% 
+            mutate(p = n/sum(n)) %>% 
+            rename(dema = regimea, demb = regimeb) %>% 
+            mutate(type = "V-Dem")) %>% 
+  drop_na() %>% 
+  filter(mid == 1) %>% 
+  ggplot() + 
+  geom_tile(aes(x = dema, y = demb, fill = p)) + 
+  scale_fill_viridis_c() + 
+  labs(x = "", y = "", fill = "MID発生率") + 
+  facet_wrap(~ type, scales = "free", ncol = 1)
+```
+
+$\leadsto$民主主義の測り方によって細部は異なるが、次のことが言える[@gleditsch1997]。
+
+1. 民主主義国**同士**$\leadsto$軍事衝突ほぼなし
+1. 民主主義国は権威主義国$\leadsto$軍事衝突あり
+
+$\leadsto$国内政治や政治体制も考慮しなければ戦争と平和については分からない。
+
+- これまでは国家をみんな同じ個人、一枚岩のアクターとして扱ってきた。
+
+### 政治体制
+
+政治体制の定義については様々
+
+$\leadsto$民主主義と権威主義 (autocracy/authoritarian) という二分法ではない。
+
+- **競争的権威主義**、**選挙権威主義**：形式的には選挙を行っているが実質的には独裁[@gandhi2009]^[東島雅晶「[恐怖支配から恩寵政治へ？　権威主義体制の変貌する統治手法](https://chuokoron.jp/politics/118651.html)」(2022) 中央公論；浅古泰史・東島雅昌「「[民主主義 vs. 権威主義」のゆくえ](https://www.web-nippyo.jp/29067/)」(2022) 経済セミナー10・11月号]
+- 独裁のあり方にも様々（個人独裁、軍事政権、集団指導など）
+
+長期的に見ると民主化かが進んでいる。
+
+- 近年は民主主義の後退 (**democracy backsliding**) の懸念も主張されている。
+
+```{r}
+#| fig-cap: "政治体制の推移 (Polity V)"
+
+type <- c("権威主義", "混合型", "民主主義")
+
+df_vdem %>% 
+  filter(between(year, 1800, 2018)) %>% 
+  select(year, e_polity2) %>% 
+  drop_na(e_polity2) %>% 
+  count(year, e_polity2) %>% 
+  group_by(year) %>% 
+  mutate(total = sum(n),
+         ratio = n/total) %>% 
+  pivot_longer(c(n, ratio)) %>% 
+  mutate(name = recode(name, n = "件数", ratio = "比率")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, 
+                color = e_polity2,
+                fill = e_polity2),
+            alpha = 0.5) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  annotate("rect", xmin = 1914, xmax = 1918, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  annotate("rect", xmin = 1939, xmax = 1945, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2") + 
+  scale_fill_brewer(palette = "Set2") + 
+  facet_grid(name ~ ., scales = "free_y") + 
+  labs(x = "年", y = "Polity 5", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+```{r}
+#| fig-cap: "政治体制の推移 (V-Dem)"
+
+type <- c("閉鎖的権威主義", "選挙権威主義", "選挙民主主義", "自由民主主義")
+
+df_vdem %>% 
+  select(year, v2x_regime) %>% 
+  drop_na(v2x_regime) %>% 
+  count(year, v2x_regime) %>% 
+  group_by(year) %>% 
+  mutate(total = sum(n),
+         ratio = n/total) %>% 
+  pivot_longer(c(n, ratio)) %>% 
+  mutate(name = recode(name, n = "件数", ratio = "比率")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, 
+                color = v2x_regime,
+                fill = v2x_regime),
+            alpha = 0.5) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  annotate("rect", xmin = 1914, xmax = 1918, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  annotate("rect", xmin = 1939, xmax = 1945, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2") + 
+  scale_fill_brewer(palette = "Set2") + 
+  facet_grid(name ~ ., scales = "free_y") + 
+  labs(x = "年", y = "V-Dem", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+政治体制は地域ごとに偏りがある。
+
+```{r}
+#| fig-cap: "政治体制の地理的分布"
+
+df_world <- map_data("world") %>% 
+  filter(region != "Antarctica")
+
+df_world %>% 
+  mutate(region = countrycode(region, "country.name", "iso3c")) %>% 
+  left_join(df_vdem %>% 
+              filter(year == 2018) %>% 
+              rename(region = country_text_id)) %>% 
+  ggplot() + 
+  geom_polygon(aes(x = long, y = lat, group = group, fill = v2x_regime), 
+               color = "black", size = 0.1, alpha = 0.5) + 
+  coord_map(projection = "mollweide", xlim = c(-180, 180)) + 
+  scale_fill_brewer(palette = "Set2") + 
+  labs(x = "", y = "", fill = "") + 
+  theme_void() + 
+  theme(legend.position = "bottom")
+```
+
+### 民主的平和の論理
+
+民主主義**同士**では戦争をしないという謎を説明する論理が様々に提案されている。
+
+- 権威主義国による戦争についてはあまり触れないが、 @weeks2012 や次の論考^[安中進「[独裁者はなぜ向こう見ずな戦争を起こすのか？――計量分析から考察する戦争](https://chuokoron.jp/international/122696.html)」(2023) 中央公論]を参照
+
+#### アカウンタビリティ
+
+政治体制＝国内政治のルール$\leadsto$政策に影響
+
+- 全ての国が同じように国力や富を追求するわけではない。
+- 実際の政策決定過程は複雑な委任 (delegation) 関係、**本人＝代理人モデル** (principal-agent model)
+- 有権者→政治家→官僚など
+
+![政策決定過程（ @yamakage2012 を参考に作成）](figures/foreign_policy.drawio.png)
+
+政治家は**選択民** (selectorate) によって選出・排除される＝アカウンタビリティ (accountability)
+
+- アカウンタビリティ：結果に責任を負って、非難を受ける（究極的には役職からの追放）可能性があること^[日本語では「説明責任」と呼ばれるが、説明をする（それだけでよい）責任ではない。]
+- 選択民：政治的な指導者を（集団で）決定する権利を持つ人々
+
+$\leadsto$政治的指導者は**勝利連合** (winning coalition) を形成・維持することで**政治的生き残り** (political survival) を図る[@asako2018, 第9章; @buenodemesquita2013]。
+
+- 主権国家体系では政治的指導者は国際社会や他国に対してアカウンタビリティを持っていない。
+
+勝利連合の大きさは政治体制によって変わる。
+
+- 民主主義国：選択民は有権者全体であり、勝利連合は政権の獲得に必要な有権者の数
+- 大統領制：勝利連合は選択民の約半分
+- 議院内閣制で小選挙区制：選択民の1/4でも可能
+- 権威主義国：選択民は一部のエリートや軍人であることが多く、勝利連合はそのうちの一部
+
+![政治体制、選挙民と勝利連合](figures/selectorate_theory.png)
+
+政治家は有限の政策資源を配分して勝利連合を形成・維持
+
+$\leadsto$選択民と勝利連合の大きさ$\leadsto$政策の違い^[民主主義国の政治家が善人で、権威主義国の政治家が悪人であるとは限らない。]
+
+- 権威主義国：必要な勝利連合の規模が小さい$\leadsto$賄賂や利益誘導などの一部の個人に与えられる**私的財** (private goods)
+- 民主主義国：必要な勝利連合の規模が大きい$\leadsto$経済成長や安全保障などの広く行き渡る**公共財** (public goods)
+- 民主主義と権威主義のパフォーマンスに関しては次の論考^[東島雅晶「[民主主義と権威主義、どちらの「社会経済パフォーマンス」が上なのか？ データ分析が示す驚きの結果](https://gendai.media/articles/-/91203)」(2022) 現代ビジネス；安中進「[民主主義は権威主義に劣るのか? : コロナ禍における政治体制の実証分析](https://chuokoron.jp/politics/117870.html)」(2021) 中央公論；安中進「政治体制は豊かさや健康にどのような影響を及ぼすのか？」(2022) 経済セミナー10・11月号]を参照
+
+戦争において被害を受けるのは国民全体である／戦争を決定するのは一部の政治家
+
+$\leadsto$民主主義国では多くの国民にアカウンタビリティを負っており、戦争では政治的に生き残りにくい。
+
+- 民主主義国が権威主義国とは戦うことは説明できない。
+- 民主主義国の場合は選挙に負けるだけ／権威主義国の場合は革命やクーデタなどで政権の座を奪われ、処罰を受けることが多い[@goemans2008]
+
+権威主義国は民主主義国の決意が低いと見積もって、強硬な姿勢になりやすい？
+
+- 権威主義国から攻撃することが多い[@reiter2003]
+
+#### 透明性
+
+民主的平和の異なる説明として、情報の非対称性に着目するものがある。
+
+- 民主主義国では報道の自由[@van1997]や与野党の議論[@schultz1998]を通じて政治過程が比較的公開$\leadsto$情報の非対称（誤認される可能性）が減る
+
+```{r}
+#| fig-cap: "表現の自由の地理的分布"
+
+df_world %>% 
+  mutate(region = countrycode(region, "country.name", "iso3c")) %>% 
+  left_join(df_vdem %>% 
+              filter(year == 2018) %>% 
+              rename(region = country_text_id)) %>% 
+  ggplot() + 
+  geom_polygon(aes(x = long, y = lat, group = group, fill = v2x_freexp_altinf), 
+               color = "black", size = 0.1, alpha = 0.5) + 
+  coord_map(projection = "mollweide", xlim = c(-180, 180)) + 
+  scale_fill_distiller() + 
+  labs(x = "", y = "", fill = "") + 
+  theme_void() + 
+  theme(legend.position = "bottom")
+```
+
+- **観衆費用** (audience cost) $\leadsto$民主主義国の公開された威嚇には信憑性が高い[@fearon1994]。
+- 観衆費用：言行不一致によって被る政治的コスト（例、国民からの支持の下落、選挙での敗北）
+
+![キューバ危機時のロバート・ケネディ米大統領](https://www.politico.eu/cdn-cgi/image/width=1024,quality=80,onerror=redirect,format=auto/wp-content/uploads/2018/01/GettyImages-119823261.jpg){width=50%}
+
+- （国内）観衆費用が存在するという研究[@tomz2007; @kurizaki2015]
+- 存在しない（大きな役割を果たしていない）という研究[@snyder2011; @trachtenberg2012: @katagiri2019]
+- 権威主義国にも観衆費用は存在するという指摘[@weiss2013; @weeks2008]
+- 民主主義国の威嚇の信憑性は高くないという指摘[@downes2012]
+
+透明性と民主的平和の関係に懐疑的な見方[@finel1999]
+
+- 民主主義の情報の政策生と権威主義国から攻撃することは整合的？
+
+#### 規範・アイデンティティ
+
+民主主義国では対立を互いに平和的に解決するという規範が成立しており、それが国際関係にも波及？[@doyle1986; @risse1995]
+
+- 民主主義国は一般的に平和的ではない。
+- 民主主義国同士では互いに信頼しているので、暴力を用いない？
+- 民主主義国同士：妥協により平和的に解決することが多い[@mousseau1998; @dixon1994]
+- 民主主義国の市民：民主主義を脅威とは捉えにくく、民主主義国同士の戦争に賛成しにくい[@tomz2013]
+- 歴史的に見て民主主義国は権威主義国を必ず嫌うわけではない（例、冷戦期）
+
+#### 女性政治家
+
+年々、女性参政権や女性議員の比率、女性の政治的指導は増加
+
+```{r}
+#| fig-cap: "女性参政権の推移"
+
+type <- c("なし", "一部のみ", "あり", "国政選挙なし") 
+
+left_join(expand(df_vdem, year, v2elfemrst),
+          df_vdem %>% 
+            count(year, v2elfemrst)) %>% 
+  replace_na(list(n = 0, v2elfemrst = 4)) %>% 
+  mutate(v2elfemrst = as.factor(v2elfemrst)) %>% 
+  group_by(year) %>% 
+  mutate(total = sum(n),
+         ratio = n/total) %>% 
+  pivot_longer(c(n, ratio)) %>% 
+  mutate(name = recode(name, n = "件数", ratio = "比率")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, 
+                color = v2elfemrst, fill = v2elfemrst),
+            alpha = 0.5) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  annotate("rect", xmin = 1939, xmax = 1945, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2", labels = type) + 
+  scale_fill_brewer(palette = "Set2", labels = type) + 
+  facet_grid(name ~ ., scales = "free_y") + 
+  labs(x = "年", y = "女性参政権", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+```{r}
+#| fig-cap: "女性議員比率の推移"
+
+df_vdem %>% 
+  drop_na(v2lgfemleg) %>% 
+  ggplot() + 
+  geom_line(aes(x = year, y = v2lgfemleg, group = country_text_id), 
+            alpha = 0.25, size = 0.25) + 
+  geom_line(aes(x = year, y = v2lgfemleg), 
+            color = "royalblue", size = 1,
+            data = . %>% 
+              group_by(year) %>% 
+              summarise(v2lgfemleg = mean(v2lgfemleg, na.rm = TRUE))) + 
+  labs(x = "年", y = "下院における女性議員比率")
+```
+
+```{r}
+#| fig-cap: "女性の政治的指導者の推移"
+
+type <- c("女性", "男性", "不明")
+
+left_join(expand(df_vdem, year, gender_leader),
+          df_vdem %>% 
+            count(year, gender_leader)) %>% 
+  replace_na(list(n = 0)) %>% 
+  group_by(year) %>% 
+  mutate(total = sum(n),
+         ratio = n/total) %>% 
+  pivot_longer(c(n, ratio)) %>% 
+  mutate(name = recode(name, n = "件数", ratio = "比率")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, 
+                color = gender_leader, fill = gender_leader),
+            alpha = 0.5) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  annotate("rect", xmin = 1914, xmax = 1918, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  annotate("rect", xmin = 1939, xmax = 1945, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2", labels = type) + 
+  scale_fill_brewer(palette = "Set2", labels = type) + 
+  facet_grid(name ~ ., scales = "free_y") + 
+  labs(x = "年", y = "女性参政権", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+一般的に女性は男性に比べて武力行使に否定的で、平和的解決を望むと言われている
+
+$\leadsto$女性の政治進出は平和をもたらす？
+
+- ジェンダーの平等や女性議員の増加、女性参政権の拡大$\leadsto$民主主義国において武力行使や軍事費の減少[@reiter2015; @barnhart2020]
+- 平和的な社会で女性の政治進出が進んでいる？
+- 女性の政治的指導者$\leadsto$対立的な行動を取りやすい[@koch2011; @caprioli2001]
+- 政治的指導者になるような女性は男性的である（ことが求められる）[@schramm2020]
+- 女性の政治的指導者は他国から強硬な姿勢を取られやすい[@schwartz2020]
+
+### 民主主義と民意
+
+一般論として、民主主義のほうが権威主義に比べて広く市民の利益になる政策をしている。
+
+$\leadsto$必ずしも民主主義（特に選挙）が民意を表しているとは言えない。
+
+- 社会的選択理論 (social choice theory)：集団の意思決定（多数決）に関する研究[@sakai2015; @sakai2016]
+
+政策の好みと政党の好みは一致しないかもしれない。
+
+:::{.callout-note}
+## 政策の好みと政党の好み
+
+5人の有権者がいて、A党とB党の3つの政策について、次のように好んでいる。
+:::
+
+|有権者|金融|外交|原発|支持政党|
+|:---:|:---:|:---:|:---:|:---:|
+|1|A|A|B|A|
+|2|A|B|A|A|
+|3|B|A|A|A|
+|4|B|B|B|B|
+|5|B|B|B|B|
+|多数決の結果|B|B|B|A|
+
+: オストロゴルスキーのパラドックス[@sakai2016, p.23]
+
+選び方によって結果は変わるかもしれない。
+
+:::{.callout-note}
+## 選び方と政策
+
+9人の有権者がいて、4人の候補者（政策）について、次のように好んでいる。
+:::
+
+|人数|4人|3人|2人|
+|:---:|:---:|:---:|:---:|
+|1位|A|C|D|
+|2位|B|B|B|
+|3位|C|A|C|
+|4位|D|D|A|
+
+: @sakai2016, p.43
+
+- 多数決
+  - Aが最多の4人の支持を得る
+- 決選投票
+  - 1回目で2票しか得なかったDが落選
+  - 決選投票ではCが5人の支持を得る^[多数決の場合は票割れが起こってしまっている。]
+- ボルダルール：1位に4点、2位に3点、3位に2点、4位に1点を与える
+  - Aは24点、Bは27点、Cは24点、Dは15点
+
+$\leadsto$制度＝ルールによって政策結果は変わりうる。
+
+- 選挙（多数決）の結果が民意を反映しているとは言えない。
+
+### 民主主義の副作用
+
+#### 旗下結集効果
+
+**旗下結集効果** (rally ['round the flag] effect)：戦争などの国家的危機において政府に対する支持率が急上昇する現象[@mueller1970]
+
+![[ブッシュJr米大統領の支持率の推移](https://commons.wikimedia.org/wiki/File:George_W_Bush_approval_ratings_with_events.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/George_W_Bush_approval_ratings_with_events.svg/1280px-George_W_Bush_approval_ratings_with_events.svg.png)
+
+- 外敵の存在$\leadsto$集団の結束力が高まる。
+- 野党が政府批判を控える。
+- ニュースが戦争に独占$\leadsto$政府に不都合な情報が流れにくい。
+- 政府は国内問題を他国に転嫁する。
+
+$\leadsto$情報を公開すれば誤認は減るが、世論に影響されやすくなる。
+
+#### 陽動戦争
+
+政治家は陽動戦争 (**diversionary war**) を起こす誘因を持つ。
+
+- 政権基盤が不安定な政治家は旗下結集効果によって政治的生き残りが可能？
+- 復活のためのギャンブル (gambling for resurrection) に賭ける？
+
+陽動戦争理論が正しい$\leadsto$経済状況が悪い場合に戦争を起こしやすい？
+
+- 権威主義国はインフレ率が上がると敵対国と戦いやすい[@mitchell2004]
+- 民主主義国では右派の政権はインフレ率や失業率が上昇すると紛争を起こしやすい[@arena2009; @fordham1998]
+
+陽動戦争理論が正しい$\leadsto$政治的に不安定な場合に戦争を起こしやすい？
+
+- 政治的生き残りが難しい場合には戦争を起こしにくく、国際危機の可能性は生き残りを困難にする[@chiozza2003]
+- 民主主義国における政治的生き残りにとって重要な選挙の前ではなく、選挙後に戦争は起こりやすい[@gaubatz1991]
+
+旗下結集効果を見込んだ陽動戦争（例、フォークランド紛争）はしばしば観察される／戦争の大部分を説明するわけではない。
+
+- 戦争のコストを埋め合わせるほど大きな旗下結集効果は珍しい？
+- 戦争には政治家にとっても大きなコストとなりうる[@goemans2000]
+  - 選挙権威主義国で妥協あるいは敗北をすると政治的指導者は処罰されやすい
+- 大きなコストではないという見方も[@chiozza2004]
+
+#### 利益誘導
+
+政策決定は、**官僚**（特に安全保障では軍部）や**利益団体** (interest group) も影響する。
+
+- 官僚や軍人：国益だけでなく予算の拡大や昇進といった自己目的も追求
+  - 軍部の影響力の高い国は武力紛争を起こしやすい[@sechser2004; @weeks2012]
+  - アメリカでは軍部が文民（背広組）よりも武力行使に慎重になりやすい。
+- ロビー団体や大企業（軍産複合体など）が攻撃的な政策を取るように圧力をかける？
+  - 平和的な関係を求める企業によるロビー活動も起こる$\leadsto$必ずしも利益団体の存在が戦争を引き起こすとは言えない[@brooks2013]
+  - 戦争から利益を得るものがいるため、そうしたアクターの圧力の結果であるという陰謀論に陥りやすい。
+
+$\leadsto$陽動戦争にせよ利益誘導にせよ、戦争のコストよりも大きな利益を政治家に提供できるのか？
+
+### 民主化による平和？
+
+民主主義国同士では戦争が起こらないという**相関**$\neq$民主主義国同士になれば平和が促進されるという**因果**
+
+- 自由市場経済の国は民主主義になりやすく、平和的関係を維持しやすい？[@gartzke2007]
+- 友好国に囲まれている国や領土問題を解決した国が民主化している？[@thompson1996; @gibler2010; @gibler2014]^
+- 民主主義国はWW2においてはドイツ、冷戦においてはソビエト連邦という共通の脅威に直面していたので、友好関係を維持していた？[@farber1997; @mcdonald2015]
+
+仮に民主主義国同士と平和の間に因果関係$\neq$民主化が平和を促進
+
+- 新興民主主義国や民主化の過程にある国は戦争を起こしやすい[@mansfield1995]
+  - 国民が敵対的な感情を抱いている国が民主化$\leadsto$世論に影響されて攻撃的な政策？
 
 ## 商業的平和
 
-<!-- ### 商業的平和の論理 -->
+貿易のように国境を越えた経済活動の規模は年々拡大
 
-<!-- ### パワーとしての相互依存 -->
+- **経済的相互依存** (economic interdependence)：国家が他国に経済的に依存し合っている状態
 
-<!-- ## 東アジアの平和？ -->
+### 商業的平和の論理
+
+**商業的平和論** (commercial peace theory)：経済的相互依存の規模が拡大$\leadsto$国家間での戦争は起こりにくい
+
+- 戦争によって経済的相互依存が低下$\leadsto$経済的利益の減少＝戦争の費用の拡大
+  - **機会費用** (opportunity cost)：「本来、（戦争がなければ）得ることのできた利益」
+- 経済的相互依存が深まっている国同士での威嚇$\leadsto$信憑性が高い
+
+一般的には商業的平和論は支持[@hegre2010]
+
+- 世界恐慌＆経済ブロック化$\leadsto$WW2
+- 戦後の先進民主主義国間（独仏や日米）の平和
+
+なかなか経済的相互依存$\leadsto$平和を実証するのは難しい。
+
+- 平和が経済的相互依存を深化させている可能性？
+- 民主主義国が平和と経済的相互依存を作り出している可能性？
+- WW1前のヨーロッパ諸国、WW2前の日米も経済的な結びつきは強かった。
+
+### パワーとしての相互依存
+
+経済的相互依存は共通の利益を生む＆他国に依存するという点でパワー[@waltz2010; @keohane2012]
+
+- 貿易の制限などにより経済的相互依存を低下させると威嚇$\leadsto$政治的な譲歩を引き出す
+- （日本における表現では）**経済安全保障**の観点から政治と経済が融合
+  - 敵対国との経済的相互依存を制限（デカップリング／デリスキング）
+  - 同士国の間でサプライチェーンの強靭化
+
+```{r}
+df_trade_dy <- read_csv("data/COW_Trade_4.0/Dyadic_COW_4.0.csv", na = "-9") %>% 
+  filter(year > 1945)
+
+type <- c("中国", "その他")
+
+bind_rows(df_trade_dy %>% 
+            filter(importer1 == "United States of America") %>% 
+            mutate(importer2 = if_else(importer2 == "China", "中国", "その他")) %>% 
+            group_by(year, importer2) %>% 
+            summarise(trade = sum(flow1, na.rm = TRUE) + sum(flow2, na.rm = TRUE)) %>% 
+            mutate(country = "アメリカ"),
+          bind_rows(df_trade_dy %>% 
+                      filter(importer1 == "Japan"),
+                    df_trade_dy %>% 
+                      filter(importer2 == "Japan") %>% 
+                      rename(importer1 = importer2, importer2 = importer1,
+                             flow1 = flow2, flow2 = flow1)) %>% 
+            mutate(importer2 = if_else(importer2 == "China", "中国", "その他")) %>% 
+            group_by(year, importer2) %>% 
+            summarise(trade = sum(flow1, na.rm = TRUE) + sum(flow2, na.rm = TRUE)) %>% 
+            mutate(country = "日本")) %>% 
+  group_by(year, country) %>% 
+  mutate(total = sum(trade),
+         ratio = trade/total) %>% 
+  pivot_longer(c(trade, ratio)) %>% 
+  mutate(name = recode(name, trade = "貿易額", ratio = "貿易依存度") %>% 
+           fct_relevel("貿易額", "貿易依存度")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, 
+                color = importer2, fill = importer2),
+            alpha = 0.5) + 
+  geom_vline(aes(xintercept = 1978), alpha = 0.25) + 
+  annotate("rect", xmin = 1986, xmax = 2001, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2", breaks = type) + 
+  scale_fill_brewer(palette = "Set2", breaks = type) + 
+  facet_grid(name ~ country, scales = "free_y") + 
+  labs(x = "年", y = "対中国貿易", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+**安全保障外部性** (security externalities)：経済的相互依存から得られる利益は軍事力にも転換できる性質[@gowa1993]
+
+- 経済的相互依存の拡大$\leadsto$経済成長$\leadsto$軍事力も拡大$\leadsto$パワーシフト？
+
+### 経済制裁
+
+パワーとしての経済的相互依存$\leadsto$**経済制裁** (economic sanction)
+
+- 経済制裁によって大きな打撃を与えることができるという点を貿易の武器化 (weaponization of trade)
+- 過度に経済的に相互依存しているので戦争をすることができないとして経済的相互確証破壊 (mutulal assured economic destruction)
+
+経済的相互依存の深化$\leadsto$経済制裁の威力を高める＆経済制裁を行った側へのコストも高める$\leadsto$経済制裁が困難？
+
+- 自らは経済的相互依存から利益を得ていないが、相手は大きな利益を得ているときに効果
+- どのよう財を貿易しているのか、代替的な経済パートナーの有無などが重要？
+- グローバル化$\leadsto$経済的パートナーが増えると、ある国から経済制裁を受けても、他の国で代替が可能？
+
+経済制裁による戦争の抑止効果
+
+- 戦争の機会費用を高める
+- 継戦能力を損ない、勝利確率を低下
+- コストリーシグナルとして決意を伝達[@lektzian2007]
+
+経済制裁が抑止効果を持っていないように見える理由
+
+- 一度、経済制裁を行うと、経済的相互依存の程度が下がってしまい、戦争の機会費用が低下
+  - 日本はアメリカからの石油禁輸で対米開戦を決意
+- 経済制裁を受けて戦争をやめる国はそもそも戦争を起こさない？
+- 武力紛争が起こるほど対立している国とは経済的相互依存がもともと低い？
+
+$\leadsto$経済制裁と軍事制裁の決定的な違いは実力による軍隊の排除や占領が可能か否か
+
+## 東アジアの平和？
+
+WW2以降、東アジアは例外的に平和を享受してきた。
+
+$\leadsto$今後も平和を維持できるか？
+
+### 平和の動揺：パワーシフト
+
+WW2直後、中華人民共和国は国際社会に参加できず、また国力も乏しかった。
+
+- 改革開放以降の経済成長$\leadsto$軍事的台頭$\leadsto$秩序を変更する能力を持ち始める。
+- アメリカは中国の台頭を防止するための予防戦争を行う動機？
+
+大国と急速に成長する台頭国の間で対立$\leadsto$戦争に至ることは歴史的に繰り返されてきた。
+
+- ドイツの台頭はWW1の一因と考えられる。
+- アメリカの台頭、ソ連の挑戦、戦後のドイツ・日本の経済成長は戦争には繋がらず
+
+### 平和の要因：同盟と経済
+
+平和を維持するための要因のうち次のものは欠如
+
+- 集団安全保障：アメリカと中国はP5なので安保理は機能できない。
+- 地域的な安全保障機構：存在せず
+- 民主的平和：権威主義国の中国や北朝鮮
+
+$\leadsto$消去法的に今後の東アジアの平和を維持する要因は同盟と経済的相互依存？
+
+- 同盟はアメリカの能力とコミットメント（特に核兵器による拡大抑止）次第
+- 経済的相互依存は商業的平和と経済安全保障のジレンマ
+
+### いくつかのシナリオ
+
+悲観的シナリオ：アメリカと中国の利害は衝突し、影響力拡大のために衝突
+
+- 人権や民主主義、経済体制に関する価値観の違い
+- 日本や韓国、台湾、フィリピンにおけるアメリカの軍事的プレゼンス、コミットメント$\leadsto$譲歩できず
+- 中国は台湾問題で譲歩できず
+
+$\leadsto$中国との経済交流を制限して成長を抑制＆軍事力を拡大して抑止する**封じ込め** (containment)
+
+楽観的シナリオ：中国は既存の国際秩序から利益＆責任ある大国として行動
+
+- 中国は自由な国際経済秩序によって経済成長を実現、貿易や投資パートナーはアメリカやその同盟国
+- 安保理常任理事国として受け入れ、IMFや世銀でも投票権を拡大
+- 経済成長は人権や民主主義の価値観を受け入れやすくする？
+
+$\leadsto$中国を様々な国際制度に参加させ、現状の利益を拡大させる**関与** (engagement) 政策
+
+アメリカは軍事的な封じ込めと経済的関与$\leadsto$経済的にも封じ込め？
+
+- 中国の経済活動の制限（特に知的財産）＆アメリカにおける雇用の喪失$\leadsto$トランプ政権が**貿易戦争** (trade war)
+- バイデン政権においても、抜本的な政策転換が起こっているとは言えない。
+- 孤立主義的な共和党大統領が登場すると同盟コミットメントも疑わしくなる。
+
+中国については分からないことが多いが、1つの要因は経済成長と人口成長の鈍化？
+
+- 中国の台頭が緩やかになり、現状の維持に満足する軟着陸コース
+- 将来の衰退を恐れて、有利な時点での予防的挑戦

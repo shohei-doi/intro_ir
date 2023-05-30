@@ -21,7 +21,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -62,10 +81,12 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 <meta name="robots" content="noindex">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -74,7 +95,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">国際公共政策学</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./war_and_peace.html">国際安全保障</a></li><li class="breadcrumb-item"><a href="./democratic_peace.html">民主的平和と商業的平和</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="サイドバーを切り替える" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="サーチ" onclick="window.quartoOpenSearch();">
@@ -161,6 +182,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">国際制度と平和</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./democratic_peace.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">民主的平和と商業的平和</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -181,13 +208,31 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#民主的平和" id="toc-民主的平和" class="nav-link active" data-scroll-target="#民主的平和"><span class="header-section-number">1</span> 民主的平和</a></li>
-  <li><a href="#商業的平和" id="toc-商業的平和" class="nav-link" data-scroll-target="#商業的平和"><span class="header-section-number">2</span> 商業的平和</a></li>
+  <li><a href="#民主的平和" id="toc-民主的平和" class="nav-link active" data-scroll-target="#民主的平和"><span class="header-section-number">1</span> 民主的平和</a>
+  <ul class="collapse">
+  <li><a href="#政治体制" id="toc-政治体制" class="nav-link" data-scroll-target="#政治体制"><span class="header-section-number">1.1</span> 政治体制</a></li>
+  <li><a href="#民主的平和の論理" id="toc-民主的平和の論理" class="nav-link" data-scroll-target="#民主的平和の論理"><span class="header-section-number">1.2</span> 民主的平和の論理</a></li>
+  <li><a href="#民主主義と民意" id="toc-民主主義と民意" class="nav-link" data-scroll-target="#民主主義と民意"><span class="header-section-number">1.3</span> 民主主義と民意</a></li>
+  <li><a href="#民主主義の副作用" id="toc-民主主義の副作用" class="nav-link" data-scroll-target="#民主主義の副作用"><span class="header-section-number">1.4</span> 民主主義の副作用</a></li>
+  <li><a href="#民主化による平和" id="toc-民主化による平和" class="nav-link" data-scroll-target="#民主化による平和"><span class="header-section-number">1.5</span> 民主化による平和？</a></li>
+  </ul></li>
+  <li><a href="#商業的平和" id="toc-商業的平和" class="nav-link" data-scroll-target="#商業的平和"><span class="header-section-number">2</span> 商業的平和</a>
+  <ul class="collapse">
+  <li><a href="#商業的平和の論理" id="toc-商業的平和の論理" class="nav-link" data-scroll-target="#商業的平和の論理"><span class="header-section-number">2.1</span> 商業的平和の論理</a></li>
+  <li><a href="#パワーとしての相互依存" id="toc-パワーとしての相互依存" class="nav-link" data-scroll-target="#パワーとしての相互依存"><span class="header-section-number">2.2</span> パワーとしての相互依存</a></li>
+  <li><a href="#経済制裁" id="toc-経済制裁" class="nav-link" data-scroll-target="#経済制裁"><span class="header-section-number">2.3</span> 経済制裁</a></li>
+  </ul></li>
+  <li><a href="#東アジアの平和" id="toc-東アジアの平和" class="nav-link" data-scroll-target="#東アジアの平和"><span class="header-section-number">3</span> 東アジアの平和？</a>
+  <ul class="collapse">
+  <li><a href="#平和の動揺パワーシフト" id="toc-平和の動揺パワーシフト" class="nav-link" data-scroll-target="#平和の動揺パワーシフト"><span class="header-section-number">3.1</span> 平和の動揺：パワーシフト</a></li>
+  <li><a href="#平和の要因同盟と経済" id="toc-平和の要因同盟と経済" class="nav-link" data-scroll-target="#平和の要因同盟と経済"><span class="header-section-number">3.2</span> 平和の要因：同盟と経済</a></li>
+  <li><a href="#いくつかのシナリオ" id="toc-いくつかのシナリオ" class="nav-link" data-scroll-target="#いくつかのシナリオ"><span class="header-section-number">3.3</span> いくつかのシナリオ</a></li>
+  </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>その他のフォーマット</h2><ul><li><a href="pdf/democratic_peace.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -209,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">公開</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023年5月24日</p>
+      <p class="date">2023年5月30日</p>
     </div>
   </div>
   
@@ -219,27 +264,776 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="民主的平和" class="level2" data-number="1">
+<section id="民主的平和" class="level2 page-columns page-full" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="民主的平和"><span class="header-section-number">1</span> 民主的平和</h2>
-<!-- ### 政治体制 -->
-<!-- ### 民主的平和の論理 -->
-<!-- #### アカウンタビリティ -->
-<!-- #### 透明性 -->
-<!-- #### 規範・アイデンティティ -->
-<!-- ### 女性政治家 -->
-<!-- ### 民主主義の副作用 -->
-<!-- ### 民主化の副作用 -->
+<p><strong>民主的平和</strong> (democratic peace: DP) ：「民主主義国<strong>同士</strong>は戦争をしない」という経験則</p>
+<ul>
+<li>1900年以降の二国間の政治体制の組み合わせとMID発生件数の関係</li>
+<li>民主主義に関するデータセットについては <span class="citation" data-cites="kubo2016">久保, 末近, と 高橋 (<a href="#ref-kubo2016" role="doc-biblioref">2016</a>)</span> や <span class="citation" data-cites="kasuya2014">粕谷 (<a href="#ref-kasuya2014" role="doc-biblioref">2014</a>)</span> を参考</li>
+<li><a href="https://www.systemicpeace.org/polityproject.html">Polity 5</a>や<a href="https://www.v-dem.net/">V-Dem</a></li>
+</ul>
+<div class="cell" data-hash="democratic_peace_cache/html/unnamed-chunk-2_16f393e0f3dfc4a090d773ea719b4a17">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="democratic_peace_files/figure-html/unnamed-chunk-2-1.png" class="quarto-discovered-preview-image img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">政治体制の組み合わせと紛争頻度</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="math inline">\(\leadsto\)</span>民主主義の測り方によって細部は異なるが、次のことが言える<span class="citation" data-cites="gleditsch1997">(<a href="#ref-gleditsch1997" role="doc-biblioref">Gleditsch と Hegre 1997</a>)</span>。</p>
+<ol type="1">
+<li>民主主義国<strong>同士</strong><span class="math inline">\(\leadsto\)</span>軍事衝突ほぼなし</li>
+<li>民主主義国は権威主義国<span class="math inline">\(\leadsto\)</span>軍事衝突あり</li>
+</ol>
+<p><span class="math inline">\(\leadsto\)</span>国内政治や政治体制も考慮しなければ戦争と平和については分からない。</p>
+<ul>
+<li>これまでは国家をみんな同じ個人、一枚岩のアクターとして扱ってきた。</li>
+</ul>
+<section id="政治体制" class="level3 page-columns page-full" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="政治体制"><span class="header-section-number">1.1</span> 政治体制</h3>
+<p>政治体制の定義については様々</p>
+<p><span class="math inline">\(\leadsto\)</span>民主主義と権威主義 (autocracy/authoritarian) という二分法ではない。</p>
+<ul>
+<li><strong>競争的権威主義</strong>、<strong>選挙権威主義</strong>：形式的には選挙を行っているが実質的には独裁<span class="citation" data-cites="gandhi2009">(<a href="#ref-gandhi2009" role="doc-biblioref">Gandhi と Lust-Okar 2009</a>)</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li>独裁のあり方にも様々（個人独裁、軍事政権、集団指導など）</li>
+</ul>
+<div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;東島雅晶「<a href="https://chuokoron.jp/politics/118651.html">恐怖支配から恩寵政治へ？　権威主義体制の変貌する統治手法</a>」(2022) 中央公論；浅古泰史・東島雅昌「「<a href="https://www.web-nippyo.jp/29067/">民主主義 vs.&nbsp;権威主義」のゆくえ</a>」(2022) 経済セミナー10・11月号</p></li></div><p>長期的に見ると民主化かが進んでいる。</p>
+<ul>
+<li>近年は民主主義の後退 (<strong>democracy backsliding</strong>) の懸念も主張されている。</li>
+</ul>
+<div class="cell" data-hash="democratic_peace_cache/html/unnamed-chunk-3_2b0023339734ce4dde6364c333a8d9a8">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="democratic_peace_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">政治体制の推移 (Polity V)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-hash="democratic_peace_cache/html/unnamed-chunk-4_bec4799fd3a1ff3f8a77b28f21208ce2">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="democratic_peace_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">政治体制の推移 (V-Dem)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>政治体制は地域ごとに偏りがある。</p>
+<div class="cell" data-hash="democratic_peace_cache/html/unnamed-chunk-5_3d380078d7e155c788a56d7aee957612">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="democratic_peace_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">政治体制の地理的分布</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="民主的平和の論理" class="level3 page-columns page-full" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="民主的平和の論理"><span class="header-section-number">1.2</span> 民主的平和の論理</h3>
+<p>民主主義<strong>同士</strong>では戦争をしないという謎を説明する論理が様々に提案されている。</p>
+<ul>
+<li>権威主義国による戦争についてはあまり触れないが、 <span class="citation" data-cites="weeks2012">Weeks (<a href="#ref-weeks2012" role="doc-biblioref">2012</a>)</span> や次の論考<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>を参照</li>
+</ul>
+<div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;安中進「<a href="https://chuokoron.jp/international/122696.html">独裁者はなぜ向こう見ずな戦争を起こすのか？――計量分析から考察する戦争</a>」(2023) 中央公論</p></li></div><section id="アカウンタビリティ" class="level4 page-columns page-full" data-number="1.2.1">
+<h4 data-number="1.2.1" class="anchored" data-anchor-id="アカウンタビリティ"><span class="header-section-number">1.2.1</span> アカウンタビリティ</h4>
+<p>政治体制＝国内政治のルール<span class="math inline">\(\leadsto\)</span>政策に影響</p>
+<ul>
+<li>全ての国が同じように国力や富を追求するわけではない。</li>
+<li>実際の政策決定過程は複雑な委任 (delegation) 関係、<strong>本人＝代理人モデル</strong> (principal-agent model)</li>
+<li>有権者→政治家→官僚など</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/foreign_policy.drawio.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">政策決定過程（ <span class="citation" data-cites="yamakage2012">山影 (<a href="#ref-yamakage2012" role="doc-biblioref">2012</a>)</span> を参考に作成）</figcaption><p></p>
+</figure>
+</div>
+<p>政治家は<strong>選択民</strong> (selectorate) によって選出・排除される＝アカウンタビリティ (accountability)</p>
+<ul>
+<li>アカウンタビリティ：結果に責任を負って、非難を受ける（究極的には役職からの追放）可能性があること<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
+<li>選択民：政治的な指導者を（集団で）決定する権利を持つ人々</li>
+</ul>
+<div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;日本語では「説明責任」と呼ばれるが、説明をする（それだけでよい）責任ではない。</p></li></div><p><span class="math inline">\(\leadsto\)</span>政治的指導者は<strong>勝利連合</strong> (winning coalition) を形成・維持することで<strong>政治的生き残り</strong> (political survival) を図る<span class="citation" data-cites="asako2018 buenodemesquita2013">(<a href="#ref-asako2018" role="doc-biblioref">浅古 2018, 第9章</a>; <a href="#ref-buenodemesquita2013" role="doc-biblioref">Bueno de Mesquita ほか 2013</a>)</span>。</p>
+<ul>
+<li>主権国家体系では政治的指導者は国際社会や他国に対してアカウンタビリティを持っていない。</li>
+</ul>
+<p>勝利連合の大きさは政治体制によって変わる。</p>
+<ul>
+<li>民主主義国：選択民は有権者全体であり、勝利連合は政権の獲得に必要な有権者の数</li>
+<li>大統領制：勝利連合は選択民の約半分</li>
+<li>議院内閣制で小選挙区制：選択民の1/4でも可能</li>
+<li>権威主義国：選択民は一部のエリートや軍人であることが多く、勝利連合はそのうちの一部</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/selectorate_theory.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">政治体制、選挙民と勝利連合</figcaption><p></p>
+</figure>
+</div>
+<p>政治家は有限の政策資源を配分して勝利連合を形成・維持</p>
+<div class="page-columns page-full"><p><span class="math inline">\(\leadsto\)</span>選択民と勝利連合の大きさ<span class="math inline">\(\leadsto\)</span>政策の違い<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn4"><p><sup>4</sup>&nbsp;民主主義国の政治家が善人で、権威主義国の政治家が悪人であるとは限らない。</p></li></div></div>
+<ul>
+<li>権威主義国：必要な勝利連合の規模が小さい<span class="math inline">\(\leadsto\)</span>賄賂や利益誘導などの一部の個人に与えられる<strong>私的財</strong> (private goods)</li>
+<li>民主主義国：必要な勝利連合の規模が大きい<span class="math inline">\(\leadsto\)</span>経済成長や安全保障などの広く行き渡る<strong>公共財</strong> (public goods)</li>
+<li>民主主義と権威主義のパフォーマンスに関しては次の論考<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>を参照</li>
+</ul>
+<div class="no-row-height column-margin column-container"><li id="fn5"><p><sup>5</sup>&nbsp;東島雅晶「<a href="https://gendai.media/articles/-/91203">民主主義と権威主義、どちらの「社会経済パフォーマンス」が上なのか？ データ分析が示す驚きの結果</a>」(2022) 現代ビジネス；安中進「<a href="https://chuokoron.jp/politics/117870.html">民主主義は権威主義に劣るのか? : コロナ禍における政治体制の実証分析</a>」(2021) 中央公論；安中進「政治体制は豊かさや健康にどのような影響を及ぼすのか？」(2022) 経済セミナー10・11月号</p></li></div><p>戦争において被害を受けるのは国民全体である／戦争を決定するのは一部の政治家</p>
+<p><span class="math inline">\(\leadsto\)</span>民主主義国では多くの国民にアカウンタビリティを負っており、戦争では政治的に生き残りにくい。</p>
+<ul>
+<li>民主主義国が権威主義国とは戦うことは説明できない。</li>
+<li>民主主義国の場合は選挙に負けるだけ／権威主義国の場合は革命やクーデタなどで政権の座を奪われ、処罰を受けることが多い<span class="citation" data-cites="goemans2008">(<a href="#ref-goemans2008" role="doc-biblioref">Goemans 2008</a>)</span></li>
+</ul>
+<p>権威主義国は民主主義国の決意が低いと見積もって、強硬な姿勢になりやすい？</p>
+<ul>
+<li>権威主義国から攻撃することが多い<span class="citation" data-cites="reiter2003">(<a href="#ref-reiter2003" role="doc-biblioref">Reiter と Stam 2003</a>)</span></li>
+</ul>
+</section>
+<section id="透明性" class="level4" data-number="1.2.2">
+<h4 data-number="1.2.2" class="anchored" data-anchor-id="透明性"><span class="header-section-number">1.2.2</span> 透明性</h4>
+<p>民主的平和の異なる説明として、情報の非対称性に着目するものがある。</p>
+<ul>
+<li>民主主義国では報道の自由<span class="citation" data-cites="van1997">(<a href="#ref-van1997" role="doc-biblioref">Van Belle 1997</a>)</span>や与野党の議論<span class="citation" data-cites="schultz1998">(<a href="#ref-schultz1998" role="doc-biblioref">Schultz 1998</a>)</span>を通じて政治過程が比較的公開<span class="math inline">\(\leadsto\)</span>情報の非対称（誤認される可能性）が減る</li>
+</ul>
+<div class="cell" data-hash="democratic_peace_cache/html/unnamed-chunk-6_a3df286e5927223a4dd21ca483451959">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="democratic_peace_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">表現の自由の地理的分布</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>観衆費用</strong> (audience cost) <span class="math inline">\(\leadsto\)</span>民主主義国の公開された威嚇には信憑性が高い<span class="citation" data-cites="fearon1994">(<a href="#ref-fearon1994" role="doc-biblioref">Fearon 1994</a>)</span>。</li>
+<li>観衆費用：言行不一致によって被る政治的コスト（例、国民からの支持の下落、選挙での敗北）</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.politico.eu/cdn-cgi/image/width=1024,quality=80,onerror=redirect,format=auto/wp-content/uploads/2018/01/GettyImages-119823261.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">キューバ危機時のロバート・ケネディ米大統領</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>（国内）観衆費用が存在するという研究<span class="citation" data-cites="tomz2007 kurizaki2015">(<a href="#ref-tomz2007" role="doc-biblioref">M. Tomz 2007</a>; <a href="#ref-kurizaki2015" role="doc-biblioref">Kurizaki と Whang 2015</a>)</span></li>
+<li>存在しない（大きな役割を果たしていない）という研究<span class="citation" data-cites="snyder2011 trachtenberg2012">Katagiri と Min (<a href="#ref-katagiri2019" role="doc-biblioref">2019</a>)</span></li>
+<li>権威主義国にも観衆費用は存在するという指摘<span class="citation" data-cites="weiss2013 weeks2008">(<a href="#ref-weiss2013" role="doc-biblioref">Weiss 2013</a>; <a href="#ref-weeks2008" role="doc-biblioref">Weeks 2008</a>)</span></li>
+<li>民主主義国の威嚇の信憑性は高くないという指摘<span class="citation" data-cites="downes2012">(<a href="#ref-downes2012" role="doc-biblioref">Downes と Sechser 2012</a>)</span></li>
+</ul>
+<p>透明性と民主的平和の関係に懐疑的な見方<span class="citation" data-cites="finel1999">(<a href="#ref-finel1999" role="doc-biblioref">Finel と Lord 1999</a>)</span></p>
+<ul>
+<li>民主主義の情報の政策生と権威主義国から攻撃することは整合的？</li>
+</ul>
+</section>
+<section id="規範アイデンティティ" class="level4" data-number="1.2.3">
+<h4 data-number="1.2.3" class="anchored" data-anchor-id="規範アイデンティティ"><span class="header-section-number">1.2.3</span> 規範・アイデンティティ</h4>
+<p>民主主義国では対立を互いに平和的に解決するという規範が成立しており、それが国際関係にも波及？<span class="citation" data-cites="doyle1986 risse1995">(<a href="#ref-doyle1986" role="doc-biblioref">Doyle 1986</a>; <a href="#ref-risse1995" role="doc-biblioref">Risse-Kappen 1995</a>)</span></p>
+<ul>
+<li>民主主義国は一般的に平和的ではない。</li>
+<li>民主主義国同士では互いに信頼しているので、暴力を用いない？</li>
+<li>民主主義国同士：妥協により平和的に解決することが多い<span class="citation" data-cites="mousseau1998 dixon1994">(<a href="#ref-mousseau1998" role="doc-biblioref">Mousseau 1998</a>; <a href="#ref-dixon1994" role="doc-biblioref">Dixon 1994</a>)</span></li>
+<li>民主主義国の市民：民主主義を脅威とは捉えにくく、民主主義国同士の戦争に賛成しにくい<span class="citation" data-cites="tomz2013">(<a href="#ref-tomz2013" role="doc-biblioref">M. R. Tomz と Weeks 2013</a>)</span></li>
+<li>歴史的に見て民主主義国は権威主義国を必ず嫌うわけではない（例、冷戦期）</li>
+</ul>
+</section>
+<section id="女性政治家" class="level4" data-number="1.2.4">
+<h4 data-number="1.2.4" class="anchored" data-anchor-id="女性政治家"><span class="header-section-number">1.2.4</span> 女性政治家</h4>
+<p>年々、女性参政権や女性議員の比率、女性の政治的指導は増加</p>
+<div class="cell" data-hash="democratic_peace_cache/html/unnamed-chunk-7_caad1fd40bf91e318384bd67b207cf39">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="democratic_peace_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">女性参政権の推移</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-hash="democratic_peace_cache/html/unnamed-chunk-8_178c3fa5b589ae84aa8fcf02447d8750">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="democratic_peace_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">女性議員比率の推移</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-hash="democratic_peace_cache/html/unnamed-chunk-9_69c6544149f253d62406c693675afc75">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="democratic_peace_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">女性の政治的指導者の推移</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>一般的に女性は男性に比べて武力行使に否定的で、平和的解決を望むと言われている</p>
+<p><span class="math inline">\(\leadsto\)</span>女性の政治進出は平和をもたらす？</p>
+<ul>
+<li>ジェンダーの平等や女性議員の増加、女性参政権の拡大<span class="math inline">\(\leadsto\)</span>民主主義国において武力行使や軍事費の減少<span class="citation" data-cites="reiter2015 barnhart2020">(<a href="#ref-reiter2015" role="doc-biblioref">Reiter 2015</a>; <a href="#ref-barnhart2020" role="doc-biblioref">Barnhart ほか 2020</a>)</span></li>
+<li>平和的な社会で女性の政治進出が進んでいる？</li>
+<li>女性の政治的指導者<span class="math inline">\(\leadsto\)</span>対立的な行動を取りやすい<span class="citation" data-cites="koch2011 caprioli2001">(<a href="#ref-koch2011" role="doc-biblioref">Koch と Fulton 2011</a>; <a href="#ref-caprioli2001" role="doc-biblioref">Caprioli と Boyer 2001</a>)</span></li>
+<li>政治的指導者になるような女性は男性的である（ことが求められる）<span class="citation" data-cites="schramm2020">(<a href="#ref-schramm2020" role="doc-biblioref">Schramm と Stark 2020</a>)</span></li>
+<li>女性の政治的指導者は他国から強硬な姿勢を取られやすい<span class="citation" data-cites="schwartz2020">(<a href="#ref-schwartz2020" role="doc-biblioref">Schwartz と Blair 2020</a>)</span></li>
+</ul>
+</section>
+</section>
+<section id="民主主義と民意" class="level3 page-columns page-full" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="民主主義と民意"><span class="header-section-number">1.3</span> 民主主義と民意</h3>
+<p>一般論として、民主主義のほうが権威主義に比べて広く市民の利益になる政策をしている。</p>
+<p><span class="math inline">\(\leadsto\)</span>必ずしも民主主義（特に選挙）が民意を表しているとは言えない。</p>
+<ul>
+<li>社会的選択理論 (social choice theory)：集団の意思決定（多数決）に関する研究<span class="citation" data-cites="sakai2015 sakai2016">(<a href="#ref-sakai2015" role="doc-biblioref">坂井 2015</a>, <a href="#ref-sakai2016" role="doc-biblioref">2016</a>)</span></li>
+</ul>
+<p>政策の好みと政党の好みは一致しないかもしれない。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+政策の好みと政党の好み
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>5人の有権者がいて、A党とB党の3つの政策について、次のように好んでいる。</p>
+</div>
+</div>
+<table class="table">
+<caption>オストロゴルスキーのパラドックス<span class="citation" data-cites="sakai2016">(<a href="#ref-sakai2016" role="doc-biblioref">坂井 2016, 23</a>)</span></caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">有権者</th>
+<th style="text-align: center;">金融</th>
+<th style="text-align: center;">外交</th>
+<th style="text-align: center;">原発</th>
+<th style="text-align: center;">支持政党</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">多数決の結果</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">A</td>
+</tr>
+</tbody>
+</table>
+<p>選び方によって結果は変わるかもしれない。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+選び方と政策
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>9人の有権者がいて、4人の候補者（政策）について、次のように好んでいる。</p>
+</div>
+</div>
+<table class="table">
+<caption><span class="citation" data-cites="sakai2016">坂井 (<a href="#ref-sakai2016" role="doc-biblioref">2016</a>)</span>, p.43</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">人数</th>
+<th style="text-align: center;">4人</th>
+<th style="text-align: center;">3人</th>
+<th style="text-align: center;">2人</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1位</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">D</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2位</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">B</td>
+<td style="text-align: center;">B</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3位</td>
+<td style="text-align: center;">C</td>
+<td style="text-align: center;">A</td>
+<td style="text-align: center;">C</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4位</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">D</td>
+<td style="text-align: center;">A</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>多数決
+<ul>
+<li>Aが最多の4人の支持を得る</li>
+</ul></li>
+<li>決選投票
+<ul>
+<li>1回目で2票しか得なかったDが落選</li>
+<li>決選投票ではCが5人の支持を得る<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></li>
+</ul></li>
+<li>ボルダルール：1位に4点、2位に3点、3位に2点、4位に1点を与える
+<ul>
+<li>Aは24点、Bは27点、Cは24点、Dは15点</li>
+</ul></li>
+</ul>
+<div class="no-row-height column-margin column-container"><li id="fn6"><p><sup>6</sup>&nbsp;多数決の場合は票割れが起こってしまっている。</p></li></div><p><span class="math inline">\(\leadsto\)</span>制度＝ルールによって政策結果は変わりうる。</p>
+<ul>
+<li>選挙（多数決）の結果が民意を反映しているとは言えない。</li>
+</ul>
+</section>
+<section id="民主主義の副作用" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="民主主義の副作用"><span class="header-section-number">1.4</span> 民主主義の副作用</h3>
+<section id="旗下結集効果" class="level4" data-number="1.4.1">
+<h4 data-number="1.4.1" class="anchored" data-anchor-id="旗下結集効果"><span class="header-section-number">1.4.1</span> 旗下結集効果</h4>
+<p><strong>旗下結集効果</strong> (rally [’round the flag] effect)：戦争などの国家的危機において政府に対する支持率が急上昇する現象<span class="citation" data-cites="mueller1970">(<a href="#ref-mueller1970" role="doc-biblioref">Mueller 1970</a>)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/George_W_Bush_approval_ratings_with_events.svg/1280px-George_W_Bush_approval_ratings_with_events.svg.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://commons.wikimedia.org/wiki/File:George_W_Bush_approval_ratings_with_events.svg">ブッシュJr米大統領の支持率の推移</a></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>外敵の存在<span class="math inline">\(\leadsto\)</span>集団の結束力が高まる。</li>
+<li>野党が政府批判を控える。</li>
+<li>ニュースが戦争に独占<span class="math inline">\(\leadsto\)</span>政府に不都合な情報が流れにくい。</li>
+<li>政府は国内問題を他国に転嫁する。</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>情報を公開すれば誤認は減るが、世論に影響されやすくなる。</p>
+</section>
+<section id="陽動戦争" class="level4" data-number="1.4.2">
+<h4 data-number="1.4.2" class="anchored" data-anchor-id="陽動戦争"><span class="header-section-number">1.4.2</span> 陽動戦争</h4>
+<p>政治家は陽動戦争 (<strong>diversionary war</strong>) を起こす誘因を持つ。</p>
+<ul>
+<li>政権基盤が不安定な政治家は旗下結集効果によって政治的生き残りが可能？</li>
+<li>復活のためのギャンブル (gambling for resurrection) に賭ける？</li>
+</ul>
+<p>陽動戦争理論が正しい<span class="math inline">\(\leadsto\)</span>経済状況が悪い場合に戦争を起こしやすい？</p>
+<ul>
+<li>権威主義国はインフレ率が上がると敵対国と戦いやすい<span class="citation" data-cites="mitchell2004">(<a href="#ref-mitchell2004" role="doc-biblioref">Mitchell と Prins 2004</a>)</span></li>
+<li>民主主義国では右派の政権はインフレ率や失業率が上昇すると紛争を起こしやすい<span class="citation" data-cites="arena2009 fordham1998">(<a href="#ref-arena2009" role="doc-biblioref">Arena と Palmer 2009</a>; <a href="#ref-fordham1998" role="doc-biblioref">Fordham 1998</a>)</span></li>
+</ul>
+<p>陽動戦争理論が正しい<span class="math inline">\(\leadsto\)</span>政治的に不安定な場合に戦争を起こしやすい？</p>
+<ul>
+<li>政治的生き残りが難しい場合には戦争を起こしにくく、国際危機の可能性は生き残りを困難にする<span class="citation" data-cites="chiozza2003">(<a href="#ref-chiozza2003" role="doc-biblioref">Chiozza と Goemans 2003</a>)</span></li>
+<li>民主主義国における政治的生き残りにとって重要な選挙の前ではなく、選挙後に戦争は起こりやすい<span class="citation" data-cites="gaubatz1991">(<a href="#ref-gaubatz1991" role="doc-biblioref">Gaubatz 1991</a>)</span></li>
+</ul>
+<p>旗下結集効果を見込んだ陽動戦争（例、フォークランド紛争）はしばしば観察される／戦争の大部分を説明するわけではない。</p>
+<ul>
+<li>戦争のコストを埋め合わせるほど大きな旗下結集効果は珍しい？</li>
+<li>戦争には政治家にとっても大きなコストとなりうる<span class="citation" data-cites="goemans2000">(<a href="#ref-goemans2000" role="doc-biblioref">Goemans 2000</a>)</span>
+<ul>
+<li>選挙権威主義国で妥協あるいは敗北をすると政治的指導者は処罰されやすい</li>
+</ul></li>
+<li>大きなコストではないという見方も<span class="citation" data-cites="chiozza2004">(<a href="#ref-chiozza2004" role="doc-biblioref">Chiozza と Goemans 2004</a>)</span></li>
+</ul>
+</section>
+<section id="利益誘導" class="level4" data-number="1.4.3">
+<h4 data-number="1.4.3" class="anchored" data-anchor-id="利益誘導"><span class="header-section-number">1.4.3</span> 利益誘導</h4>
+<p>政策決定は、<strong>官僚</strong>（特に安全保障では軍部）や<strong>利益団体</strong> (interest group) も影響する。</p>
+<ul>
+<li>官僚や軍人：国益だけでなく予算の拡大や昇進といった自己目的も追求
+<ul>
+<li>軍部の影響力の高い国は武力紛争を起こしやすい<span class="citation" data-cites="sechser2004 weeks2012">(<a href="#ref-sechser2004" role="doc-biblioref">Sechser 2004</a>; <a href="#ref-weeks2012" role="doc-biblioref">Weeks 2012</a>)</span></li>
+<li>アメリカでは軍部が文民（背広組）よりも武力行使に慎重になりやすい。</li>
+</ul></li>
+<li>ロビー団体や大企業（軍産複合体など）が攻撃的な政策を取るように圧力をかける？
+<ul>
+<li>平和的な関係を求める企業によるロビー活動も起こる<span class="math inline">\(\leadsto\)</span>必ずしも利益団体の存在が戦争を引き起こすとは言えない<span class="citation" data-cites="brooks2013">(<a href="#ref-brooks2013" role="doc-biblioref">Brooks 2013</a>)</span></li>
+<li>戦争から利益を得るものがいるため、そうしたアクターの圧力の結果であるという陰謀論に陥りやすい。</li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>陽動戦争にせよ利益誘導にせよ、戦争のコストよりも大きな利益を政治家に提供できるのか？</p>
+</section>
+</section>
+<section id="民主化による平和" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="民主化による平和"><span class="header-section-number">1.5</span> 民主化による平和？</h3>
+<p>民主主義国同士では戦争が起こらないという<strong>相関</strong><span class="math inline">\(\neq\)</span>民主主義国同士になれば平和が促進されるという<strong>因果</strong></p>
+<ul>
+<li>自由市場経済の国は民主主義になりやすく、平和的関係を維持しやすい？<span class="citation" data-cites="gartzke2007">(<a href="#ref-gartzke2007" role="doc-biblioref">Gartzke 2007</a>)</span></li>
+<li>友好国に囲まれている国や領土問題を解決した国が民主化している？<span class="citation" data-cites="thompson1996 gibler2010 gibler2014">(<a href="#ref-thompson1996" role="doc-biblioref">Thompson 1996</a>; <a href="#ref-gibler2010" role="doc-biblioref">Gibler と Tir 2010</a>, <a href="#ref-gibler2014" role="doc-biblioref">2014</a>)</span>^</li>
+<li>民主主義国はWW2においてはドイツ、冷戦においてはソビエト連邦という共通の脅威に直面していたので、友好関係を維持していた？<span class="citation" data-cites="farber1997 mcdonald2015">(<a href="#ref-farber1997" role="doc-biblioref">Farber と Gowa 1997</a>; <a href="#ref-mcdonald2015" role="doc-biblioref">McDonald 2015</a>)</span></li>
+</ul>
+<p>仮に民主主義国同士と平和の間に因果関係<span class="math inline">\(\neq\)</span>民主化が平和を促進</p>
+<ul>
+<li>新興民主主義国や民主化の過程にある国は戦争を起こしやすい<span class="citation" data-cites="mansfield1995">(<a href="#ref-mansfield1995" role="doc-biblioref">Mansfield と Snyder 1995</a>)</span>
+<ul>
+<li>国民が敵対的な感情を抱いている国が民主化<span class="math inline">\(\leadsto\)</span>世論に影響されて攻撃的な政策？</li>
+</ul></li>
+</ul>
+</section>
 </section>
 <section id="商業的平和" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="商業的平和"><span class="header-section-number">2</span> 商業的平和</h2>
-<!-- ### 商業的平和の論理 -->
-<!-- ### パワーとしての相互依存 -->
-<!-- ## 東アジアの平和？ -->
+<p>貿易のように国境を越えた経済活動の規模は年々拡大</p>
+<ul>
+<li><strong>経済的相互依存</strong> (economic interdependence)：国家が他国に経済的に依存し合っている状態</li>
+</ul>
+<section id="商業的平和の論理" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="商業的平和の論理"><span class="header-section-number">2.1</span> 商業的平和の論理</h3>
+<p><strong>商業的平和論</strong> (commercial peace theory)：経済的相互依存の規模が拡大<span class="math inline">\(\leadsto\)</span>国家間での戦争は起こりにくい</p>
+<ul>
+<li>戦争によって経済的相互依存が低下<span class="math inline">\(\leadsto\)</span>経済的利益の減少＝戦争の費用の拡大
+<ul>
+<li><strong>機会費用</strong> (opportunity cost)：「本来、（戦争がなければ）得ることのできた利益」</li>
+</ul></li>
+<li>経済的相互依存が深まっている国同士での威嚇<span class="math inline">\(\leadsto\)</span>信憑性が高い</li>
+</ul>
+<p>一般的には商業的平和論は支持<span class="citation" data-cites="hegre2010">(<a href="#ref-hegre2010" role="doc-biblioref">Hegre, Oneal, と Russett 2010</a>)</span></p>
+<ul>
+<li>世界恐慌＆経済ブロック化<span class="math inline">\(\leadsto\)</span>WW2</li>
+<li>戦後の先進民主主義国間（独仏や日米）の平和</li>
+</ul>
+<p>なかなか経済的相互依存<span class="math inline">\(\leadsto\)</span>平和を実証するのは難しい。</p>
+<ul>
+<li>平和が経済的相互依存を深化させている可能性？</li>
+<li>民主主義国が平和と経済的相互依存を作り出している可能性？</li>
+<li>WW1前のヨーロッパ諸国、WW2前の日米も経済的な結びつきは強かった。</li>
+</ul>
+</section>
+<section id="パワーとしての相互依存" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="パワーとしての相互依存"><span class="header-section-number">2.2</span> パワーとしての相互依存</h3>
+<p>経済的相互依存は共通の利益を生む＆他国に依存するという点でパワー<span class="citation" data-cites="waltz2010 keohane2012">(<a href="#ref-waltz2010" role="doc-biblioref">Waltz 2010</a>; <a href="#ref-keohane2012" role="doc-biblioref">Keohane と Nye 2012</a>)</span></p>
+<ul>
+<li>貿易の制限などにより経済的相互依存を低下させると威嚇<span class="math inline">\(\leadsto\)</span>政治的な譲歩を引き出す</li>
+<li>（日本における表現では）<strong>経済安全保障</strong>の観点から政治と経済が融合
+<ul>
+<li>敵対国との経済的相互依存を制限（デカップリング／デリスキング）</li>
+<li>同士国の間でサプライチェーンの強靭化</li>
+</ul></li>
+</ul>
+<div class="cell" data-hash="democratic_peace_cache/html/unnamed-chunk-10_ef230fa871f1bc7b8cdcbda9e10ea280">
+<div class="cell-output-display">
+<p><img src="democratic_peace_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><strong>安全保障外部性</strong> (security externalities)：経済的相互依存から得られる利益は軍事力にも転換できる性質<span class="citation" data-cites="gowa1993">(<a href="#ref-gowa1993" role="doc-biblioref">Gowa と Mansfield 1993</a>)</span></p>
+<ul>
+<li>経済的相互依存の拡大<span class="math inline">\(\leadsto\)</span>経済成長<span class="math inline">\(\leadsto\)</span>軍事力も拡大<span class="math inline">\(\leadsto\)</span>パワーシフト？</li>
+</ul>
+</section>
+<section id="経済制裁" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="経済制裁"><span class="header-section-number">2.3</span> 経済制裁</h3>
+<p>パワーとしての経済的相互依存<span class="math inline">\(\leadsto\)</span><strong>経済制裁</strong> (economic sanction)</p>
+<ul>
+<li>経済制裁によって大きな打撃を与えることができるという点を貿易の武器化 (weaponization of trade)</li>
+<li>過度に経済的に相互依存しているので戦争をすることができないとして経済的相互確証破壊 (mutulal assured economic destruction)</li>
+</ul>
+<p>経済的相互依存の深化<span class="math inline">\(\leadsto\)</span>経済制裁の威力を高める＆経済制裁を行った側へのコストも高める<span class="math inline">\(\leadsto\)</span>経済制裁が困難？</p>
+<ul>
+<li>自らは経済的相互依存から利益を得ていないが、相手は大きな利益を得ているときに効果</li>
+<li>どのよう財を貿易しているのか、代替的な経済パートナーの有無などが重要？</li>
+<li>グローバル化<span class="math inline">\(\leadsto\)</span>経済的パートナーが増えると、ある国から経済制裁を受けても、他の国で代替が可能？</li>
+</ul>
+<p>経済制裁による戦争の抑止効果</p>
+<ul>
+<li>戦争の機会費用を高める</li>
+<li>継戦能力を損ない、勝利確率を低下</li>
+<li>コストリーシグナルとして決意を伝達<span class="citation" data-cites="lektzian2007">(<a href="#ref-lektzian2007" role="doc-biblioref">Lektzian と Sprecher 2007</a>)</span></li>
+</ul>
+<p>経済制裁が抑止効果を持っていないように見える理由</p>
+<ul>
+<li>一度、経済制裁を行うと、経済的相互依存の程度が下がってしまい、戦争の機会費用が低下
+<ul>
+<li>日本はアメリカからの石油禁輸で対米開戦を決意</li>
+</ul></li>
+<li>経済制裁を受けて戦争をやめる国はそもそも戦争を起こさない？</li>
+<li>武力紛争が起こるほど対立している国とは経済的相互依存がもともと低い？</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>経済制裁と軍事制裁の決定的な違いは実力による軍隊の排除や占領が可能か否か</p>
+</section>
+</section>
+<section id="東アジアの平和" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="東アジアの平和"><span class="header-section-number">3</span> 東アジアの平和？</h2>
+<p>WW2以降、東アジアは例外的に平和を享受してきた。</p>
+<p><span class="math inline">\(\leadsto\)</span>今後も平和を維持できるか？</p>
+<section id="平和の動揺パワーシフト" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="平和の動揺パワーシフト"><span class="header-section-number">3.1</span> 平和の動揺：パワーシフト</h3>
+<p>WW2直後、中華人民共和国は国際社会に参加できず、また国力も乏しかった。</p>
+<ul>
+<li>改革開放以降の経済成長<span class="math inline">\(\leadsto\)</span>軍事的台頭<span class="math inline">\(\leadsto\)</span>秩序を変更する能力を持ち始める。</li>
+<li>アメリカは中国の台頭を防止するための予防戦争を行う動機？</li>
+</ul>
+<p>大国と急速に成長する台頭国の間で対立<span class="math inline">\(\leadsto\)</span>戦争に至ることは歴史的に繰り返されてきた。</p>
+<ul>
+<li>ドイツの台頭はWW1の一因と考えられる。</li>
+<li>アメリカの台頭、ソ連の挑戦、戦後のドイツ・日本の経済成長は戦争には繋がらず</li>
+</ul>
+</section>
+<section id="平和の要因同盟と経済" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="平和の要因同盟と経済"><span class="header-section-number">3.2</span> 平和の要因：同盟と経済</h3>
+<p>平和を維持するための要因のうち次のものは欠如</p>
+<ul>
+<li>集団安全保障：アメリカと中国はP5なので安保理は機能できない。</li>
+<li>地域的な安全保障機構：存在せず</li>
+<li>民主的平和：権威主義国の中国や北朝鮮</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>消去法的に今後の東アジアの平和を維持する要因は同盟と経済的相互依存？</p>
+<ul>
+<li>同盟はアメリカの能力とコミットメント（特に核兵器による拡大抑止）次第</li>
+<li>経済的相互依存は商業的平和と経済安全保障のジレンマ</li>
+</ul>
+</section>
+<section id="いくつかのシナリオ" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="いくつかのシナリオ"><span class="header-section-number">3.3</span> いくつかのシナリオ</h3>
+<p>悲観的シナリオ：アメリカと中国の利害は衝突し、影響力拡大のために衝突</p>
+<ul>
+<li>人権や民主主義、経済体制に関する価値観の違い</li>
+<li>日本や韓国、台湾、フィリピンにおけるアメリカの軍事的プレゼンス、コミットメント<span class="math inline">\(\leadsto\)</span>譲歩できず</li>
+<li>中国は台湾問題で譲歩できず</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>中国との経済交流を制限して成長を抑制＆軍事力を拡大して抑止する<strong>封じ込め</strong> (containment)</p>
+<p>楽観的シナリオ：中国は既存の国際秩序から利益＆責任ある大国として行動</p>
+<ul>
+<li>中国は自由な国際経済秩序によって経済成長を実現、貿易や投資パートナーはアメリカやその同盟国</li>
+<li>安保理常任理事国として受け入れ、IMFや世銀でも投票権を拡大</li>
+<li>経済成長は人権や民主主義の価値観を受け入れやすくする？</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>中国を様々な国際制度に参加させ、現状の利益を拡大させる<strong>関与</strong> (engagement) 政策</p>
+<p>アメリカは軍事的な封じ込めと経済的関与<span class="math inline">\(\leadsto\)</span>経済的にも封じ込め？</p>
+<ul>
+<li>中国の経済活動の制限（特に知的財産）＆アメリカにおける雇用の喪失<span class="math inline">\(\leadsto\)</span>トランプ政権が<strong>貿易戦争</strong> (trade war)</li>
+<li>バイデン政権においても、抜本的な政策転換が起こっているとは言えない。</li>
+<li>孤立主義的な共和党大統領が登場すると同盟コミットメントも疑わしくなる。</li>
+</ul>
+<p>中国については分からないことが多いが、1つの要因は経済成長と人口成長の鈍化？</p>
+<ul>
+<li>中国の台頭が緩やかになり、現状の維持に満足する軟着陸コース</li>
+<li>将来の衰退を恐れて、有利な時点での予防的挑戦</li>
+</ul>
+
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-arena2009" class="csl-entry" role="listitem">
+Arena, Philip, と Glenn Palmer. 2009. <span>「Politics or the economy? Domestic correlates of dispute involvement in developed democracies」</span>. <em>International Studies Quarterly</em> 53 (4): 955–75.
+</div>
+<div id="ref-barnhart2020" class="csl-entry" role="listitem">
+Barnhart, Joslyn N, Robert F Trager, Elizabeth N Saunders, と Allan Dafoe. 2020. <span>「The suffragist peace」</span>. <em>International Organization</em> 74 (4): 633–70.
+</div>
+<div id="ref-brooks2013" class="csl-entry" role="listitem">
+Brooks, Stephen G. 2013. <span>「Economic Actors’ Lobbying Influence on the Prospects for War and Peace」</span>. <em>International Organization</em> 67 (4): 863–88.
+</div>
+<div id="ref-buenodemesquita2013" class="csl-entry" role="listitem">
+Bueno de Mesquita, Bruce, Alastair Smith, 四本健二, と 浅野宜之. 2013. <em>独裁者のためのハンドブック</em>. 亜紀書房.
+</div>
+<div id="ref-caprioli2001" class="csl-entry" role="listitem">
+Caprioli, Mary, と Mark A Boyer. 2001. <span>「Gender, violence, and international crisis」</span>. <em>Journal of conflict resolution</em> 45 (4): 503–18.
+</div>
+<div id="ref-chiozza2003" class="csl-entry" role="listitem">
+Chiozza, Giacomo, と Hein E Goemans. 2003. <span>「Peace through insecurity: Tenure and international conflict」</span>. <em>Journal of Conflict Resolution</em> 47 (4): 443–67.
+</div>
+<div id="ref-chiozza2004" class="csl-entry" role="listitem">
+———. 2004. <span>「International conflict and the tenure of leaders: Is war still ex post inefficient?」</span> <em>American Journal of Political Science</em> 48 (3): 604–19.
+</div>
+<div id="ref-dixon1994" class="csl-entry" role="listitem">
+Dixon, William J. 1994. <span>「Democracy and the peaceful settlement of international conflict」</span>. <em>American political science review</em> 88 (1): 14–32.
+</div>
+<div id="ref-downes2012" class="csl-entry" role="listitem">
+Downes, Alexander B, と Todd S Sechser. 2012. <span>「The illusion of democratic credibility」</span>. <em>International Organization</em> 66 (3): 457–89.
+</div>
+<div id="ref-doyle1986" class="csl-entry" role="listitem">
+Doyle, Michael W. 1986. <span>「Liberalism and world politics」</span>. <em>American political science review</em> 80 (4): 1151–69.
+</div>
+<div id="ref-farber1997" class="csl-entry" role="listitem">
+Farber, Henry S, と Joanne Gowa. 1997. <span>「Common interests or common polities? Reinterpreting the democratic peace」</span>. <em>The Journal of Politics</em> 59 (2): 393–417.
+</div>
+<div id="ref-fearon1994" class="csl-entry" role="listitem">
+Fearon, James D. 1994. <span>「Domestic political audiences and the escalation of international disputes」</span>. <em>American political science review</em> 88 (3): 577–92.
+</div>
+<div id="ref-finel1999" class="csl-entry" role="listitem">
+Finel, Bernard I, と Kristin M Lord. 1999. <span>「The surprising logic of transparency」</span>. <em>International studies quarterly</em> 43 (2): 315–39.
+</div>
+<div id="ref-fordham1998" class="csl-entry" role="listitem">
+Fordham, Benjamin. 1998. <span>「Partisanship, macroeconomic policy, and US uses of force, 1949-1994」</span>. <em>Journal of Conflict Resolution</em> 42 (4): 418–39.
+</div>
+<div id="ref-gandhi2009" class="csl-entry" role="listitem">
+Gandhi, Jennifer, と Ellen Lust-Okar. 2009. <span>「Elections under authoritarianism」</span>. <em>Annual review of political science</em> 12: 403–22.
+</div>
+<div id="ref-gartzke2007" class="csl-entry" role="listitem">
+Gartzke, Erik. 2007. <span>「The capitalist peace」</span>. <em>American journal of political science</em> 51 (1): 166–91.
+</div>
+<div id="ref-gaubatz1991" class="csl-entry" role="listitem">
+Gaubatz, Kurt Taylor. 1991. <span>「Election cycles and war」</span>. <em>Journal of Conflict Resolution</em> 35 (2): 212–44.
+</div>
+<div id="ref-gibler2010" class="csl-entry" role="listitem">
+Gibler, Douglas M, と Jaroslav Tir. 2010. <span>「Settled borders and regime type: Democratic transitions as consequences of peaceful territorial transfers」</span>. <em>American Journal of Political Science</em> 54 (4): 951–68.
+</div>
+<div id="ref-gibler2014" class="csl-entry" role="listitem">
+———. 2014. <span>「Territorial peace and democratic clustering」</span>. <em>The Journal of Politics</em> 76 (1): 27–40.
+</div>
+<div id="ref-gleditsch1997" class="csl-entry" role="listitem">
+Gleditsch, Nils Petter, と Håvard Hegre. 1997. <span>「Peace and democracy: Three levels of analysis」</span>. <em>Journal of Conflict resolution</em> 41 (2): 283–310.
+</div>
+<div id="ref-goemans2000" class="csl-entry" role="listitem">
+Goemans, Hein E. 2000. <span>「Fighting for survival: The fate of leaders and the duration of war」</span>. <em>Journal of Conflict Resolution</em> 44 (5): 555–79.
+</div>
+<div id="ref-goemans2008" class="csl-entry" role="listitem">
+———. 2008. <span>「Which way out? The manner and consequences of losing office」</span>. <em>Journal of Conflict Resolution</em> 52 (6): 771–94.
+</div>
+<div id="ref-gowa1993" class="csl-entry" role="listitem">
+Gowa, Joanne, と Edward D Mansfield. 1993. <span>「Power politics and international trade」</span>. <em>American political science review</em> 87 (2): 408–20.
+</div>
+<div id="ref-hegre2010" class="csl-entry" role="listitem">
+Hegre, Håvard, John R Oneal, と Bruce Russett. 2010. <span>「Trade does promote peace: New simultaneous estimates of the reciprocal effects of trade and conflict」</span>. <em>Journal of Peace Research</em> 47 (6): 763–74.
+</div>
+<div id="ref-katagiri2019" class="csl-entry" role="listitem">
+Katagiri, Azusa, と Eric Min. 2019. <span>「The credibility of public and private signals: A document-based approach」</span>. <em>American Political Science Review</em> 113 (1): 156–72.
+</div>
+<div id="ref-keohane2012" class="csl-entry" role="listitem">
+Keohane, Robert O., と Joseph S. Nye. 2012. <em>パワーと相互依存</em>. ミネルヴァ書房.
+</div>
+<div id="ref-koch2011" class="csl-entry" role="listitem">
+Koch, Michael T, と Sarah A Fulton. 2011. <span>「In the defense of women: Gender, office holding, and national security policy in established democracies」</span>. <em>The Journal of politics</em> 73 (1): 1–16.
+</div>
+<div id="ref-kurizaki2015" class="csl-entry" role="listitem">
+Kurizaki, Shuhei, と Taehee Whang. 2015. <span>「Detecting audience costs in international disputes」</span>. <em>International Organization</em> 69 (4): 949–80.
+</div>
+<div id="ref-lektzian2007" class="csl-entry" role="listitem">
+Lektzian, David J, と Christopher M Sprecher. 2007. <span>「Sanctions, signals, and militarized conflict」</span>. <em>American Journal of Political Science</em> 51 (2): 415–31.
+</div>
+<div id="ref-mansfield1995" class="csl-entry" role="listitem">
+Mansfield, Edward D, と Jack Snyder. 1995. <span>「Democratization and the Danger of War」</span>. <em>International security</em> 20 (1): 5–38.
+</div>
+<div id="ref-mcdonald2015" class="csl-entry" role="listitem">
+McDonald, Patrick J. 2015. <span>「Great powers, hierarchy, and endogenous regimes: Rethinking the domestic causes of peace」</span>. <em>International Organization</em> 69 (3): 557–88.
+</div>
+<div id="ref-mitchell2004" class="csl-entry" role="listitem">
+Mitchell, Sara McLaughlin, と Brandon C Prins. 2004. <span>「Rivalry and diversionary uses of force」</span>. <em>Journal of Conflict Resolution</em> 48 (6): 937–61.
+</div>
+<div id="ref-mousseau1998" class="csl-entry" role="listitem">
+Mousseau, Michael. 1998. <span>「Democracy and compromise in militarized interstate conflicts, 1816-1992」</span>. <em>Journal of Conflict Resolution</em> 42 (2): 210–30.
+</div>
+<div id="ref-mueller1970" class="csl-entry" role="listitem">
+Mueller, John E. 1970. <span>「Presidential popularity from Truman to Johnson」</span>. <em>American political science review</em> 64 (1): 18–34.
+</div>
+<div id="ref-reiter2015" class="csl-entry" role="listitem">
+Reiter, Dan. 2015. <span>「The positivist study of gender and international relations」</span>. <em>Journal of Conflict Resolution</em> 59 (7): 1301–26.
+</div>
+<div id="ref-reiter2003" class="csl-entry" role="listitem">
+Reiter, Dan, と Allan C Stam. 2003. <span>「Identifying the culprit: Democracy, dictatorship, and dispute initiation」</span>. <em>American Political Science Review</em> 97 (2): 333–37.
+</div>
+<div id="ref-risse1995" class="csl-entry" role="listitem">
+Risse-Kappen, Thomas. 1995. <span>「Democratic Peace—Warlike Democracies? A Social Constructivist Interpretation of the Liberal Argument」</span>. <em>European Journal of International Relations</em> 1 (4): 491–517.
+</div>
+<div id="ref-schramm2020" class="csl-entry" role="listitem">
+Schramm, Madison, と Alexandra Stark. 2020. <span>「Peacemakers or iron ladies? A cross-national study of gender and international conflict」</span>. <em>Security Studies</em> 29 (3): 515–48.
+</div>
+<div id="ref-schultz1998" class="csl-entry" role="listitem">
+Schultz, Kenneth A. 1998. <span>「Domestic opposition and signaling in international crises」</span>. <em>American Political Science Review</em> 92 (4): 829–44.
+</div>
+<div id="ref-schwartz2020" class="csl-entry" role="listitem">
+Schwartz, Joshua A, と Christopher W Blair. 2020. <span>「Do women make more credible threats? Gender stereotypes, audience costs, and crisis bargaining」</span>. <em>International Organization</em> 74 (4): 872–95.
+</div>
+<div id="ref-sechser2004" class="csl-entry" role="listitem">
+Sechser, Todd S. 2004. <span>「Are soldiers less war-prone than statesmen?」</span> <em>Journal of conflict resolution</em> 48 (5): 746–74.
+</div>
+<div id="ref-snyder2011" class="csl-entry" role="listitem">
+Snyder, Jack, と Erica D Borghard. 2011. <span>「The cost of empty threats: A penny, not a pound」</span>. <em>American Political Science Review</em> 105 (3): 437–56.
+</div>
+<div id="ref-thompson1996" class="csl-entry" role="listitem">
+Thompson, William R. 1996. <span>「Democracy and peace: putting the cart before the horse?」</span> <em>International organization</em> 50 (1): 141–74.
+</div>
+<div id="ref-tomz2007" class="csl-entry" role="listitem">
+Tomz, Michael. 2007. <span>「Domestic audience costs in international relations: An experimental approach」</span>. <em>International Organization</em> 61 (4): 821–40.
+</div>
+<div id="ref-tomz2013" class="csl-entry" role="listitem">
+Tomz, Michael R, と Jessica LP Weeks. 2013. <span>「Public opinion and the democratic peace」</span>. <em>American political science review</em> 107 (4): 849–65.
+</div>
+<div id="ref-trachtenberg2012" class="csl-entry" role="listitem">
+Trachtenberg, Marc. 2012. <span>「Audience costs: An historical analysis」</span>. <em>Security Studies</em> 21 (1): 3–42.
+</div>
+<div id="ref-van1997" class="csl-entry" role="listitem">
+Van Belle, Douglas A. 1997. <span>「Press freedom and the democratic peace」</span>. <em>Journal of peace research</em> 34 (4): 405–14.
+</div>
+<div id="ref-waltz2010" class="csl-entry" role="listitem">
+Waltz, Kenneth Neal. 2010. <em>国際政治の理論</em>. ポリティカル・サイエンス・クラシックス. 勁草書房.
+</div>
+<div id="ref-weeks2008" class="csl-entry" role="listitem">
+Weeks, Jessica L. 2008. <span>「Autocratic audience costs: Regime type and signaling resolve」</span>. <em>International organization</em> 62 (1): 35–64.
+</div>
+<div id="ref-weeks2012" class="csl-entry" role="listitem">
+———. 2012. <span>「Strongmen and straw men: Authoritarian regimes and the initiation of international conflict」</span>. <em>American Political Science Review</em> 106 (2): 326–47.
+</div>
+<div id="ref-weiss2013" class="csl-entry" role="listitem">
+Weiss, Jessica Chen. 2013. <span>「Authoritarian signaling, mass audiences, and nationalist protest in China」</span>. <em>International Organization</em> 67 (1): 1–35.
+</div>
+<div id="ref-kubo2016" class="csl-entry" role="listitem">
+久保慶一, 末近浩太, と 高橋百合子(政治学). 2016. <em>比較政治学の考え方</em>. 有斐閣.
+</div>
+<div id="ref-sakai2015" class="csl-entry" role="listitem">
+坂井豊貴. 2015. <em>多数決を疑う : 社会的選択理論とは何か</em>. 岩波新書. 岩波書店.
+</div>
+<div id="ref-sakai2016" class="csl-entry" role="listitem">
+———. 2016. <em>「決め方」の経済学 : 「みんなの意見のまとめ方」を科学する</em>. ダイヤモンド社.
+</div>
+<div id="ref-yamakage2012" class="csl-entry" role="listitem">
+山影進. 2012. <em>国際関係論講義</em>. 東京大学出版会.
+</div>
+<div id="ref-asako2018" class="csl-entry" role="listitem">
+浅古泰史. 2018. <em>ゲーム理論で考える政治学 : フォーマルモデル入門</em>. 有斐閣.
+</div>
+<div id="ref-kasuya2014" class="csl-entry" role="listitem">
+粕谷祐子. 2014. <em>比較政治学</em>. ミネルヴァ書房.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
