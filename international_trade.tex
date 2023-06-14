@@ -1,0 +1,1528 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  xelatex,
+  ja=standard]{bxjsarticle}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+  \setmainfont[BoldFont=Noto Sans CJK JP]{Noto Serif CJK JP}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{目次}
+\else
+  \newcommand\contentsname{目次}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{図一覧}
+\else
+  \newcommand\listfigurename{図一覧}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{表一覧}
+\else
+  \newcommand\listtablename{表一覧}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{図}
+\else
+  \newcommand\figurename{図}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{表}
+\else
+  \newcommand\tablename{表}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{コード}
+\newcommand*\listoflistings{\listof{codelisting}{コード一覧}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{japanese}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{jecon}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={国際貿易},
+  pdfauthor={土井翔平},
+  pdflang={ja},
+  colorlinks=true,
+  linkcolor={NavyBlue},
+  filecolor={Maroon},
+  citecolor={NavyBlue},
+  urlcolor={NavyBlue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{国際貿易}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{国際公共政策学}
+\author{土井翔平}
+\date{2023-06-14}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, boxrule=0pt, interior hidden, enhanced, sharp corners, borderline west={3pt}{0pt}{shadecolor}, breakable]}{\end{tcolorbox}}\fi
+
+\hypertarget{ux306fux3058ux3081ux306b}{%
+\section*{はじめに}\label{ux306fux3058ux3081ux306b}}
+\addcontentsline{toc}{section}{はじめに}
+
+国際関係＝国家間の平和と戦争\(\leadsto\)技術革新により国境を越えた経済・社会活動
+
+\(\leadsto\)国際関係＝安全保障＋国際政治経済 (international political
+economy)
+
+\begin{itemize}
+\tightlist
+\item
+  国際経済を巡ってどのような国内・国際政治が展開されるのか？
+\item
+  国際経済は国内・国際政治にどのような影響を与えるのか？
+\end{itemize}
+
+従来は貿易と金融・通貨が中心的課題\(\leadsto\)本来は国内問題であった開発、環境保護、人権保障などへ対象が拡大
+
+\hypertarget{ux8cbfux6613ux306eux30b0ux30edux30fcux30d0ux30ebux5316}{%
+\section{貿易のグローバル化}\label{ux8cbfux6613ux306eux30b0ux30edux30fcux30d0ux30ebux5316}}
+
+国際貿易の拡大
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{international_trade_files/figure-pdf/unnamed-chunk-2-1.png}
+
+}
+
+\caption{貿易額の推移}
+
+\end{figure}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{international_trade_files/figure-pdf/unnamed-chunk-3-1.png}
+
+}
+
+\caption{対GDP貿易額比率の推移}
+
+\end{figure}
+
+\textbf{地域貿易協定} (regional trade agreement: RTA) の増加
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/rta.png}
+
+}
+
+\caption{\href{https://rtais.wto.org/UI/charts.aspx}{地域貿易協定の推移}}
+
+\end{figure}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{international_trade_files/figure-pdf/unnamed-chunk-4-1.png}
+
+}
+
+\caption{地域貿易協定のネットワーク（2022年）\citep{egger2008}}
+
+\end{figure}
+
+一方で、\textbf{関税} (tariff) は残っている。
+
+\begin{itemize}
+\tightlist
+\item
+  関税：輸入する際に付加される税金
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{international_trade_files/figure-pdf/unnamed-chunk-5-1.png}
+
+}
+
+\caption{関税率の推移}
+
+\end{figure}
+
+\textbf{関税同盟} (custom union) は限定的
+
+\begin{itemize}
+\tightlist
+\item
+  関税同盟：国家間で関税を撤廃する協定
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/custom_union.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:Customs_Unions_World.svg}{関税同盟}}
+
+\end{figure}
+
+\(\leadsto\)自由貿易はよいものなのか？　そうであるならば、なぜ完全な自由化は実現していないのか？
+
+\hypertarget{ux81eaux7531ux8cbfux6613ux306eux8ad6ux7406}{%
+\section{自由貿易の論理}\label{ux81eaux7531ux8cbfux6613ux306eux8ad6ux7406}}
+
+\hypertarget{ux6bd4ux8f03ux512aux4f4d}{%
+\subsection{比較優位}\label{ux6bd4ux8f03ux512aux4f4d}}
+
+\textbf{比較優位} (comparative advantage) の存在\(\leadsto\)貿易
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{international_trade_files/mediabag/David_ricardo.jpg}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:David_ricardo.jpg}{デイヴィッド・リカード}}
+
+\end{figure}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{イギリスとポルトガルの貿易}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+イギリスとポルトガルが布とワインの生産と貿易を行おうとしている。
+
+\begin{itemize}
+\tightlist
+\item
+  どちらの国も労働力のみを使って生産する。
+\item
+  イギリスは布1巻生産するのに15人、ワインを1樽生産するのに30人の労働者が必要である。
+\item
+  ポルトガルは布1巻生産するのに10人、ワインを1樽生産するのに15人の労働者が必要である。
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{longtable}[]{@{}ccccc@{}}
+\toprule\noalign{}
+& 布 & ワイン & 布の機会費用 & ワインの機会費用 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+イギリス & 15 & 30 & 0.5 & 2 \\
+ポルトガル & 10 & 15 & 0.66\ldots{} & 1.5 \\
+\end{longtable}
+
+ポルトガルはイギリスよりも少ない労働力で同じ量の布あるいはワインを生産することができる＝布とワインの両方に\textbf{絶対優位}
+(absolute advantage)
+
+\(\leadsto\)ポルトガルは布もワインも自国で生産したほうが効率的？
+
+\begin{itemize}
+\tightlist
+\item
+  ポルトガルはワインを1樽生産するために布を1.5巻諦めないといけない。
+\item
+  イギリスは2巻諦めないといけない。
+\end{itemize}
+
+\(\leadsto\)ポルトガルはワインに比較優位を持っている。
+
+\begin{itemize}
+\tightlist
+\item
+  イギリスは布1巻を生産するためにワインを0.5本諦めないといけない。
+\item
+  ポルトガルは0.66\ldots 本諦めないといけない。
+\end{itemize}
+
+\(\leadsto\)イギリスは布に比較優位を持っている。
+
+比較優位＝他国に比べて、「他の財と比較して」とある財をより効率的に生産できるということ
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{イギリスとポルトガルの貿易'}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+ポルトガルには1500人の労働者がいる。
+
+\end{tcolorbox}
+
+布の生産量を\(x\)、ワインの生産量を\(y\)として、1500人の労働者が全員働くとすると、次の式を満たす。
+
+\[
+10 \times x + 15 \times y = 1500
+\Leftrightarrow y = 100 - 0.66 \dots \times x
+\]
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/comparative_advantage1.drawio.png}
+
+}
+
+\caption{生産可能性フロンティア（一国）}
+
+\end{figure}
+
+\textbf{生産可能性フロンティア} (production possibilities
+frontier)：資源を効率的に用いた際の財の生産量の組み合わせ
+
+\begin{itemize}
+\tightlist
+\item
+  フロンティアより左下は働いていない労働者がいるので非効率的
+\item
+  フロンティアより右上は労働者が足りなくて不可能
+\end{itemize}
+
+ポルトガルとイギリスで貿易
+
+\begin{itemize}
+\tightlist
+\item
+  ポルトガルはワインを自国よりも高く売り、
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ポルトガル：ワインを1樽を諦めて1.5巻の布を生産
+  \item
+    イギリス：ワインを1樽を諦めて2巻の布を生産
+  \end{itemize}
+\item
+  イギリスよりも低く売ることができる。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ポルトガル：布を1巻を諦めて0.66\ldots 樽のワインを生産
+  \item
+    イギリス：布を1巻を諦めて0.5樽のワインを生産
+  \end{itemize}
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{イギリスとポルトガルの貿易'\,'}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+ポルトガルはワイン1樽を輸出し、イギリスから1.75巻の布を輸入する。言い換えれば、イギリスは布1巻を輸出して、0.57\ldots 樽のワインを輸入する。
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{交易条件} (terms of trade)：財の交換の条件
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{イギリスとポルトガルの貿易'\,'\,'}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+ポルトガルはワインの生産だけを行い、布はイギリスから輸入する。
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{特化} (specialization)：特定の財の生産のみを行うこと
+\end{itemize}
+
+イギリスへのワインの輸出量を\(z\)とすると、生産可能性フロンティアはこのようになる。
+
+\[
+15 \times (y + z) = 1500
+\Leftrightarrow y + z = 150
+\]
+
+ポルトガルはワイン1樽につき、布1.75巻をイギリスから輸入するので、\(z = 1.75 \times x\)である。
+
+\[
+y + z = 150
+\Leftrightarrow 1.75 \times x + y = 150
+\Leftrightarrow y = 262.5 - 1.75 \times x
+\]
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/comparative_advantage2.drawio.png}
+
+}
+
+\caption{生産可能性フロンティア（貿易）}
+
+\end{figure}
+
+\(\leadsto\)貿易をしない時に比べて、生産可能性フロンティアが拡大
+
+\begin{itemize}
+\tightlist
+\item
+  イギリスが布の生産に特化しても同様
+\end{itemize}
+
+\(\leadsto\)各国が比較優位のある財の生産に特化し、それを貿易することで世界全体の生産量が増える。
+
+\hypertarget{ux4f59ux5270ux5206ux6790}{%
+\subsection{余剰分析}\label{ux4f59ux5270ux5206ux6790}}
+
+貿易が消費者や生産者に与える影響を調べるために余剰分析 (surplus
+analysis) を行う。
+
+ある財の国内市場について考える。
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{需要曲線} (demand curve)：価格が下がると消費量は増える
+\item
+  \textbf{供給曲線}: (supply curve)：価格が上がると生産量は増える
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/welfare1.drawio.png}
+
+}
+
+\caption{需要曲線と供給曲線}
+
+\end{figure}
+
+\(\leadsto\)需要曲線と供給曲線の交点で価格と生産量＝需要量が決定される。
+
+\begin{itemize}
+\tightlist
+\item
+  （部分）市場均衡などと呼ばれる。
+\end{itemize}
+
+消費者は\textbf{均衡価格よりも高い価値を財に見出しているので}、財を購入する。
+
+\begin{itemize}
+\tightlist
+\item
+  均衡価格と消費者がその財に見出している価値の差＝消費者の厚生 (welfare)
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/welfare2.drawio.png}
+
+}
+
+\caption{消費者余剰}
+
+\end{figure}
+
+\textbf{消費者余剰} (consumer
+surplus)：需要曲線と均衡価格で囲まれた部分の面積
+
+\begin{itemize}
+\tightlist
+\item
+  生産者余剰 (producer surplus) も同様
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/welfare3.drawio.png}
+
+}
+
+\caption{消費者余剰と生産者余剰}
+
+\end{figure}
+
+貿易\(\leadsto\)比較劣位にある財を輸入\(\leadsto\)は国内の均衡価格＞世界の均衡価格\(\leadsto\)生じた需要超過は輸入
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/welfare4.drawio.png}
+
+}
+
+\caption{消費者余剰と生産者余剰}
+
+\end{figure}
+
+貿易を行わなかった場合と比べて、社会全体の余剰は拡大／生産者余剰は減少
+
+\hypertarget{ux8cbfux6613ux306eux30d1ux30bfux30fcux30f3}{%
+\subsection{貿易のパターン}\label{ux8cbfux6613ux306eux30d1ux30bfux30fcux30f3}}
+
+\textbf{ヘクシャー＝オーリン・モデル}\(\leadsto\)どのような国がどのような財に比較優位を持つのかを説明
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{生産要素} (factor of production)：生産のために用いられる財
+\item
+  農業のための土地、単純労働のための労働者、設備投資のための資本、知的労働のための人的資本\ldots\ldots etc
+\end{itemize}
+
+各国はこれらの生産要素の量、\textbf{要素賦存量} (factor endowment)
+が異なる
+
+\(\leadsto\)各国は\textbf{量の多い生産要素を集約的に使用する財に比較優位を持ち}、それを輸出する。
+
+\begin{itemize}
+\tightlist
+\item
+  ある生産要素が豊富にある\(\leadsto\)市場での供給量も多い\(\leadsto\)その生産要素の価格（賃金）は低い\(\leadsto\)その生産要素を集約的に使用する財の生産コストは低い＝比較優位
+\end{itemize}
+
+\(\leadsto\)なぜ異なる国が異なる財を輸出するのか、なぜある国が経済発展の度合いによって異なる財を輸出するのかも説明できる。
+
+\begin{itemize}
+\tightlist
+\item
+  土地の多い国は農業が、人口の多い国は軽工業が、資本の多い国は重工業が、人的資本の多い国はサービス業が盛ん
+\end{itemize}
+
+現代の貿易の大半は\textbf{グローバル・サプライ・チェーン}の中で行われている。
+
+\begin{itemize}
+\tightlist
+\item
+  オフショアリングによって部品を製造し、最終的に財を組み立てる。
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/iphone.png}
+
+}
+
+\caption{\href{https://asia.nikkei.com/Business/Technology/iPhone-14-teardown-reveals-parts-20-costlier-than-previous-model}{iPhoneの部品の国別コスト}}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  特に、\textbf{多国籍企業} (multinational corporation: MNC)
+  は\textbf{海外直接投資} (foreign direct investment: FDI)
+  によって海外に工場を持ち、\textbf{企業内貿易} (intrafirm trade)
+  を行っている。
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/supply_chain.drawio.png}
+
+}
+
+\caption{貿易の形態\citep{inomata2019}}
+
+\end{figure}
+
+単純に輸出入する財の価格ではなく、その国で生み出された付加価値で貿易を把握すべき？\citep{inomata2019}
+
+他にも、同一種類の財の「産業内貿易」や同盟などの政治的関係の影響
+
+\hypertarget{ux4fddux8b77ux4e3bux7fa9ux306eux8ad6ux7406}{%
+\section{保護主義の論理}\label{ux4fddux8b77ux4e3bux7fa9ux306eux8ad6ux7406}}
+
+比較優位に基づく自由貿易が望ましい／各国は自発的に貿易を（完全には）自由化していない
+
+\begin{itemize}
+\tightlist
+\item
+  輸出\(\leadsto\)国内で雇用を創出
+\item
+  輸入\(\leadsto\)外貨が流出
+\item
+  \textbf{新重商主義}
+  (neo-mercantilism)：輸入を規制＆輸出を促進\(\leadsto\)経済力を高めようとする
+\end{itemize}
+
+国際政治上の理由だけでなく、国内政治経済上の理由でも自由化は妨げられる。
+
+\(\leadsto\)\textbf{保護主義} (protectionism)：\textbf{貿易障壁} (trade
+barrier) によって自由貿易を阻害する政策
+
+\begin{itemize}
+\tightlist
+\item
+  代表的な貿易障壁は\textbf{関税} (tariff)
+\item
+  関税以外の貿易障壁をまとめて\textbf{非関税障壁} (nontariff barrier to
+  trade)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    輸入の量を制限する\textbf{数量規制} (quantitative restriction)
+  \item
+    \textbf{輸入割当} (import quota)
+  \item
+    国内製品の優遇、
+  \item
+    外国製品を狙った規制
+  \item
+    国内産業への補助金など
+  \end{itemize}
+\end{itemize}
+
+自由貿易や保護主義の恩恵は全てのアクターに行き渡るわけではない
+
+\begin{itemize}
+\tightlist
+\item
+  自由貿易や保護主義がどのようなアクターの利益になるのか？
+\end{itemize}
+
+\hypertarget{ux8cbfux6613ux653fux7b56ux306eux5229ux76ca}{%
+\subsection{貿易政策の利益}\label{ux8cbfux6613ux653fux7b56ux306eux5229ux76ca}}
+
+貿易を制限\(\leadsto\)自由貿易の場合と比べて、社会全体の余剰は減少／生産者余剰の減少は低減
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/welfare5.drawio.png}
+
+}
+
+\caption{関税による消費者余剰と生産者余剰の変化}
+
+\end{figure}
+
+\(\leadsto\)自由貿易／保護主義で得をする／損をする人は異なる
+
+\begin{itemize}
+\tightlist
+\item
+  保護主義\(\leadsto\)比較劣位財の価格が上がる\(\leadsto\)生産者は生産量を増やす。
+\item
+  比較劣位財の消費者\citep{baker2005}や比較優位財の生産者\(\leadsto\)比較劣位財の価格が下がる\(\leadsto\)消費量を増やす。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ナショナリスティックな消費者\(\leadsto\)保護主義を支持しやすい\citep{mansfield2013}
+  \end{itemize}
+\item
+  比較優位財の生産者（輸出者）は保護主義によって他国から報復されることを恐れる。
+\end{itemize}
+
+\(\leadsto\)自由貿易によって被害を受け、自由貿易に反対するのは、どのような人々なのか？
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  その国で豊富ではない生産要素の所有者（\textbf{階級}）は自由貿易に反対する。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{ストルパー＝サミュエルソン定理}：ある財の価格が高まると、その財に必要な生産要素の価格（賃金）が上昇
+  \item
+    自由貿易\(\leadsto\)比較優位財の需要が高騰\(\leadsto\)価格も上昇
+  \item
+    比較優位財に集中的に必要となる生産要素＝ヘクシャー＝オーリン・モデルによればその国で豊富な生産要素
+  \end{itemize}
+\item
+  比較劣位財を生産している\textbf{産業}に属する人々は自由貿易に反対\citep{mayda2005}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    一部の生産要素は特定の産業に固有な\textbf{特殊要素} (specific
+    factor)
+  \item
+    自由貿易によって価格や生産量が減少しても、簡単に他の財の生産には切り替えられない。
+  \end{itemize}
+\item
+  比較劣位財を生産している\textbf{企業}が自由貿易に反対
+
+  \begin{itemize}
+  \tightlist
+  \item
+    実際に貿易に関与している企業は、一国内でもひと握り\citep{freund2020}
+  \end{itemize}
+\end{enumerate}
+
+保護主義から利益を得るアクター＜自由貿易から利益を得るアクター
+
+\(\leadsto\)一般的に言えば、民主主義国は権威主義国に比べて一般利益が反映されやすいため、自由貿易を好む\citep{milner2005, kono2006}
+
+\begin{itemize}
+\tightlist
+\item
+  左派（右派）政権は貧しい国では自由貿易（保護主義）を支持し、豊かな国では保護主義（自由貿易）を支持しやすい\citep{dutt2002}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    労働者は左派を支持しやすく、貧しい国では労働者が相対的に多い。
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ux96c6ux5408ux884cux70baux554fux984c}{%
+\subsection{集合行為問題}\label{ux96c6ux5408ux884cux70baux554fux984c}}
+
+\textbf{公共財} (public goods)：非排他的 (nonexcludable) かつ非競合的
+(nonrival) な財
+
+\begin{itemize}
+\tightlist
+\item
+  非排他的：財の消費を一部のアクターに制限することができない。
+\item
+  非競合的：財を消費するアクターの数が増えても財は減らない。
+\end{itemize}
+
+\begin{longtable}[]{@{}lcc@{}}
+\toprule\noalign{}
+& \textbf{排他的} & \textbf{非排他的} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{競合的} & 私的財 & コモンズ \\
+\textbf{非競合的} & クラブ財 & 公共財 \\
+\end{longtable}
+
+\(\leadsto\)公共財の共有は囚人のジレンマであり、タダ乗りが起こりやすい
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{集合行為問題} (collective action
+  problem)：集団内で協調が実現すれば\textbf{誰もが}喜ぶのに、協調が実現できない問題
+\end{itemize}
+
+貿易政策も公共財であり、集合行為問題（タダ乗りが生じる）となる
+
+\begin{itemize}
+\tightlist
+\item
+  自由貿易による恩恵\(\leadsto\)全ての消費者に行き渡る＆消費者が増えても減らない
+\item
+  保護主義による恩恵\(\leadsto\)一部の階級や産業のだけが利益を得ることはな＆アクターが増えても減らない
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{貿易政策を巡るロビー活動}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+ある比較劣位財を生産する産業において、2つの企業が保護主義的な政策を取るように政治家へロビー活動を行う。
+
+\begin{itemize}
+\tightlist
+\item
+  互いに何もしなければ、貿易が自由化されて1の利益しかもらえない。
+\item
+  ロビー活動を行うことで貿易が自由化されず\(b\)の利益 (benefit)
+  を得るが、\(c\)の費用 (cost) を支払う。
+\item
+  ただし、お互いに協力をしてロビー活動を行えば、費用は\(c/2\)に減る。
+\item
+  保護主義の利益は\(c/2 < b < c\)くらいの大きさである。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    一企業でロビー活動をするほど大きな利益ではない。
+  \item
+    協力してロビー活動をするメリットはある。
+  \end{itemize}
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/trade_lobby.drawio.png}
+
+}
+
+\caption{貿易政策を巡るロビー活動}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  自由貿易を求める一般市民も同様の問題に直面する。
+\end{itemize}
+
+協調を実現する手段として、\textbf{トリガー戦略}を用いる。
+
+\begin{itemize}
+\tightlist
+\item
+  「ロビー活動をするが、相手がロビー活動をしなかった場合はこちらも何もしない」という\textbf{トリガー戦略}
+\item
+  将来の価値は\textbf{割り引かれる} (discounted)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    今日もらえる1万円と1年後にもらえる1万円のどっちが嬉しいか？
+  \item
+    将来の価値は割引因子\(0 < \delta < 1\)がかけられる（とする）。
+  \item
+    割引因子が大きい＝将来を重視している
+  \end{itemize}
+\end{itemize}
+
+\[
+\begin{split}
+&\textrm{常に互いに協力するときの利益} \\
+&= 1+b-c/2 + \delta \times 1+b-c/2 + \delta^2 \times 1+b-c/2 \cdots \\
+&\textrm{最初には自分だけなにもせず、その後は互いになにもしないときの利益} \\
+&= 1+b + \delta \times 1 + \delta^2 \times 1 \cdots
+\end{split}
+\]
+
+\begin{itemize}
+\tightlist
+\item
+  裏切ってなにもしないことでその時は大きな利益を得られる。
+\item
+  その後は報復されて互いに不協力に陥って利益を得られない。
+\end{itemize}
+
+\(\leadsto\)長期的関係があり将来の利益を重視する＝割引因子が大きい\(\leadsto\)将来の自由化の不利益よりも保護主義の利益を重視\(\leadsto\)協力してロビー活動
+
+\[
+\begin{split}
+1+b-c/2 &< 1+b \\
+\delta \times (1+b-c/2) &> \delta \times 1 \\
+\delta^2 \times (1+b-c/2) &> \delta^2 \times 1 \\
+\vdots &> \vdots 
+\end{split}
+\]
+
+一般的に、長期的関＆将来の利益を重視\(\leadsto\)トリガー戦略による協調が可能
+
+\begin{itemize}
+\tightlist
+\item
+  報復されるという将来の出来事の認識（\textbf{将来の影}）
+\item
+  他の分野でも報復されるという\textbf{イシュー・リンケージ}
+\item
+  明確なルール・協力姿勢の確認（\textbf{情報の非対称性}の解決）
+\end{itemize}
+
+\(\leadsto\)\textbf{小さな}集団の方が集合行為問題を克服しやすい\citep{olson1996}
+
+保護主義による利益を得る集団の方が規模は小さいので、逆に貿易政策への影響力が高まる。
+
+\begin{itemize}
+\tightlist
+\item
+  企業や産業は\textbf{利益集団} (interest group)
+  を結成し、ロビー活動や献金などで政策に影響
+
+  \begin{itemize}
+  \tightlist
+  \item
+    長期的関係あるので将来を重視
+  \item
+    小規模なので監視が可能
+  \item
+    一企業あたりの貢献度は大きい
+  \end{itemize}
+\item
+  一般市民が協力して自由貿易を求めて政治家に圧力をかけたりすることは難しい。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    多くの人間は長期的関係を持たない
+  \item
+    大規模なので監視が不可能
+  \item
+    一人あたりの貢献度は小さい（相対的にコストが大きい）
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ux8cbfux6613ux3092ux5de1ux308bux56fdux969bux653fux6cbb}{%
+\section{貿易を巡る国際政治}\label{ux8cbfux6613ux3092ux5de1ux308bux56fdux969bux653fux6cbb}}
+
+\hypertarget{ux96c6ux5408ux884cux70baux554fux984cux518dux8a2a}{%
+\subsection{集合行為問題（再訪）}\label{ux96c6ux5408ux884cux70baux554fux984cux518dux8a2a}}
+
+利益団体からのロビー活動\(\leadsto\)政治家は必ずしも社会全体の利益を好むとは限らない。
+
+\(\leadsto\)自由貿易に政治的費用があるとすれば、貿易を巡る国際関係も集合行為問題となる。
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{自由貿易を巡る国際関係}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+2つの国家が貿易の自由化を行うか、保護主義を取るかを選択する。
+
+\begin{itemize}
+\tightlist
+\item
+  互いに何もしなければ、貿易が自由化されず1の利益しかもらえない。
+\item
+  貿易を自由化することで輸入が増え、一般市民から\(b\)の利益 (benefit)
+  を得る。
+\item
+  輸入が増えるため、その財を生産していた企業からの支持を失い、\(c\)の政治的費用
+  (cost) を支払う。
+\item
+  ただし、お互いに協力をして自由化を行えば、輸出が促進され、その財を生産する企業からの支持を得るので、費用は\(c/2\)に減る。
+\item
+  自由貿易の利益は\(c/2 < b < c\)くらいの大きさである。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    一国でで自由化をするほど大きな利益ではない。
+  \item
+    協力して自由化をするメリットはある。
+  \end{itemize}
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/trade_agreement1.drawio.png}
+
+}
+
+\caption{自由貿易を巡る国際関係}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  互いに貿易を自由化することで共通利益を実現／政治的利益のために保護主義を選択
+\end{itemize}
+
+国際社会において、いかにして集合行為問題を解決するのか？
+
+大きな国力を有する\textbf{覇権国}
+(hegemon)\(\leadsto\)たとえ他国の協力を得られなくても、自ら国際問題の解決に貢献する意思\(\leadsto\)集合行為問題は克服\citep{lake1993}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{自由貿易を巡る国際関係'}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+国家Aは超大国で、一国で貿易を自由化する意志がある。
+
+\begin{itemize}
+\tightlist
+\item
+  国家Aは貿易自由化によって得られる利益が非常に大きい(\(b^\prime > c\))。
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/trade_agreement2.drawio.png}
+
+}
+
+\caption{自由貿易を巡る国際関係'}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  覇権国家が存在する場合\(\leadsto\)自由貿易が促進
+
+  \begin{itemize}
+  \tightlist
+  \item
+    WW1前のイギリスやWW2後のアメリカ：覇権国として、自由貿易を維持
+  \end{itemize}
+\end{itemize}
+
+\textbf{互恵主義} (reciprocity)
+＝トリガー戦略\(\leadsto\)集合恋問題を解決＝自由貿易を促進
+
+\begin{itemize}
+\tightlist
+\item
+  小規模な一部の国々で自由化を促進\citep{snidal1985}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    繰り返し交流のある\(\leadsto\)将来の影
+  \item
+    イシュー・リンケージを行うことができる
+  \item
+    多くの貿易協定は一部の国々の間で、特に地域ごとに形成
+  \end{itemize}
+\item
+  情報の非対称性が少ない場合、透明性が高い国同士の場合\(\leadsto\)自由貿易が促進
+
+  \begin{itemize}
+  \tightlist
+  \item
+    自国での価格よりも安く輸出する\textbf{ダンピング}や\textbf{補助金}は保護主義的政策なのか判断しにくい。
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ux6291ux6b62ux304bux3089ux5236ux5ea6ux3078}{%
+\subsection{抑止から制度へ}\label{ux6291ux6b62ux304bux3089ux5236ux5ea6ux3078}}
+
+トリガー戦略だけでは協調の実現には十分ではないかもしれない
+
+\begin{itemize}
+\tightlist
+\item
+  協力的な行動を取っているのか不確かな場合、
+
+  \begin{itemize}
+  \tightlist
+  \item
+    裏切っても発覚しないだろうと期待して裏切る可能性や
+  \item
+    協力的な行動もじつは裏切りではないかと誤認する可能性がある。
+  \end{itemize}
+\item
+  約束を守る（コミットメント）ことへの信憑性が不十分な場合
+\end{itemize}
+
+\(\leadsto\)\textbf{国際制度} (international institution/regime)
+を作ることで協調を促進
+
+\begin{itemize}
+\tightlist
+\item
+  守るべきルール、違反行為を明確にする
+\item
+  第三者によって違反行為を監視・認定する
+\item
+  違反行為に対する\textbf{評判} (reputation) コストを高める
+\item
+  交渉フォーラムの設置により\textbf{取引費用} (transaction cost)
+  を下げる
+\end{itemize}
+
+アナーキーな国際社会においてもルール＝制度には存在価値がある？
+
+\hypertarget{gattwtoux4f53ux5236}{%
+\subsection{GATT/WTO体制}\label{gattwtoux4f53ux5236}}
+
+\textbf{GATT/WTO体制}：GATTおよびWTOによって支えられている戦後の自由貿易秩序
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{関税および貿易に関する一般協定} (General Agreement on Tariffs
+  and Trade: GATT)
+\item
+  \textbf{世界貿易機関} (World Trade Organization: WTO)
+\end{itemize}
+
+GATT/WTO体制の原則：\textbf{最恵国待遇} (most-favored nation status:
+MFN) と\textbf{内国民待遇}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.mofa.go.jp/mofaj/ecm/it/page1w_000136.html}{関税及び貿易に関する一般協定}　第1条}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  いずれかの種類の関税及び課徴金で、輸入若しくは輸出について若しくはそれらに関連して課され、又は輸入若しくは輸出のための支払手段の国際的移転について課せられるものに関し、それらの関税及び課徴金の徴収の方法に関し、輸入及び輸出に関連するすべての規則及び手続に関し、並びに第三条2及び4に掲げるすべての事項に関しては、いずれかの締約国が他国の原産の産品又は他国に仕向けられる産品に対して許与する利益、特典、特権又は免除は、\textbf{他のすべての締約国}の領域の原産の同種の産品又はそれらの領域に仕向けられる同種の産品に対して、\textbf{即時かつ無条件に許与}しなければならない。
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  全ての国に対して譲歩することで、他の国からの譲歩を引き出し、自由化するメリットを大きくする。
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.mofa.go.jp/mofaj/ecm/it/page1w_000136.html}{関税及び貿易に関する一般協定}　第3条}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  締約国は、内国税その他の内国課徴金と、産品の国内における販売、販売のための提供、購入、輸送、分配又は使用に関する法令及び要件並びに特定の数量又は割合による産品の混合、加工又は使用を要求する内国の数量規則は、\textbf{国内生産に保護を与えるように輸入産品又は国内産品に適用してはならない}ことを認める。
+\end{enumerate}
+
+\end{tcolorbox}
+
+GATTでは非関税障壁は原則として禁止
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.mofa.go.jp/mofaj/ecm/it/page1w_000136.html}{関税及び貿易に関する一般協定}　第11条}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  締約国は、他の締約国の領域の産品の輸入について、又は他の締約国の領域に仕向けられる産品の輸出若しくは輸出のための販売について、割当によると、輸入又は輸出の許可によると、その他の措置によるとを問わず、\textbf{関税その他の課徴金以外のいかなる禁止又は制限も新設し、又は維持してはならない}。
+\end{enumerate}
+
+\end{tcolorbox}
+
+\textbf{多角的交渉}（ラウンド）によって関税の相互引き下げ交渉
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.mofa.go.jp/mofaj/ecm/it/page1w_000136.html}{関税及び貿易に関する一般協定}　第28条の2}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  締約国は、関税がしばしば貿易に対する著しい障害となること、したがつて、関税その他輸入及び輸出に関する課徴金の一般的水準の実質的な引下げ、特に、最少限度の数量の輸入をも阻害するような高関税の引下げをめざし、かつ、この協定の目的及び各締約国の異なる必要に妥当な考慮を払つて行われる\textbf{相互的かつ互恵的な交渉}が国際貿易の拡大のためきわめて重要であることを認める。よつて、締約国団は、このような交渉を随時主催することができる。
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  個別に交渉するのではなく、一律にルールを定めることで取引費用を小さくする。
+\end{itemize}
+
+\(\leadsto\)合計で9回のラウンドが開催され、1960-70年代のケネディ・ラウンドや東京ラウンドでは関税の大幅引き下げに成功する。
+
+\(\leadsto\)
+1980-90年代のウルグアイ・ラウンドではGATTを発展的解消し、国際機構としてのWTOを設立する。
+
+\begin{itemize}
+\tightlist
+\item
+  GATTの慣行を維持し、\textbf{コンセンサス方式}で意思決定を行うが、それが叶わない場合は投票
+\item
+  GATTから対象とする範囲を農業貿易、サービス貿易、知的財産権まで大幅に拡大
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://www.mofa.go.jp/mofaj/ecm/it/page25_000396.html}{WTO協定}の一部としての附属書を\textbf{一括受諾}
+    (single undertaking)
+  \end{itemize}
+\end{itemize}
+
+\href{https://www.mofa.go.jp/mofaj/gaiko/wto/funso/seido.html}{紛争解決制度}が設置され、\textbf{紛争処理機関}
+(dispute settlement body: DSB) が貿易に関する紛争を処理
+
+\begin{itemize}
+\tightlist
+\item
+  WTO加盟国は違反について協議を行い、解決できなかった場合はDSBに小委員会の設置を要請
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ICJと異なり、DSBは強制的管轄権を有する＝小委員会の設置を拒否できない
+  \item
+    小委員会の判断はDSBが\textbf{コンセンサスで反対しない限り採択される}（ネガティブ・コンセンサス）
+  \end{itemize}
+\item
+  小委員会の判断に不服がある場合は上級パネルの設置を要請
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{international_trade_files/mediabag/dispustatschart4_e.png}
+
+}
+
+\caption{\href{https://www.wto.org/english/tratop_e/dispu_e/dispustats_e.htm}{WTOのDSBの活動}}
+
+\end{figure}
+
+2001年から始まったドーハ・ラウンド（ドーハ開発アジェンダ）は停滞
+
+\begin{itemize}
+\tightlist
+\item
+  グローバル化への批判、特に先進国が途上国を搾取しているという風潮
+
+  \begin{itemize}
+  \tightlist
+  \item
+    途上国が比較優位を持つ農産品に対して先進国が国内農業保護
+  \end{itemize}
+\item
+  中国の台頭や途上国の影響力の高まり\(\leadsto\)コンセンサスと一括受諾のため合意が困難
+\end{itemize}
+
+アメリカが上級パネリストの指名を拒否\(\leadsto\)DSBが機能不全
+
+各国は地域貿易協定を拡充
+
+\begin{itemize}
+\tightlist
+\item
+  貿易協定はWTOの下で認められている
+\item
+  \textbf{貿易創造効果}と\textbf{貿易迂回効果}のどちらが大きい？
+\item
+  原産地規制が複雑になる\textbf{スパゲッティ・ボウル効果}
+\end{itemize}
+
+\hypertarget{ux6226ux7565ux7684ux901aux5546ux653fux7b56}{%
+\subsection{戦略的通商政策}\label{ux6226ux7565ux7684ux901aux5546ux653fux7b56}}
+
+スタンダードを巡る争いでは\textbf{先行者利益} (first-mover advantage)
+がある。
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{航空機製造競争}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+ボーイングとエアバスが航空機のシェアを巡って争っている。
+
+\begin{itemize}
+\tightlist
+\item
+  一社だけが製造するとシェアを独占して100の利益を得る。
+\item
+  お互いに製造するとシェアを独占できず、-5の利益を得る（赤字）。
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/battle_of_sexes2.drawio.png}
+
+}
+
+\caption{航空機製造競争}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  後発者が参入することは困難
+\end{itemize}
+
+\(\leadsto\)もし、ヨーロッパ諸国がエアバスに補助金を与えたらどうなるのか？
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{航空機製造競争'}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+ヨーロッパ諸国がエアバスを支援し、航空機を製造したら25の利益を得ることができる。
+
+\end{tcolorbox}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/battle_of_sexes3.drawio.png}
+
+}
+
+\caption{航空機製造競争'}
+
+\end{figure}
+
+\(\leadsto\)もし、に補助金を与えたらどうなるのか？
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-tip-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{航空機製造競争'\,'}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-tip-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+アメリカがボーイングを支援し、航空機を製造したら25の利益を得ることができる。
+
+\end{tcolorbox}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/battle_of_sexes4.drawio.png}
+
+}
+
+\caption{航空機製造競争'\,'}
+
+\end{figure}
+
+\textbf{戦略的通商政策}：政府の補助金でハイテク産業を支援して輸出を拡大
+
+\begin{itemize}
+\tightlist
+\item
+  政府にとっては補助金を回収できない（かもしれない）／そうしないと相手国の企業に独占
+\end{itemize}
+
+\hypertarget{ux77e5ux7684ux8ca1ux7523ux6a29}{%
+\subsection{知的財産権}\label{ux77e5ux7684ux8ca1ux7523ux6a29}}
+
+科学技術の恩恵を国家間で分け合う\(\leadsto\)政治的対立
+
+\begin{itemize}
+\tightlist
+\item
+  アメリカ政府は新型コロナウィルスのワクチンの特許を一時的に放棄し、各国で生産できるように提案
+\item
+  中国や途上国はこれに賛成
+\item
+  ヨーロッパを初めとする先進国は難色
+\end{itemize}
+
+\textbf{特許} (patent) ：発明に対する知的財産権
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  発明者に一定期間の独占権を与え、発明の収益を得ることができるようにすることで、発明を促進
+\item
+  発明者に使用料を支払うことで（あるいは特許期間の終了後に）、発明者以外も技術を使用可能
+\end{enumerate}
+
+\(\leadsto\)WTO法の一部である\href{https://www.jpo.go.jp/system/laws/gaikoku/trips/index.html}{知的所有権の貿易関連の側面に関する協定}
+(Agreement on Trade-Related Aspects of Intellectual Property
+Rights、\textbf{TRIPS協定})で国際的ルールが制定
+
+先進国は特許による権利保護に賛成（プロパテント）
+
+\begin{itemize}
+\tightlist
+\item
+  既に見てきたように技術の発明は先行者利益
+\item
+  科学技術の発展はその他の産業にも波及効果
+\end{itemize}
+
+一方、途上国は特許による行き過ぎた保護に反対（アンチパテント）
+
+\begin{itemize}
+\tightlist
+\item
+  発明者の権利を重視すぎて、技術を必要としている人々や国々に行き渡らない。
+\end{itemize}
+
+特許が国際問題として先鋭化するのが医薬品アクセス問題
+
+\begin{itemize}
+\tightlist
+\item
+  高価な医薬品を途上国が購入できない
+\item
+  TRIPS協定では強制実施許諾（特許権者の許諾なしに実施できる）の要件があるが、主に国内市場への供給とされている。
+\end{itemize}
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.jpo.go.jp/system/laws/gaikoku/trips/index.html}{TRIPS協定}　第31条}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+加盟国の国内法令により、\textbf{特許権者の許諾を得ていない特許の対象の他の使用}（政府による使用又は政府により許諾された第三者による使用を含む。）を認める場合には,次の規定を尊重する。
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  他の使用は、主として当該他の使用を許諾する加盟国の\textbf{国内市場への供給}のために許諾される。
+\end{enumerate}
+
+\end{tcolorbox}
+
+\(\leadsto\)HIV/AIDSの治療薬のように重要性が高いが、自国で生産できない医薬品へのアクセスが途上国にはない。
+
+先進国としては医薬品へのアクセスを一括して認めにくい
+
+\begin{itemize}
+\tightlist
+\item
+  医薬品企業が研究開発するメリットを損なってしまい、将来の医薬品開発を阻害
+\item
+  HIV/AIDS治療薬以外にも広げると無限定
+\end{itemize}
+
+\(\leadsto\)\href{https://www.mofa.go.jp/mofaj/gaiko/treaty/treaty166_11_gai.html}{TRIPS協定改正議定書}の発効により、一定の条件の下で第31条(f)の適用が除外される。
+
+\begin{tcolorbox}[enhanced jigsaw, coltitle=black, breakable, opacitybacktitle=0.6, left=2mm, titlerule=0mm, arc=.35mm, colbacktitle=quarto-callout-note-color!10!white, opacityback=0, leftrule=.75mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.jpo.go.jp/system/laws/gaikoku/trips/index.html}{TRIPS協定}　第31条の2}, toptitle=1mm, bottomrule=.15mm, colframe=quarto-callout-note-color-frame, toprule=.15mm, colback=white, rightrule=.15mm, bottomtitle=1mm]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{前条(f)}に規定する輸出加盟国の義務は、この協定の附属書の(2)に定める条件に従い、医薬品を生産し、及びそれを輸入する資格を有する加盟国に\textbf{輸出するために必要な範囲において}当該輸出加盟国が与える強制実施許諾については、\textbf{適用しない}。
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  医薬品生産能力のない途上国に対して他国が強制実施許諾により医薬品を製造し、輸出することが可能に
+\end{itemize}
+
+アメリカ政府はワクチン特許の一時放棄によってワクチン供給量が拡大し、途上国にも行き渡ると主張／先進国や製薬会社はそうした見方に懐疑的
+
+\begin{itemize}
+\tightlist
+\item
+  特許を放棄しても技術移転がなければ意味がない。
+\item
+  ワクチンの輸出規制の撤廃や既存の設備での供給量拡大の方が現実的
+\item
+  現行のTRIPS協定を柔軟に適用して対応
+\end{itemize}
+
+ワクチンの公平な供給を目指す国際制度として\href{https://www.mhlw.go.jp/content/10501000/000672596.pdf}{COVAXファシリティ}が設立
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.mofa.go.jp/mofaj/page1_000979.html}{ワクチンサミット}において2021年末に途上国に18億回分のワクチンを供給するのに必要な資金を確保
+\end{itemize}
+
+\hypertarget{ux30b0ux30edux30fcux30d0ux30ebux5316ux3078ux306eux53cdux767a}{%
+\section{グローバル化への反発}\label{ux30b0ux30edux30fcux30d0ux30ebux5316ux3078ux306eux53cdux767a}}
+
+貿易は人々の党派性や選挙結果に影響
+
+\begin{itemize}
+\tightlist
+\item
+  アメリカでは中国からの輸入品と同種の財を生産している地域では\textbf{分極化}
+  (polarization)\citep{autor2020}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    フォックスニュースの視聴率が上がったり、共和党候補者の得票が増えるなど
+  \end{itemize}
+\item
+  アメリカでは産業間移動の難し非熟練労働者の多い地域で現職大統領の得票率が減りやすい\citep{jensen2017}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    スウィング・ステートに非熟練労働者が多く、そこの支持を得るために選挙活動を行う。
+  \end{itemize}
+\end{itemize}
+
+\(\leadsto\)グローバル化が一部の人々にとって負担となり、反グローバル化
+(anti-globalization)・グローバル化への反発 (globalization backlash) へ
+
+\begin{itemize}
+\tightlist
+\item
+  戦後の国際経済秩序は、完全な貿易の自由化を目指すのではなく、社会保障による労働者の保護も組み合わせる\textbf{埋め込まれた自由主義}
+  (embedded liberalism)\citep{ruggie1982}
+\item
+  いかにして自由貿易の「被害者」の負担を緩和しするのか？
+\end{itemize}
+
+
+  \bibliography{references.bib}
+
+
+\end{document}

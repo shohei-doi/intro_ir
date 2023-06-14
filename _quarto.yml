@@ -27,7 +27,8 @@ website:
           - institutional_peace.qmd
           - democratic_peace.qmd
       - section: "国際政治経済"
-      - section: "越境的政治"
+        contents: 
+          - international_trade.qmd
 
 format:
   html:
