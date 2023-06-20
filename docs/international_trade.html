@@ -265,7 +265,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">公開</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023年6月14日</p>
+      <p class="date">2023年6月20日</p>
     </div>
   </div>
   
@@ -315,34 +315,34 @@ div.csl-indent {
 <p></p><figcaption class="figure-caption"><a href="https://rtais.wto.org/UI/charts.aspx">地域貿易協定の推移</a></figcaption><p></p>
 </figure>
 </div>
-<div class="cell" data-hash="international_trade_cache/html/unnamed-chunk-4_cb4085c141a6cb4ef54a57bfbc4aca85">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="international_trade_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">地域貿易協定のネットワーク（2022年）<span class="citation" data-cites="egger2008">(<a href="#ref-egger2008" role="doc-biblioref">Egger と Larch 2008</a>)</span></figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
 <p>一方で、<strong>関税</strong> (tariff) は残っている。</p>
 <ul>
 <li>関税：輸入する際に付加される税金</li>
 </ul>
-<div class="cell" data-hash="international_trade_cache/html/unnamed-chunk-5_087dc1fe79f6c6d310b6245c03ba3756">
+<div class="cell" data-hash="international_trade_cache/html/unnamed-chunk-4_750142b2fc0db37c1db839f50b8cb1e4">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="international_trade_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img"></p>
+<p><img src="international_trade_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">関税率の推移</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
-<p><strong>関税同盟</strong> (custom union) は限定的</p>
+<p>地域貿易協定や<strong>関税同盟</strong> (custom union) は一部の国や地域に限定</p>
 <ul>
 <li>関税同盟：国家間で関税を撤廃する協定</li>
 </ul>
+<div class="cell" data-hash="international_trade_cache/html/unnamed-chunk-5_31467fc0d9224e837ac1ec85580bd2e0">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="international_trade_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">地域貿易協定のネットワーク（2022年）<span class="citation" data-cites="egger2008">(<a href="#ref-egger2008" role="doc-biblioref">Egger と Larch 2008</a>)</span></figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/custom_union.png" class="img-fluid figure-img"></p>
@@ -413,7 +413,7 @@ div.csl-indent {
 <li>ポルトガルはワインを1樽生産するために布を1.5巻諦めないといけない。</li>
 <li>イギリスは2巻諦めないといけない。</li>
 </ul>
-<p><span class="math inline">\(\leadsto\)</span>ポルトガルはワインに比較優位を持っている。</p>
+<p><span class="math inline">\(\leadsto\)</span>ポルトガルはイギリスに対して、布に比べてワインに比較優位を持っている。</p>
 <ul>
 <li>イギリスは布1巻を生産するためにワインを0.5本諦めないといけない。</li>
 <li>ポルトガルは0.66…本諦めないといけない。</li>
@@ -433,10 +433,12 @@ div.csl-indent {
 <p>ポルトガルには1500人の労働者がいる。</p>
 </div>
 </div>
-<p>布の生産量を<span class="math inline">\(x\)</span>、ワインの生産量を<span class="math inline">\(y\)</span>として、1500人の労働者が全員働くとすると、次の式を満たす。</p>
+<p>布の生産量を<span class="math inline">\(x\)</span>、ワインの生産量を<span class="math inline">\(y\)</span>として、1500人の労働者が<strong>全員働く</strong>とすると、次の式を満たす。</p>
 <p><span class="math display">\[
-10 \times x + 15 \times y = 1500
-\Leftrightarrow y = 100 - 0.66 \dots \times x
+\begin{split}
+&amp; \underbrace{10 \times x}_{\textrm{布の生産の労働者数}} + \underbrace{15 \times y}_{\textrm{ワインの生産の労働者数}} = 1500 \\
+&amp; \Leftrightarrow y = 100 - 0.66 \dots \times x
+\end{split}
 \]</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -444,7 +446,7 @@ div.csl-indent {
 <p></p><figcaption class="figure-caption">生産可能性フロンティア（一国）</figcaption><p></p>
 </figure>
 </div>
-<p><strong>生産可能性フロンティア</strong> (production possibilities frontier)：資源を効率的に用いた際の財の生産量の組み合わせ</p>
+<p><strong>生産可能性フロンティア</strong> (production possibilities frontier)：資源を効率的に用いた際（余りのない状態）の財の生産量の組み合わせ</p>
 <ul>
 <li>フロンティアより左下は働いていない労働者がいるので非効率的</li>
 <li>フロンティアより右上は労働者が足りなくて不可能</li>
@@ -472,7 +474,7 @@ div.csl-indent {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>ポルトガルはワイン1樽を輸出し、イギリスから1.75巻の布を輸入する。言い換えれば、イギリスは布1巻を輸出して、0.57…樽のワインを輸入する。</p>
+<p>ポルトガルはワイン1樽を輸出し、イギリスから1.75巻の布を輸入する（言い換えれば、イギリスは布1巻を輸出して、0.57…樽のワインを輸入する）。</p>
 </div>
 </div>
 <ul>
@@ -496,14 +498,18 @@ div.csl-indent {
 </ul>
 <p>イギリスへのワインの輸出量を<span class="math inline">\(z\)</span>とすると、生産可能性フロンティアはこのようになる。</p>
 <p><span class="math display">\[
-15 \times (y + z) = 1500
-\Leftrightarrow y + z = 150
+\begin{split}
+&amp; 15 \times (y + z) = 1500 \\
+&amp; \Leftrightarrow y + z = 100
+\end{split}
 \]</span></p>
-<p>ポルトガルはワイン1樽につき、布1.75巻をイギリスから輸入するので、<span class="math inline">\(z = 1.75 \times x\)</span>である。</p>
+<p>ポルトガルはワイン1樽につき、布1.75巻をイギリスから輸入するので、<span class="math inline">\(x = 1.75 \times z\)</span>、すなわち<span class="math inline">\(z = x/1.75\)</span>である。</p>
 <p><span class="math display">\[
-y + z = 150
-\Leftrightarrow 1.75 \times x + y = 150
-\Leftrightarrow y = 262.5 - 1.75 \times x
+\begin{split}
+&amp; y + z = 150 \\
+&amp; \Leftrightarrow x/1.75 + y = 100 \\
+&amp; \Leftrightarrow y = 100 - x/1.75
+\end{split}
 \]</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -576,7 +582,7 @@ y + z = 150
 <ul>
 <li>ある生産要素が豊富にある<span class="math inline">\(\leadsto\)</span>市場での供給量も多い<span class="math inline">\(\leadsto\)</span>その生産要素の価格（賃金）は低い<span class="math inline">\(\leadsto\)</span>その生産要素を集約的に使用する財の生産コストは低い＝比較優位</li>
 </ul>
-<p><span class="math inline">\(\leadsto\)</span>なぜ異なる国が異なる財を輸出するのか、なぜある国が経済発展の度合いによって異なる財を輸出するのかも説明できる。</p>
+<p><span class="math inline">\(\leadsto\)</span>なぜ異なる国が異なる財を輸出するのか、なぜある国が経済発展の度合いによって異なる財を輸出するのかも説明</p>
 <ul>
 <li>土地の多い国は農業が、人口の多い国は軽工業が、資本の多い国は重工業が、人的資本の多い国はサービス業が盛ん</li>
 </ul>
@@ -639,8 +645,8 @@ y + z = 150
 </div>
 <p><span class="math inline">\(\leadsto\)</span>自由貿易／保護主義で得をする／損をする人は異なる</p>
 <ul>
-<li>保護主義<span class="math inline">\(\leadsto\)</span>比較劣位財の価格が上がる<span class="math inline">\(\leadsto\)</span>生産者は生産量を増やす。</li>
-<li>比較劣位財の消費者<span class="citation" data-cites="baker2005">(<a href="#ref-baker2005" role="doc-biblioref">Baker 2005</a>)</span>や比較優位財の生産者<span class="math inline">\(\leadsto\)</span>比較劣位財の価格が下がる<span class="math inline">\(\leadsto\)</span>消費量を増やす。
+<li>保護主義<span class="math inline">\(\leadsto\)</span>（本来、安く輸入できたはずの）比較劣位財の価格が上がる<span class="math inline">\(\leadsto\)</span>その生産者は生産量を増やす<span class="math inline">\(\leadsto\)</span>収入の拡大</li>
+<li>自由貿易<span class="math inline">\(\leadsto\)</span>比較劣位財の価格が下がる<span class="math inline">\(\leadsto\)</span>比較劣位財の消費者<span class="citation" data-cites="baker2005">(<a href="#ref-baker2005" role="doc-biblioref">Baker 2005</a>)</span>や比較優位財の生産者は消費量を増やす。
 <ul>
 <li>ナショナリスティックな消費者<span class="math inline">\(\leadsto\)</span>保護主義を支持しやすい<span class="citation" data-cites="mansfield2013">(<a href="#ref-mansfield2013" role="doc-biblioref">Mansfield と Mutz 2013</a>)</span></li>
 </ul></li>
@@ -651,20 +657,20 @@ y + z = 150
 <li>その国で豊富ではない生産要素の所有者（<strong>階級</strong>）は自由貿易に反対する。
 <ul>
 <li><strong>ストルパー＝サミュエルソン定理</strong>：ある財の価格が高まると、その財に必要な生産要素の価格（賃金）が上昇</li>
-<li>自由貿易<span class="math inline">\(\leadsto\)</span>比較優位財の需要が高騰<span class="math inline">\(\leadsto\)</span>価格も上昇</li>
+<li>自由貿易<span class="math inline">\(\leadsto\)</span>比較優位財（輸出財）の需要が高騰<span class="math inline">\(\leadsto\)</span>価格・賃金も上昇</li>
 <li>比較優位財に集中的に必要となる生産要素＝ヘクシャー＝オーリン・モデルによればその国で豊富な生産要素</li>
 </ul></li>
 <li>比較劣位財を生産している<strong>産業</strong>に属する人々は自由貿易に反対<span class="citation" data-cites="mayda2005">(<a href="#ref-mayda2005" role="doc-biblioref">Mayda と Rodrik 2005</a>)</span>
 <ul>
 <li>一部の生産要素は特定の産業に固有な<strong>特殊要素</strong> (specific factor)</li>
-<li>自由貿易によって価格や生産量が減少しても、簡単に他の財の生産には切り替えられない。</li>
+<li>自由貿易によって価格や生産量が減少／簡単に他の財の生産には切り替えられない</li>
 </ul></li>
 <li>比較劣位財を生産している<strong>企業</strong>が自由貿易に反対
 <ul>
 <li>実際に貿易に関与している企業は、一国内でもひと握り<span class="citation" data-cites="freund2020">(<a href="#ref-freund2020" role="doc-biblioref">Freund と Pierola 2020</a>)</span></li>
 </ul></li>
 </ol>
-<p>自由貿易は社会全体としては望ましくても、一部の人々や企業には望ましくない</p>
+<p><span class="math inline">\(\leadsto\)</span>自由貿易は社会全体としては望ましくても、一部の人々や企業には望ましくない</p>
 <ul>
 <li>インドでは貿易自由化の影響が大きい地域ほど、貧困率の低下が<strong>遅くなった</strong><span class="citation" data-cites="topalova2010">(<a href="#ref-topalova2010" role="doc-biblioref">Topalova 2010</a>)</span>
 <ul>
@@ -673,7 +679,7 @@ y + z = 150
 <li>アメリカでは中国との貿易の影響を受けた地域の製造業の失業率は高く、他の地域や非製造業への移動も少なかった<span class="citation" data-cites="autor2013">(<a href="#ref-autor2013" role="doc-biblioref">D. H. Autor, Dorn, と Hanson 2013</a>)</span></li>
 <li>労働者や企業は簡単に衰退産業から撤退できない</li>
 </ul>
-<p>保護主義から利益を得るアクター＜自由貿易から利益を得るアクター</p>
+<p>保護主義から利益を得るアクターの大きさ＜自由貿易から利益を得るアクターの大きさ</p>
 <p><span class="math inline">\(\leadsto\)</span>一般的に言えば、民主主義国は権威主義国に比べて一般利益が反映されやすいため、自由貿易を好む<span class="citation" data-cites="milner2005 kono2006">(<a href="#ref-milner2005" role="doc-biblioref">Milner と Kubota 2005</a>; <a href="#ref-kono2006" role="doc-biblioref">Kono 2006</a>)</span></p>
 <ul>
 <li>左派（右派）政権は貧しい国では自由貿易（保護主義）を支持し、豊かな国では保護主義（自由貿易）を支持しやすい<span class="citation" data-cites="dutt2002">(<a href="#ref-dutt2002" role="doc-biblioref">Dutt と Mitra 2002</a>)</span>
@@ -717,7 +723,7 @@ y + z = 150
 <p>貿易政策も公共財であり、集合行為問題（タダ乗りが生じる）となる</p>
 <ul>
 <li>自由貿易による恩恵<span class="math inline">\(\leadsto\)</span>全ての消費者に行き渡る＆消費者が増えても減らない</li>
-<li>保護主義による恩恵<span class="math inline">\(\leadsto\)</span>一部の階級や産業のだけが利益を得ることはな＆アクターが増えても減らない</li>
+<li>保護主義による恩恵<span class="math inline">\(\leadsto\)</span>階級や産業の一部の労働者や企業だけが利益を得ることはな＆労働者や企業が増えても減らない</li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -764,15 +770,29 @@ y + z = 150
 <p><span class="math display">\[
 \begin{split}
 &amp;\textrm{常に互いに協力するときの利益} \\
-&amp;= 1+b-c/2 + \delta \times 1+b-c/2 + \delta^2 \times 1+b-c/2 \cdots \\
+&amp;= \underbrace{1+b-c/2}_{\textrm{現在、協力する利益}} + \underbrace{\delta \times (1+b-c/2) + \delta^2 \times (1+b-c/2) \cdots}_{\textrm{将来、協力し続ける利益}}
+\end{split}
+\]</span></p>
+<p><span class="math display">\[
+\begin{split}
 &amp;\textrm{最初には自分だけなにもせず、その後は互いになにもしないときの利益} \\
-&amp;= 1+b + \delta \times 1 + \delta^2 \times 1 \cdots
+&amp;= \underbrace{1+b}_{\textrm{現在、タダ乗りする利益}} + \underbrace{\delta \times 1 + \delta^2 \times 1 \cdots}_{\textrm{将来、互いに協力をしない利益}}
 \end{split}
 \]</span></p>
 <ul>
 <li>裏切ってなにもしないことでその時は大きな利益を得られる。</li>
 <li>その後は報復されて互いに不協力に陥って利益を得られない。</li>
 </ul>
+<div class="cell" data-hash="international_trade_cache/html/unnamed-chunk-6_0802868b6a01356cb11f64b86a694d6a">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="international_trade_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">協力の利益と報復の利益</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
 <p><span class="math inline">\(\leadsto\)</span>長期的関係があり将来の利益を重視する＝割引因子が大きい<span class="math inline">\(\leadsto\)</span>将来の自由化の不利益よりも保護主義の利益を重視<span class="math inline">\(\leadsto\)</span>協力してロビー活動</p>
 <p><span class="math display">\[
 \begin{split}
@@ -782,7 +802,7 @@ y + z = 150
 \vdots &amp;&gt; \vdots
 \end{split}
 \]</span></p>
-<p>一般的に、長期的関＆将来の利益を重視<span class="math inline">\(\leadsto\)</span>トリガー戦略による協調が可能</p>
+<p>一般的に、長期的関係＆将来の利益を重視<span class="math inline">\(\leadsto\)</span>トリガー戦略による協調が可能</p>
 <ul>
 <li>報復されるという将来の出来事の認識（<strong>将来の影</strong>）</li>
 <li>他の分野でも報復されるという<strong>イシュー・リンケージ</strong></li>
@@ -808,10 +828,10 @@ y + z = 150
 </section>
 <section id="貿易を巡る国際政治" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="貿易を巡る国際政治"><span class="header-section-number">4</span> 貿易を巡る国際政治</h2>
+<p>利益団体からのロビー活動<span class="math inline">\(\leadsto\)</span>政治家は必ずしも社会全体の利益を好むとは限らない。</p>
+<p><span class="math inline">\(\leadsto\)</span>自由貿易に政治的費用（保護主義に政治的利益）がある<span class="math inline">\(\leadsto\)</span>貿易を巡る国際関係＝集合行為問題</p>
 <section id="集合行為問題再訪" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="集合行為問題再訪"><span class="header-section-number">4.1</span> 集合行為問題（再訪）</h3>
-<p>利益団体からのロビー活動<span class="math inline">\(\leadsto\)</span>政治家は必ずしも社会全体の利益を好むとは限らない。</p>
-<p><span class="math inline">\(\leadsto\)</span>自由貿易に政治的費用があるとすれば、貿易を巡る国際関係も集合行為問題となる。</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -902,8 +922,8 @@ y + z = 150
 </ul>
 <p><span class="math inline">\(\leadsto\)</span><strong>国際制度</strong> (international institution/regime) を作ることで協調を促進</p>
 <ul>
-<li>守るべきルール、違反行為を明確にする</li>
-<li>第三者によって違反行為を監視・認定する</li>
+<li>守るべき<strong>ルール</strong>、違反行為を明確にする</li>
+<li>第三者によって違反行為を<strong>監視・認定</strong>する</li>
 <li>違反行為に対する<strong>評判</strong> (reputation) コストを高める</li>
 <li>交渉フォーラムの設置により<strong>取引費用</strong> (transaction cost) を下げる</li>
 </ul>
