@@ -1,0 +1,1209 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  xelatex,
+  ja=standard]{bxjsarticle}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+  \setmainfont[BoldFont=Noto Sans CJK JP]{Noto Serif CJK JP}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\renewcommand{\thefootnote}{\arabic{footnote}}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{目次}
+\else
+  \newcommand\contentsname{目次}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{図一覧}
+\else
+  \newcommand\listfigurename{図一覧}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{表一覧}
+\else
+  \newcommand\listtablename{表一覧}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{図}
+\else
+  \newcommand\figurename{図}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{表}
+\else
+  \newcommand\tablename{表}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{コード}
+\newcommand*\listoflistings{\listof{codelisting}{コード一覧}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{japanese}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{jecon}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={地球環境保護},
+  pdfauthor={土井翔平},
+  pdflang={ja},
+  colorlinks=true,
+  linkcolor={NavyBlue},
+  filecolor={Maroon},
+  citecolor={NavyBlue},
+  urlcolor={NavyBlue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{地球環境保護}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{国際公共政策学}
+\author{土井翔平}
+\date{2023-07-04}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, borderline west={3pt}{0pt}{shadecolor}, sharp corners, enhanced, boxrule=0pt, frame hidden, breakable]}{\end{tcolorbox}}\fi
+
+\hypertarget{ux306fux3058ux3081ux306b}{%
+\section*{はじめに}\label{ux306fux3058ux3081ux306b}}
+\addcontentsline{toc}{section}{はじめに}
+
+人口増加＋産業化\(\leadsto\)環境破壊
+
+\begin{itemize}
+\tightlist
+\item
+  環境保護を巡ってどのような国内・国際政治が展開されるのか？
+\item
+  解決しやすい環境問題とそうではない環境問題があるのはなぜか？
+\end{itemize}
+
+本来は「国内」問題であった環境問題が「国際化」\(\leadsto\)\textbf{越境的
+(transnational)} イシュー・政治
+
+\hypertarget{ux6301ux7d9aux53efux80fdux306aux958bux767a}{%
+\section{持続可能な開発}\label{ux6301ux7d9aux53efux80fdux306aux958bux767a}}
+
+世界の人口や豊かさ、そして環境破壊の爆発的に拡大
+
+\begin{itemize}
+\tightlist
+\item
+  産業革命後（18世紀後半）、特に第2次世界大戦後の世界
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{figures/population.png}
+
+}
+
+\caption{人口の長期的変化}
+
+\end{figure}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{figures/gdp-per-capita-maddison-2018.png}
+
+}
+
+\caption{一人あたりGDPの長期的変化}
+
+\end{figure}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{figures/gdp-per-capita-maddison-2020.png}
+
+}
+
+\caption{一人あたりGDPの長期的変化}
+
+\end{figure}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{figures/annual-co-emissions-by-region.png}
+
+}
+
+\caption{CO2排出量の長期的変化}
+
+\end{figure}
+
+\textbf{成長の限界} (The Limits to Growth)
+：1972年のローマクラブによる報告
+
+\(\leadsto\)人口増加や環境破壊がこのままのペースで続くと成長が限界
+
+\begin{itemize}
+\tightlist
+\item
+  人口は指数関数的に増加
+\item
+  食糧や資源、環境は直線的に増加（or増加しない）
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{environmental_protection_files/mediabag/329px-Limits-to-grow.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:Limits-to-growth-figure-35.svg}{成長の限界}}
+
+\end{figure}
+
+人類の存続（人口増加、食糧・資源の確保と環境保護の両立）に持続可能性
+(sustainability) がある？
+
+\(\leadsto\)国際社会として人類の持続可能性の確保、特に地球環境の保全への取り組み
+
+\begin{itemize}
+\tightlist
+\item
+  1972年、国連人間環境会議：\href{https://www.mofa.go.jp/mofaj/gaiko/kankyo/kikan/unep.html}{\textbf{国連環境計画}}
+  (United Nations Environment Programme: UNEP) が設立
+\item
+  1987年、ブルントラント委員会：\href{https://www.unic.or.jp/activities/economic_social_development/sustainable_development/}{\textbf{持続可能な開発}}
+  (sustainable development) の登場
+\item
+  1992年、地球サミット：持続可能な開発が国際社会の目標に
+\item
+  2000年、国連ミレニアム・サミット：\href{https://www.mofa.go.jp/mofaj/kaidan/kiroku/s_mori/arc_00/m_summit/sengen.html}{ミレニアム宣言}
+  \(\leadsto\)
+  2015年までの達成を目指して、\href{https://www.un.org/millenniumgoals/2015_MDG_Report/pdf/MDG\%202015\%20PC\%20final.pdf}{\textbf{ミレニアム開発目標}}
+  (Millennium Development Goals: MDGs) を設定
+\item
+  2015年、\href{https://www.mofa.go.jp/mofaj/gaiko/oda/sdgs/index.html}{\textbf{持続可能な開発目標}}
+  (Sustainable Development Goals: SDGs)
+\end{itemize}
+
+\hypertarget{ux74b0ux5883ux554fux984cux306eux69cbux9020}{%
+\section{環境問題の構造}\label{ux74b0ux5883ux554fux984cux306eux69cbux9020}}
+
+\hypertarget{ux5171ux6709ux5730ux306eux60b2ux5287}{%
+\subsection{共有地の悲劇}\label{ux5171ux6709ux5730ux306eux60b2ux5287}}
+
+健全な環境＝\textbf{コモンズ} (commons) ・コモンプール財 (common pool
+resource)
+
+\begin{itemize}
+\tightlist
+\item
+  非排他的：財の消費を一部のアクターに制限することができない。
+\item
+  非競合的：財を消費するアクターの数が増えても財は減らない。
+\end{itemize}
+
+\begin{longtable}[]{@{}lcc@{}}
+\toprule\noalign{}
+& \textbf{排他的} & \textbf{非排他的} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{競合的} & 私的財 & コモンズ \\
+\textbf{非競合的} & クラブ財 & 公共財 \\
+\end{longtable}
+
+\begin{itemize}
+\tightlist
+\item
+  漁業、オゾン層、（健全な）気候\ldots\ldots{}
+\end{itemize}
+
+\(\leadsto\)\textbf{共有地の悲劇} (tragedy of the
+commons)\citep{hardin1968}：コモンズの\textbf{過剰な消費}、それ故の枯渇
+
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{共有地の悲劇}, bottomtitle=1mm, rightrule=.15mm, breakable, arc=.35mm, leftrule=.75mm, opacityback=0, colbacktitle=quarto-callout-tip-color!10!white, left=2mm, coltitle=black, toptitle=1mm, titlerule=0mm, colback=white, bottomrule=.15mm, toprule=.15mm, colframe=quarto-callout-tip-color-frame, opacitybacktitle=0.6]
+
+小さな湖で2人の漁師がどの程度、漁業を行うか考えている。
+
+\begin{itemize}
+\tightlist
+\item
+  毎年、魚を10\%までは収穫しても、生態系に影響は出ない。
+\item
+  お互い協力すれば、（例えば20年間は）毎年5\%ずつ漁業ができる。よって、\(0.05 \times 20 = 1\)の利益を得る。
+\item
+  どちらかが裏切って10\%の魚を収穫すると、\(0.1 \times 20 = 2\)の利益を得る。もう一人は、漁業ができないので\(0\)の利益を得る（何も得ない）。
+\item
+  お互いに裏切って10\%の魚を収穫すると、生態系が維持できず（例えば8年で）魚は絶滅する。このときは\(0.1 \times 8 = 0.8\)の利益を得る。
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/tragedy_commons.png}
+
+}
+
+\caption{共有地の悲劇}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  コモンズは競合的\(\leadsto\)誰かの消費が他の人に悪影響を及ぼす、\textbf{負の外部性}
+\item
+  本来、消費する人や組織が支払うべき費用を他者に押し付けている。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    例、生態系保護のために漁業を自粛
+  \end{itemize}
+\item
+  他の人が資源を保護してくれる\(\leadsto\)自分一人で資源を消費しても問題はない（タダ乗り）。
+\item
+  他の人が資源を消費する\(\leadsto\)どうせ枯渇するなら自分も消費してしまえ。
+\end{itemize}
+
+\(\leadsto\)国家や人々は環境破壊をしたいわけではない／ただ乗りするメリットがあるため、環境保護の努力を怠る。
+
+\begin{itemize}
+\tightlist
+\item
+  一人の行動（資源の保護や消費）では環境を大きく変えない。
+\item
+  多くの人が同じように考え、同じ行動を取ると環境が変化
+\end{itemize}
+
+囚人のジレンマと同じ構造を持つ（＝集合行為問題の一種である）。
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/prisoners_dilemma.drawio.png}
+
+}
+
+\caption{囚人のジレンマ}
+
+\end{figure}
+
+\hypertarget{ux56fdux5185ux793eux4f1aux306bux304aux3051ux308bux5bfeux7acb}{%
+\subsection{国内社会における対立}\label{ux56fdux5185ux793eux4f1aux306bux304aux3051ux308bux5bfeux7acb}}
+
+企業：環境を破壊して安い費用で商品を生産できる。
+
+消費者：環境破壊という被害を受ける／安い価格で商品を消費できる。
+
+\(\leadsto\)環境問題で利益を得るのは少数の企業で、被害を受けるのは多数の市民
+
+環境規制の強化・現状維持は公共財である\(\leadsto\)（貿易政策のときと同様に）\textbf{少数派}の意見が通りやすい。
+
+\begin{itemize}
+\tightlist
+\item
+  誰かが環境保護規制を強化（緩やかに）する努力\(\leadsto\)自分はなにもしなくてもいい。
+\item
+  少数の企業は長期的関係があり、互いに監視\(\leadsto\)協力してロビー活動
+\item
+  環境保護を求める多くの市民\(\leadsto\)他者の努力にただ乗り
+\end{itemize}
+
+\hypertarget{ux74b0ux5883ux4fddux8b77ux306eux6210ux5426}{%
+\section{環境保護の成否}\label{ux74b0ux5883ux4fddux8b77ux306eux6210ux5426}}
+
+環境問題の解決策の代表的な手段
+
+\begin{itemize}
+\tightlist
+\item
+  国家による介入：環境保護の規制を導入、違反に対する指導や罰則
+\item
+  所有権：環境（破壊）に対する所有権を設定し、市場メカニズムによる調整
+\end{itemize}
+
+国家（上位の存在）がいなくても、自発的に共有地の悲劇を回避することもできる？\citep{ostrom2022}
+
+\hypertarget{ux96c6ux56e3ux306eux898fux6a21}{%
+\subsection{集団の規模}\label{ux96c6ux56e3ux306eux898fux6a21}}
+
+小さな集団\(\leadsto\)集合行為問題を克服しやすい。
+
+\begin{itemize}
+\tightlist
+\item
+  周囲からの監視や圧力が大きい。
+\item
+  \textbf{酸性雨}は化石燃料の燃焼などによって引き起こされる\(\leadsto\)影響は工業地帯の周辺に限定される。
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{environmental_protection_files/mediabag/13280_2019_1244_Fig4.png}
+
+}
+
+\caption{\citet{grennfelt2020}}
+
+\end{figure}
+
+様々な分野で協力（イシュー・リンケージ）・継続的な関係（将来の影）\(\leadsto\)協力しやすい。
+
+\begin{itemize}
+\tightlist
+\item
+  協力をしない\(\leadsto\)他の分野や将来ににおいて報復されやすい。
+\end{itemize}
+
+\(\leadsto\)監視や圧力が高まる・被害の多くは自国や近隣諸国にもたらされる\(\leadsto\)環境保護
+
+\begin{itemize}
+\tightlist
+\item
+  東アジアでは大気汚染対策の協調がうまくいっていない。
+\end{itemize}
+
+\hypertarget{ux5229ux5bb3ux306eux504fux308a}{%
+\subsection{利害の偏り}\label{ux5229ux5bb3ux306eux504fux308a}}
+
+環境破壊の被害が大きい国＝環境保護の能力が大きい国\(\leadsto\)解決しやすい。
+
+\begin{itemize}
+\tightlist
+\item
+  フロンガスは南極や北極上空のオゾン層を破壊し（オゾン・ホール）、紫外線が強くなる。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    フロンガスは冷蔵庫などで使用されている。
+  \end{itemize}
+\item
+  オゾン・ホールによる被害が大きいのは北側の先進国であり、フロンガスを消費しているのも工業国である。
+\end{itemize}
+
+\(\leadsto\)一部の（同じ）国が問題解決の意図と能力を持っている。
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{environmental_protection_files/mediabag/ozone_hole.jpg}
+
+}
+
+\caption{\href{https://ozonewatch.gsfc.nasa.gov/facts/hole_SH.html}{オゾン・ホール}}
+
+\end{figure}
+
+1987年の\href{https://www.mofa.go.jp/mofaj/gaiko/kankyo/jyoyaku/ozone.html}{\textbf{モントリオール議定書}}：フロンガスは禁止\(\leadsto\)オゾン層は回復傾向\citep{solomon2016}
+
+\hypertarget{ux554fux984cux306eux8907ux96d1ux3055ux3068ux6df1ux523bux3055}{%
+\subsection{問題の複雑さと深刻さ}\label{ux554fux984cux306eux8907ux96d1ux3055ux3068ux6df1ux523bux3055}}
+
+問題が比較的単純・深刻でない場合\(\leadsto\)協調は実現しやすい。
+
+\begin{itemize}
+\tightlist
+\item
+  原因と結果の関係が明瞭である。
+\item
+  規制をしても社会経済的影響が小さい。
+\end{itemize}
+
+\(\leadsto\)特定の化学物質の規制について合意がしやすい。
+
+\begin{itemize}
+\tightlist
+\item
+  1989年、\href{https://www.mofa.go.jp/mofaj/gaiko/kankyo/jyoyaku/basel.html}{バーゼル条約}：有害廃棄物の越境的移動を規制
+\item
+  1992年、\href{https://www.mofa.go.jp/mofaj/gaiko/kankyo/jyoyaku/rotterda.html}{ロッテルダム条約}：有害な化学物質などの貿易や管理に関する情報共有
+\item
+  1995年、\href{https://www.mofa.go.jp/mofaj/gaiko/kankyo/jyoyaku/pops.html}{ストックホルム条約}：自然に分解されず、生き物に残留し濃縮する有害物質を規制
+\item
+  2017年、\href{https://www.mofa.go.jp/mofaj/gaiko/kankyo/jyoyaku/suigin.html}{水俣条約}：水銀を規制
+\end{itemize}
+
+\hypertarget{ux975eux56fdux5bb6ux30a2ux30afux30bfux30fc}{%
+\subsubsection{非国家アクター}\label{ux975eux56fdux5bb6ux30a2ux30afux30bfux30fc}}
+
+環境保護においてNGOなどの非国家アクターの果たす役割は大きい。
+
+\begin{itemize}
+\tightlist
+\item
+  国際機関、科学者集団など脱国家的アクターからなる\textbf{知識共同体}
+  (epistemic community)
+\end{itemize}
+
+1946年、\href{https://www.mofa.go.jp/mofaj/gaiko/whale/iwc.html}{\textbf{国際捕鯨委員会}}
+(International Whaling Commission: IWC) ：クジラの保護
+
+\begin{itemize}
+\tightlist
+\item
+  各捕鯨国は捕鯨量の上限（クォータ）を定める
+\item
+  クジラの保護の観点から不十分
+\end{itemize}
+
+\(\leadsto\)環境保護を目指すNGOが加盟料を肩代わり\(\leadsto\)非捕鯨国にIWCへの参加を求める。
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{environmental_protection_files/mediabag/800px-International_.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:International_Whaling_Commission_members.svg}{国際捕鯨委員会の加盟国}}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  商業捕鯨のモラトリアムが決定される。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    日本はオーストラリアによりICJに訴えられる。
+  \item
+    南極海捕鯨事件で敗訴し、判決を遵守した後に、IWCから脱退
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ux5730ux7403ux6e29ux6696ux5316}{%
+\subsection{地球温暖化}\label{ux5730ux7403ux6e29ux6696ux5316}}
+
+\textbf{気候変動} (climate change)・\textbf{地球温暖化} (global
+warming)：CO2などの温室効果ガス (greenhouse gas: GHG)
+によって地球全体の気温が上昇する（その結果、気候が変化する）現象
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{figures/temperature-anomaly.png}
+
+}
+
+\caption{平均気温からの乖離の長期的推移}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  ほとんど全ての国が影響を受ける。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    能力のある国の方が大きな被害？
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{environmental_protection_files/mediabag/global_gis_2022.png}
+
+}
+
+\caption{\href{https://earthobservatory.nasa.gov/world-of-change/global-temperatures}{平均気温からの乖離}}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  化石燃料という経済社会にとって不可欠な資源を規制する必要
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{figures/co2-emissions-vs-gdp.png}
+
+}
+
+\caption{一人あたりCO2排出量とGDP}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  GHGの排出と地球温暖化の因果関係は不明瞭（と考える人や国がいる）
+
+  \begin{itemize}
+  \tightlist
+  \item
+    気候変動に関する\href{https://www.data.jma.go.jp/cpdinfo/ipcc/index.html}{\textbf{政府間パネル}}
+    (Intergovernmental Panel on Climate Change: IPCC)
+    ：専門家の集団が地球温暖化について報告書を作成
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/ipcc.png}
+
+}
+
+\caption{\href{https://www.ipcc.ch/report/sixth-assessment-report-cycle/}{IPCC第6次統合報告書（政策決定者向け要約）より}}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  GHGの大量排出国であるアメリカや中国のリーダーシップが不十分？
+\end{itemize}
+
+\(\leadsto\)囚人のジレンマを解決するために重要な要因の多くを欠如している。
+
+\hypertarget{ux5e02ux5834ux30e1ux30abux30cbux30baux30e0}{%
+\subsection{市場メカニズム}\label{ux5e02ux5834ux30e1ux30abux30cbux30baux30e0}}
+
+動機づける
+(incentivize)\(\leadsto\)環境保護をすることによる利益を増やす／環境破壊をすることの利益を減らす
+
+\begin{itemize}
+\tightlist
+\item
+  公共財を供給するときに副産物として利益が生じる\textbf{joint
+  product}であるならば、環境を保護しやすい。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    フロンガスの禁止に至ったもう一つの大きな理由は、オゾン層を破壊しにくい代替フロンの開発に成功
+
+    \begin{itemize}
+    \tightlist
+    \item
+      代替フロンは温室効果ガス\(\leadsto\)モントリオール議定書で規制
+    \end{itemize}
+  \item
+    SDGs（やESG投資やCSR）\(\leadsto\)環境保護によって企業価値を高めることが可能に？
+
+    \begin{itemize}
+    \tightlist
+    \item
+      ``greenwashing''：環境保護に貢献していないのに、そのように装う問題
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{炭素税} (carbon
+  tax)\(\leadsto\)気候変動の費用を企業や消費者が支払う\(\leadsto\)GHGの排出量を削減
+\end{itemize}
+
+\hypertarget{ux6392ux51faux6a29ux53d6ux5f15}{%
+\subsubsection{排出権取引}\label{ux6392ux51faux6a29ux53d6ux5f15}}
+
+税金以外の市場メカニズムとして\textbf{排出権取引} (emissions
+trading/cap-and-trade system)
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/cap_trade.png}
+
+}
+
+\caption{\href{https://ieei.or.jp/2016/09/special201608008/?type=print}{排出権取引のイメージ}}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  1997年、\href{https://www.env.go.jp/earth/cop6/3-2.html}{\textbf{京都議定書}}：国際的な排出権取引が制度化
+
+  \begin{itemize}
+  \tightlist
+  \item
+    企業や国家は割り当てられた排出権を（オークションなどで）売買
+  \item
+    EUの排出権取引のフェーズ3（2005-2019年）では35\%の排出を削減
+  \item
+    中国も\textbf{パリ協定}の下で排出権取引の導入を表明
+  \end{itemize}
+\item
+  京都議定書では\textbf{クリーン開発メカニズム} (clean development
+  mechanism: CDM) も導入
+
+  \begin{itemize}
+  \tightlist
+  \item
+    先進国が途上国でGHG排出削減プロジェクトを行うことで、その分の排出権を獲得
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ux7d4cux6e08ux767aux5c55}{%
+\subsection{経済発展}\label{ux7d4cux6e08ux767aux5c55}}
+
+経済発展\(\leadsto\)環境破壊の主要因／環境保護が促進
+
+\begin{itemize}
+\tightlist
+\item
+  中国やインドにおいて（自国内の環境問題への対策もあり）、環境保護政策が行われ始めている。
+\end{itemize}
+
+\textbf{環境クズネッツ曲線}：豊かになるにつれて環境破壊が行われるが、一定以上の豊かさになると環境保護に切り替わるという仮説
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{environmental_protection_files/mediabag/Environmental_Kuznet.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:Environmental_Kuznets_Curve.png}{環境クズネッツ曲線のイメージ}}
+
+\end{figure}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{figures/carbon-emission-intensity-vs-gdp-per-capita.png}
+
+}
+
+\caption{一人あたりCO2排出原単位とGDP}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  CO2排出原単位：一定の生産量あたりのCO2排出量
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{environmental_protection_files/mediabag/gdp_epi_figure.jpg}
+
+}
+
+\caption{\href{https://epi.yale.edu/}{環境パフォーマンス指数と一人あたりGDP}}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  発展途上国は先進国で開発されたクリーンな環境技術を使うことができる（後発者利益）
+\item
+  発展途上国のエネルギー設備などは非効率\(\leadsto\)新しい技術の導入による環境改善の効果も大きい
+\end{itemize}
+
+\hypertarget{ux5730ux7403ux74b0ux5883ux4fddux8b77ux3092ux5de1ux308bux56fdux969bux653fux6cbb}{%
+\section{地球環境保護を巡る国際政治}\label{ux5730ux7403ux74b0ux5883ux4fddux8b77ux3092ux5de1ux308bux56fdux969bux653fux6cbb}}
+
+\hypertarget{ux56fdux969bux793eux4f1aux306bux304aux3051ux308bux5bfeux7acb}{%
+\subsection{国際社会における対立}\label{ux56fdux969bux793eux4f1aux306bux304aux3051ux308bux5bfeux7acb}}
+
+\hypertarget{ux5148ux9032ux56fdux3068ux65b0ux8208ux56fdux9014ux4e0aux56fd}{%
+\subsubsection{先進国と新興国・途上国}\label{ux5148ux9032ux56fdux3068ux65b0ux8208ux56fdux9014ux4e0aux56fd}}
+
+国際社会においても環境を破壊して、他国に負の外部性を押し付けつつ、自国の経済成長を実現する。
+
+\begin{itemize}
+\tightlist
+\item
+  現代では先進国だけでなく、新興国も大量のCO2を排出
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{figures/annual-co2-emissions-per-country.png}
+
+}
+
+\caption{CO2排出量の推移}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  これまで環境破壊を行い経済成長をしてきた先進国／これから経済成長をしようとする途上国
+
+  \begin{itemize}
+  \tightlist
+  \item
+    途上国からすれば、なぜ先進国が破壊した環境を回復するために、経済成長を諦める？
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{figures/cumulative-co2-emissions-region.png}
+
+}
+
+\caption{累積CO2排出量}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  一人あたりあたりCO2排出量は未だに先進国の方が多い。
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics[width=0.8\textwidth,height=\textheight]{figures/co-emissions-per-capita.png}
+
+}
+
+\caption{一人あたりCO2排出量}
+
+\end{figure}
+
+\(\leadsto\)先進国と新興国、発展途上国の間でどのように環境保護の負担を分担？
+
+\hypertarget{ux5148ux9032ux56fdux9593}{%
+\subsubsection{先進国間}\label{ux5148ux9032ux56fdux9593}}
+
+しばしば、環境破壊によって利益を得る国が存在する。
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{environmental_protection_files/mediabag/20210525-2.jpg}
+
+}
+
+\caption{\href{https://financial.jiji.com/magazine_bk/back_number.html?number=155}{北極海航路のイメージ}}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  地球温暖化\(\leadsto\)北極海航路や北極海の海底資源が利用可能
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://www.mofa.go.jp/mofaj/area/arctic/hokkyoku_hyougikai.html}{\textbf{北極評議会}}：北極圏に関する協議を行う組織
+  \item
+    北極圏の利権を巡って多くの国が関与を狙っている。
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{environmental_protection_files/mediabag/800px-ArcticCouncil..png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:ArcticCouncil.svg}{北極評議会の加盟国}}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  グリーンランドは温暖化\(\leadsto\)氷床が解ける\(\leadsto\)地下資源の採掘が可能\(\leadsto\)経済が急速に成長
+
+  \begin{itemize}
+  \tightlist
+  \item
+    デンマークからの独立を目指す？
+  \item
+    アメリカや中国も影響力を強めようとしている？
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{environmental_protection_files/mediabag/659px-Greenland_Melt.jpg}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:Greenland_Meltdown_08072012_12072012.jpg}{グリーンランドの氷床融解}}
+
+\end{figure}
+
+\hypertarget{ux5730ux7403ux74b0ux5883ux3092ux5de1ux308bux4ea4ux6e09}{%
+\subsection{地球環境を巡る交渉}\label{ux5730ux7403ux74b0ux5883ux3092ux5de1ux308bux4ea4ux6e09}}
+
+\hypertarget{ux4eacux90fdux8b70ux5b9aux66f8}{%
+\subsubsection{京都議定書}\label{ux4eacux90fdux8b70ux5b9aux66f8}}
+
+気候変動に関する京都議定書（1997年）：先進国と途上国は\textbf{共通だが差異ある責任}
+(Common but Differentiated Responsibility) を持っている
+
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.mofa.go.jp/mofaj/gaiko/treaty/treaty_020413.html}{気候変動に関する国際連合枠組条約の京都議定書}　第3条}, bottomtitle=1mm, rightrule=.15mm, breakable, arc=.35mm, leftrule=.75mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, left=2mm, coltitle=black, toptitle=1mm, titlerule=0mm, colback=white, bottomrule=.15mm, toprule=.15mm, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  附属書Ⅰの締約国は、2008年から2012年までの約束期間において、附属書Ｉの締約国全体の排出量を1990年の水準から少なくとも５パーセント削減することを念頭において、個別に又は共同で、附属書Ａに掲げる温室効果ガスの人為的な排出量（二酸化炭素換算量）の合計が、附属書Ｂに定める数量的な排出抑制及び削減の約束に基づいて計算された割当量を超えないことを確保しなければならない。
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.mofa.go.jp/mofaj/gaiko/treaty/treaty_020413.html}{気候変動に関する国際連合枠組条約の京都議定書}　第10条}, bottomtitle=1mm, rightrule=.15mm, breakable, arc=.35mm, leftrule=.75mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, left=2mm, coltitle=black, toptitle=1mm, titlerule=0mm, colback=white, bottomrule=.15mm, toprule=.15mm, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6]
+
+締約国は、それぞれ\textbf{共通に有しているが差異のある責任}並びに各国及び地域に特有の開発の優先順位並びに各国特有の目的及び事情を考慮し、非附属書Ⅰの締約国についていかなる新たな約束も導入しないが、条約第４条の規定に基づく既存の約束を再確認し、並びに持続可能な開発を達成するためにその約束の履行の促進を継続し、条約第４条３、５及び７の規定を考慮して、次のことを行う。
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  京都議定書では先進国（附属書Iの締約国）のみCO2削減の数値目標を達成する義務
+
+  \begin{itemize}
+  \tightlist
+  \item
+    アメリカは不参加
+  \item
+    京都議定書は第1約束期間（2008-2012年）で温室効果ガスを1990年に比べて約5\%削減するよう求めた。
+  \item
+    第2約束期間（2013-2020年）には日本は参加せず。
+  \end{itemize}
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{environmental_protection_files/mediabag/800px-Kyoto_Protocol.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:Kyoto_Protocol_parties.svg}{京都議定書の加盟国}}
+
+\end{figure}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{figures/kyoto_protocol_contribution.png}
+
+}
+
+\caption{\href{https://www.theguardian.com/environment/blog/2012/nov/26/kyoto-protocol-carbon-emissions}{京都議定書の達成度}}
+
+\end{figure}
+
+\hypertarget{ux30d1ux30eaux5354ux5b9a}{%
+\subsubsection{パリ協定}\label{ux30d1ux30eaux5354ux5b9a}}
+
+京都議定書以降の地球温暖化対策の取り組み\(\leadsto\)
+2015年に\href{https://www.mofa.go.jp/mofaj/ic/ch/page1w_000119.html}{\textbf{パリ協定}}が成立
+
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.env.go.jp/earth/ondanka/cop/shiryo.html}{パリ協定}　第2条}, bottomtitle=1mm, rightrule=.15mm, breakable, arc=.35mm, leftrule=.75mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, left=2mm, coltitle=black, toptitle=1mm, titlerule=0mm, colback=white, bottomrule=.15mm, toprule=.15mm, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  この協定は、条約（その目的を含む。）の実施を促進する上で、持続可能な開発及び貧困を撲滅するための努力の文脈において、気候変動の脅威に対する世界全体による対応を、次のことによるものを含め、強化することを目的とする。
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  世界全体の平均気温の上昇を工業化以前よりも\textbf{摂氏二度高い水準を十分に下回るものに抑える}こと並びに世界全体の平均気温の上昇を工業化以前よりも\textbf{摂氏一・五度高い水準までのものに制限する}ための努力を、この努力が気候変動のリスク及び影響を著しく減少させることとなるものであることを認識しつつ、継続すること。
+\end{enumerate}
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  長期目標として気温上昇を2℃（理想は1.5℃）以内に抑える。
+\item
+  ほとんど全ての国が参加
+\end{itemize}
+
+先進国と途上国の利害が近づく。
+
+\begin{itemize}
+\tightlist
+\item
+  環境保護に熱心なヨーロッパ諸国の圧力
+\item
+  アメリカにおける民主党政権の成立
+\item
+  中国の五カ年計画における環境対策の強化
+\end{itemize}
+
+全ての国が\href{https://www4.unfccc.int/sites/NDCStaging/Pages/All.aspx}{\textbf{自国が決定する貢献}}
+(Nationally Determined Contribution: NDC)
+を5年毎に設定／達成は義務付けされず
+
+\begin{tcolorbox}[enhanced jigsaw, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\href{https://www.env.go.jp/earth/ondanka/cop/shiryo.html}{パリ協定}　第3条}, bottomtitle=1mm, rightrule=.15mm, breakable, arc=.35mm, leftrule=.75mm, opacityback=0, colbacktitle=quarto-callout-note-color!10!white, left=2mm, coltitle=black, toptitle=1mm, titlerule=0mm, colback=white, bottomrule=.15mm, toprule=.15mm, colframe=quarto-callout-note-color-frame, opacitybacktitle=0.6]
+
+全ての締約国は、気候変動に対する世界全体による対応への\textbf{自国が決定する貢献}（以下「国が決定する貢献」という。）に関し、前条に規定するこの協定の目的を達成するため、次条、第七条、第九条から第十一条まで及び第十三条に定める野心的な努力に取り組み、及びその努力について通報する。全ての締約国の努力については、この協定の効果的な実施のために開発途上締約国を支援する必要性についての認識の下で、時間とともに前進を示すものとなる。
+
+\end{tcolorbox}
+
+\begin{itemize}
+\tightlist
+\item
+  全ての国が自発的に参加
+\end{itemize}
+
+\begin{figure}[htpb]
+
+{\centering \includegraphics{environmental_protection_files/mediabag/800px-ParisAgreement.png}
+
+}
+
+\caption{\href{https://commons.wikimedia.org/wiki/File:ParisAgreement.svg}{パリ協定の加盟国}}
+
+\end{figure}
+
+\begin{itemize}
+\tightlist
+\item
+  目標は十分か、実効性はあるのか？
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://www.mofa.go.jp/mofaj/ic/ch/page1w_000121.html}{主要国のNDC}
+  \end{itemize}
+\end{itemize}
+
+\hypertarget{ux74b0ux5883ux554fux984cux3068ux6642ux9593}{%
+\subsubsection{環境問題と時間}\label{ux74b0ux5883ux554fux984cux3068ux6642ux9593}}
+
+地球環境問題（特に気候変動）の\textbf{影響は長期的将来において生じる}点で、他の国際問題とは異なる。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  人々は将来の出来事の価値を\textbf{割り引く}
+  (discount)\(\leadsto\)将来の環境保護の利益＜現在の費用
+
+  \begin{itemize}
+  \tightlist
+  \item
+    将来の不確実な利益＜現在の確実な利益
+  \item
+    環境問題の影響は遠い将来＆不確実
+  \end{itemize}
+\item
+  将来を重視することは国際協調のために必要／将来を重視すれば交渉で妥協するのが難しくなる。
+
+  \begin{itemize}
+  \tightlist
+  \item
+    将来を重視\(\leadsto\)国際協調から離脱したときの制裁を恐れる\(\leadsto\)協調的
+  \item
+    将来を重視\(\leadsto\)環境保護によって利益を失う国々や組織\(\leadsto\)環境保護に否定的
+  \end{itemize}
+\item
+  「現在は存在していない将来世代」と現在世代の間の\textbf{世代間衡平}
+  (intergenerational equity)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    将来世代の利益、関心は分からない＆政治に反映させる仕組みは欠如
+  \item
+    政治的生き残りを目指す政治的指導者\(\leadsto\)現在世代の短期的な利益を追求
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{ux5730ux7403ux74b0ux5883ux306eux56fdux969bux5236ux5ea6}{%
+\subsubsection{地球環境の国際制度}\label{ux5730ux7403ux74b0ux5883ux306eux56fdux969bux5236ux5ea6}}
+
+\href{https://www.mofa.go.jp/mofaj/gaiko/kankyo/kikan/unep.html}{\textbf{国連環境計画}}
+(United Nations Environment Programme: UNEP)
+や世銀の\href{https://www.mofa.go.jp/mofaj/gaiko/kankyo/kikan/gbl_env.html}{\textbf{地球環境ファシリティ}}
+(Global Environment Facility: GEF)
+以外に、（WTOのような）環境保護全般の国際制度はない
+
+\(\leadsto\)分野ごとに\href{https://www.mofa.go.jp/mofaj/files/000135675.pdf}{\textbf{枠組み条約}}
+(framework convention)
+
+\begin{itemize}
+\tightlist
+\item
+  比較的合意のしやすい一般原則を設定\(\leadsto\)詳細な規制は議定書
+  (protocol) で策定
+
+  \begin{itemize}
+  \tightlist
+  \item
+    オゾン層保護ではウィーン条約＞モントリオール議定書でフロンガス規制
+  \item
+    気候変動枠組み条約 (United Nations Framework Convention on Climate
+    Change: UNFCCC)＞京都議定書やパリ協定
+  \end{itemize}
+\item
+  大きな利害対立の克服＆不確実な将来への対応の難しさ
+\end{itemize}
+
+枠組み条約の\textbf{締約国会議} (Conference of the Parties: COP)
+で環境保護の詳細について交渉
+
+\begin{itemize}
+\tightlist
+\item
+  例えば、COP20はその枠組み条約の20回目の締約国会議
+
+  \begin{itemize}
+  \tightlist
+  \item
+    いろいろな枠組み条約でCOPと呼ぶので注意
+  \end{itemize}
+\item
+  NGOや科学者が積極的に参加し、情報共有や問題提起を行う
+\item
+  科学技術の進歩、新しい科学的知見などに柔軟に対応
+\end{itemize}
+
+規制の\textbf{目標}を定めることが多い\(\leadsto\)どのように目標を実現するかは各国の自由の裁量
+
+\begin{itemize}
+\tightlist
+\item
+  環境問題への対策を監視するのは難しい\(\leadsto\)義務付けは困難
+
+  \begin{itemize}
+  \tightlist
+  \item
+    石油タンカーのタンクの洗浄の際に原油を放出するが、それを監視するのは困難
+  \item
+    原油の排出を削減する装置を義務付けたところ、高い遵守率\citep{mitchell1994}
+  \item
+    フロンガスの禁止はGHGの排出削減よりも検証しやすい
+  \end{itemize}
+\item
+  紛争処理メカニズム（例、WTO）や制裁は存在しないことが多い
+\end{itemize}
+
+
+  \bibliography{references.bib}
+
+
+\end{document}

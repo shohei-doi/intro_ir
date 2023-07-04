@@ -149,7 +149,7 @@ $\leadsto$アナーキーな国際社会は現代に至るまで**選択され�
 :::
 
 ::: {.content-visible when-format="pdf"}
-![GDPに占める貿易額の割合](figures/merchandise-exports-gdp-cepii.png){width=80%}
+![GDPに占める貿易額の割合](figures/merchandise-exports-gdp-cepii.png)
 :::
 
 ただし、オスマン帝国とロシアが戦ったクリミア戦争、ドイツ統一を目指した普墺戦争・普仏戦争、植民地を巡る戦争などは発生

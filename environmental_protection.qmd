@@ -1,0 +1,452 @@
+---
+title: "地球環境保護"
+subtitle: "国際公共政策学"
+author: "土井翔平"
+date: today
+---
+
+## はじめに {.unnumbered}
+
+人口増加＋産業化$\leadsto$環境破壊
+
+- 環境保護を巡ってどのような国内・国際政治が展開されるのか？
+- 解決しやすい環境問題とそうではない環境問題があるのはなぜか？
+
+本来は「国内」問題であった環境問題が「国際化」$\leadsto$**越境的 (transnational)** イシュー・政治
+
+## 持続可能な開発
+
+世界の人口や豊かさ、そして環境破壊の爆発的に拡大
+
+- 産業革命後（18世紀後半）、特に第2次世界大戦後の世界
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/population" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![人口の長期的変化](figures/population.png){width=80%}
+:::
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/gdp-per-capita-maddison-2020?tab=chart&country=IDN~ARG~KOR~FRA~GBR~USA~AUT~IND~CHN" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![一人あたりGDPの長期的変化](figures/gdp-per-capita-maddison-2018.png){width=80%}
+:::
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/gdp-per-capita-maddison-2020?tab=chart" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![一人あたりGDPの長期的変化](figures/gdp-per-capita-maddison-2020.png){width=80%}
+:::
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/annual-co-emissions-by-region" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![CO2排出量の長期的変化](figures/annual-co-emissions-by-region.png){width=80%}
+:::
+
+**成長の限界** (The Limits to Growth) ：1972年のローマクラブによる報告
+
+$\leadsto$人口増加や環境破壊がこのままのペースで続くと成長が限界
+
+- 人口は指数関数的に増加
+- 食糧や資源、環境は直線的に増加（or増加しない）
+
+![[成長の限界](https://commons.wikimedia.org/wiki/File:Limits-to-growth-figure-35.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Limits-to-growth-figure-35.svg/329px-Limits-to-growth-figure-35.svg.png)
+
+人類の存続（人口増加、食糧・資源の確保と環境保護の両立）に持続可能性 (sustainability) がある？
+
+$\leadsto$国際社会として人類の持続可能性の確保、特に地球環境の保全への取り組み
+
+- 1972年、国連人間環境会議：[**国連環境計画**](https://www.mofa.go.jp/mofaj/gaiko/kankyo/kikan/unep.html) (United Nations Environment Programme: UNEP) が設立
+- 1987年、ブルントラント委員会：[**持続可能な開発**](https://www.unic.or.jp/activities/economic_social_development/sustainable_development/) (sustainable development) の登場
+- 1992年、地球サミット：持続可能な開発が国際社会の目標に
+- 2000年、国連ミレニアム・サミット：[ミレニアム宣言](https://www.mofa.go.jp/mofaj/kaidan/kiroku/s_mori/arc_00/m_summit/sengen.html) $\leadsto$ 2015年までの達成を目指して、[**ミレニアム開発目標**](https://www.un.org/millenniumgoals/2015_MDG_Report/pdf/MDG%202015%20PC%20final.pdf) (Millennium Development Goals: MDGs) を設定
+- 2015年、[**持続可能な開発目標**](https://www.mofa.go.jp/mofaj/gaiko/oda/sdgs/index.html) (Sustainable Development Goals: SDGs)
+
+## 環境問題の構造
+
+### 共有地の悲劇
+
+健全な環境＝**コモンズ** (commons) ・コモンプール財 (common pool resource)
+
+- 非排他的：財の消費を一部のアクターに制限することができない。
+- 非競合的：財を消費するアクターの数が増えても財は減らない。
+
+||**排他的**|**非排他的**|
+|---|:---:|:---:|
+|**競合的**|私的財|コモンズ|
+|**非競合的**|クラブ財|公共財|
+
+- 漁業、オゾン層、（健全な）気候……
+
+$\leadsto$**共有地の悲劇** (tragedy of the commons)[@hardin1968]：コモンズの**過剰な消費**、それ故の枯渇
+
+:::{.callout-tip}
+## 共有地の悲劇
+
+小さな湖で2人の漁師がどの程度、漁業を行うか考えている。
+
+- 毎年、魚を10%までは収穫しても、生態系に影響は出ない。
+- お互い協力すれば、（例えば20年間は）毎年5%ずつ漁業ができる。よって、$0.05 \times 20 = 1$の利益を得る。
+- どちらかが裏切って10%の魚を収穫すると、$0.1 \times 20 = 2$の利益を得る。もう一人は、漁業ができないので$0$の利益を得る（何も得ない）。
+- お互いに裏切って10%の魚を収穫すると、生態系が維持できず（例えば8年で）魚は絶滅する。このときは$0.1 \times 8 = 0.8$の利益を得る。
+:::
+
+![共有地の悲劇](figures/tragedy_commons.png)
+
+- コモンズは競合的$\leadsto$誰かの消費が他の人に悪影響を及ぼす、**負の外部性**
+- 本来、消費する人や組織が支払うべき費用を他者に押し付けている。
+  - 例、生態系保護のために漁業を自粛
+- 他の人が資源を保護してくれる$\leadsto$自分一人で資源を消費しても問題はない（タダ乗り）。
+- 他の人が資源を消費する$\leadsto$どうせ枯渇するなら自分も消費してしまえ。
+
+$\leadsto$国家や人々は環境破壊をしたいわけではない／ただ乗りするメリットがあるため、環境保護の努力を怠る。
+
+- 一人の行動（資源の保護や消費）では環境を大きく変えない。
+- 多くの人が同じように考え、同じ行動を取ると環境が変化
+
+囚人のジレンマと同じ構造を持つ（＝集合行為問題の一種である）。
+
+![囚人のジレンマ](figures/prisoners_dilemma.drawio.png)
+
+### 国内社会における対立
+
+企業：環境を破壊して安い費用で商品を生産できる。
+
+消費者：環境破壊という被害を受ける／安い価格で商品を消費できる。
+
+$\leadsto$環境問題で利益を得るのは少数の企業で、被害を受けるのは多数の市民
+
+環境規制の強化・現状維持は公共財である$\leadsto$（貿易政策のときと同様に）**少数派**の意見が通りやすい。
+
+- 誰かが環境保護規制を強化（緩やかに）する努力$\leadsto$自分はなにもしなくてもいい。
+- 少数の企業は長期的関係があり、互いに監視$\leadsto$協力してロビー活動
+- 環境保護を求める多くの市民$\leadsto$他者の努力にただ乗り
+
+## 環境保護の成否
+
+環境問題の解決策の代表的な手段
+
+- 国家による介入：環境保護の規制を導入、違反に対する指導や罰則
+- 所有権：環境（破壊）に対する所有権を設定し、市場メカニズムによる調整
+
+国家（上位の存在）がいなくても、自発的に共有地の悲劇を回避することもできる？[@ostrom2022]
+
+### 集団の規模
+
+小さな集団$\leadsto$集合行為問題を克服しやすい。
+
+- 周囲からの監視や圧力が大きい。
+- **酸性雨**は化石燃料の燃焼などによって引き起こされる$\leadsto$影響は工業地帯の周辺に限定される。
+
+![@grennfelt2020](https://media.springernature.com/full/springer-static/image/art%3A10.1007%2Fs13280-019-01244-4/MediaObjects/13280_2019_1244_Fig4_HTML.png)
+
+様々な分野で協力（イシュー・リンケージ）・継続的な関係（将来の影）$\leadsto$協力しやすい。
+
+- 協力をしない$\leadsto$他の分野や将来ににおいて報復されやすい。
+
+$\leadsto$監視や圧力が高まる・被害の多くは自国や近隣諸国にもたらされる$\leadsto$環境保護
+
+- 東アジアでは大気汚染対策の協調がうまくいっていない。
+
+### 利害の偏り
+
+環境破壊の被害が大きい国＝環境保護の能力が大きい国$\leadsto$解決しやすい。
+
+- フロンガスは南極や北極上空のオゾン層を破壊し（オゾン・ホール）、紫外線が強くなる。
+  - フロンガスは冷蔵庫などで使用されている。
+- オゾン・ホールによる被害が大きいのは北側の先進国であり、フロンガスを消費しているのも工業国である。
+
+$\leadsto$一部の（同じ）国が問題解決の意図と能力を持っている。
+
+![[オゾン・ホール](https://ozonewatch.gsfc.nasa.gov/facts/hole_SH.html)](https://ozonewatch.gsfc.nasa.gov/facts/images/ozone_hole.jpg)
+
+1987年の[**モントリオール議定書**](https://www.mofa.go.jp/mofaj/gaiko/kankyo/jyoyaku/ozone.html)：フロンガスは禁止$\leadsto$オゾン層は回復傾向[@solomon2016]
+
+### 問題の複雑さと深刻さ
+
+問題が比較的単純・深刻でない場合$\leadsto$協調は実現しやすい。
+
+- 原因と結果の関係が明瞭である。
+- 規制をしても社会経済的影響が小さい。
+
+$\leadsto$特定の化学物質の規制について合意がしやすい。
+
+- 1989年、[バーゼル条約](https://www.mofa.go.jp/mofaj/gaiko/kankyo/jyoyaku/basel.html)：有害廃棄物の越境的移動を規制
+- 1992年、[ロッテルダム条約](https://www.mofa.go.jp/mofaj/gaiko/kankyo/jyoyaku/rotterda.html)：有害な化学物質などの貿易や管理に関する情報共有
+- 1995年、[ストックホルム条約](https://www.mofa.go.jp/mofaj/gaiko/kankyo/jyoyaku/pops.html)：自然に分解されず、生き物に残留し濃縮する有害物質を規制
+- 2017年、[水俣条約](https://www.mofa.go.jp/mofaj/gaiko/kankyo/jyoyaku/suigin.html)：水銀を規制
+
+#### 非国家アクター
+
+環境保護においてNGOなどの非国家アクターの果たす役割は大きい。
+
+- 国際機関、科学者集団など脱国家的アクターからなる**知識共同体** (epistemic community)
+
+1946年、[**国際捕鯨委員会**](https://www.mofa.go.jp/mofaj/gaiko/whale/iwc.html) (International Whaling Commission: IWC) ：クジラの保護
+
+- 各捕鯨国は捕鯨量の上限（クォータ）を定める
+- クジラの保護の観点から不十分
+
+$\leadsto$環境保護を目指すNGOが加盟料を肩代わり$\leadsto$非捕鯨国にIWCへの参加を求める。
+
+![[国際捕鯨委員会の加盟国](https://commons.wikimedia.org/wiki/File:International_Whaling_Commission_members.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/International_Whaling_Commission_members.svg/800px-International_Whaling_Commission_members.svg.png)
+
+- 商業捕鯨のモラトリアムが決定される。
+  - 日本はオーストラリアによりICJに訴えられる。
+  - 南極海捕鯨事件で敗訴し、判決を遵守した後に、IWCから脱退
+
+### 地球温暖化
+
+**気候変動** (climate change)・**地球温暖化** (global warming)：CO2などの温室効果ガス (greenhouse gas: GHG) によって地球全体の気温が上昇する（その結果、気候が変化する）現象
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/temperature-anomaly" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![平均気温からの乖離の長期的推移](figures/temperature-anomaly.png){width=80%}
+:::
+
+- ほとんど全ての国が影響を受ける。
+  - 能力のある国の方が大きな被害？
+
+![[平均気温からの乖離](https://earthobservatory.nasa.gov/world-of-change/global-temperatures)](https://earthobservatory.nasa.gov/ContentWOC/images/globaltemp/global_gis_2022.png)
+
+- 化石燃料という経済社会にとって不可欠な資源を規制する必要
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/co2-emissions-vs-gdp" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![一人あたりCO2排出量とGDP](figures/co2-emissions-vs-gdp.png){width=80%}
+:::
+
+- GHGの排出と地球温暖化の因果関係は不明瞭（と考える人や国がいる）
+  - 気候変動に関する[**政府間パネル**](https://www.data.jma.go.jp/cpdinfo/ipcc/index.html) (Intergovernmental Panel on Climate Change: IPCC) ：専門家の集団が地球温暖化について報告書を作成
+
+![[IPCC第6次統合報告書（政策決定者向け要約）より](https://www.ipcc.ch/report/sixth-assessment-report-cycle/)](figures/ipcc.png)
+
+- GHGの大量排出国であるアメリカや中国のリーダーシップが不十分？
+
+$\leadsto$囚人のジレンマを解決するために重要な要因の多くを欠如している。
+
+### 市場メカニズム
+
+動機づける (incentivize)$\leadsto$環境保護をすることによる利益を増やす／環境破壊をすることの利益を減らす
+
+- 公共財を供給するときに副産物として利益が生じる**joint product**であるならば、環境を保護しやすい。
+  - フロンガスの禁止に至ったもう一つの大きな理由は、オゾン層を破壊しにくい代替フロンの開発に成功
+    - 代替フロンは温室効果ガス$\leadsto$モントリオール議定書で規制
+  - SDGs（やESG投資やCSR）$\leadsto$環境保護によって企業価値を高めることが可能に？
+    - "greenwashing"：環境保護に貢献していないのに、そのように装う問題
+- **炭素税** (carbon tax)$\leadsto$気候変動の費用を企業や消費者が支払う$\leadsto$GHGの排出量を削減
+
+#### 排出権取引
+
+税金以外の市場メカニズムとして**排出権取引** (emissions trading/cap-and-trade system)
+
+![[排出権取引のイメージ](https://ieei.or.jp/2016/09/special201608008/?type=print)](figures/cap_trade.png)
+
+- 1997年、[**京都議定書**](https://www.env.go.jp/earth/cop6/3-2.html)：国際的な排出権取引が制度化
+  - 企業や国家は割り当てられた排出権を（オークションなどで）売買
+  - EUの排出権取引のフェーズ3（2005-2019年）では35%の排出を削減
+  - 中国も**パリ協定**の下で排出権取引の導入を表明
+- 京都議定書では**クリーン開発メカニズム** (clean development mechanism: CDM) も導入
+  - 先進国が途上国でGHG排出削減プロジェクトを行うことで、その分の排出権を獲得
+
+### 経済発展
+
+経済発展$\leadsto$環境破壊の主要因／環境保護が促進
+
+- 中国やインドにおいて（自国内の環境問題への対策もあり）、環境保護政策が行われ始めている。
+
+**環境クズネッツ曲線**：豊かになるにつれて環境破壊が行われるが、一定以上の豊かさになると環境保護に切り替わるという仮説
+
+![[環境クズネッツ曲線のイメージ](https://commons.wikimedia.org/wiki/File:Environmental_Kuznets_Curve.png)](https://upload.wikimedia.org/wikipedia/commons/4/4e/Environmental_Kuznets_Curve.png)
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/carbon-emission-intensity-vs-gdp-per-capita" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![一人あたりCO2排出原単位とGDP](figures/carbon-emission-intensity-vs-gdp-per-capita.png){width=80%}
+:::
+
+- CO2排出原単位：一定の生産量あたりのCO2排出量
+
+![[環境パフォーマンス指数と一人あたりGDP](https://epi.yale.edu/)](https://epi.yale.edu/sites/default/files/gdp_epi_figure.jpg)
+
+- 発展途上国は先進国で開発されたクリーンな環境技術を使うことができる（後発者利益）
+- 発展途上国のエネルギー設備などは非効率$\leadsto$新しい技術の導入による環境改善の効果も大きい
+
+## 地球環境保護を巡る国際政治
+
+### 国際社会における対立
+
+#### 先進国と新興国・途上国
+
+国際社会においても環境を破壊して、他国に負の外部性を押し付けつつ、自国の経済成長を実現する。
+
+- 現代では先進国だけでなく、新興国も大量のCO2を排出
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/annual-co2-emissions-per-country" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![CO2排出量の推移](figures/annual-co2-emissions-per-country.png){width=80%}
+:::
+
+- これまで環境破壊を行い経済成長をしてきた先進国／これから経済成長をしようとする途上国
+  - 途上国からすれば、なぜ先進国が破壊した環境を回復するために、経済成長を諦める？
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/cumulative-co2-emissions-region?stackMode=absolute" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![累積CO2排出量](figures/cumulative-co2-emissions-region.png){width=80%}
+:::
+
+- 一人あたりあたりCO2排出量は未だに先進国の方が多い。
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/co-emissions-per-capita" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![一人あたりCO2排出量](figures/co-emissions-per-capita.png){width=80%}
+:::
+
+$\leadsto$先進国と新興国、発展途上国の間でどのように環境保護の負担を分担？
+
+#### 先進国間
+
+しばしば、環境破壊によって利益を得る国が存在する。
+
+![[北極海航路のイメージ](https://financial.jiji.com/magazine_bk/back_number.html?number=155)](https://financial.jiji.com/magazine_bk/img/article_img/20210525-2.jpg)
+
+- 地球温暖化$\leadsto$北極海航路や北極海の海底資源が利用可能
+  - [**北極評議会**](https://www.mofa.go.jp/mofaj/area/arctic/hokkyoku_hyougikai.html)：北極圏に関する協議を行う組織
+  - 北極圏の利権を巡って多くの国が関与を狙っている。
+
+![[北極評議会の加盟国](https://commons.wikimedia.org/wiki/File:ArcticCouncil.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/ArcticCouncil.svg/800px-ArcticCouncil.svg.png)
+
+- グリーンランドは温暖化$\leadsto$氷床が解ける$\leadsto$地下資源の採掘が可能$\leadsto$経済が急速に成長
+  - デンマークからの独立を目指す？
+  - アメリカや中国も影響力を強めようとしている？
+
+![[グリーンランドの氷床融解](https://commons.wikimedia.org/wiki/File:Greenland_Meltdown_08072012_12072012.jpg)](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Greenland_Meltdown_08072012_12072012.jpg/659px-Greenland_Meltdown_08072012_12072012.jpg)
+
+### 地球環境を巡る交渉
+
+#### 京都議定書
+
+気候変動に関する京都議定書（1997年）：先進国と途上国は**共通だが差異ある責任** (Common but Differentiated Responsibility) を持っている
+
+:::{.callout-note}
+## [気候変動に関する国際連合枠組条約の京都議定書](https://www.mofa.go.jp/mofaj/gaiko/treaty/treaty_020413.html)　第3条
+
+1. 附属書Ⅰの締約国は、2008年から2012年までの約束期間において、附属書Ｉの締約国全体の排出量を1990年の水準から少なくとも５パーセント削減することを念頭において、個別に又は共同で、附属書Ａに掲げる温室効果ガスの人為的な排出量（二酸化炭素換算量）の合計が、附属書Ｂに定める数量的な排出抑制及び削減の約束に基づいて計算された割当量を超えないことを確保しなければならない。
+:::
+
+:::{.callout-note}
+## [気候変動に関する国際連合枠組条約の京都議定書](https://www.mofa.go.jp/mofaj/gaiko/treaty/treaty_020413.html)　第10条
+
+締約国は、それぞれ**共通に有しているが差異のある責任**並びに各国及び地域に特有の開発の優先順位並びに各国特有の目的及び事情を考慮し、非附属書Ⅰの締約国についていかなる新たな約束も導入しないが、条約第４条の規定に基づく既存の約束を再確認し、並びに持続可能な開発を達成するためにその約束の履行の促進を継続し、条約第４条３、５及び７の規定を考慮して、次のことを行う。
+:::
+
+- 京都議定書では先進国（附属書Iの締約国）のみCO2削減の数値目標を達成する義務
+  - アメリカは不参加
+  - 京都議定書は第1約束期間（2008-2012年）で温室効果ガスを1990年に比べて約5%削減するよう求めた。
+  - 第2約束期間（2013-2020年）には日本は参加せず。
+
+![[京都議定書の加盟国](https://commons.wikimedia.org/wiki/File:Kyoto_Protocol_parties.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Kyoto_Protocol_parties.svg/800px-Kyoto_Protocol_parties.svg.png)
+
+![[京都議定書の達成度](https://www.theguardian.com/environment/blog/2012/nov/26/kyoto-protocol-carbon-emissions)](figures/kyoto_protocol_contribution.png)
+
+#### パリ協定
+
+京都議定書以降の地球温暖化対策の取り組み$\leadsto$ 2015年に[**パリ協定**](https://www.mofa.go.jp/mofaj/ic/ch/page1w_000119.html)が成立
+
+:::{.callout-note}
+## [パリ協定](https://www.env.go.jp/earth/ondanka/cop/shiryo.html)　第2条
+
+1. この協定は、条約（その目的を含む。）の実施を促進する上で、持続可能な開発及び貧困を撲滅するための努力の文脈において、気候変動の脅威に対する世界全体による対応を、次のことによるものを含め、強化することを目的とする。
+
+a. 世界全体の平均気温の上昇を工業化以前よりも**摂氏二度高い水準を十分に下回るものに抑える**こと並びに世界全体の平均気温の上昇を工業化以前よりも**摂氏一・五度高い水準までのものに制限する**ための努力を、この努力が気候変動のリスク及び影響を著しく減少させることとなるものであることを認識しつつ、継続すること。
+:::
+
+- 長期目標として気温上昇を2℃（理想は1.5℃）以内に抑える。
+- ほとんど全ての国が参加
+
+先進国と途上国の利害が近づく。
+
+- 環境保護に熱心なヨーロッパ諸国の圧力
+- アメリカにおける民主党政権の成立
+- 中国の五カ年計画における環境対策の強化
+
+全ての国が[**自国が決定する貢献**](https://www4.unfccc.int/sites/NDCStaging/Pages/All.aspx) (Nationally Determined Contribution: NDC) を5年毎に設定／達成は義務付けされず
+
+:::{.callout-note}
+## [パリ協定](https://www.env.go.jp/earth/ondanka/cop/shiryo.html)　第3条
+
+全ての締約国は、気候変動に対する世界全体による対応への**自国が決定する貢献**（以下「国が決定する貢献」という。）に関し、前条に規定するこの協定の目的を達成するため、次条、第七条、第九条から第十一条まで及び第十三条に定める野心的な努力に取り組み、及びその努力について通報する。全ての締約国の努力については、この協定の効果的な実施のために開発途上締約国を支援する必要性についての認識の下で、時間とともに前進を示すものとなる。
+:::
+
+- 全ての国が自発的に参加
+
+![[パリ協定の加盟国](https://commons.wikimedia.org/wiki/File:ParisAgreement.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/ParisAgreement.svg/800px-ParisAgreement.svg.png)
+
+- 目標は十分か、実効性はあるのか？
+  - [主要国のNDC](https://www.mofa.go.jp/mofaj/ic/ch/page1w_000121.html)
+
+#### 環境問題と時間
+
+地球環境問題（特に気候変動）の**影響は長期的将来において生じる**点で、他の国際問題とは異なる。
+
+1. 人々は将来の出来事の価値を**割り引く** (discount)$\leadsto$将来の環境保護の利益＜現在の費用
+    - 将来の不確実な利益＜現在の確実な利益
+    - 環境問題の影響は遠い将来＆不確実
+1. 将来を重視することは国際協調のために必要／将来を重視すれば交渉で妥協するのが難しくなる。
+    - 将来を重視$\leadsto$国際協調から離脱したときの制裁を恐れる$\leadsto$協調的
+    - 将来を重視$\leadsto$環境保護によって利益を失う国々や組織$\leadsto$環境保護に否定的
+1. 「現在は存在していない将来世代」と現在世代の間の**世代間衡平** (intergenerational equity)
+    - 将来世代の利益、関心は分からない＆政治に反映させる仕組みは欠如
+    - 政治的生き残りを目指す政治的指導者$\leadsto$現在世代の短期的な利益を追求
+
+#### 地球環境の国際制度
+
+[**国連環境計画**](https://www.mofa.go.jp/mofaj/gaiko/kankyo/kikan/unep.html) (United Nations Environment Programme: UNEP) や世銀の[**地球環境ファシリティ**](https://www.mofa.go.jp/mofaj/gaiko/kankyo/kikan/gbl_env.html) (Global Environment Facility: GEF) 以外に、（WTOのような）環境保護全般の国際制度はない
+
+$\leadsto$分野ごとに[**枠組み条約**](https://www.mofa.go.jp/mofaj/files/000135675.pdf) (framework convention)
+
+- 比較的合意のしやすい一般原則を設定$\leadsto$詳細な規制は議定書 (protocol) で策定
+  - オゾン層保護ではウィーン条約＞モントリオール議定書でフロンガス規制
+  - 気候変動枠組み条約 (United Nations Framework Convention on Climate Change: UNFCCC)＞京都議定書やパリ協定
+- 大きな利害対立の克服＆不確実な将来への対応の難しさ
+
+枠組み条約の**締約国会議** (Conference of the Parties: COP) で環境保護の詳細について交渉
+
+- 例えば、COP20はその枠組み条約の20回目の締約国会議
+  - いろいろな枠組み条約でCOPと呼ぶので注意
+- NGOや科学者が積極的に参加し、情報共有や問題提起を行う
+- 科学技術の進歩、新しい科学的知見などに柔軟に対応
+
+規制の**目標**を定めることが多い$\leadsto$どのように目標を実現するかは各国の自由の裁量
+
+- 環境問題への対策を監視するのは難しい$\leadsto$義務付けは困難
+  - 石油タンカーのタンクの洗浄の際に原油を放出するが、それを監視するのは困難
+  - 原油の排出を削減する装置を義務付けたところ、高い遵守率[@mitchell1994]
+  - フロンガスの禁止はGHGの排出削減よりも検証しやすい
+- 紛争処理メカニズム（例、WTO）や制裁は存在しないことが多い
