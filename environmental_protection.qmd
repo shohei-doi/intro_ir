@@ -59,7 +59,7 @@ $\leadsto$人口増加や環境破壊がこのままのペースで続くと成�
 - 人口は指数関数的に増加
 - 食糧や資源、環境は直線的に増加（or増加しない）
 
-![[成長の限界](https://commons.wikimedia.org/wiki/File:Limits-to-growth-figure-35.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Limits-to-growth-figure-35.svg/329px-Limits-to-growth-figure-35.svg.png)
+![[成長の限界](https://commons.wikimedia.org/wiki/File:Limits-to-growth-figure-35.svg)](figures/limits_growth.png)
 
 人類の存続（人口増加、食糧・資源の確保と環境保護の両立）に持続可能性 (sustainability) がある？
 
@@ -70,6 +70,24 @@ $\leadsto$国際社会として人類の持続可能性の確保、特に地球�
 - 1992年、地球サミット：持続可能な開発が国際社会の目標に
 - 2000年、国連ミレニアム・サミット：[ミレニアム宣言](https://www.mofa.go.jp/mofaj/kaidan/kiroku/s_mori/arc_00/m_summit/sengen.html) $\leadsto$ 2015年までの達成を目指して、[**ミレニアム開発目標**](https://www.un.org/millenniumgoals/2015_MDG_Report/pdf/MDG%202015%20PC%20final.pdf) (Millennium Development Goals: MDGs) を設定
 - 2015年、[**持続可能な開発目標**](https://www.mofa.go.jp/mofaj/gaiko/oda/sdgs/index.html) (Sustainable Development Goals: SDGs)
+
+### 地球温暖化の被害
+
+地球温暖化は環境に影響を与えるだけでなく、社会経済にも影響を与える。
+
+- [IPCC第2作業部会による評価](https://www.env.go.jp/earth/ipcc/6th/index.html)
+- 労働時間の減少[@graff2014]
+
+![@graff2014](figures/graff.png)
+
+- 学力の低下[@park2020]
+
+![@park2020](figures/park.png)
+
+- 途上国における所得の減少[@dell2014]
+- 死亡率の増加[@deschenes2011]
+
+![@deschenes2011](figures/deschenes.png)
 
 ## 環境問題の構造
 
@@ -233,6 +251,7 @@ $\leadsto$環境保護を目指すNGOが加盟料を肩代わり$\leadsto$非捕
 
 - GHGの排出と地球温暖化の因果関係は不明瞭（と考える人や国がいる）
   - 気候変動に関する[**政府間パネル**](https://www.data.jma.go.jp/cpdinfo/ipcc/index.html) (Intergovernmental Panel on Climate Change: IPCC) ：専門家の集団が地球温暖化について報告書を作成
+  - [環境省による情報](https://www.env.go.jp/earth/ondanka/knowledge.html)
 
 ![[IPCC第6次統合報告書（政策決定者向け要約）より](https://www.ipcc.ch/report/sixth-assessment-report-cycle/)](figures/ipcc.png)
 
@@ -272,7 +291,7 @@ $\leadsto$囚人のジレンマを解決するために重要な要因の多く�
 
 **環境クズネッツ曲線**：豊かになるにつれて環境破壊が行われるが、一定以上の豊かさになると環境保護に切り替わるという仮説
 
-![[環境クズネッツ曲線のイメージ](https://commons.wikimedia.org/wiki/File:Environmental_Kuznets_Curve.png)](https://upload.wikimedia.org/wikipedia/commons/4/4e/Environmental_Kuznets_Curve.png)
+![[環境クズネッツ曲線のイメージ](https://commons.wikimedia.org/wiki/File:Environmental_Kuznets_Curve.png)](figures/Environmental_Kuznets_Curve.png)
 
 ::: {.content-visible when-format="html"}
 <iframe src="https://ourworldindata.org/grapher/carbon-emission-intensity-vs-gdp-per-capita" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
@@ -340,13 +359,13 @@ $\leadsto$先進国と新興国、発展途上国の間でどのように環境�
   - [**北極評議会**](https://www.mofa.go.jp/mofaj/area/arctic/hokkyoku_hyougikai.html)：北極圏に関する協議を行う組織
   - 北極圏の利権を巡って多くの国が関与を狙っている。
 
-![[北極評議会の加盟国](https://commons.wikimedia.org/wiki/File:ArcticCouncil.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/ArcticCouncil.svg/800px-ArcticCouncil.svg.png)
+![[北極評議会の加盟国](https://commons.wikimedia.org/wiki/File:ArcticCouncil.svg)](figures/arctic_council.png)
 
 - グリーンランドは温暖化$\leadsto$氷床が解ける$\leadsto$地下資源の採掘が可能$\leadsto$経済が急速に成長
   - デンマークからの独立を目指す？
   - アメリカや中国も影響力を強めようとしている？
 
-![[グリーンランドの氷床融解](https://commons.wikimedia.org/wiki/File:Greenland_Meltdown_08072012_12072012.jpg)](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Greenland_Meltdown_08072012_12072012.jpg/659px-Greenland_Meltdown_08072012_12072012.jpg)
+![[グリーンランドの氷床融解](https://commons.wikimedia.org/wiki/File:Greenland_Meltdown_08072012_12072012.jpg)](figures/greenland.jpg)
 
 ### 地球環境を巡る交渉
 
@@ -450,3 +469,30 @@ $\leadsto$分野ごとに[**枠組み条約**](https://www.mofa.go.jp/mofaj/file
   - 原油の排出を削減する装置を義務付けたところ、高い遵守率[@mitchell1994]
   - フロンガスの禁止はGHGの排出削減よりも検証しやすい
 - 紛争処理メカニズム（例、WTO）や制裁は存在しないことが多い
+
+## 人々を変えることはできるか？
+
+環境問題は個人も原因である国際問題
+
+$\leadsto$人々の「意識」を変えれば問題は解決する？
+
+- より快適な生活環境を求める気持ちを変えるのは難しい。
+- 省エネ技術への補助金や環境に優しい設備を配布しても受け取らない[@fowlie2018; @hanna2016]
+
+ちょっとしたきっかけ（ナッジ）で行動は変わるかも。
+
+- ピーク時に高い電力料金になる（それ以外は安い）プランに自発的に参加する人は少ないが、最初からそのプランであれば変更しない[@fowlie2021]
+
+![@fowlie2021](figures/fowlie.png)
+
+- 道徳的な要請も価格調整も節電効果がある[@ito2017, 第2章; @ito2018]
+  - ただし、価格調整の方が効果は大きく、持続性も高い
+
+![@ito2018](figures/ito1.png)
+
+![@ito2018](figures/ito2.png)
+
+- 周辺世帯との電力消費を比較したレポートを受け取った人は電力を節約する[@allcott2014]
+  - レポートが終わっても節約は続ける
+
+![@allcott2014](figures/allcott.png)
