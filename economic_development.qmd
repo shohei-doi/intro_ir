@@ -1,0 +1,391 @@
+---
+title: "経済成長"
+subtitle: "国際公共政策学"
+author: "土井翔平"
+date: today
+---
+
+```{r}
+#| include: false
+#| cache: false
+
+library(tidyverse)
+theme_set(theme_bw(base_family = "Noto Sans CJK JP Light"))
+```
+
+## はじめに {.unnumbered}
+
+- 政治は経済成長に影響するのか？
+- なぜ国ごとに経済的豊かさが異なるのか？
+- 経済成長と不平等の縮小は両立するのか？
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/gdp-per-capita-maddison-2020?tab=chart&country=IDN~ARG~KOR~FRA~GBR~USA~AUT~IND~CHN" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![一人あたりGDPの長期的変化](figures/gdp-per-capita-maddison-2018.png){width=80%}
+:::
+
+::: {.content-visible when-format="html"}
+<iframe scrolling="no" title="Interactive or visual content" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation" style="width: 100%; height: 792.967px;" src="https://flo.uri.sh/visualisation/14303887/embed?auto=1" frameborder="0"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![各国の所得水準](figures/income_group.png){width=80%}
+:::
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/income-share-top-1-before-tax-wid-extrapolations?time=1912..latest&country=USA~ITA~GBR~CAN" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![経済的不平等の推移](figures/u-shape.png){width=80%}
+:::
+
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/income-share-top-1-before-tax-wid-extrapolations?time=1912..latest&country=FRA~ESP~JPN~SWE~NLD" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
+
+::: {.content-visible when-format="pdf"}
+![経済的不平等の推移](figures/l-shape.png){width=80%}
+:::
+
+## 経済成長と国内政治
+
+### 政治体制
+
+![アメリカとメキシコの国境](figures/Border_USA_Mexico.jpg){width=80%}
+
+世界全体で見ると経済成長／経済成長をしている国もいれば、そうでない国も
+
+- 韓国や台湾は工業化に成功して経済成長
+- サブサハラ・アフリカを中心に経済が停滞
+
+地理（特に気候）や人種の違いが経済発展の違いを生む？
+
+- ほとんど同じような地域（したがって地理的条件や人種構成も似ているはず）$\leadsto$全く異なる経済発展
+
+$\leadsto$国家の違い、特に政治体制の違いが重要[@robinson2006]
+
+政府は**インフラ**を供給＆**所有権**を保障$\leadsto$経済成長を促進
+
+- インフラ：交通インフラ、公衆衛生や教育といった社会的インフラ
+- 所有権を保障$\leadsto$市民は安心して経済活動（特に投資）に専念
+
+政府にとっても経済成長することは望ましい／なぜそのような政策を実行できないのか？
+
+- 大地主や大企業、都市部のエリートなど政権運営に必要な勢力の利益になるような政策（インフラ投資への反対、農民への課税や補助金）を行い、多数派の利益を損なう。
+- 民族対立がある場合[@alesina2005]や権威主義体制である場合[@baum2003; @stasavage2005; @brown2009]は経済成長が難しい。
+
+```{r}
+#| fig-cap: "民主主義と経済水準"
+
+df_vdem <- read_csv("data/vdem/V-Dem-CY-Full+Others-v13.csv")
+
+df_vdem %>% 
+  filter(year == 2018) %>% 
+  ggplot() + 
+  geom_point(aes(x = v2x_polyarchy, y = e_gdppc)) + 
+  labs(x = "選挙民主主義度", y = "一人あたりGDP")
+```
+
+#### 資源の呪い
+
+**資源の呪い** (resource curse)：農産物や資源が豊富な国では経済成長がしにい＆民主的な政治体制ができにくい現象[@ross1999; @mehlum2006; @ross2015]
+
+- 経済成長ためのインフラ投資をする必要がない。
+- 大地主や大企業に権力が集中する政治体制を構築
+
+逆説的に、資源の乏しい国では経済活動を活発化させるためにインフラ投資や民主化を行う。
+
+```{r}
+#| fig-cap: "天然資源と政治体制"
+
+df_vdem %>% 
+  filter(year == 2006) %>% 
+  ggplot() + 
+  geom_point(aes(x = v2x_polyarchy, y = e_total_fuel_income_pc)) + 
+  labs(x = "選挙民主主義度", y = "一人あたり石油・石炭・天然ガス産出量")
+```
+
+#### 植民地支配
+
+植民地支配$\leadsto$政治体制
+
+- 大航海時代においてポルトガルやスペインは先に資源の豊富な南米／後発のイギリスやフランスは資源の乏しい北米に進出
+- 南米ではプランテーションなど搾取的な体制が成立／北米では民主的な体制が成立$\leadsto$その後の経済発展[@engerman2000; @acemoglu2016]
+
+北米に比べて熱帯病などで死亡率の高かった南米では移住が困難$\leadsto$原住民から資源を搾取する体制が構築$\leadsto$現代の低成長[@acemoglu2001]
+
+![@acemoglu2001](figures/acemoglu1.png)
+
+![@acemoglu2001](figures/acemoglu2.png)
+
+植民地時代の死亡率が直接的に現代の経済水準に影響を与えているとは考えにくい$\leadsto$政治体制が経済成長に影響を及ぼしている
+
+### 開発政策
+
+#### 輸入代替工業化
+
+一般的に自由貿易は先進国と途上国のどちらにも恩恵をもたらすものだと考えられる
+
+$\leadsto$**従属理論** (dependency theory)：途上国は自由貿易によって搾取されているという考え（1950年代ごろ）
+
+- 多くの後発開発途上国は農産品や資源、原材料など**一次産品** (primary goods) を輸出
+- 一次産品は生産者が非常に多い$\leadsto$市場原理によって価格が定まる
+  - 長期的に見て下降傾向にある
+- 先進国の生産する工業製品は生産者の数が少ない**寡占** (oligopoly) 状態$\leadsto$企業に価格決定力
+
+$\leadsto$先進国は有利な**交易条件** (terms of trade) の下で貿易
+
+$\leadsto$経済成長（特に工業化）の戦略の一つとして**輸入代替工業化** (import-substituting industrialization)
+
+- 工業製品の輸入を制限し、自国内で製造できるようにする$\leadsto$工業化
+- 政府は国営企業によってインフラを安価に供給し、補助金や減税、低金利ローンなどによって国内産業を優遇
+- 工業化には成功する／市場原理に反して産業を保護$\leadsto$国際競争力が高まらず、輸出できないという問題
+
+#### 輸出志向工業化
+
+1960年代、Four Asian Tigersと呼ばれる韓国、台湾、シンガポール、香港は**輸出志向型工業化** (export-oriented industrialization) を採用
+
+- 低金利ローンや減税、通貨安への誘導などを通じて輸出を振興
+- これらの国や地域は急速な工業化と経済成長を達成$\leadsto$**東アジアの奇跡**
+
+1980年代に南米などで債務危機$\leadsto$輸入代替工業化を採用している国は、返済のための外貨を獲得することが困難
+
+- 債務返済のために**国際通貨基金** (International Monetary Fund: IMF) から融資や債務削減を受ける$\leadsto$自由経済に合致するコンディショナリティを受け入れ
+
+輸出志向型工業化を採用していた国も債務危機の影響を受けた／輸出によって外貨を獲得し、経済を回復
+
+$\leadsto$冷戦の終結も相まって、1990年ごろにはほとんどの開発途上国が輸入代替工業化を放棄して、世界経済との繋がりを構築
+
+## 経済成長と国際関係
+
+現代のグローバル化の特徴の一つは資本の越境的な (transnational) 移動の拡大
+
+- 通貨：自国通貨と他国通貨の交換（為替）
+- 投資
+  - 融資：外国企業への融資、外国国債の購入
+  - 直接投資：外国における企業や向上の設置
+  - 間接投資：外国企業の株式の購入
+- 援助：先進国による途上国の支援
+
+### 通貨
+
+**為替** (exchange)：自国通貨で外国通貨を購入すること
+
+- 為替の際の交換比率のことを**為替レート**と呼ぶ。
+  - 例えば、[1USドルは140円](https://info.finance.yahoo.co.jp/fx/convert/)と交換できる。
+  - 言い換えれば、1USドルの値段は（日本円にして）140円である。
+
+自国通貨の価値が高く（低く）なる$\leadsto$多くの（少ない）外国通貨を購入
+
+- 1USドルが130円になると**円高**
+- 1USドルが150円になると**円安**
+
+#### 通貨の価値
+
+![[為替制度](https://commons.wikimedia.org/wiki/File:Exchange_rate_arrangements_map.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Exchange_rate_arrangements_map.svg/1280px-Exchange_rate_arrangements_map.svg.png)
+
+**固定相場制** (fixed exchange)：為替レートを一定に固定する場合
+
+- 例：金本位制
+
+**変動相場制** (floating exchange)：為替レートを市場に委ねる場合
+
+$\leadsto$変動相場制の下では需要と供給の法則に従って価格が決定
+
+1. **購買力平価**：物価に基づいて為替レートが決定
+    - 日本が輸出$\leadsto$日本円の需要が高まる$\leadsto$円高
+1. **金利平価**：金利に基づいて為替レートが決定
+    - アメリカの金利が上がる$\leadsto$USドルの需要が高まる$\leadsto$円安
+
+中央銀行は**外貨準備**を用いて、為替レートの安定化のために**為替介入**を行うことがある。
+
+#### 近隣窮乏化政策
+
+外国製品を輸入する場合は自国通貨で外国通貨を購入しなくてはいけない
+
+$\leadsto$為替レートと貿易は密接な関係にある。
+
+||輸出|輸入|
+|---|:---:|:---:|
+|自国通貨が高くなる|減少|増加|
+|自国通貨が安くなる|増加|減少|
+
+- 例えば、480万円の車は1USドル110円なら約4.4万USドルで売れるが、120円（円安）だと4万USドル、100円（円高）だと4.8万USドルで売れる。
+
+各国は通貨を切り下げることで輸出を促進
+
+- しかし、他国に経済的負担を押し付ける**近隣窮乏化政策** (beggar thy neighbour) となる。
+
+$\leadsto$通貨切り下げ競争は囚人のジレンマの構造
+
+#### 国際通貨体制
+
+金ドル本位制やドル基軸通貨体制：USドルと金の交換レートを保証し、各国は自国通貨とUSドルの為替レートを一定の範囲内に収める調整可能な固定相場制
+
+- 各国は輸入による金の流出を恐れる必要がなし
+- USドルを**基軸通貨**として受け入れる必要
+  - アメリカの圧倒的経済力を背景に金との交換を保証
+  - アメリカが輸入をする（貿易赤字を引き受ける）ことでUSドルを世界に供給
+    
+**国際通貨基金** (International Monetary Fund: IMF) はブレトン・ウッズ体制を支える機関として設立
+
+- 外貨準備が不足して固定相場を維持できない国を短期的に融資
+  - **コンディショナリティ**：融資の際の条件
+  
+USドルの供給が増える（ドル過剰）$\leadsto$アメリカの金準備が足りなくなる？
+
+$\leadsto$**流動性のジレンマ**：ドルの供給によってドルの価値が信頼されなくなる
+
+**ニクソン・ショック**：1971年、貿易赤字に不満を持っていたアメリカはUSドルと金の交換を停止
+
+$\leadsto$ 1973年に先進国は変動相場制に移行し、資本の移動を自由化
+
+変動相場制のもとでは為替レートの変動が激しいときも$\leadsto$**政策協調**によって安定化
+
+- 1985年の**プラザ合意**ではアメリカの貿易赤字を減らすためにドル安介入
+- 円高による不況を回避するための金融政策$\leadsto$金利が低下$\leadsto$**バブル経済**が発生
+
+### 債務危機
+
+貿易に加えて国際的な投資も経済成長にとって重要な役割
+
+$\leadsto$政府は**国債** (sovereign bond) を発行し、資金を調達することで増税せずに財政支出を拡大
+
+- ヘクシャー＝オーリン・モデルと同様、資本の潤沢な先進国の投資家は金利の高い途上国に融資をすることで利潤を拡大
+
+財政支出が失敗し、税収が上がらず、債務の履行が困難$\leadsto$債務危機
+
+- 債務国は**緊縮財政** (austerity) によって支出を削減し、税収によって債務を返済する／**デフォルト**によって債務の履行を拒否する
+- 債権国はできる限り債務を返還してほしい／デフォルトされることで国内の金融機関へ影響が波及するのを恐れて、救済 (bailout) する
+
+$\leadsto$債務国も債権国もデフォルトすることは避けたいが、できる限り少なく（多く）返済したい（回収したい）ため、交渉問題に
+
+#### 国際通貨基金
+
+**国際通貨基金** (International Monetary Fund: IMF) ：約1兆USドルの融資能力を持つ世界最大の貸し手
+
+- IMFでは経済水準を元に算出される出資額、[**クォータ**](https://www.mof.go.jp/policy/international_policy/imf/gaiyou.htm)に比例して投票権が配分
+- IMFにおける多くの決定には85%以上の賛成が必要$\leadsto$アメリカや欧州連合は事実上の拒否権
+
+![[国際通貨基金における投票権](https://www.bloomberg.co.jp/news/articles/2021-10-11/R0U4IBDWLU6A01)](figures/imf_vote.png)
+
+$\leadsto$IMFからのコンディショナリティを受け入れることで低金利の融資を得る。
+
+- 市場からはIMFの基準に従った政策をしているという評判
+- 緊縮財政や規制緩和はしばしば債務国の経済状況を悪化
+
+#### 債務の罠
+
+**債務の罠** (debt trap diplomacy)：過度な融資をすることで債務の返済を困難にさせ、代わりにインフラの使用権などを要求する
+
+- 中国の**一帯一路** (Belt and Road Initiative: BRI) は債務の罠ではないかと先進国は批判
+
+### 多国籍企業
+
+国債の購入以外に、**対外直接投資** (foreign direct investment: FDI) も主要な国際的投資の一種
+
+- 外国企業の買収や海外における工場の建設など、直接的に管理を行う投資
+
+**多国籍企業** (multinational corporation: MNC)：対外直接投資によって複数国に跨って経営する企業
+
+- 海外で生産することで賃金や輸送コストを低く抑える
+- 特に、グローバル・サプライチェーンでは比較優位のある部品を各国で生産し、それらを組み立て、製品を作る。
+
+受け入れ国$\leadsto$雇用が増え、技術移転があるため多国籍企業を受け入れ／多国籍企業は税制や労働規制の優遇を求め、受け入れ国と対立することがある
+
+- 特に、旧植民地における多国籍企業は資源採掘などを行っており、独立した旧植民地国では搾取的であるとして国有化されることも
+
+途上国は国債による投資の受け入れに切り替える／債務危機とグローバル化の中で多国籍企業を受け入れ
+
+法人税の減税や労働・環境規制の緩和によって多国籍企業を誘致できるのであれば、**底辺への競争** (race to the bottom) が生じる？
+
+- 互いに規制をしたほうが望ましいのに、誘致のために規制を緩和$\leadsto$互いに望ましくない状態に至る
+- 囚人のジレンマの構造
+
+$\leadsto$近年、各国で**共通法人税**の設定、企業の所在地ではなく市場国で課税ができる**デジタル課税**の導入について議論
+
+一方、WTOやIMFのように対外直接投資や多国籍企業の問題に対処する包括的な国際機構や制度は存在していない
+
+- 対外直接投資を巡るルールは**二国間投資協定** (bilateral investment treaty: BIT) で定め、法的な紛争は投資仲裁によって解決
+
+### 開発援助
+
+発展途上国の経済成長に貢献するものとして**政府開発援助** (official development assistance: ODA)
+
+![[政府開発援助の種類](https://www.jica.go.jp/Resource/aboutoda/basic/03.html)](https://www.jica.go.jp/aboutoda/basic/ku57pq00000okedk-img/g_basic_a07.jpg)
+
+- 日本では政府がODA大綱を決定し、国際協力機構 (Japan International Cooperation Agency: **JICA**) がODAを実施
+- 先進国のドナーは経済協力開発機構 (Organisation for Economic Co-operation and Development: OECD) の中の開発援助委員会 (Development Assistance Committee: DAC) において援助の効率性や透明性の向上のため協調
+  - DAC諸国はGNIの**0.7%**をODAに支出するという目標
+- 新興ドナー国は参加しておらず、その援助の透明性には疑問
+
+![[OECD諸国のODA/GNI比](https://twitter.com/OECDdev/status/1646419888825614336)](figures/oecd_oda.png)
+
+#### 国際開発金融機関
+
+多国間援助：**世界銀行** (World Bank: WB) やその他の各地域の[国際開発金融機関](https://www.mof.go.jp/policy/international_policy/mdbs/index.html) (Multinational Development Bank: MDB) を通じて行う
+
+- 世界銀行は[複数の組織](https://www.worldbank.org/ja/about)からなるグループである。
+  - 中核的組織は国債復興開発銀行 (International Bank Reconstruction and Development: IBRD) であり、戦後復興のための組織だった。
+  - 日本の東海道新幹線もIBRDの融資によって建設
+- IMFと同様に出資金の比率に応じて議決権
+
+開発援助の一つの考えは大きな投資（**ビッグ・プッシュ**）$\leadsto$経済成長
+
+- 経済成長の恩恵は次第に貧困層へと行き渡るはず（トリクル・ダウン）
+
+資本の投下だけでは経済成長が起こらない$\leadsto$政治経済体制の変革
+
+- 新自由主義的経済政策や効率的な政府、透明性などの**グッド・ガバナンス**を援助や支援の際に求める。
+- IMFと世銀がワシントンで向き合って存在していることから**ワシントン・コンセンサス**と呼ばれた
+
+$\leadsto$被援助国への内政干渉であり、**オーナーシップ**を尊重すべきと批判
+
+#### 貧困削減
+
+冷戦終結後は貧困削減に焦点
+
+- 援助の限界が明らかになる／援助によって勢力を拡大する必要がなくなる
+- 国連開発計画が[**人間の安全保障**](https://www.mofa.go.jp/mofaj/gaiko/oda/bunya/security/index.html) (human security) や**人間開発** (human development) などを提唱$\leadsto$発展は経済だけでなく社会や個人の問題であると認知
+  - 人間の安全保障は日本のODA政策の中核に位置づけ
+- IMFや世銀も**貧困削減ペーパー**を被援助国に作成させる
+
+2000年に開催された国連ミレニアム・サミットの[ミレニアム宣言](https://www.mofa.go.jp/mofaj/kaidan/kiroku/s_mori/arc_00/m_summit/sengen.html)$\leadsto$ 2015年までの達成を目指して、[ミレニアム開発目標](https://www.un.org/millenniumgoals/2015_MDG_Report/pdf/MDG%202015%20PC%20final.pdf) (Millennium Development Goals: MDGs) を設定
+
+### 国際経済秩序への挑戦？
+
+既存の国際経済秩序は先進国に有利なものであるという認識は途上国において根強い。
+
+- 自由貿易体制においても先進国は自国の農業を保護するために補助金やセーフガードを使用
+- IMFや世銀は経済規模に比例して議決権が配分されるので、先進国の意見を反映
+
+自由な経済により先進国も途上国も互いに利益を得ることはできる／その利益の配分を巡って途上国は交渉力で先進国に対して弱い
+
+$\leadsto$これまで途上国はこうした国際経済秩序の変革を目指して協力
+
+- **非同盟諸国運動** (Non-Alidned Movement: NAM) や国連における**G77**を結成し、共同で行動
+- **新国際経済秩序** (New International Economic Order: NIEO) などを提唱
+- **石油輸出国機構** (Organization of the Petroleum Exporting Countries: OPEC) など国際カルテルによって圧力
+
+新興国 (emerging country) 、特に中国が経済成長$\leadsto$大きな役割
+
+- **G20**への参加、BRICS開発銀行やアジアインフラ投資銀行の設立、一帯一路の実施などで影響力
+
+こうした新興国の経済成長は経済を自由化した結果、既存の国際経済秩序の恩恵？
+
+民主主義による経済成長に対する反例？
+
+- 韓国や台湾も当初は**開発独裁**と呼ばれる、権威主義のもとでの経済成長
+
+経済のグローバル化に対する懐疑的な見方
+
+- 金融危機の影響の大きさ$\leadsto$グローバル化の弊害。
+- グローバル経済への開放$\leadsto$期待通りの経済成長はもたらさず／国内の格差の拡大
+
+途上国に限らず、先進国においてもグローバル化に懐疑的な政治家が登場しつつある。
+
+<!-- ## 経済成長と不平等 -->

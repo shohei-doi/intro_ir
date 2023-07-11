@@ -1,0 +1,6 @@
+---
+title: "人権保障"
+subtitle: "国際公共政策学"
+author: "土井翔平"
+date: today
+---

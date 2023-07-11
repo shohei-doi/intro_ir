@@ -30,6 +30,8 @@ website:
         contents: 
           - international_trade.qmd
           - environmental_protection.qmd
+          - economic_development.qmd
+          - human_rights.qmd
 
 format:
   html:
