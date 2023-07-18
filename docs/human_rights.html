@@ -21,7 +21,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -62,10 +81,12 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 <meta name="robots" content="noindex">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -210,10 +231,43 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>その他のフォーマット</h2><ul><li><a href="pdf/human_rights.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに">はじめに</a></li>
+  <li><a href="#人権の国際化" id="toc-人権の国際化" class="nav-link" data-scroll-target="#人権の国際化"><span class="header-section-number">1</span> 人権の国際化</a>
+  <ul class="collapse">
+  <li><a href="#第二次世界大戦まで" id="toc-第二次世界大戦まで" class="nav-link" data-scroll-target="#第二次世界大戦まで"><span class="header-section-number">1.1</span> 第二次世界大戦まで</a></li>
+  <li><a href="#第二次世界大戦後" id="toc-第二次世界大戦後" class="nav-link" data-scroll-target="#第二次世界大戦後"><span class="header-section-number">1.2</span> 第二次世界大戦後</a></li>
+  <li><a href="#国際人権章典" id="toc-国際人権章典" class="nav-link" data-scroll-target="#国際人権章典"><span class="header-section-number">1.3</span> 国際人権章典</a></li>
+  <li><a href="#自由権の保障" id="toc-自由権の保障" class="nav-link" data-scroll-target="#自由権の保障"><span class="header-section-number">1.4</span> 自由権の保障</a></li>
+  </ul></li>
+  <li><a href="#人権保障を巡る政治" id="toc-人権保障を巡る政治" class="nav-link" data-scroll-target="#人権保障を巡る政治"><span class="header-section-number">2</span> 人権保障を巡る政治</a>
+  <ul class="collapse">
+  <li><a href="#国家による人権侵害" id="toc-国家による人権侵害" class="nav-link" data-scroll-target="#国家による人権侵害"><span class="header-section-number">2.1</span> 国家による人権侵害</a></li>
+  <li><a href="#人権条約への参加" id="toc-人権条約への参加" class="nav-link" data-scroll-target="#人権条約への参加"><span class="header-section-number">2.2</span> 人権条約への参加</a></li>
+  <li><a href="#他国の人権問題" id="toc-他国の人権問題" class="nav-link" data-scroll-target="#他国の人権問題"><span class="header-section-number">2.3</span> 他国の人権問題</a></li>
+  </ul></li>
+  <li><a href="#国際的な人権保障" id="toc-国際的な人権保障" class="nav-link" data-scroll-target="#国際的な人権保障"><span class="header-section-number">3</span> 国際的な人権保障</a>
+  <ul class="collapse">
+  <li><a href="#人権条約の効果" id="toc-人権条約の効果" class="nav-link" data-scroll-target="#人権条約の効果"><span class="header-section-number">3.1</span> 人権条約の効果</a></li>
+  <li><a href="#人権制裁" id="toc-人権制裁" class="nav-link" data-scroll-target="#人権制裁"><span class="header-section-number">3.2</span> 人権制裁</a></li>
+  <li><a href="#国際的審査" id="toc-国際的審査" class="nav-link" data-scroll-target="#国際的審査"><span class="header-section-number">3.3</span> 国際的審査</a></li>
+  </ul></li>
+  <li><a href="#日本の人権状況" id="toc-日本の人権状況" class="nav-link" data-scroll-target="#日本の人権状況"><span class="header-section-number">4</span> 日本の人権状況</a></li>
+  <li><a href="#戦争と人権" id="toc-戦争と人権" class="nav-link" data-scroll-target="#戦争と人権"><span class="header-section-number">5</span> 戦争と人権</a>
+  <ul class="collapse">
+  <li><a href="#平和維持活動の拡大" id="toc-平和維持活動の拡大" class="nav-link" data-scroll-target="#平和維持活動の拡大"><span class="header-section-number">5.1</span> 平和維持活動の拡大</a></li>
+  <li><a href="#人道的介入" id="toc-人道的介入" class="nav-link" data-scroll-target="#人道的介入"><span class="header-section-number">5.2</span> 人道的介入</a></li>
+  <li><a href="#国際人道法" id="toc-国際人道法" class="nav-link" data-scroll-target="#国際人道法"><span class="header-section-number">5.3</span> 国際人道法</a></li>
+  <li><a href="#安保理の機能拡大" id="toc-安保理の機能拡大" class="nav-link" data-scroll-target="#安保理の機能拡大"><span class="header-section-number">5.4</span> 安保理の機能拡大</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>その他のフォーマット</h2><ul><li><a href="pdf/human_rights.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -235,7 +289,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">公開</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2023年7月17日</p>
+      <p class="date">2023年7月18日</p>
     </div>
   </div>
   
@@ -245,10 +299,874 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="はじめに" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="はじめに">はじめに</h2>
+<p>17-18世紀の啓蒙思想家<span class="math inline">\(\leadsto\)</span>人が生まれながらにして持っている<strong>自然権</strong> (natural rights)</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+アメリカ独立宣言（1776年）
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>われわれは、以下の事実を自明のことと信じる。すなわち、すべての人間は<strong>生まれながらにして平等</strong>であり、その創造主によって、生命、自由、および幸福の追求を含む<strong>不可侵の権利</strong>を与えられているということ。</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+フランス人権宣言（1789年）
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>フランス人権宣言　人は、<strong>自由かつ諸権利において平等なもの</strong>として生まれ、そして生存する。</p>
+</div>
+</div>
+<ul>
+<li>なぜ人権は保障されないのか？</li>
+<li>なぜ他国の人権保障に関心を持つのか？</li>
+<li>どのように国際的な人権保障に取り組んでいるのか？</li>
+</ul>
+</section>
+<section id="人権の国際化" class="level2 page-columns page-full" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="人権の国際化"><span class="header-section-number">1</span> 人権の国際化</h2>
+<section id="第二次世界大戦まで" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="第二次世界大戦まで"><span class="header-section-number">1.1</span> 第二次世界大戦まで</h3>
+<p>人権問題＝国内問題／主権国家体系の下で他国の国内問題に干渉することは<strong>内政不干渉原則</strong>？</p>
+<ul>
+<li>国家主権の契機となったウェストファリア条約
+<ul>
+<li>宗教戦争であった30年戦争</li>
+<li>領主の信仰の自由</li>
+</ul></li>
+<li>内政問題を口実とした戦争を回避するためのメカニズムとしての主権</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>国家主権の下で人権侵害／国際社会からの批判をかわす口実</p>
+<p>内政問題である人権問題に対して国際社会が無関心ではいられない？</p>
+<ul>
+<li>19世紀における奴隷制度の廃止運動</li>
+<li>第1次世界大戦後の民族自決と少数民族</li>
+<li>産業化における労働者の保護</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Map_Europe_1923-en.svg/800px-Map_Europe_1923-en.svg.png" class="quarto-discovered-preview-image img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://commons.wikimedia.org/wiki/File:Map_Europe_1923-en.svg">1923年のヨーロッパ</a></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="第二次世界大戦後" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="第二次世界大戦後"><span class="header-section-number">1.2</span> 第二次世界大戦後</h3>
+<p>ナチス・ドイツによるユダヤ人虐殺（<strong>ホロコースト</strong>）<span class="math inline">\(\leadsto\)</span>人権が国際問題として認知</p>
+<ul>
+<li>第2次世界大戦は自由主義とファシズムの戦い（ということになっていた）。</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>国連憲章においても人権に関する言及、国際関心事項</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<a href="https://www.unic.or.jp/info/un/charter/text_japanese/">国連憲章</a>　第55条
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>人民の同権及び自決の原則の尊重に基礎をおく諸国間の平和的且つ友好的関係に必要な安定及び福祉の条件を創造するために、国際連合は、次のことを促進しなければならない。</p>
+<ol start="3" type="a">
+<li>人種、性、言語又は宗教による差別のないすべての者のための<strong>人権及び基本的自由の普遍的な尊重及び遵守</strong></li>
+</ol>
+</div>
+</div>
+<ul>
+<li>国連総会第3委員会</li>
+</ul>
+<p>1948年に国連総会が<a href="https://www.unic.or.jp/activities/humanrights/document/bill_of_rights/universal_declaration/"><strong>世界人権宣言</strong></a> (Universal Declaration of Human Rights; A/RES/217 (III)) を採択</p>
+<ul>
+<li>第1,2条は人間の尊厳に関する基本原則</li>
+<li>第3-19条は市民的自由</li>
+<li>第20-27条は政治的・社会的・経済的平等</li>
+<li>第28,29条は集団としての権利</li>
+</ul>
+<p>国連総会決議<span class="math inline">\(\leadsto\)</span>法的拘束力はない／現在の国際人権法の基盤</p>
+<p>最初の国際人権条約は<a href="https://worldjpn.grips.ac.jp/documents/texts/mt/19481209.T1J.html"><strong>ジェノサイド条約</strong></a>（1948年採択、1951年発効）</p>
+<ul>
+<li><strong>集団殺害</strong> (genocide) が定義</li>
+<li>国際法上の犯罪であるとしてその防止と処罰が義務付け</li>
+<li>日本は批准せず</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.un.org/en/genocideprevention/images/Convention%20on%20Genocide%20Prevention%204586%20R1%20Jan19%20(002)_ENG.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://www.un.org/en/genocideprevention/genocide-convention.shtml">ジェノサイド条約締約国</a></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="国際人権章典" class="level3 page-columns page-full" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="国際人権章典"><span class="header-section-number">1.3</span> 国際人権章典</h3>
+<div class="page-columns page-full"><p>世界人権宣言<span class="math inline">\(\leadsto\)</span> 2つの人権規約が1966年に採択、1976年に発効<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p><div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;日本では社会権規約をA規約、自由権規約をB規約と呼ぶことがある。</p></li></div></div>
+<ul>
+<li><a href="https://www.nichibenren.or.jp/activity/international/library/human_rights/liberty_convention.html"><strong>自由権規約</strong></a> (International Covenant on Civil and Political Rights)</li>
+<li><a href="https://www.nichibenren.or.jp/activity/international/library/human_rights/society_convention.html"><strong>社会権規約</strong></a> (International Covenant on Economic, Social and Cultural Rights)</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span><a href="https://www.unic.or.jp/activities/humanrights/document/bill_of_rights/"><strong>国際人権章典</strong></a> (International Bill of Human Rights)：世界人権宣言と自由権規約、社会権規約および選択議定書</p>
+<p>人権＝<strong>自由権</strong>＋<strong>社会権</strong></p>
+<ul>
+<li>自由権：国家が市民の生活や政治活動に介入しないことで保障される権利</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/ICCPR-members2.PNG/800px-ICCPR-members2.PNG" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://commons.wikimedia.org/wiki/File:ICCPR-members2.PNG">自由権規約締約国</a></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>社会権：市民の経済的・社会的・文化的活動を支援することで保障される権利</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/ICESCR_members.svg/800px-ICESCR_members.svg.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://commons.wikimedia.org/wiki/File:ICESCR_members.svg">社会権規約締約国</a></figcaption><p></p>
+</figure>
+</div>
+<p>その後も<a href="https://www.ohchr.org/en/core-international-human-rights-instruments-and-their-monitoring-bodies">様々な人権条約</a>および追加議定書 (optional protocol) が締結<span class="math inline">\(\leadsto\)</span>包括的な国際人権法が形成</p>
+</section>
+<section id="自由権の保障" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="自由権の保障"><span class="header-section-number">1.4</span> 自由権の保障</h3>
+<div class="cell" data-hash="human_rights_cache/html/unnamed-chunk-2_bd03ac64977c99204c5c47995770fec5">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="human_rights_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">自由権保障の推移</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-hash="human_rights_cache/html/unnamed-chunk-3_5f63c44c523bccb875966e094450f0df">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="human_rights_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">自由権保障の水準</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="人権保障を巡る政治" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="人権保障を巡る政治"><span class="header-section-number">2</span> 人権保障を巡る政治</h2>
+<p>人権は生まれながらにして全ての人間が持っている権利<span class="math inline">\(\leadsto\)</span><strong>普遍的</strong> (universal)</p>
+<p>ただし、<strong>どのような権利を、どの程度保障すべきなのか</strong>についての考えは時代や地域によって異なる。</p>
+<ul>
+<li>冷戦期：西側諸国は政治的自由に関する自由権／東側諸国は平等や社会保障に関する社会権を重視</li>
+<li>人権を重視する国でも（アメリカのように）テロリストへの拷問</li>
+<li>自由権は平等で自律的な個人を前提とした西洋的価値観に基づいている？</li>
+<li><span class="math inline">\(\leadsto\)</span>他の地域では十分には受け入れがたい？
+<ul>
+<li>東アジア諸国が成長<span class="math inline">\(\leadsto\)</span>「<strong>アジア的価値観</strong> (Asian value) 」
+<ul>
+<li>アジアでは個人の自由よりも家族や社会の発展、調和を優先</li>
+<li>既存の国際人権法は西洋的価値観の押し付け、内政干渉</li>
+</ul></li>
+<li>自由主義諸国はこうした考えは権威主義体制を正当化するに過ぎないと批判</li>
+</ul></li>
+<li>自由権を第1世代の人権、社会権を第2世代の人権とも呼ぶ</li>
+<li>第3世代の人権：<a href="https://www.unic.or.jp/activities/humanrights/promotion_protection/development/">発展の権利</a>、平和への権利など集団として人権</li>
+</ul>
+<p>人権は普遍的／国際人権法も普遍的あるいは中立的なものではない<span class="math inline">\(\leadsto\)</span>国際的な人権保障を巡る政治が存在</p>
+<section id="国家による人権侵害" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="国家による人権侵害"><span class="header-section-number">2.1</span> 国家による人権侵害</h3>
+<p>ベルギーのレオポルド2世：19世紀末から20世紀初頭にかけてのコンゴ自由国の苛烈な統治</p>
+<ul>
+<li>象牙や天然ゴムの生産のために先住民を強制的に労働・厳しい処罰</li>
+<li>レオポルド2世が邪悪な性格であったり、ベルギー本国でも独裁的であったわけではない。</li>
+</ul>
+<p>ミャンマーの民主派のアウンサンスーチーがリーダーになってもロヒンギャへの弾圧は継続</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Leopold_ii_garter_knight.jpg/400px-Leopold_ii_garter_knight.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">レオポルド2世</figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Remise_du_Prix_Sakharov_%C3%A0_Aung_San_Suu_Kyi_Strasbourg_22_octobre_2013-18.jpg/400px-Remise_du_Prix_Sakharov_%C3%A0_Aung_San_Suu_Kyi_Strasbourg_22_octobre_2013-18.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">アウンサン・スー・チー</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p><span class="math inline">\(\leadsto\)</span>人権侵害が起こる理由は政治家の性格だけでなく、国内政治にもある？</p>
+<ol type="1">
+<li>財政が乏しく社会保障を整備できない／軍隊や警察へのコントロールが不十分である<span class="citation" data-cites="cole2015">(<a href="#ref-cole2015" role="doc-biblioref">Cole 2015</a>)</span></li>
+<li>国家安全保障を理由（あるいは口実）とした人権の制約<span class="citation" data-cites="poe1994 krain1997">(<a href="#ref-poe1994" role="doc-biblioref">Poe と Tate 1994</a>; <a href="#ref-krain1997" role="doc-biblioref">Krain 1997</a>)</span>
+<ul>
+<li>政府に対する抗議を犯罪として取り締まり／適切な手続き (due process) なしの裁判</li>
+<li>敵対国の出身者（WW2における在米日系人）やテロリスト容疑者（ドローンによる標的殺害）を不当に拘束、殺害</li>
+<li>テロリズム予防のために市民のプライバシーを侵害（愛国者法）</li>
+</ul></li>
+<li>権威主義国や新興民主主義国<span class="citation" data-cites="davenport1995">(<a href="#ref-davenport1995" role="doc-biblioref">Davenport 1995</a>)</span>において政権の維持のために反政府勢力や他民族を弾圧
+<ul>
+<li>民主主義国：選挙を通じて平和的に政権交代ができる<span class="math inline">\(\leadsto\)</span>反政府活動は起こりにくい</li>
+<li>一党独裁や個人独裁の国：反政府活動を抑止できる<span class="math inline">\(\leadsto\)</span>人権侵害が起こりにくい</li>
+<li>多党独裁の国：政治的競争がある<span class="math inline">\(\leadsto\)</span>起こりやすい<span class="citation" data-cites="vreeland2008">(<a href="#ref-vreeland2008" role="doc-biblioref">Vreeland 2008</a>)</span></li>
+</ul></li>
+</ol>
+</section>
+<section id="人権条約への参加" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="人権条約への参加"><span class="header-section-number">2.2</span> 人権条約への参加</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/human_rights_treaty.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption"><a href="https://indicators.ohchr.org">主要人権条約の締結数</a></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>新興民主主義国：人権条約に批准<span class="math inline">\(\leadsto\)</span>人権侵害のコストを高める<span class="math inline">\(\leadsto\)</span>政治体制を維持<span class="citation" data-cites="moravcsik2000">(<a href="#ref-moravcsik2000" role="doc-biblioref">Moravcsik 2000</a>)</span></li>
+<li>成熟した民主主義国：既に人権保障を行っている<span class="math inline">\(\leadsto\)</span>わざわざ人権条約を批准しない</li>
+</ul>
+<p>民主主義国は民主化や人権保障を条件に他国に利益を供与</p>
+<ul>
+<li>北大西洋条約機構や欧州連合では民主主義や人権保障、自由経済などを加盟要件</li>
+<li>トルコやハンガリーのようにEUへの加盟を目指して、あるいは追放を恐れて人権保障に取り組むとは限らない。</li>
+</ul>
+</section>
+<section id="他国の人権問題" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="他国の人権問題"><span class="header-section-number">2.3</span> 他国の人権問題</h3>
+<p>なぜ<strong>他国の人権環境が改善しても直接の利益にはならないにもかかわらず</strong>、他国の人権保障に関心を持つのか？</p>
+<ol type="1">
+<li>道徳的理由
+<ul>
+<li>人々は弱者に対して共感、同情する社会的生き物</li>
+<li>他国の人権侵害を看過<span class="math inline">\(\leadsto\)</span>人権が侵害されてもよい状況や人々があることを認める<span class="math inline">\(\leadsto\)</span>自身への人権侵害を許容</li>
+<li>人権は普遍的なものであるという規範の内面化</li>
+</ul></li>
+<li>戦略的理由
+<ul>
+<li>他国が人権を保障<span class="math inline">\(\leadsto\)</span>（さらには民主化することにより）国際的な平和と経済繁栄が実現<span class="math inline">\(\leadsto\)</span>自国の国益</li>
+<li>周辺国の人権侵害<span class="math inline">\(\leadsto\)</span>内戦など<span class="math inline">\(\leadsto\)</span>近隣諸国に戦火の拡大や難民の流出で被害</li>
+<li>地域貿易協定に労働者の権利に関する条項<span class="math inline">\(\leadsto\)</span>途上国の労働環境を改善<span class="math inline">\(\leadsto\)</span>先進国の労働者の競争力を向上<span class="citation" data-cites="hafner2005">(<a href="#ref-hafner2005" role="doc-biblioref">Hafner-Burton 2005</a>)</span></li>
+</ul></li>
+<li>技術的理由
+<ul>
+<li>情報通信技術の発達、特にSNS<span class="math inline">\(\leadsto\)</span>人々は他国の人権問題に関心を持たざるを得ない</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="国際的な人権保障" class="level2 page-columns page-full" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="国際的な人権保障"><span class="header-section-number">3</span> 国際的な人権保障</h2>
+<p>一般的に国際制度に意味があるのかは見解が分かれている。</p>
+<ul>
+<li>アナーキーな国際社会では国家に制度の遵守を強制することはできない<span class="math inline">\(\leadsto\)</span>制度には国家の行動に影響する効果はない<span class="citation" data-cites="mearsheimer2017">(<a href="#ref-mearsheimer2017" role="doc-biblioref">Mearsheimer 2017</a>)</span></li>
+<li>ほとんどの国はほとんどの時期においてほとんどのルールに従っている<span class="citation" data-cites="henkin1979">(<a href="#ref-henkin1979" role="doc-biblioref">Henkin 1979</a>)</span>
+<ul>
+<li>国際制度に意味がないのであれば、わざわざ国家が時間や労力をかけて交渉する意味は＞</li>
+<li>制度に違反するのは遵守する能力が欠如していたり、制度が曖昧である<span class="math inline">\(\leadsto\)</span>不遵守<span class="citation" data-cites="chayes1993">(<a href="#ref-chayes1993" role="doc-biblioref">Chayes と Chayes 1993</a>)</span></li>
+<li>国際制度は国家が同意したものである<span class="math inline">\(\leadsto\)</span>遵守できるルールが制度として形になっているだけ<span class="citation" data-cites="downs1996">(<a href="#ref-downs1996" role="doc-biblioref">Downs, Rocke, と Barsoom 1996</a>)</span></li>
+</ul></li>
+</ul>
+<section id="人権条約の効果" class="level3 page-columns page-full" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="人権条約の効果"><span class="header-section-number">3.1</span> 人権条約の効果</h3>
+<p>人権条約の効果を検証する上での問題1：人権侵害の発見</p>
+<ul>
+<li>一般的に、人権侵害は外部から確認しにくい</li>
+<li><a href="https://www.amnesty.or.jp/">Amnesty International</a>や<a href="https://jp.usembassy.gov/ja/category/reports-ja/">アメリカ国務省</a>のレポートに依拠<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+</ul>
+<div class="no-row-height column-margin column-container"><li id="fn2"><p><sup>2</sup>&nbsp;<a href="http://www.humanrightsdata.com/">CIRI Human Rights Data Project</a></p></li></div><p>これらの情報が網羅的かつ正しいとししても、人権侵害の基準が時代と共に変化するかも？</p>
+<ul>
+<li>人権規範が浸透する<span class="math inline">\(\leadsto\)</span>人権侵害とみなされていなかった行為がそうであるとみなされる</li>
+<li>技術革新・リソースの向上<span class="math inline">\(\leadsto\)</span>多くの人権侵害の「発見」</li>
+<li>時間変化を考慮して分析すると、（拷問の禁止に関する）人権保障の程度は改善<span class="citation" data-cites="fariss2014">(<a href="#ref-fariss2014" role="doc-biblioref">Fariss 2014</a>)</span></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/fariss.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><span class="citation" data-cites="fariss2014">Fariss (<a href="#ref-fariss2014" role="doc-biblioref">2014</a>)</span></figcaption><p></p>
+</figure>
+</div>
+<p>人権条約の効果を検証する上での問題2：自己選択</p>
+<ul>
+<li>人権保障に熱心な国家が人権条約に批准？<span class="math inline">\(\leadsto\)</span>見かけの相関</li>
+<li>例：民主主義国や経済的に豊かな国</li>
+</ul>
+<p>第3の要因を考慮して分析すると人権条約は効果がないか、負の効果があるという研究<span class="citation" data-cites="keith1999 hathaway2001 hill2010">(<a href="#ref-keith1999" role="doc-biblioref">Keith 1999</a>; <a href="#ref-hathaway2001" role="doc-biblioref">Hathaway 2001</a>; <a href="#ref-hill2010" role="doc-biblioref">Hill Jr 2010</a>)</span></p>
+<ul>
+<li>人権条約に強制力はなし／人権を保障させるために圧力を欠ける国は少ない</li>
+<li>人権条約への批准は人権を保障するという評判を得るため</li>
+<li>多党独裁の国：反体制派の影響力が高い<span class="math inline">\(\leadsto\)</span>人権条約に批准する／弾圧のために人権を侵害</li>
+</ul>
+<p>一方で、人権条約の効果は特定の条件において生じるという見方<span class="citation" data-cites="neumayer2005 murdie2012 conrad2013 lupu2013">(<a href="#ref-neumayer2005" role="doc-biblioref">Neumayer 2005</a>; <a href="#ref-murdie2012" role="doc-biblioref">Murdie と Davis 2012</a>; <a href="#ref-conrad2013" role="doc-biblioref">Conrad と Ritter 2013</a>; <a href="#ref-lupu2013" role="doc-biblioref">Lupu 2013</a>)</span></p>
+<p>人権条約の短期的効果は小さいが、長期的な効果があるという見解<span class="citation" data-cites="hafner2007">(<a href="#ref-hafner2007" role="doc-biblioref">Hafner-Burton と Tsutsui 2007</a>)</span></p>
+<ul>
+<li>人権問題を国際問題として扱う土壌
+<ul>
+<li>人権条約がなければ人権NGOは人権侵害の評価もできない。</li>
+<li>国家は<strong>評判</strong> (reputation) を気にする<span class="math inline">\(\leadsto\)</span>NGOをはじめとする*越境的アドボカシー・ネットワーク<strong> (transnational advocacy network) による</strong>名指しと非難** (naming and shaming) に効果がある？<span class="citation" data-cites="hafner2008">(<a href="#ref-hafner2008" role="doc-biblioref">Hafner-Burton 2008</a>)</span>
+<ul>
+<li><a href="https://freedomhouse.org/">Freedom House</a>や<a href="https://www.hrw.org/ja">Human Rights Watch</a>も代表的な人権NGO</li>
+<li><strong>ブーメラン・モデル</strong>：外国の政府やNGO、国際機構を通じて自国の政府に圧力をかける<span class="citation" data-cites="keck1999">(<a href="#ref-keck1999" role="doc-biblioref">Keck と Sikkink 1999</a>)</span></li>
+</ul></li>
+<li>1975年の<a href="https://www.mofa.go.jp/mofaj/area/osce/gaiyo.html">欧州安全保障協力会議</a> (Conference on Security and Cooperation in Europe: CSCE)のヘルシンキ宣言：東西で領土保全、経済交流、人権保障に合意<span class="math inline">\(\leadsto\)</span>共産主義国内における人権活動の活発化</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/boomerang_model.drawio.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">ブーメラン・モデルのイメージ</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="人権制裁" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="人権制裁"><span class="header-section-number">3.2</span> 人権制裁</h3>
+<p>外部からの圧力、制裁<span class="math inline">\(\leadsto\)</span>人権条約を遵守</p>
+<ul>
+<li>経済制裁をする国が被る費用＜他国の人権状況の改善という利益？</li>
+</ul>
+<p>いくつかの条件の下で、国家は人権制裁を行うと考えられる。</p>
+<ol type="1">
+<li>国内から他国の人権状況の改善のために行動するよう政治的圧力
+<ul>
+<li>越境的アボドカシー・ネットワークは市民に外国の人権問題を注意喚起</li>
+</ul></li>
+<li>敵対国で人権侵害</li>
+<li>内政不干渉原則を越えるような価値と結合
+<ul>
+<li>民族浄化や人種差別は人権問題を越えて民族自決権や反植民地主義といった価値の問題？</li>
+</ul></li>
+</ol>
+<p>共同で人権制裁＝囚人のジレンマ</p>
+<ul>
+<li>協力して制裁をすれば改善する／他国の制裁にタダ乗り</li>
+</ul>
+<p>南アフリカの<a href="https://www.unic.or.jp/activities/humanrights/discrimination/apartheid/"><strong>アパルトヘイト撤廃</strong></a>は経済制裁による人権問題の解決の数少ない例</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.mofa.go.jp/mofaj/press/pr/wakaru/topics/vol49/img/49_apartheid.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://www.mofa.go.jp/mofaj/press/pr/wakaru/topics/vol49/index.html">アパルトヘイト関連法</a></figcaption><p></p>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.mofa.go.jp/mofaj/press/pr/wakaru/topics/vol49/img/49_nenpyou.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://www.mofa.go.jp/mofaj/press/pr/wakaru/topics/vol49/index.html">アパルトヘイト撤廃の流れ</a></figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>制裁<span class="math inline">\(\leadsto\)</span>無辜の市民に被害？</p>
+<ul>
+<li>政治的エリートのみを標的とする<strong>スマート制裁</strong></li>
+<li>十分な効果を上げられるのか、本当にエリートのみに制裁を加えられるのか？</li>
+</ul>
+</section>
+<section id="国際的審査" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="国際的審査"><span class="header-section-number">3.3</span> 国際的審査</h3>
+<section id="人権理事会" class="level4" data-number="3.3.1">
+<h4 data-number="3.3.1" class="anchored" data-anchor-id="人権理事会"><span class="header-section-number">3.3.1</span> 人権理事会</h4>
+<p>国際連合の<a href="https://www.mofa.go.jp/mofaj/gaiko/jinken_r/index.html"><strong>人権理事会</strong></a> (Human Rights Council) や国連人権高等弁務官事務所 (Office of the High Commissioner for Human Rights: OHCHR) ：加盟国の人権状況を包括的に監視、審査</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/UN_Geneva_Human_Rights_and_Alliance_of_Civilizations_Room.jpg/800px-UN_Geneva_Human_Rights_and_Alliance_of_Civilizations_Room.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://commons.wikimedia.org/wiki/File:UN_Geneva_Human_Rights_and_Alliance_of_Civilizations_Room.jpg">国連人権理事会</a></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>人権理事会は2006年に国連人権委員会から改組</li>
+<li><a href="https://www.mofa.go.jp/mofaj/gaiko/jinken_r/upr_gai.html"><strong>普遍的定期審査</strong></a> (Universal Periodic Review: UPR)：加盟国の人権状況を審査する中心的活動</li>
+<li>他にも国別あるいはテーマ別の特別手続きや個人による不服申立手続きなど</li>
+<li>専門家からなる人権理事会諮問委員会から助言</li>
+</ul>
+<p>人権侵害を行っているとされている国も理事国になるなどの問題も</p>
+</section>
+<section id="人権条約の委員会" class="level4" data-number="3.3.2">
+<h4 data-number="3.3.2" class="anchored" data-anchor-id="人権条約の委員会"><span class="header-section-number">3.3.2</span> 人権条約の委員会</h4>
+<p>人権条約ごとにも委員会が設置され、締約国の履行を確認</p>
+<ul>
+<li>自由権規約や社会権規約では、専門家からなる自由権(社会権)規約委員会に国家が履行状況を定期的に報告し、委員会が審査</li>
+</ul>
+<p>最も洗礼された人権の国際的な保障手続きとして<strong>個人請願</strong> (individual petition)</p>
+<ul>
+<li>1950年に欧州評議会加盟国が欧州人権条約に批准
+<ul>
+<li>人権侵害を受けている加盟国の市民が欧州人権裁判所で訴訟</li>
+</ul></li>
+<li>自由権規約第1選択議定書や社会権規約選択議定書の締約国国民は<strong>個人通報制度</strong> (individual complaints mechanism) を利用可</li>
+</ul>
+</section>
+<section id="企業による人権保障" class="level4" data-number="3.3.3">
+<h4 data-number="3.3.3" class="anchored" data-anchor-id="企業による人権保障"><span class="header-section-number">3.3.3</span> 企業による人権保障</h4>
+<p>多くの場合、人権侵害を行うのは国家であるが、近年は企業による人権侵害にも関心</p>
+<ul>
+<li>2011年に人権理事会は<a href="https://www.mofa.go.jp/mofaj/gaiko/bhr/index.html">ビジネスと人権に関する指導原則</a>を採択<span class="math inline">\(\leadsto\)</span>企業にも人権尊重を求める
+<ul>
+<li>一部の国ではこれに従って<a href="https://www.ohchr.org/en/special-procedures/wg-business/national-action-plans-business-and-human-rights">行動計画</a>を策定</li>
+</ul></li>
+<li><a href="https://www.unglobalcompact.org/">国連グローバル・コンパクト</a>：人権、労働、環境、腐敗防止に関する10の原則を掲げ、企業は自発的に参加し、進捗の報告</li>
+<li><a href="https://www.unpri.org/">国連責任投資原則</a>：6つのESG投資に関する原則を掲げ、投資家に遵守を呼びかけ</li>
+<li><a href="https://www.globalreporting.org/">グローバル・レポーティング・イニシアティブ</a>：経済、環境、社会に与える影響の報告基準を策定</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>政治的パワーがなくても国際規範を作り、企業に遵守させることは可能？</p>
+</section>
+</section>
+</section>
+<section id="日本の人権状況" class="level2 page-columns page-full" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="日本の人権状況"><span class="header-section-number">4</span> 日本の人権状況</h2>
+<p><a href="https://elaws.e-gov.go.jp/document?lawid=321CONSTITUTION">日本国憲法</a>：第11条に基本的人権の保障が明記、第3章に具体的な権利が列挙</p>
+<ul>
+<li>国際的に見ると、制定当初は人権規定が豊富／一度も改正されず、現在ではやや少ない<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
+</ul>
+<div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;ケネス・盛・マッケルウェイン<a href="https://www.nippon.com/ja/in-depth/a05602/">「日本国憲法：その特異な歩みと構造」</a></p></li></div><div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://www.nippon.com/ja/ncommon/contents/in-depth/26941/26941.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">日本国憲法の特徴</figcaption><p></p>
+</figure>
+</div>
+<p>日本は<a href="https://www.hurights.or.jp/archives/treaty/un-treaty-list.html">全ての人権条約に批准しているわけではない</a></p>
+<ul>
+<li>例：ジェノサイド条約／個人通報制度を定める自由権規約および社会権規約の<a href="https://www.nichibenren.or.jp/activity/international/library/human_rights/liberty_protocols_no1.html">第一選択議定書</a>／死刑撤廃を定める自由権規約第二選択議定書など</li>
+</ul>
+<p><a href="https://www.mofa.go.jp/mofaj/gaiko/bhr/index.html">ビジネスと人権に関する行動計画</a>は策定</p>
+<p><a href="https://freedomhouse.org/country/japan/freedom-world/2023">Freedom House</a>によると日本は自由が保障（96/100点、2023年現在）</p>
+<ul>
+<li>UPRにおける<a href="https://www.nichibenren.or.jp/activity/international/library/upr.html">報告書</a>や<a href="https://www.mofa.go.jp/mofaj/gaiko/jinken_r/upr_gai.html">審査結果</a>や</li>
+<li>個別条約における<a href="https://www.nichibenren.or.jp/activity/international/library/human_rights.html">報告書審査</a>などで日本の人権問題が指摘</li>
+</ul>
+<p><a href="https://www.hrw.org/ja/asia/japan">Human Rights Watch</a>などの人権NGOは独自にも人権問題を指摘</p>
+<ul>
+<li>国境なき記者団の<a href="https://rsf.org/en/ranking">報道の自由ランキング</a></li>
+</ul>
+<!-- ::: {.content-visible when-format="html"} -->
+<!-- <iframe src="https://ourworldindata.org/grapher/press-freedom-index-rsf" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe> -->
+<!-- ::: -->
+<!-- ::: {.content-visible when-format="pdf"} -->
+<p><img src="figures/press-freedom-index-rsf.png" class="img-fluid" style="width:80.0%" alt="報道の自由度（2021年）"> <!-- ::: --></p>
+<ul>
+<li>世界経済フォーラムの<a href="https://jp.weforum.org/reports/global-gender-gap-report-2023">ジェンダーギャップ指数</a></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/gender_gap_index.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">ジェンダーギャップ指数（2023年）</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>UNDPの<a href="https://hdr.undp.org/data-center/thematic-composite-indices/gender-inequality-index#/indicies/GII">ジェンダー不平等指数</a></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figures/gender-inequality-index-from-the-human-development-report.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">ジェンダー不平等指数（2021年）</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>OECDの<a href="https://www.genderindex.org/">Social Institutions and Gender Index</a></li>
+</ul>
+<p><strong>アメリカ国務省</strong> (Department of State) は各国の人権状況の<a href="https://jp.usembassy.gov/ja/category/reports-ja/">報告書</a>を作成</p>
+</section>
+<section id="戦争と人権" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="戦争と人権"><span class="header-section-number">5</span> 戦争と人権</h2>
+<section id="平和維持活動の拡大" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="平和維持活動の拡大"><span class="header-section-number">5.1</span> 平和維持活動の拡大</h3>
+<p>冷戦期に米ソの拒否権によって国連が機能不全<span class="math inline">\(\leadsto\)</span><strong>平和維持活動</strong> (peacekeeping operation)</p>
+<ul>
+<li>PKO：終結した紛争の停戦や撤退などを監視して、平和が維持するように務める活動</li>
+</ul>
+<ol type="1">
+<li>PKOの受け入れや要因の提供は自発的に行う。</li>
+<li>当事者に対して中立・不偏であり、内政に干渉しない。<br>
+</li>
+<li>武力行使は自衛のために必要最小限に留める。</li>
+</ol>
+<ul>
+<li>戦争を集結させることを目的に介入を行う（第7章下の）強制措置とは異なる。</li>
+</ul>
+<p>冷戦終結<span class="math inline">\(\leadsto\)</span>国連への期待の高まり<span class="math inline">\(\leadsto\)</span>PKOの数も増加</p>
+<ul>
+<li>1992年の「<a href="https://www.unic.or.jp/files/peace.pdf"><strong>平和への課題</strong></a>」：ブトロス＝ガリ事務総長は国連の平和機能として予防外交、平和創造、平和維持、平和構築を示す。</li>
+</ul>
+<section id="平和構築" class="level4" data-number="5.1.1">
+<h4 data-number="5.1.1" class="anchored" data-anchor-id="平和構築"><span class="header-section-number">5.1.1</span> 平和構築</h4>
+<p><a href="https://www.mofa.go.jp/mofaj/gaiko/peace_b/index.html"><strong>平和構築</strong></a> (peacebuilding) ：紛争が再発しないような社会を形成していく活動</p>
+<ul>
+<li>武装解除・動員解除・社会復帰 (Disarmament, Demobilization, Reintegration: DDR) 、難民の帰還、文民警察の改革、選挙の実施・監視、統治機構の支援など</li>
+</ul>
+<p>軍隊による停戦監視を越えて、警察や文民も含めて包括的に平和活動を行うように（<strong>第2世代PKO</strong>、<strong>複合型PKO</strong>）</p>
+<ul>
+<li>2000年の「<a href="https://www.unic.or.jp/files/a_55_305.pdf"><strong>ブラヒミ報告</strong></a>」：国連の平和活動の中核として位置づけ</li>
+</ul>
+<p>国連が暫定的に統治を行うことも</p>
+<ul>
+<li><a href="https://www.unic.or.jp/activities/peace_security/action_for_peace/asia_pacific/cambodia/">カンボジア</a>
+<ul>
+<li>日本は<a href="http://www.moj.go.jp/housouken/houso_houkoku_cambo.html">カンボジア民法の起草支援</a>など協力</li>
+</ul></li>
+<li><a href="https://www.unic.or.jp/activities/peace_security/independence/declaration/east_timor/">東ティモール</a></li>
+<li><a href="https://www.unic.or.jp/activities/peace_security/action_for_peace/europe/kosovo/">コソボ</a>など</li>
+</ul>
+</section>
+<section id="国際選挙監視" class="level4" data-number="5.1.2">
+<h4 data-number="5.1.2" class="anchored" data-anchor-id="国際選挙監視"><span class="header-section-number">5.1.2</span> 国際選挙監視</h4>
+<p>選挙の国際的な監視の受け入れは拡大</p>
+<div class="cell" data-hash="human_rights_cache/html/unnamed-chunk-4_3647e1f380f2a6821386a0d72382d69e">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="human_rights_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">国際選挙監視と選挙不正</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>自由で公正な選挙が規範として受け入れられ<span class="math inline">\(\leadsto\)</span>監視する必要</li>
+<li>名指しと非難<span class="math inline">\(\leadsto\)</span>選挙監視を受け入れること自体も規範となりつつ<span class="citation" data-cites="hyde2011">(<a href="#ref-hyde2011" role="doc-biblioref">Hyde 2011</a>)</span></li>
+</ul>
+<p>選挙監視によって選挙不正が減少しているかは不明</p>
+<ul>
+<li>選挙権威主義国：監視の受け入れれ（不正が発覚しなければ）<span class="math inline">\(\leadsto\)</span>民主主義の評判や援助を獲得</li>
+<li>監視されても不正が発覚しない（あるいは発覚しても問題はない）<span class="math inline">\(\leadsto\)</span>監視を受け入れている可能性。</li>
+</ul>
+</section>
+<section id="平和創造執行" class="level4" data-number="5.1.3">
+<h4 data-number="5.1.3" class="anchored" data-anchor-id="平和創造執行"><span class="header-section-number">5.1.3</span> 平和創造（執行）</h4>
+<p>平和的手段による解決が不可<span class="math inline">\(\leadsto\)</span>平和創造 (peace enforcement) 部隊による介入も主張（<strong>第3世代PKO</strong>）</p>
+<ul>
+<li>ユーゴスラビア内戦やソマリア内戦：第7章下の武力行使が認められたPKO</li>
+<li>兵力や装備が不十分、PKO部隊からも死者<span class="math inline">\(\leadsto\)</span>挫折</li>
+</ul>
+<p>1995年の「平和への課題：追補」：平和維持や平和構築が強調され、国連独自の平和執行機能は現状では非現実であると認める。</p>
+</section>
+</section>
+<section id="人道的介入" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="人道的介入"><span class="header-section-number">5.2</span> 人道的介入</h3>
+<p><strong>人道的介入</strong> (humanitarian intervention)：著しい人権侵害や人道危機を阻止するために当事国の<strong>同意なく</strong>武力を行使すること</p>
+<ul>
+<li>多くの場合、政府が特定の集団を迫害しているときに介入すべきだと問題に</li>
+</ul>
+<p>人道危機を放置するわけにはいかない／国家主権を侵害、内政不干渉原則や武力行使禁止原則に違反</p>
+<ul>
+<li>しばしば、自国民や少数民族の保護は武力行使の口実に</li>
+</ul>
+<section id="ユーゴ内戦" class="level4" data-number="5.2.1">
+<h4 data-number="5.2.1" class="anchored" data-anchor-id="ユーゴ内戦"><span class="header-section-number">5.2.1</span> ユーゴ内戦</h4>
+<p>旧ユーゴスラビア連邦は多民族国家、指導者ティトーの死亡と冷戦終結<span class="math inline">\(\leadsto\)</span><strong>国民国家</strong> (nation state) に分裂</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Yugoslavia_ethnic_map.jpg/574px-Yugoslavia_ethnic_map.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://commons.wikimedia.org/wiki/File:Yugoslavia_ethnic_map.jpg">1991年のユーゴスラビア連邦における民族分布</a></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><strong>民族自決</strong> (self-determination)：民族が国家を形成する権利</li>
+</ul>
+<p>冷戦の終結<span class="math inline">\(\leadsto\)</span>社会主義国家も民主化を行う／民族対立を助長</p>
+<ul>
+<li>最大民族であるセルビア人に支配されることを他民族は恐れる。</li>
+<li>独立することでセルビア人が他国で少数民族になることをセルビアは恐れる。</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>ユーゴから独立を求める各国とセルビアとの間で内戦</p>
+<p>セルビア人によるジェノサイドを<strong>民族浄化</strong> (ethnic cleansing) と呼ぶ<span class="math inline">\(\leadsto\)</span>国際社会からの支持</p>
+<ul>
+<li>セルビア人だけが民族浄化していたわけではない。</li>
+</ul>
+<p>国連は平和執行部隊を投入するが兵力や情報が足りない<span class="math inline">\(\leadsto\)</span>人道危機を止めることができず</p>
+<ul>
+<li>特に、スレブレニッツァの悲劇では国連軍の目の前で虐殺<span class="math inline">\(\leadsto\)</span>国連の限界を知らしめた。</li>
+</ul>
+<p>スロベニア、クロアチア、ボスニア＝ヘルツェゴヴィナは独立する<span class="math inline">\(\leadsto\)</span>コソボもセルビアからの独立を求めて内戦が再発</p>
+<ul>
+<li>セルビアによるコソボのアルバニア人が虐殺が起こっているとしてNATOが（安保理決議なしに）空爆</li>
+</ul>
+<p>国家主権／民族自決権／人権のトリレンマ？</p>
+</section>
+<section id="保護する責任" class="level4" data-number="5.2.2">
+<h4 data-number="5.2.2" class="anchored" data-anchor-id="保護する責任"><span class="header-section-number">5.2.2</span> 保護する責任</h4>
+<p><a href="https://ir.library.osaka-u.ac.jp/repo/ouka/all/67203/"><strong>保護する責任</strong></a> (responsibility to protect: R2P)：国家は自国民を保護する責任を持っているが、その責任を果たせ（さ）ない場合、国際社会が代わりに保護</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<a href="https://www.mofa.go.jp/mofaj/gaiko/unsokai/pdfs/050916_seika.pdf">世界サミット成果文書</a>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol start="138" type="1">
+<li><strong>各々の国家</strong>は、大量殺戮、戦争犯罪、民族浄化及び人道に対する犯罪からその国の人々を<strong>保護する責任</strong>を負う。この責任は、適切かつ必要な手段を通じ、扇動を含むこのような犯罪を予防することを伴う。我々は、この責任を受け入れ、それに則って行動する。国際社会は、適切な場合に、国家がその責任を果たすことを奨励し助けるべきであり、国連が早期警戒能力を確立することを支援すべきである。</li>
+<li><strong>国際社会もまた</strong>、国連を通じ、大量殺戮、戦争犯罪、民族浄化及び人道に対する犯罪から<strong>人々を保護することを助ける</strong>ために、憲章第６章及び８章にしたがって、適切な外交的、人道的及びその他の平和的手段を用いる<strong>責任を負う</strong>。この文脈で、我々は、仮に平和的手段が不十分であり、<strong>国家当局が</strong>大量殺戮、戦争犯罪、民族浄化及び人道に対する犯罪から<strong>自国民を保護することに明らかに失敗している</strong>場合は、適切な時期に断固とした方法で、<strong>安全保障理事会を通じ、第７章を含む国連憲章に則り</strong>、個々の状況に応じ、かつ適切であれば関係する地域機関とも協力しつつ、<strong>集団的行動をとる用意がある</strong>。我々は、総会が、大量殺戮、戦争犯罪、民族浄化及び人道に対する犯罪から人々を保護する責任及びその影響について、国連憲章及び国際法の諸原則に留意しつつ、検討を継続する必要性を強調する。我々はまた、必要に応じかつ適切に、大量殺戮、戦争犯罪、民族浄化及び人道に対する犯罪から人々を保護する国家の能力を構築することを助け、また、危機や紛争が勃発する緊張に晒されている国家を支援することにコミットする考えである。</li>
+</ol>
+</div>
+</div>
+<ul>
+<li>恣意的な介入を排除する仕組みを構築？</li>
+<li>主権を重んじる国家から批判</li>
+<li>自衛権の行使や第7章の強制行動で正当化せざるを得ない。</li>
+</ul>
+</section>
+</section>
+<section id="国際人道法" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="国際人道法"><span class="header-section-number">5.3</span> 国際人道法</h3>
+<p>武力行使の合法性を定める国際法 (jus ad bellum)／武力行使の形態を規律する国際法 (jus in bello)</p>
+<ul>
+<li>戦争法、戦時国際法、武力紛争法、<strong>国際人道法</strong>などと呼ばれる。</li>
+<li>戦闘の手段や方法、犠牲者の保護などが定められている。</li>
+</ul>
+<section id="国際刑事法廷" class="level4" data-number="5.3.1">
+<h4 data-number="5.3.1" class="anchored" data-anchor-id="国際刑事法廷"><span class="header-section-number">5.3.1</span> 国際刑事法廷</h4>
+<p>戦争犯罪の中でも深刻なものを戦争裁判で処罰することがある。</p>
+<ul>
+<li>第2次世界大戦後の極東国際軍事裁判やニュルベルグ裁判がその先駆け</li>
+<li>ユーゴ内戦やルワンダ内戦後にも安保理が刑事法廷を設置</li>
+</ul>
+<p>2003年には<a href="https://www.mofa.go.jp/mofaj/gaiko/icc/index.html"><strong>国際刑事裁判所</strong></a> (International Criminal Court: ICC) が設立</p>
+<ul>
+<li>国際法によって個人の行動を規制し、処罰することができる点で珍しい</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<a href="https://www1.doshisha.ac.jp/~karai/intlaw/docs/icc.htm">ICCローマ規程</a>　第5条1項
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>裁判所の管轄権は、国際社会全体の関心事である最も重大な犯罪に限定する。裁判所は、この規程に基づき次の犯罪について管轄権を有する。</p>
+<ol type="a">
+<li>集団殺害犯罪</li>
+<li>人道に対する犯罪</li>
+<li>戦争犯罪</li>
+<li>侵略犯罪</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<a href="https://www1.doshisha.ac.jp/~karai/intlaw/docs/icc.htm">ICCローマ規程</a>　第12条
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>この規程の締約国となる国は、第5条に規定する犯罪についての裁判所の管轄権を受諾する。</li>
+<li>裁判所は、（略）次の(a)又は(b)に掲げる国の1又は2以上がこの規程の締約国であるとき（略）は、その管轄権を行使することができる。</li>
+</ol>
+<ol type="a">
+<li>領域内において問題となる<strong>行為が発生した国</strong>（略）</li>
+<li>犯罪の被疑者の<strong>国籍国</strong></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<a href="https://www1.doshisha.ac.jp/~karai/intlaw/docs/icc.htm">ICCローマ規程</a>　第13条
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>裁判所は、次の場合において、この規程に基づき、第五条に規定する犯罪について管轄権を行使することができる。</p>
+<ol type="a">
+<li>締約国が（略）事態を検察官に付託する場合</li>
+<li>国際連合憲章第7章の規定に基づいて行動する安全保障理事会が（略）事態を検察官に付託する場合</li>
+<li>検察官が（略）捜査に着手した場合</li>
+</ol>
+</div>
+</div>
+<ul>
+<li>関係国が訴追する意思と能力を有する場合はICCは事件を受理せず</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<a href="https://www1.doshisha.ac.jp/~karai/intlaw/docs/icc.htm">ICCローマ規程</a>　第59条1項
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>仮逮捕又は逮捕及び引渡しの請求を受けた締約国は、その国内法及び第九部の規定に従い、被疑者を逮捕するための措置を直ちにとる。</p>
+</div>
+</div>
+<p>ICCにより訴追されるリスクの大きい国は参加せず</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/ICC_member_states.svg/800px-ICC_member_states.svg.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><a href="https://commons.wikimedia.org/wiki/File:ICC_member_states.svg">ICC加盟国</a></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>アメリカ：政治的な理由による訴追が行われる可能性、ICCに対するコントロールの不在を理由に批判
+<ul>
+<li>第98条に基づき、アメリカ人の引き渡し免除を様々な国に要求</li>
+</ul></li>
+<li>アフリカの事件が中心であると批判</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<a href="https://www1.doshisha.ac.jp/~karai/intlaw/docs/icc.htm">ICCローマ規程</a>　第98条2項
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>裁判所は、被請求国に対して派遣国の国民の裁判所への引渡しに当該派遣国の同意を必要とするという国際約束に基づく義務に違反する行動を求めることとなり得る引渡しの請求を行うことができない。ただし、裁判所が引渡しへの同意について当該派遣国の協力をあらかじめ得ることができる場合は、この限りでない。</p>
+</div>
+</div>
+<p><a href="https://www.mofa.go.jp/mofaj/files/000162093.pdf">事件が進行中</a>であるが多いとは言えない。</p>
+<ul>
+<li>限定的ながらも国際人道法違反を抑止している<span class="citation" data-cites="jo2016 chaudoin2016">(<a href="#ref-jo2016" role="doc-biblioref">Jo と Simmons 2016</a>; <a href="#ref-chaudoin2016" role="doc-biblioref">Chaudoin 2016</a>)</span></li>
+<li>ただし、訴追のリスクを恐れて武力紛争が長引く傾向に<span class="citation" data-cites="prorok2017">(<a href="#ref-prorok2017" role="doc-biblioref">Prorok 2017</a>)</span></li>
+</ul>
+</section>
+<section id="移行期正義" class="level4" data-number="5.3.2">
+<h4 data-number="5.3.2" class="anchored" data-anchor-id="移行期正義"><span class="header-section-number">5.3.2</span> 移行期正義</h4>
+<p><strong>移行期正義</strong> (transitional justice)：内戦が終結して平和が構築される中で紛争中の犯罪に対処すること</p>
+<ul>
+<li>しばしば、裁判による戦争犯罪者の訴追よりも、紛争後社会の和解 (reconciliation) を重視</li>
+</ul>
+<p><strong>真実和解委員会</strong>による人権侵害の解明と記録、人権侵害の被害者へのケア、文民統制の強化や前体制関係者の公職追放など</p>
+<ul>
+<li>刑事訴追が私怨を含む敵対的なものに<span class="math inline">\(\leadsto\)</span>公正な裁判を行うのが困難</li>
+<li>刑事訴追のおそれに<span class="math inline">\(\leadsto\)</span>政治家が政権の明け渡しを拒否する、情報を破棄する可能性</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>政府高官を真実解明と社会の安定のために恩赦 (amnesty) するべき？</p>
+</section>
+</section>
+<section id="安保理の機能拡大" class="level3" data-number="5.4">
+<h3 data-number="5.4" class="anchored" data-anchor-id="安保理の機能拡大"><span class="header-section-number">5.4</span> 安保理の機能拡大</h3>
+<p>戦後の平和に対する脅威＝国連設立当初に想定していたような「国家間戦争」だけではない</p>
+<ul>
+<li>内戦やテロリズムへの対処、人権侵害の防止、安定した社会の構築などにも関与</li>
+<li>感染症（エボラ出血熱）や気候変動、難民なども「平和に対する脅威」として認識されつつあり
+<ul>
+<li><strong>安全保障化</strong> (securitization)：従来、安全保障上の脅威とされていなかった事象が脅威として認識される現象</li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>安保理の取る手段も多様化</p>
+<ul>
+<li>暫定的な行政機構や刑事法廷を設置</li>
+<li>テロリズムの予防に関して国際立法のような実践（<a href="https://www.unic.or.jp/news_press/features_backgrounders/1271/">安保理決議1373</a>や<a href="https://www.jaea.go.jp/04/iscn/archive/pocketbook/pocketbook07-04.pdf">1540</a>など）</li>
+</ul>
+<p><span class="math inline">\(\leadsto\)</span>安保理の機能の拡大の是非</p>
 
 
 
-</main> <!-- /main -->
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">参考文献</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-chaudoin2016" class="csl-entry" role="listitem">
+Chaudoin, Stephen. 2016. <span>「How contestation moderates the effects of international institutions: The International Criminal Court and Kenya」</span>. <em>The Journal of Politics</em> 78 (2): 557–71.
+</div>
+<div id="ref-chayes1993" class="csl-entry" role="listitem">
+Chayes, Abram, と Antonia Handler Chayes. 1993. <span>「On compliance」</span>. <em>International organization</em> 47 (2): 175–205.
+</div>
+<div id="ref-cole2015" class="csl-entry" role="listitem">
+Cole, Wade M. 2015. <span>「Mind the gap: State capacity and the implementation of human rights treaties」</span>. <em>International Organization</em> 69 (2): 405–41.
+</div>
+<div id="ref-conrad2013" class="csl-entry" role="listitem">
+Conrad, Courtenay R, と Emily Hencken Ritter. 2013. <span>「Treaties, tenure, and torture: The conflicting domestic effects of international law」</span>. <em>The Journal of Politics</em> 75 (2): 397–409.
+</div>
+<div id="ref-davenport1995" class="csl-entry" role="listitem">
+Davenport, Christian. 1995. <span>「Multi-dimensional threat perception and state repression: An inquiry into why states apply negative sanctions」</span>. <em>American Journal of Political Science</em>, 683–713.
+</div>
+<div id="ref-downs1996" class="csl-entry" role="listitem">
+Downs, George W, David M Rocke, と Peter N Barsoom. 1996. <span>「Is the good news about compliance good news about cooperation?」</span> <em>International organization</em> 50 (3): 379–406.
+</div>
+<div id="ref-fariss2014" class="csl-entry" role="listitem">
+Fariss, Christopher J. 2014. <span>「Respect for human rights has improved over time: Modeling the changing standard of accountability」</span>. <em>American Political Science Review</em> 108 (2): 297–318.
+</div>
+<div id="ref-hafner2005" class="csl-entry" role="listitem">
+Hafner-Burton, Emilie M. 2005. <span>「Trading human rights: How preferential trade agreements influence government repression」</span>. <em>International Organization</em> 59 (3): 593–629.
+</div>
+<div id="ref-hafner2008" class="csl-entry" role="listitem">
+———. 2008. <span>「Sticks and stones: Naming and shaming the human rights enforcement problem」</span>. <em>International organization</em> 62 (4): 689–716.
+</div>
+<div id="ref-hafner2007" class="csl-entry" role="listitem">
+Hafner-Burton, Emilie M, と Kiyoteru Tsutsui. 2007. <span>「Justice lost! The failure of international human rights law to matter where needed most」</span>. <em>Journal of Peace Research</em> 44 (4): 407–25.
+</div>
+<div id="ref-hathaway2001" class="csl-entry" role="listitem">
+Hathaway, Oona A. 2001. <span>「Do human rights treaties make a difference」</span>. <em>Yale lj</em> 111: 1935.
+</div>
+<div id="ref-henkin1979" class="csl-entry" role="listitem">
+Henkin, Louis. 1979. <em>How nations behave: law and foreign policy</em>. Columbia University Press.
+</div>
+<div id="ref-hill2010" class="csl-entry" role="listitem">
+Hill Jr, Daniel W. 2010. <span>「Estimating the effects of human rights treaties on state behavior」</span>. <em>The Journal of Politics</em> 72 (4): 1161–74.
+</div>
+<div id="ref-hyde2011" class="csl-entry" role="listitem">
+Hyde, Susan D. 2011. <span>「Catch us if you can: Election monitoring and international norm diffusion」</span>. <em>American Journal of Political Science</em> 55 (2): 356–69.
+</div>
+<div id="ref-jo2016" class="csl-entry" role="listitem">
+Jo, Hyeran, と Beth A Simmons. 2016. <span>「Can the international criminal court deter atrocity?」</span> <em>International Organization</em> 70 (3): 443–75.
+</div>
+<div id="ref-keck1999" class="csl-entry" role="listitem">
+Keck, Margaret E, と Kathryn Sikkink. 1999. <span>「Transnational advocacy networks in international and regional politics」</span>. <em>International social science journal</em> 51 (159): 89–101.
+</div>
+<div id="ref-keith1999" class="csl-entry" role="listitem">
+Keith, Linda Camp. 1999. <span>「The United Nations International Covenant on Civil and Political Rights: Does it make a difference in human rights behavior?」</span> <em>Journal of Peace Research</em> 36 (1): 95–118.
+</div>
+<div id="ref-krain1997" class="csl-entry" role="listitem">
+Krain, Matthew. 1997. <span>「State-sponsored mass murder: The onset and severity of genocides and politicides」</span>. <em>Journal of conflict resolution</em> 41 (3): 331–60.
+</div>
+<div id="ref-lupu2013" class="csl-entry" role="listitem">
+Lupu, Yonatan. 2013. <span>「Best evidence: The role of information in domestic judicial enforcement of international human rights agreements」</span>. <em>International Organization</em> 67 (3): 469–503.
+</div>
+<div id="ref-mearsheimer2017" class="csl-entry" role="listitem">
+Mearsheimer, John J. 2017. <span>「The false promise of international institutions」</span>. <em>International organization</em>, 237–82. Routledge.
+</div>
+<div id="ref-moravcsik2000" class="csl-entry" role="listitem">
+Moravcsik, Andrew. 2000. <span>「The origins of human rights regimes: Democratic delegation in postwar Europe」</span>. <em>International organization</em> 54 (2): 217–52.
+</div>
+<div id="ref-murdie2012" class="csl-entry" role="listitem">
+Murdie, Amanda M, と David R Davis. 2012. <span>「Shaming and blaming: Using events data to assess the impact of human rights INGOs」</span>. <em>International Studies Quarterly</em> 56 (1): 1–16.
+</div>
+<div id="ref-neumayer2005" class="csl-entry" role="listitem">
+Neumayer, Eric. 2005. <span>「Do international human rights treaties improve respect for human rights?」</span> <em>Journal of conflict resolution</em> 49 (6): 925–53.
+</div>
+<div id="ref-poe1994" class="csl-entry" role="listitem">
+Poe, Steven C, と C Neal Tate. 1994. <span>「Repression of human rights to personal integrity in the 1980s: A global analysis」</span>. <em>American political science review</em> 88 (4): 853–72.
+</div>
+<div id="ref-prorok2017" class="csl-entry" role="listitem">
+Prorok, Alyssa K. 2017. <span>「The (in) compatibility of peace and justice? The International Criminal Court and civil conflict termination」</span>. <em>International organization</em> 71 (2): 213–43.
+</div>
+<div id="ref-vreeland2008" class="csl-entry" role="listitem">
+Vreeland, James Raymond. 2008. <span>「Political institutions and human rights: Why dictatorships enter into the United Nations Convention Against Torture」</span>. <em>International Organization</em> 62 (1): 65–101.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

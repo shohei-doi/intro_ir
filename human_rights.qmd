@@ -4,3 +4,645 @@ subtitle: "国際公共政策学"
 author: "土井翔平"
 date: today
 ---
+
+```{r}
+#| include: false
+#| cache: false
+
+library(tidyverse)
+theme_set(theme_bw(base_family = "Noto Sans CJK JP Light"))
+library(countrycode)
+```
+
+## はじめに {.unnumbered}
+
+17-18世紀の啓蒙思想家$\leadsto$人が生まれながらにして持っている**自然権** (natural rights)
+
+:::{.callout-note}
+## アメリカ独立宣言（1776年）
+
+われわれは、以下の事実を自明のことと信じる。すなわち、すべての人間は**生まれながらにして平等**であり、その創造主によって、生命、自由、および幸福の追求を含む**不可侵の権利**を与えられているということ。
+:::
+
+:::{.callout-note}
+## フランス人権宣言（1789年）
+
+フランス人権宣言　人は、**自由かつ諸権利において平等なもの**として生まれ、そして生存する。
+:::
+
+- なぜ人権は保障されないのか？
+- なぜ他国の人権保障に関心を持つのか？
+- どのように国際的な人権保障に取り組んでいるのか？
+
+## 人権の国際化
+
+### 第二次世界大戦まで
+
+人権問題＝国内問題／主権国家体系の下で他国の国内問題に干渉することは**内政不干渉原則**？
+
+- 国家主権の契機となったウェストファリア条約    
+  - 宗教戦争であった30年戦争
+  - 領主の信仰の自由
+- 内政問題を口実とした戦争を回避するためのメカニズムとしての主権
+
+$\leadsto$国家主権の下で人権侵害／国際社会からの批判をかわす口実
+
+内政問題である人権問題に対して国際社会が無関心ではいられない？
+
+- 19世紀における奴隷制度の廃止運動
+- 第1次世界大戦後の民族自決と少数民族
+- 産業化における労働者の保護
+
+![[1923年のヨーロッパ](https://commons.wikimedia.org/wiki/File:Map_Europe_1923-en.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Map_Europe_1923-en.svg/800px-Map_Europe_1923-en.svg.png)
+
+### 第二次世界大戦後
+
+ナチス・ドイツによるユダヤ人虐殺（**ホロコースト**）$\leadsto$人権が国際問題として認知
+
+- 第2次世界大戦は自由主義とファシズムの戦い（ということになっていた）。
+
+$\leadsto$国連憲章においても人権に関する言及、国際関心事項
+
+:::{.callout-note}
+## [国連憲章](https://www.unic.or.jp/info/un/charter/text_japanese/)　第55条
+
+人民の同権及び自決の原則の尊重に基礎をおく諸国間の平和的且つ友好的関係に必要な安定及び福祉の条件を創造するために、国際連合は、次のことを促進しなければならない。
+
+c. 人種、性、言語又は宗教による差別のないすべての者のための**人権及び基本的自由の普遍的な尊重及び遵守**
+:::
+
+- 国連総会第3委員会
+
+1948年に国連総会が[**世界人権宣言**](https://www.unic.or.jp/activities/humanrights/document/bill_of_rights/universal_declaration/) (Universal Declaration of Human Rights; A/RES/217 (III)) を採択
+
+- 第1,2条は人間の尊厳に関する基本原則
+- 第3-19条は市民的自由
+- 第20-27条は政治的・社会的・経済的平等
+- 第28,29条は集団としての権利
+
+国連総会決議$\leadsto$法的拘束力はない／現在の国際人権法の基盤
+
+最初の国際人権条約は[**ジェノサイド条約**](https://worldjpn.grips.ac.jp/documents/texts/mt/19481209.T1J.html)（1948年採択、1951年発効）
+
+- **集団殺害** (genocide) が定義
+- 国際法上の犯罪であるとしてその防止と処罰が義務付け
+- 日本は批准せず
+
+![[ジェノサイド条約締約国](https://www.un.org/en/genocideprevention/genocide-convention.shtml)](https://www.un.org/en/genocideprevention/images/Convention%20on%20Genocide%20Prevention%204586%20R1%20Jan19%20(002)_ENG.jpg)
+
+### 国際人権章典
+
+世界人権宣言$\leadsto$ 2つの人権規約が1966年に採択、1976年に発効^[日本では社会権規約をA規約、自由権規約をB規約と呼ぶことがある。]
+
+- [**自由権規約**](https://www.nichibenren.or.jp/activity/international/library/human_rights/liberty_convention.html) (International Covenant on Civil and Political Rights)
+- [**社会権規約**](https://www.nichibenren.or.jp/activity/international/library/human_rights/society_convention.html) (International Covenant on Economic, Social and Cultural Rights)
+
+$\leadsto$[**国際人権章典**](https://www.unic.or.jp/activities/humanrights/document/bill_of_rights/) (International Bill of Human Rights)：世界人権宣言と自由権規約、社会権規約および選択議定書
+
+人権＝**自由権**＋**社会権**
+
+- 自由権：国家が市民の生活や政治活動に介入しないことで保障される権利
+
+![[自由権規約締約国](https://commons.wikimedia.org/wiki/File:ICCPR-members2.PNG)](https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/ICCPR-members2.PNG/800px-ICCPR-members2.PNG)
+
+- 社会権：市民の経済的・社会的・文化的活動を支援することで保障される権利
+
+![[社会権規約締約国](https://commons.wikimedia.org/wiki/File:ICESCR_members.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/ICESCR_members.svg/800px-ICESCR_members.svg.png)
+
+その後も[様々な人権条約](https://www.ohchr.org/en/core-international-human-rights-instruments-and-their-monitoring-bodies)および追加議定書 (optional protocol) が締結$\leadsto$包括的な国際人権法が形成
+
+### 自由権の保障
+
+```{r}
+#| fig-cap: "自由権保障の推移"
+
+df_vdem <- read_csv("data/vdem/V-Dem-CY-Full+Others-v13.csv")
+
+df_vdem %>% 
+  pivot_longer(c(v2clrelig, v2cldiscw, v2cltort, v2cltrnslw), 
+               names_to = "type", values_to = "value") %>% 
+  mutate(type = case_when(type == "v2clrelig" ~ "信教の自由", 
+                          type == "v2cldiscw" ~ "女性の表現の自由", 
+                          type == "v2cltort" ~ "拷問の禁止", 
+                          type == "v2cltrnslw" ~ "法の透明性")) %>% 
+  ggplot() + 
+  geom_line(aes(x = year, y = value, group = country_text_id), alpha = 0.25, size = 0.25) + 
+  geom_line(aes(x = year, y = value), color = "royalblue", size = 1,
+            data = . %>% 
+              group_by(year, type) %>% 
+              summarise(value = mean(value, na.rm = TRUE))) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  annotate("rect", xmin = 1914, xmax = 1918, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  annotate("rect", xmin = 1939, xmax = 1945, ymin = -Inf, ymax = Inf, alpha = 0.25) + 
+  facet_wrap(~ type, ncol = 2) + 
+  labs(x = "年", y = "人権保障")
+```
+
+```{r}
+#| fig-cap: "自由権保障の水準"
+
+df_world <- map_data("world") %>% 
+  filter(region != "Antarctica") %>% 
+  mutate(stateabb = countrycode(region, "country.name", "cowc"))
+
+df_world %>% 
+  mutate(region = countrycode(region, "country.name", "iso3c")) %>% 
+  left_join(df_vdem %>% 
+              filter(year == max(year)) %>% 
+              rename(region = country_text_id)) %>% 
+  pivot_longer(c(v2clrelig_ord, v2cldiscw_ord, v2cltort_ord, v2cltrnslw_ord), 
+               names_to = "type", values_to = "value") %>% 
+  mutate(type = case_when(type == "v2clrelig_ord" ~ "信教の自由", 
+                          type == "v2cldiscw_ord" ~ "女性の表現の自由", 
+                          type == "v2cltort_ord" ~ "拷問の禁止", 
+                          type == "v2cltrnslw_ord" ~ "法の透明性")) %>% 
+  ggplot() + 
+  geom_polygon(aes(x = long, y = lat, group = group, fill = as.factor(value)), 
+               color = "black", size = 0.1, alpha = 0.5) + 
+  coord_map(projection = "mollweide", xlim = c(-180, 180)) + 
+  scale_fill_brewer(labels = c("保障されていない", "若干保障されている", 
+                               "一部保障されている", "かなり保障されている", 
+                               "十分に保障されている")) +
+  facet_wrap(~ type, ncol = 2) + 
+  labs(x = "", y = "", fill = "") + 
+  theme_void() + 
+  theme(legend.position = "bottom")
+```
+
+## 人権保障を巡る政治
+
+人権は生まれながらにして全ての人間が持っている権利$\leadsto$**普遍的** (universal)
+
+ただし、**どのような権利を、どの程度保障すべきなのか**についての考えは時代や地域によって異なる。
+
+- 冷戦期：西側諸国は政治的自由に関する自由権／東側諸国は平等や社会保障に関する社会権を重視
+- 人権を重視する国でも（アメリカのように）テロリストへの拷問
+- 自由権は平等で自律的な個人を前提とした西洋的価値観に基づいている？
+- $\leadsto$他の地域では十分には受け入れがたい？
+  - 東アジア諸国が成長$\leadsto$「**アジア的価値観** (Asian value) 」
+    - アジアでは個人の自由よりも家族や社会の発展、調和を優先
+    - 既存の国際人権法は西洋的価値観の押し付け、内政干渉
+  - 自由主義諸国はこうした考えは権威主義体制を正当化するに過ぎないと批判
+- 自由権を第1世代の人権、社会権を第2世代の人権とも呼ぶ
+- 第3世代の人権：[発展の権利](https://www.unic.or.jp/activities/humanrights/promotion_protection/development/)、平和への権利など集団として人権
+
+人権は普遍的／国際人権法も普遍的あるいは中立的なものではない$\leadsto$国際的な人権保障を巡る政治が存在
+
+### 国家による人権侵害
+
+ベルギーのレオポルド2世：19世紀末から20世紀初頭にかけてのコンゴ自由国の苛烈な統治
+
+- 象牙や天然ゴムの生産のために先住民を強制的に労働・厳しい処罰
+- レオポルド2世が邪悪な性格であったり、ベルギー本国でも独裁的であったわけではない。
+
+ミャンマーの民主派のアウンサンスーチーがリーダーになってもロヒンギャへの弾圧は継続
+
+:::{layout-ncol=2}
+![レオポルド2世](https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Leopold_ii_garter_knight.jpg/400px-Leopold_ii_garter_knight.jpg)
+
+![アウンサン・スー・チー](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Remise_du_Prix_Sakharov_%C3%A0_Aung_San_Suu_Kyi_Strasbourg_22_octobre_2013-18.jpg/400px-Remise_du_Prix_Sakharov_%C3%A0_Aung_San_Suu_Kyi_Strasbourg_22_octobre_2013-18.jpg)
+:::
+
+$\leadsto$人権侵害が起こる理由は政治家の性格だけでなく、国内政治にもある？
+
+1.  財政が乏しく社会保障を整備できない／軍隊や警察へのコントロールが不十分である[@cole2015]
+1. 国家安全保障を理由（あるいは口実）とした人権の制約[@poe1994; @krain1997]
+    - 政府に対する抗議を犯罪として取り締まり／適切な手続き (due process) なしの裁判
+    - 敵対国の出身者（WW2における在米日系人）やテロリスト容疑者（ドローンによる標的殺害）を不当に拘束、殺害
+    - テロリズム予防のために市民のプライバシーを侵害（愛国者法）
+1. 権威主義国や新興民主主義国[@davenport1995]において政権の維持のために反政府勢力や他民族を弾圧
+    - 民主主義国：選挙を通じて平和的に政権交代ができる$\leadsto$反政府活動は起こりにくい
+    - 一党独裁や個人独裁の国：反政府活動を抑止できる$\leadsto$人権侵害が起こりにくい
+    - 多党独裁の国：政治的競争がある$\leadsto$起こりやすい[@vreeland2008]
+
+### 人権条約への参加
+
+![[主要人権条約の締結数](https://indicators.ohchr.org)](figures/human_rights_treaty.png){width=80%}
+
+- 新興民主主義国：人権条約に批准$\leadsto$人権侵害のコストを高める$\leadsto$政治体制を維持[@moravcsik2000]
+- 成熟した民主主義国：既に人権保障を行っている$\leadsto$わざわざ人権条約を批准しない
+
+民主主義国は民主化や人権保障を条件に他国に利益を供与
+
+- 北大西洋条約機構や欧州連合では民主主義や人権保障、自由経済などを加盟要件
+- トルコやハンガリーのようにEUへの加盟を目指して、あるいは追放を恐れて人権保障に取り組むとは限らない。
+
+### 他国の人権問題
+
+なぜ**他国の人権環境が改善しても直接の利益にはならないにもかかわらず**、他国の人権保障に関心を持つのか？
+
+1. 道徳的理由
+    - 人々は弱者に対して共感、同情する社会的生き物
+    - 他国の人権侵害を看過$\leadsto$人権が侵害されてもよい状況や人々があることを認める$\leadsto$自身への人権侵害を許容
+    - 人権は普遍的なものであるという規範の内面化
+1. 戦略的理由
+    - 他国が人権を保障$\leadsto$（さらには民主化することにより）国際的な平和と経済繁栄が実現$\leadsto$自国の国益
+    - 周辺国の人権侵害$\leadsto$内戦など$\leadsto$近隣諸国に戦火の拡大や難民の流出で被害
+    - 地域貿易協定に労働者の権利に関する条項$\leadsto$途上国の労働環境を改善$\leadsto$先進国の労働者の競争力を向上[@hafner2005]
+1. 技術的理由
+    - 情報通信技術の発達、特にSNS$\leadsto$人々は他国の人権問題に関心を持たざるを得ない
+
+## 国際的な人権保障
+
+一般的に国際制度に意味があるのかは見解が分かれている。
+
+- アナーキーな国際社会では国家に制度の遵守を強制することはできない$\leadsto$制度には国家の行動に影響する効果はない[@mearsheimer2017]
+- ほとんどの国はほとんどの時期においてほとんどのルールに従っている[@henkin1979]
+  - 国際制度に意味がないのであれば、わざわざ国家が時間や労力をかけて交渉する意味は＞
+  - 制度に違反するのは遵守する能力が欠如していたり、制度が曖昧である$\leadsto$不遵守[@chayes1993]
+  - 国際制度は国家が同意したものである$\leadsto$遵守できるルールが制度として形になっているだけ[@downs1996]
+
+### 人権条約の効果
+
+人権条約の効果を検証する上での問題1：人権侵害の発見
+
+- 一般的に、人権侵害は外部から確認しにくい
+- [Amnesty International](https://www.amnesty.or.jp/)や[アメリカ国務省](https://jp.usembassy.gov/ja/category/reports-ja/)のレポートに依拠^[[CIRI Human Rights Data Project](http://www.humanrightsdata.com/)]
+
+これらの情報が網羅的かつ正しいとししても、人権侵害の基準が時代と共に変化するかも？
+
+- 人権規範が浸透する$\leadsto$人権侵害とみなされていなかった行為がそうであるとみなされる
+- 技術革新・リソースの向上$\leadsto$多くの人権侵害の「発見」
+- 時間変化を考慮して分析すると、（拷問の禁止に関する）人権保障の程度は改善[@fariss2014]
+
+![@fariss2014](figures/fariss.jpeg)
+
+人権条約の効果を検証する上での問題2：自己選択
+
+- 人権保障に熱心な国家が人権条約に批准？$\leadsto$見かけの相関
+- 例：民主主義国や経済的に豊かな国
+
+第3の要因を考慮して分析すると人権条約は効果がないか、負の効果があるという研究[@keith1999; @hathaway2001; @hill2010]
+
+- 人権条約に強制力はなし／人権を保障させるために圧力を欠ける国は少ない
+- 人権条約への批准は人権を保障するという評判を得るため
+- 多党独裁の国：反体制派の影響力が高い$\leadsto$人権条約に批准する／弾圧のために人権を侵害
+
+一方で、人権条約の効果は特定の条件において生じるという見方[@neumayer2005; @murdie2012; @conrad2013; @lupu2013]
+
+人権条約の短期的効果は小さいが、長期的な効果があるという見解[@hafner2007]
+
+- 人権問題を国際問題として扱う土壌
+  - 人権条約がなければ人権NGOは人権侵害の評価もできない。
+  - 国家は**評判** (reputation) を気にする$\leadsto$NGOをはじめとする*越境的アドボカシー・ネットワーク** (transnational advocacy network) による**名指しと非難** (naming and shaming) に効果がある？[@hafner2008]
+    - [Freedom House](https://freedomhouse.org/)や[Human Rights Watch](https://www.hrw.org/ja)も代表的な人権NGO
+    - **ブーメラン・モデル**：外国の政府やNGO、国際機構を通じて自国の政府に圧力をかける[@keck1999]
+  - 1975年の[欧州安全保障協力会議](https://www.mofa.go.jp/mofaj/area/osce/gaiyo.html) (Conference on Security and Cooperation in Europe: CSCE)のヘルシンキ宣言：東西で領土保全、経済交流、人権保障に合意$\leadsto$共産主義国内における人権活動の活発化
+
+![ブーメラン・モデルのイメージ](figures/boomerang_model.drawio.png)
+
+### 人権制裁
+
+外部からの圧力、制裁$\leadsto$人権条約を遵守
+
+- 経済制裁をする国が被る費用＜他国の人権状況の改善という利益？
+
+いくつかの条件の下で、国家は人権制裁を行うと考えられる。
+
+1. 国内から他国の人権状況の改善のために行動するよう政治的圧力
+    - 越境的アボドカシー・ネットワークは市民に外国の人権問題を注意喚起
+1. 敵対国で人権侵害
+1. 内政不干渉原則を越えるような価値と結合
+    - 民族浄化や人種差別は人権問題を越えて民族自決権や反植民地主義といった価値の問題？
+
+共同で人権制裁＝囚人のジレンマ
+
+- 協力して制裁をすれば改善する／他国の制裁にタダ乗り
+
+南アフリカの[**アパルトヘイト撤廃**](https://www.unic.or.jp/activities/humanrights/discrimination/apartheid/)は経済制裁による人権問題の解決の数少ない例
+
+:::{layout-ncol=2}
+![[アパルトヘイト関連法](https://www.mofa.go.jp/mofaj/press/pr/wakaru/topics/vol49/index.html)](https://www.mofa.go.jp/mofaj/press/pr/wakaru/topics/vol49/img/49_apartheid.jpg)
+
+![[アパルトヘイト撤廃の流れ](https://www.mofa.go.jp/mofaj/press/pr/wakaru/topics/vol49/index.html)](https://www.mofa.go.jp/mofaj/press/pr/wakaru/topics/vol49/img/49_nenpyou.jpg)
+:::
+
+制裁$\leadsto$無辜の市民に被害？
+
+- 政治的エリートのみを標的とする**スマート制裁**
+- 十分な効果を上げられるのか、本当にエリートのみに制裁を加えられるのか？
+
+### 国際的審査
+
+#### 人権理事会
+
+国際連合の[**人権理事会**](https://www.mofa.go.jp/mofaj/gaiko/jinken_r/index.html) (Human Rights Council) や国連人権高等弁務官事務所 (Office of the High Commissioner for Human Rights: OHCHR) ：加盟国の人権状況を包括的に監視、審査
+
+![[国連人権理事会](https://commons.wikimedia.org/wiki/File:UN_Geneva_Human_Rights_and_Alliance_of_Civilizations_Room.jpg)](https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/UN_Geneva_Human_Rights_and_Alliance_of_Civilizations_Room.jpg/800px-UN_Geneva_Human_Rights_and_Alliance_of_Civilizations_Room.jpg)
+
+- 人権理事会は2006年に国連人権委員会から改組
+- [**普遍的定期審査**](https://www.mofa.go.jp/mofaj/gaiko/jinken_r/upr_gai.html) (Universal Periodic Review: UPR)：加盟国の人権状況を審査する中心的活動
+- 他にも国別あるいはテーマ別の特別手続きや個人による不服申立手続きなど
+- 専門家からなる人権理事会諮問委員会から助言
+
+人権侵害を行っているとされている国も理事国になるなどの問題も
+
+#### 人権条約の委員会
+
+人権条約ごとにも委員会が設置され、締約国の履行を確認
+
+- 自由権規約や社会権規約では、専門家からなる自由権(社会権)規約委員会に国家が履行状況を定期的に報告し、委員会が審査
+
+最も洗礼された人権の国際的な保障手続きとして**個人請願** (individual petition)
+
+- 1950年に欧州評議会加盟国が欧州人権条約に批准
+  - 人権侵害を受けている加盟国の市民が欧州人権裁判所で訴訟
+- 自由権規約第1選択議定書や社会権規約選択議定書の締約国国民は**個人通報制度** (individual complaints mechanism) を利用可
+
+#### 企業による人権保障
+
+多くの場合、人権侵害を行うのは国家であるが、近年は企業による人権侵害にも関心
+
+- 2011年に人権理事会は[ビジネスと人権に関する指導原則](https://www.mofa.go.jp/mofaj/gaiko/bhr/index.html)を採択$\leadsto$企業にも人権尊重を求める
+  - 一部の国ではこれに従って[行動計画](https://www.ohchr.org/en/special-procedures/wg-business/national-action-plans-business-and-human-rights)を策定
+- [国連グローバル・コンパクト](https://www.unglobalcompact.org/)：人権、労働、環境、腐敗防止に関する10の原則を掲げ、企業は自発的に参加し、進捗の報告
+- [国連責任投資原則](https://www.unpri.org/)：6つのESG投資に関する原則を掲げ、投資家に遵守を呼びかけ
+- [グローバル・レポーティング・イニシアティブ](https://www.globalreporting.org/)：経済、環境、社会に与える影響の報告基準を策定
+
+$\leadsto$政治的パワーがなくても国際規範を作り、企業に遵守させることは可能？
+
+## 日本の人権状況
+
+[日本国憲法](https://elaws.e-gov.go.jp/document?lawid=321CONSTITUTION)：第11条に基本的人権の保障が明記、第3章に具体的な権利が列挙
+
+- 国際的に見ると、制定当初は人権規定が豊富／一度も改正されず、現在ではやや少ない^[ケネス・盛・マッケルウェイン[「日本国憲法：その特異な歩みと構造」](https://www.nippon.com/ja/in-depth/a05602/)]
+
+![日本国憲法の特徴](https://www.nippon.com/ja/ncommon/contents/in-depth/26941/26941.png)
+
+日本は[全ての人権条約に批准しているわけではない](https://www.hurights.or.jp/archives/treaty/un-treaty-list.html)
+
+- 例：ジェノサイド条約／個人通報制度を定める自由権規約および社会権規約の[第一選択議定書](https://www.nichibenren.or.jp/activity/international/library/human_rights/liberty_protocols_no1.html)／死刑撤廃を定める自由権規約第二選択議定書など
+
+[ビジネスと人権に関する行動計画](https://www.mofa.go.jp/mofaj/gaiko/bhr/index.html)は策定
+
+[Freedom House](https://freedomhouse.org/country/japan/freedom-world/2023)によると日本は自由が保障（96/100点、2023年現在）
+
+- UPRにおける[報告書](https://www.nichibenren.or.jp/activity/international/library/upr.html)や[審査結果](https://www.mofa.go.jp/mofaj/gaiko/jinken_r/upr_gai.html)や
+- 個別条約における[報告書審査](https://www.nichibenren.or.jp/activity/international/library/human_rights.html)などで日本の人権問題が指摘
+
+[Human Rights Watch](https://www.hrw.org/ja/asia/japan)などの人権NGOは独自にも人権問題を指摘
+
+- 国境なき記者団の[報道の自由ランキング](https://rsf.org/en/ranking)
+
+<!-- ::: {.content-visible when-format="html"} -->
+<!-- <iframe src="https://ourworldindata.org/grapher/press-freedom-index-rsf" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe> -->
+<!-- ::: -->
+
+<!-- ::: {.content-visible when-format="pdf"} -->
+![報道の自由度（2021年）](figures/press-freedom-index-rsf.png){width=80%}
+<!-- ::: -->
+
+- 世界経済フォーラムの[ジェンダーギャップ指数](https://jp.weforum.org/reports/global-gender-gap-report-2023)
+
+![ジェンダーギャップ指数（2023年）](figures/gender_gap_index.png)
+
+- UNDPの[ジェンダー不平等指数](https://hdr.undp.org/data-center/thematic-composite-indices/gender-inequality-index#/indicies/GII)
+
+![ジェンダー不平等指数（2021年）](figures/gender-inequality-index-from-the-human-development-report.png)
+
+- OECDの[Social Institutions and Gender Index](https://www.genderindex.org/)
+
+**アメリカ国務省** (Department of State) は各国の人権状況の[報告書](https://jp.usembassy.gov/ja/category/reports-ja/)を作成
+
+## 戦争と人権
+
+### 平和維持活動の拡大
+
+冷戦期に米ソの拒否権によって国連が機能不全$\leadsto$**平和維持活動** (peacekeeping operation)
+
+- PKO：終結した紛争の停戦や撤退などを監視して、平和が維持するように務める活動
+
+1. PKOの受け入れや要因の提供は自発的に行う。
+1. 当事者に対して中立・不偏であり、内政に干渉しない。   
+1. 武力行使は自衛のために必要最小限に留める。
+
+- 戦争を集結させることを目的に介入を行う（第7章下の）強制措置とは異なる。
+
+冷戦終結$\leadsto$国連への期待の高まり$\leadsto$PKOの数も増加
+
+- 1992年の「[**平和への課題**](https://www.unic.or.jp/files/peace.pdf)」：ブトロス＝ガリ事務総長は国連の平和機能として予防外交、平和創造、平和維持、平和構築を示す。
+
+#### 平和構築
+
+[**平和構築**](https://www.mofa.go.jp/mofaj/gaiko/peace_b/index.html) (peacebuilding) ：紛争が再発しないような社会を形成していく活動
+
+- 武装解除・動員解除・社会復帰 (Disarmament, Demobilization, Reintegration: DDR) 、難民の帰還、文民警察の改革、選挙の実施・監視、統治機構の支援など
+
+軍隊による停戦監視を越えて、警察や文民も含めて包括的に平和活動を行うように（**第2世代PKO**、**複合型PKO**）
+
+- 2000年の「[**ブラヒミ報告**](https://www.unic.or.jp/files/a_55_305.pdf)」：国連の平和活動の中核として位置づけ
+
+国連が暫定的に統治を行うことも
+
+- [カンボジア](https://www.unic.or.jp/activities/peace_security/action_for_peace/asia_pacific/cambodia/)
+  - 日本は[カンボジア民法の起草支援](http://www.moj.go.jp/housouken/houso_houkoku_cambo.html)など協力
+- [東ティモール](https://www.unic.or.jp/activities/peace_security/independence/declaration/east_timor/)
+- [コソボ](https://www.unic.or.jp/activities/peace_security/action_for_peace/europe/kosovo/)など
+
+#### 国際選挙監視
+
+選挙の国際的な監視の受け入れは拡大
+
+```{r}
+#| fig-cap: "国際選挙監視と選挙不正"
+
+type <- c("不正なし", "不正あり")
+
+left_join(expand(df_vdem, year, v2elwestmon),
+          df_vdem %>% 
+            count(year, v2elwestmon)) %>% 
+  drop_na(v2elwestmon) %>% 
+  filter(year > 1950) %>% 
+  replace_na(list(n = 0)) %>% 
+  group_by(year) %>% 
+  mutate(total = sum(n),
+         ratio = n/total) %>% 
+  pivot_longer(c(n, ratio)) %>% 
+  mutate(name = recode(name, n = "件数", ratio = "比率")) %>% 
+  ggplot() + 
+  geom_area(aes(x = year, y = value, 
+                color = as.factor(v2elwestmon),
+                fill = as.factor(v2elwestmon)),
+            alpha = 0.5) + 
+  geom_vline(aes(xintercept = 1991), alpha = 0.25) + 
+  scale_color_brewer(palette = "Set2", labels = type) + 
+  scale_fill_brewer(palette = "Set2", labels = type) + 
+  facet_grid(name ~ ., scales = "free_y") + 
+  labs(x = "年", y = "選挙監視", color = "", fill = "") + 
+  theme(legend.position = "bottom")
+```
+
+- 自由で公正な選挙が規範として受け入れられ$\leadsto$監視する必要
+- 名指しと非難$\leadsto$選挙監視を受け入れること自体も規範となりつつ[@hyde2011]
+
+選挙監視によって選挙不正が減少しているかは不明
+
+- 選挙権威主義国：監視の受け入れれ（不正が発覚しなければ）$\leadsto$民主主義の評判や援助を獲得
+- 監視されても不正が発覚しない（あるいは発覚しても問題はない）$\leadsto$監視を受け入れている可能性。
+
+#### 平和創造（執行）
+
+平和的手段による解決が不可$\leadsto$平和創造 (peace enforcement) 部隊による介入も主張（**第3世代PKO**）
+
+- ユーゴスラビア内戦やソマリア内戦：第7章下の武力行使が認められたPKO
+- 兵力や装備が不十分、PKO部隊からも死者$\leadsto$挫折
+
+1995年の「平和への課題：追補」：平和維持や平和構築が強調され、国連独自の平和執行機能は現状では非現実であると認める。
+
+### 人道的介入
+
+**人道的介入** (humanitarian intervention)：著しい人権侵害や人道危機を阻止するために当事国の**同意なく**武力を行使すること
+
+- 多くの場合、政府が特定の集団を迫害しているときに介入すべきだと問題に
+
+人道危機を放置するわけにはいかない／国家主権を侵害、内政不干渉原則や武力行使禁止原則に違反
+
+- しばしば、自国民や少数民族の保護は武力行使の口実に
+
+#### ユーゴ内戦
+
+旧ユーゴスラビア連邦は多民族国家、指導者ティトーの死亡と冷戦終結$\leadsto$**国民国家** (nation state) に分裂
+
+![[1991年のユーゴスラビア連邦における民族分布](https://commons.wikimedia.org/wiki/File:Yugoslavia_ethnic_map.jpg)](https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Yugoslavia_ethnic_map.jpg/574px-Yugoslavia_ethnic_map.jpg)
+
+- **民族自決** (self-determination)：民族が国家を形成する権利
+
+冷戦の終結$\leadsto$社会主義国家も民主化を行う／民族対立を助長
+
+- 最大民族であるセルビア人に支配されることを他民族は恐れる。
+- 独立することでセルビア人が他国で少数民族になることをセルビアは恐れる。
+
+$\leadsto$ユーゴから独立を求める各国とセルビアとの間で内戦
+
+セルビア人によるジェノサイドを**民族浄化** (ethnic cleansing) と呼ぶ$\leadsto$国際社会からの支持
+
+- セルビア人だけが民族浄化していたわけではない。
+
+国連は平和執行部隊を投入するが兵力や情報が足りない$\leadsto$人道危機を止めることができず
+
+- 特に、スレブレニッツァの悲劇では国連軍の目の前で虐殺$\leadsto$国連の限界を知らしめた。
+
+スロベニア、クロアチア、ボスニア＝ヘルツェゴヴィナは独立する$\leadsto$コソボもセルビアからの独立を求めて内戦が再発
+
+- セルビアによるコソボのアルバニア人が虐殺が起こっているとしてNATOが（安保理決議なしに）空爆
+
+国家主権／民族自決権／人権のトリレンマ？
+
+#### 保護する責任
+
+[**保護する責任**](https://ir.library.osaka-u.ac.jp/repo/ouka/all/67203/) (responsibility to protect: R2P)：国家は自国民を保護する責任を持っているが、その責任を果たせ（さ）ない場合、国際社会が代わりに保護
+
+:::{.callout-note}
+## [世界サミット成果文書](https://www.mofa.go.jp/mofaj/gaiko/unsokai/pdfs/050916_seika.pdf)
+
+138. **各々の国家**は、大量殺戮、戦争犯罪、民族浄化及び人道に対する犯罪からその国の人々を**保護する責任**を負う。この責任は、適切かつ必要な手段を通じ、扇動を含むこのような犯罪を予防することを伴う。我々は、この責任を受け入れ、それに則って行動する。国際社会は、適切な場合に、国家がその責任を果たすことを奨励し助けるべきであり、国連が早期警戒能力を確立することを支援すべきである。
+139. **国際社会もまた**、国連を通じ、大量殺戮、戦争犯罪、民族浄化及び人道に対する犯罪から**人々を保護することを助ける**ために、憲章第６章及び８章にしたがって、適切な外交的、人道的及びその他の平和的手段を用いる**責任を負う**。この文脈で、我々は、仮に平和的手段が不十分であり、**国家当局が**大量殺戮、戦争犯罪、民族浄化及び人道に対する犯罪から**自国民を保護することに明らかに失敗している**場合は、適切な時期に断固とした方法で、**安全保障理事会を通じ、第７章を含む国連憲章に則り**、個々の状況に応じ、かつ適切であれば関係する地域機関とも協力しつつ、**集団的行動をとる用意がある**。我々は、総会が、大量殺戮、戦争犯罪、民族浄化及び人道に対する犯罪から人々を保護する責任及びその影響について、国連憲章及び国際法の諸原則に留意しつつ、検討を継続する必要性を強調する。我々はまた、必要に応じかつ適切に、大量殺戮、戦争犯罪、民族浄化及び人道に対する犯罪から人々を保護する国家の能力を構築することを助け、また、危機や紛争が勃発する緊張に晒されている国家を支援することにコミットする考えである。
+:::
+
+- 恣意的な介入を排除する仕組みを構築？
+- 主権を重んじる国家から批判
+- 自衛権の行使や第7章の強制行動で正当化せざるを得ない。
+
+### 国際人道法
+
+武力行使の合法性を定める国際法 (jus ad bellum)／武力行使の形態を規律する国際法 (jus in bello)
+
+- 戦争法、戦時国際法、武力紛争法、**国際人道法**などと呼ばれる。
+- 戦闘の手段や方法、犠牲者の保護などが定められている。
+
+#### 国際刑事法廷
+
+戦争犯罪の中でも深刻なものを戦争裁判で処罰することがある。
+
+- 第2次世界大戦後の極東国際軍事裁判やニュルベルグ裁判がその先駆け
+- ユーゴ内戦やルワンダ内戦後にも安保理が刑事法廷を設置
+
+2003年には[**国際刑事裁判所**](https://www.mofa.go.jp/mofaj/gaiko/icc/index.html) (International Criminal Court: ICC) が設立
+
+- 国際法によって個人の行動を規制し、処罰することができる点で珍しい
+
+:::{.callout-note}
+## [ICCローマ規程](https://www1.doshisha.ac.jp/~karai/intlaw/docs/icc.htm)　第5条1項
+
+裁判所の管轄権は、国際社会全体の関心事である最も重大な犯罪に限定する。裁判所は、この規程に基づき次の犯罪について管轄権を有する。
+
+a. 集団殺害犯罪
+b. 人道に対する犯罪
+c. 戦争犯罪
+d. 侵略犯罪
+:::
+
+:::{.callout-note}
+## [ICCローマ規程](https://www1.doshisha.ac.jp/~karai/intlaw/docs/icc.htm)　第12条
+
+1. この規程の締約国となる国は、第5条に規定する犯罪についての裁判所の管轄権を受諾する。
+2. 裁判所は、（略）次の(a)又は(b)に掲げる国の1又は2以上がこの規程の締約国であるとき（略）は、その管轄権を行使することができる。
+
+a. 領域内において問題となる**行為が発生した国**（略）
+b. 犯罪の被疑者の**国籍国**
+:::
+
+:::{.callout-note}
+## [ICCローマ規程](https://www1.doshisha.ac.jp/~karai/intlaw/docs/icc.htm)　第13条
+
+裁判所は、次の場合において、この規程に基づき、第五条に規定する犯罪について管轄権を行使することができる。
+
+a. 締約国が（略）事態を検察官に付託する場合
+b. 国際連合憲章第7章の規定に基づいて行動する安全保障理事会が（略）事態を検察官に付託する場合
+c. 検察官が（略）捜査に着手した場合
+:::
+
+- 関係国が訴追する意思と能力を有する場合はICCは事件を受理せず
+
+:::{.callout-note}
+## [ICCローマ規程](https://www1.doshisha.ac.jp/~karai/intlaw/docs/icc.htm)　第59条1項
+
+仮逮捕又は逮捕及び引渡しの請求を受けた締約国は、その国内法及び第九部の規定に従い、被疑者を逮捕するための措置を直ちにとる。
+:::
+
+ICCにより訴追されるリスクの大きい国は参加せず
+
+![[ICC加盟国](https://commons.wikimedia.org/wiki/File:ICC_member_states.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/ICC_member_states.svg/800px-ICC_member_states.svg.png)
+
+- アメリカ：政治的な理由による訴追が行われる可能性、ICCに対するコントロールの不在を理由に批判
+  - 第98条に基づき、アメリカ人の引き渡し免除を様々な国に要求
+- アフリカの事件が中心であると批判
+
+:::{.callout-note}
+## [ICCローマ規程](https://www1.doshisha.ac.jp/~karai/intlaw/docs/icc.htm)　第98条2項
+
+裁判所は、被請求国に対して派遣国の国民の裁判所への引渡しに当該派遣国の同意を必要とするという国際約束に基づく義務に違反する行動を求めることとなり得る引渡しの請求を行うことができない。ただし、裁判所が引渡しへの同意について当該派遣国の協力をあらかじめ得ることができる場合は、この限りでない。
+:::
+
+[事件が進行中](https://www.mofa.go.jp/mofaj/files/000162093.pdf)であるが多いとは言えない。
+
+- 限定的ながらも国際人道法違反を抑止している[@jo2016; @chaudoin2016]
+- ただし、訴追のリスクを恐れて武力紛争が長引く傾向に[@prorok2017]
+
+#### 移行期正義
+
+**移行期正義** (transitional justice)：内戦が終結して平和が構築される中で紛争中の犯罪に対処すること
+
+- しばしば、裁判による戦争犯罪者の訴追よりも、紛争後社会の和解 (reconciliation) を重視
+
+**真実和解委員会**による人権侵害の解明と記録、人権侵害の被害者へのケア、文民統制の強化や前体制関係者の公職追放など
+
+- 刑事訴追が私怨を含む敵対的なものに$\leadsto$公正な裁判を行うのが困難
+- 刑事訴追のおそれに$\leadsto$政治家が政権の明け渡しを拒否する、情報を破棄する可能性
+
+$\leadsto$政府高官を真実解明と社会の安定のために恩赦 (amnesty) するべき？
+
+### 安保理の機能拡大
+
+戦後の平和に対する脅威＝国連設立当初に想定していたような「国家間戦争」だけではない
+
+- 内戦やテロリズムへの対処、人権侵害の防止、安定した社会の構築などにも関与
+- 感染症（エボラ出血熱）や気候変動、難民なども「平和に対する脅威」として認識されつつあり
+  - **安全保障化** (securitization)：従来、安全保障上の脅威とされていなかった事象が脅威として認識される現象
+
+$\leadsto$安保理の取る手段も多様化
+
+- 暫定的な行政機構や刑事法廷を設置
+- テロリズムの予防に関して国際立法のような実践（[安保理決議1373](https://www.unic.or.jp/news_press/features_backgrounders/1271/)や[1540](https://www.jaea.go.jp/04/iscn/archive/pocketbook/pocketbook07-04.pdf)など）
+
+$\leadsto$安保理の機能の拡大の是非
