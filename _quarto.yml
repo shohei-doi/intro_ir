@@ -41,8 +41,7 @@ format:
     mainfont: Helvetica Neue, Arial, Hiragino Kaku Gothic ProN, Hiragino Sans, BIZ UDPGothic, Meiryo, sans-serif
     toc: true
     number-sections: true
-    reference-location: margin
-    # fig-cap-location: margin
+    # reference-location: margin
     link-external-icon: true
     link-external-newwindow: true
     fig-format: png
