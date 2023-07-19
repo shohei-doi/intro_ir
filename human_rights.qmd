@@ -50,7 +50,7 @@ $\leadsto$国家主権の下で人権侵害／国際社会からの批判をか�
 内政問題である人権問題に対して国際社会が無関心ではいられない？
 
 - 19世紀における奴隷制度の廃止運動
-- 第1次世界大戦後の民族自決と少数民族
+- 第1次世界大戦後の民族自決と少数民族保護
 - 産業化における労働者の保護
 
 ![[1923年のヨーロッパ](https://commons.wikimedia.org/wiki/File:Map_Europe_1923-en.svg)](https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Map_Europe_1923-en.svg/800px-Map_Europe_1923-en.svg.png)
@@ -315,7 +315,7 @@ $\leadsto$道徳的理由と戦略的理由から絡み合って「意図せず�
 - 人権問題を国際問題として扱う土壌
   - 人権条約がなければ人権NGOは人権侵害の評価もできない。
   - 国家は**評判** (reputation) を気にする$\leadsto$NGOをはじめとする越境的アドボカシー・ネットワークによる**名指しと非難** (naming and shaming) に効果がある？[@hafner2008]
-    - [Freedom House](https://freedomhouse.org/)や[Human Rights Watch](https://www.hrw.org/ja)も代表的な人権NGO
+    - [Freedom House](https://freedomhouse.org/)や[Human Rights Watch](https://www.hrw.org/ja)、[Amnesty International](https://www.amnesty.or.jp/)も代表的な人権NGO
     - **ブーメラン・モデル**：外国の政府やNGO、国際機構を通じて自国の政府に圧力をかける[@keck1999]
   - 1975年の[欧州安全保障協力会議](https://www.mofa.go.jp/mofaj/area/osce/gaiyo.html) (Conference on Security and Cooperation in Europe: CSCE)のヘルシンキ宣言：東西で領土保全、経済交流、人権保障に合意$\leadsto$共産主義国内における人権活動の活発化
 
@@ -399,9 +399,14 @@ $\leadsto$政治的パワーがなくても国際規範を作り、企業に遵�
 
 ![日本国憲法の特徴](https://www.nippon.com/ja/ncommon/contents/in-depth/26941/26941.png)
 
+- 法律＜条約＜憲法
+- 憲法解釈の際に人権条約は人権条約の委員会の所見が参照
+- 例、婚外子の権利
+
 日本は[全ての人権条約に批准しているわけではない](https://www.hurights.or.jp/archives/treaty/un-treaty-list.html)
 
-- 例：ジェノサイド条約／個人通報制度を定める自由権規約および社会権規約の[第一選択議定書](https://www.nichibenren.or.jp/activity/international/library/human_rights/liberty_protocols_no1.html)／死刑撤廃を定める自由権規約第二選択議定書など
+- ジェノサイド条約／個人通報制度を定める自由権規約および社会権規約の[第一選択議定書](https://www.nichibenren.or.jp/activity/international/library/human_rights/liberty_protocols_no1.html)
+- 死刑撤廃を定める自由権規約第二選択議定書など
 
 [ビジネスと人権に関する行動計画](https://www.mofa.go.jp/mofaj/gaiko/bhr/index.html)は策定
 
@@ -409,6 +414,7 @@ $\leadsto$政治的パワーがなくても国際規範を作り、企業に遵�
 
 - UPRにおける[報告書](https://www.nichibenren.or.jp/activity/international/library/upr.html)や[審査結果](https://www.mofa.go.jp/mofaj/gaiko/jinken_r/upr_gai.html)や
 - 個別条約における[報告書審査](https://www.nichibenren.or.jp/activity/international/library/human_rights.html)などで日本の人権問題が指摘
+- 少数民族は存在しない$\leadsto$アイヌの人々は差別されていない$\leadsto$アイヌの人々は少数民族である
 
 [Human Rights Watch](https://www.hrw.org/ja/asia/japan)などの人権NGOは独自にも人権問題を指摘
 
@@ -678,3 +684,26 @@ $\leadsto$安保理の取る手段も多様化
 - テロリズムの予防に関して国際立法のような実践（[安保理決議1373](https://www.unic.or.jp/news_press/features_backgrounders/1271/)や[1540](https://www.jaea.go.jp/04/iscn/archive/pocketbook/pocketbook07-04.pdf)など）
 
 $\leadsto$安保理の機能の拡大の是非
+
+#### 安保理改革
+
+国際制度$\leadsto$国際協調を促進し、各国の共通利益を実現／利益の分配は不平等
+
+$\leadsto$制度を変化させるためには再交渉・新しい制度の構築
+
+- ゼロサム的状況なので、譲歩しにくい。
+  - 協調の源泉である将来の影が交渉の足かせに[@fearon1998]
+- 新しい制度の構築には大きな取引費用
+
+国連[安保理の改革](https://www.mofa.go.jp/mofaj/gaiko/un_kaikaku/index.html)の必要性／実現の見込みは小さい
+
+- 国連加盟国の増加／常任理事国と非常任理事国は一定
+- 拒否権の乱用によって機能不全
+
+![安保理改革案](figures/un_reform.png)
+
+:::{.callout-note}
+## [国連憲章](https://www.unic.or.jp/info/un/charter/text_japanese/)　第108条
+
+この憲章の改正は、総会の構成国の3分の2の多数で採択され、且つ、**安全保障理事会のすべての常任理事国を含む**国際連合加盟国の3分の2によって各自の憲法上の手続に従って批准された時に、すべての国際連合加盟国に対して効力を生ずる。
+:::
