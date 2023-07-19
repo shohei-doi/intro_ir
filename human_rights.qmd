@@ -205,7 +205,7 @@ df_world %>%
 
 $\leadsto$人権侵害が起こる理由は政治家の性格だけでなく、国内政治にもある？
 
-1.  財政が乏しく社会保障を整備できない／軍隊や警察へのコントロールが不十分である[@cole2015]
+1.  財政が乏しく社会保障を整備できない／軍隊や警察へのコントロールが不十分[@cole2015]
 1. 国家安全保障を理由（あるいは口実）とした人権の制約[@poe1994; @krain1997]
     - 政府に対する抗議を犯罪として取り締まり／適切な手続き (due process) なしの裁判
     - 敵対国の出身者（WW2における在米日系人）やテロリスト容疑者（ドローンによる標的殺害）を不当に拘束、殺害
@@ -213,7 +213,7 @@ $\leadsto$人権侵害が起こる理由は政治家の性格だけでなく、�
 1. 権威主義国や新興民主主義国[@davenport1995]において政権の維持のために反政府勢力や他民族を弾圧
     - 民主主義国：選挙を通じて平和的に政権交代ができる$\leadsto$反政府活動は起こりにくい
     - 一党独裁や個人独裁の国：反政府活動を抑止できる$\leadsto$人権侵害が起こりにくい
-    - 多党独裁の国：政治的競争がある$\leadsto$起こりやすい[@vreeland2008]
+    - 多党独裁の国：政治的競争がある$\leadsto$人権侵害[@vreeland2008]
 
 ### 人権条約への参加
 
@@ -221,6 +221,7 @@ $\leadsto$人権侵害が起こる理由は政治家の性格だけでなく、�
 
 - 新興民主主義国：人権条約に批准$\leadsto$人権侵害のコストを高める$\leadsto$政治体制を維持[@moravcsik2000]
 - 成熟した民主主義国：既に人権保障を行っている$\leadsto$わざわざ人権条約を批准しない
+- 権威主義国：条約に違反しても制裁はない$\leadsto$評判のために批准
 
 民主主義国は民主化や人権保障を条件に他国に利益を供与
 
@@ -235,12 +236,41 @@ $\leadsto$人権侵害が起こる理由は政治家の性格だけでなく、�
     - 人々は弱者に対して共感、同情する社会的生き物
     - 他国の人権侵害を看過$\leadsto$人権が侵害されてもよい状況や人々があることを認める$\leadsto$自身への人権侵害を許容
     - 人権は普遍的なものであるという規範の内面化
+    - 情報通信技術の発達、特にSNS$\leadsto$人々は他国の人権問題に関心を持たざるを得ない
 1. 戦略的理由
     - 他国が人権を保障$\leadsto$（さらには民主化することにより）国際的な平和と経済繁栄が実現$\leadsto$自国の国益
     - 周辺国の人権侵害$\leadsto$内戦など$\leadsto$近隣諸国に戦火の拡大や難民の流出で被害
-    - 地域貿易協定に労働者の権利に関する条項$\leadsto$途上国の労働環境を改善$\leadsto$先進国の労働者の競争力を向上[@hafner2005]
-1. 技術的理由
-    - 情報通信技術の発達、特にSNS$\leadsto$人々は他国の人権問題に関心を持たざるを得ない
+    - 地域貿易協定に労働者の権利に関する条項$\leadsto$途上国の労働環境を改善$\leadsto$先進国の労働者の競争力を向上[@hafner2005a]
+
+### 人権の国際化の背景
+
+なぜ**内政不干渉原則に抵触するにもかかわらず**、国家は人権の国際化を（部分的に）受け入れたのか？
+
+$\leadsto$道徳的理由と戦略的理由から絡み合って「意図せず」人権の地位向上[@tsutsui2022, 第2章]
+
+- 第2次世界大戦後の植民地独立（民族自決）と差別撤廃
+- 人権条約の軽視ゆえの批准$\leadsto$国際人権としての地位[@hafner2005b]
+- 体制間競争における非難の口実
+  - アメリカにおける人種問題、ソ連（東側）における政治的不自由
+- 国際人権NGOの活動[@tsutsui2004]
+
+**越境的アドボカシー・ネットワーク** (transnational advocacy network) や**規範起業家** (norm entrepreneur)：特定の規範を普及させようとする人々や集団
+
+- [対人地雷禁止条約](https://www.mofa.go.jp/mofaj/gaiko/arms/mine/genjo.html)、[クラスター弾禁止条約](https://www.mofa.go.jp/mofaj/gaiko/treaty/shomei_37.html)
+
+**規範ライフ・サイクル**：国際規範は3段階に従って発展する[@finnemore1998]
+
+1. 規範起業家は自らの信念を他者と共有するために活動
+1. 信念を共有する人々の数が転換点 (tipping point) $\leadsto$**規範カスケード**：多くの人々が規範として受け入れ、それに反する行為は批判
+1. 規範が内面化 (internalized) され、当然のものに（それに従うという意識すらなくなる）
+
+:::{layout-ncol=2}
+![規範カスケードのイメージ](figures/tipping_point1.drawio.png)
+
+![規範カスケードのイメージ](figures/tipping_point2.drawio.png)
+:::
+
+- グローバル・スタンダードも同じメカニズム
 
 ## 国際的な人権保障
 
@@ -272,7 +302,7 @@ $\leadsto$人権侵害が起こる理由は政治家の性格だけでなく、�
 - 人権保障に熱心な国家が人権条約に批准？$\leadsto$見かけの相関
 - 例：民主主義国や経済的に豊かな国
 
-第3の要因を考慮して分析すると人権条約は効果がないか、負の効果があるという研究[@keith1999; @hathaway2001; @hill2010]
+第3の要因を考慮して分析すると人権条約は効果がないか、負の効果があるという研究[@keith1999; @hathaway2001; @hafner2005b; @hill2010]
 
 - 人権条約に強制力はなし／人権を保障させるために圧力を欠ける国は少ない
 - 人権条約への批准は人権を保障するという評判を得るため
@@ -280,11 +310,11 @@ $\leadsto$人権侵害が起こる理由は政治家の性格だけでなく、�
 
 一方で、人権条約の効果は特定の条件において生じるという見方[@neumayer2005; @murdie2012; @conrad2013; @lupu2013]
 
-人権条約の短期的効果は小さいが、長期的な効果があるという見解[@hafner2007]
+人権条約の短期的効果は小さいが、長期的な効果があるという見解[@hafner2007; @tsutsui2012]
 
 - 人権問題を国際問題として扱う土壌
   - 人権条約がなければ人権NGOは人権侵害の評価もできない。
-  - 国家は**評判** (reputation) を気にする$\leadsto$NGOをはじめとする*越境的アドボカシー・ネットワーク** (transnational advocacy network) による**名指しと非難** (naming and shaming) に効果がある？[@hafner2008]
+  - 国家は**評判** (reputation) を気にする$\leadsto$NGOをはじめとする越境的アドボカシー・ネットワークによる**名指しと非難** (naming and shaming) に効果がある？[@hafner2008]
     - [Freedom House](https://freedomhouse.org/)や[Human Rights Watch](https://www.hrw.org/ja)も代表的な人権NGO
     - **ブーメラン・モデル**：外国の政府やNGO、国際機構を通じて自国の政府に圧力をかける[@keck1999]
   - 1975年の[欧州安全保障協力会議](https://www.mofa.go.jp/mofaj/area/osce/gaiyo.html) (Conference on Security and Cooperation in Europe: CSCE)のヘルシンキ宣言：東西で領土保全、経済交流、人権保障に合意$\leadsto$共産主義国内における人権活動の活発化
@@ -328,7 +358,7 @@ $\leadsto$人権侵害が起こる理由は政治家の性格だけでなく、�
 
 国際連合の[**人権理事会**](https://www.mofa.go.jp/mofaj/gaiko/jinken_r/index.html) (Human Rights Council) や国連人権高等弁務官事務所 (Office of the High Commissioner for Human Rights: OHCHR) ：加盟国の人権状況を包括的に監視、審査
 
-![[国連人権理事会](https://commons.wikimedia.org/wiki/File:UN_Geneva_Human_Rights_and_Alliance_of_Civilizations_Room.jpg)](https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/UN_Geneva_Human_Rights_and_Alliance_of_Civilizations_Room.jpg/800px-UN_Geneva_Human_Rights_and_Alliance_of_Civilizations_Room.jpg)
+![[国連人権理事会](https://commons.wikimedia.org/wiki/File:UN_Geneva_Human_Rights_and_Alliance_of_Civilizations_Room.jpg)](figures/human_rights_council.jpg)
 
 - 人権理事会は2006年に国連人権委員会から改組
 - [**普遍的定期審査**](https://www.mofa.go.jp/mofaj/gaiko/jinken_r/upr_gai.html) (Universal Periodic Review: UPR)：加盟国の人権状況を審査する中心的活動
@@ -361,7 +391,7 @@ $\leadsto$人権侵害が起こる理由は政治家の性格だけでなく、�
 
 $\leadsto$政治的パワーがなくても国際規範を作り、企業に遵守させることは可能？
 
-## 日本の人権状況
+## 日本の人権状況^[具体的な日本の人権問題については @shin2020 を参照。]
 
 [日本国憲法](https://elaws.e-gov.go.jp/document?lawid=321CONSTITUTION)：第11条に基本的人権の保障が明記、第3章に具体的な権利が列挙
 
@@ -384,13 +414,13 @@ $\leadsto$政治的パワーがなくても国際規範を作り、企業に遵�
 
 - 国境なき記者団の[報道の自由ランキング](https://rsf.org/en/ranking)
 
-<!-- ::: {.content-visible when-format="html"} -->
-<!-- <iframe src="https://ourworldindata.org/grapher/press-freedom-index-rsf" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe> -->
-<!-- ::: -->
+::: {.content-visible when-format="html"}
+<iframe src="https://ourworldindata.org/grapher/press-freedom-index-rsf" loading="lazy" style="width: 100%; height: 600px; border: 0px none;"></iframe>
+:::
 
-<!-- ::: {.content-visible when-format="pdf"} -->
+::: {.content-visible when-format="pdf"}
 ![報道の自由度（2021年）](figures/press-freedom-index-rsf.png){width=80%}
-<!-- ::: -->
+:::
 
 - 世界経済フォーラムの[ジェンダーギャップ指数](https://jp.weforum.org/reports/global-gender-gap-report-2023)
 
@@ -525,6 +555,8 @@ $\leadsto$ユーゴから独立を求める各国とセルビアとの間で内�
 スロベニア、クロアチア、ボスニア＝ヘルツェゴヴィナは独立する$\leadsto$コソボもセルビアからの独立を求めて内戦が再発
 
 - セルビアによるコソボのアルバニア人が虐殺が起こっているとしてNATOが（安保理決議なしに）空爆
+- 「違法だが正当である」？
+- 同時期に起こったルワンダ内戦への無関心
 
 国家主権／民族自決権／人権のトリレンマ？
 
